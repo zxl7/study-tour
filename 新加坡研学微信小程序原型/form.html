@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>预约咨询 - 表单</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+<style>
+        body { font-family: 'PingFang SC', sans-serif; background-color: #f8fafc; }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-200">
+<div class="w-[375px] h-[812px] bg-white relative overflow-hidden shadow-2xl rounded-[40px] border-[8px] border-black">
+<div class="h-11 px-8 flex justify-between items-center bg-white">
+<span class="text-xs font-bold">09:41</span>
+<div class="flex gap-1.5 items-center">
+<iconify-icon class="text-sm" icon="mdi:signal"></iconify-icon>
+<iconify-icon class="text-sm" icon="mdi:wifi"></iconify-icon>
+<iconify-icon class="text-lg" icon="mdi:battery"></iconify-icon>
+</div>
+</div>
+<div class="h-14 px-4 flex items-center border-b border-gray-100">
+<a class="w-8 h-8 flex items-center" href="index.html"><iconify-icon class="text-2xl text-gray-800" icon="mdi:chevron-left"></iconify-icon></a>
+<h1 class="flex-1 text-center font-bold text-gray-800 mr-8">在线咨询/报名</h1>
+</div>
+<div class="p-6">
+<div class="mb-6">
+<h2 class="text-xl font-bold text-gray-800">填写信息</h2>
+<p class="text-xs text-gray-400 mt-1">顾问将在24小时内与您取得联系</p>
+</div>
+<form action="success.html" class="space-y-5">
+<div>
+<label class="block text-[10px] font-bold text-blue-900 mb-1.5 uppercase tracking-wider">姓名</label>
+<input class="w-full h-12 bg-gray-50 border border-gray-200 rounded-xl px-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900/10 focus:border-blue-900" placeholder="请输入您的姓名" type="text"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-blue-900 mb-1.5 uppercase tracking-wider">联系电话</label>
+<input class="w-full h-12 bg-gray-50 border border-gray-200 rounded-xl px-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900/10 focus:border-blue-900" placeholder="请输入您的手机号" type="tel"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-blue-900 mb-1.5 uppercase tracking-wider">咨询项目</label>
+<div class="relative">
+<select class="w-full h-12 bg-gray-50 border border-gray-200 rounded-xl px-4 text-sm focus:outline-none appearance-none">
+<option>新加坡名校成长营</option>
+<option>新加坡微留学</option>
+<option>EP人才准证</option>
+<option>国际学校体验营</option>
+</select>
+<iconify-icon class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" icon="mdi:chevron-down"></iconify-icon>
+</div>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-blue-900 mb-1.5 uppercase tracking-wider">咨询内容</label>
+<textarea class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900/10" placeholder="请简单描述您的需求或疑问..." rows="4"></textarea>
+</div>
+<div class="flex items-center gap-2 py-2">
+<input class="w-4 h-4 rounded border-gray-300" id="privacy" type="checkbox"/>
+<label class="text-[10px] text-gray-500" for="privacy">我已阅读并同意 <span class="text-blue-900 font-medium underline">《隐私政策及用户服务协议》</span></label>
+</div>
+<button class="w-full h-14 bg-blue-900 text-white rounded-2xl font-bold text-base shadow-xl shadow-blue-100 transform active:scale-95 transition-transform mt-4" type="submit">
+                    提交申请
+                </button>
+</form>
+</div>
+</div>
+</body>
+</html>
