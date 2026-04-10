@@ -1,405 +1,534 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="zh-CN">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=1920, initial-scale=1.0" name="viewport"/>
-<title>2026新加坡研学 | 一站式精英教育服务官方网站</title>
-<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
-<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
-<style>
-        body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; background-color: #F8FAFC; color: #1E293B; }
-        .text-sg-blue { color: #005A9C; }
-        .bg-sg-blue { background-color: #005A9C; }
-        .text-luxury-gold { color: #E5A663; }
-        .bg-luxury-gold { background-color: #E5A663; }
-        .border-luxury-gold { border-color: #E5A663; }
-        .nav-link { position: relative; transition: all 0.3s; }
-        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #E5A663; transition: width 0.3s; }
-        .nav-link:hover::after { width: 100%; }
-        .hero-gradient { background: linear-gradient(rgba(0, 90, 156, 0.8), rgba(0, 90, 156, 0.4)), url('/agent-py/static/source/images/placeholder.svg'); background-size: cover; background-position: center; }
-        .card-shadow { box-shadow: 0 10px 30px -5px rgba(0, 90, 156, 0.1); }
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=1920, initial-scale=1.0" name="viewport" />
+    <title>2026新加坡研学 | 一站式精英教育服务官方网站</title>
+    <script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+    <script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+    <style>
+      body {
+        font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        background-color: #f8fafc;
+        color: #1e293b;
+      }
+      .text-sg-blue {
+        color: #005a9c;
+      }
+      .bg-sg-blue {
+        background-color: #005a9c;
+      }
+      .text-luxury-gold {
+        color: #e5a663;
+      }
+      .bg-luxury-gold {
+        background-color: #e5a663;
+      }
+      .border-luxury-gold {
+        border-color: #e5a663;
+      }
+      .nav-link {
+        position: relative;
+        transition: all 0.3s;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #e5a663;
+        transition: width 0.3s;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .hero-gradient {
+        background: linear-gradient(rgba(0, 90, 156, 0.8), rgba(0, 90, 156, 0.4)), url("/agent-py/static/source/images/placeholder.svg");
+        background-size: cover;
+        background-position: center;
+      }
+      .card-shadow {
+        box-shadow: 0 10px 30px -5px rgba(0, 90, 156, 0.1);
+      }
     </style>
-</head>
-<body class="w-full overflow-x-hidden">
-<!-- 导航栏 -->
-<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 h-20">
-<div class="max-w-[1440px] mx-auto h-full flex items-center justify-between px-8">
-<div class="flex items-center space-x-2">
-<div class="w-10 h-10 bg-sg-blue flex items-center justify-center rounded">
-<iconify-icon class="text-white text-2xl" icon="mdi:school"></iconify-icon>
-</div>
-<div class="flex flex-col">
-<span class="text-xl font-bold text-sg-blue tracking-wider">盛昌利民 · LION CITY</span>
-<span class="text-[10px] text-luxury-gold tracking-widest uppercase font-semibold">Elite Education Global</span>
-</div>
-</div>
-<div class="flex items-center space-x-10 font-medium">
-<a class="nav-link text-sg-blue" href="index.html">首页</a>
-<a class="nav-link text-gray-600 hover:text-sg-blue" href="growth-camp.html">新加坡成长营</a>
-<a class="nav-link text-gray-600 hover:text-sg-blue" href="mini-study.html">新加坡微留学</a>
-<a class="nav-link text-gray-600 hover:text-sg-blue" href="ep-pass.html">人才准证EP</a>
-<a class="nav-link text-gray-600 hover:text-sg-blue" href="school-camp.html">国际学校体验营</a>
-</div>
-<div class="flex items-center space-x-4">
-<div class="text-right mr-4 border-r pr-4 border-gray-200">
-<p class="text-xs text-gray-400">全国服务咨询热线</p>
-<p class="text-lg font-bold text-sg-blue">400-888-2026</p>
-</div>
-<button class="bg-luxury-gold hover:bg-[#d49552] text-white px-6 py-2.5 rounded shadow-lg transition-all font-semibold">
-                    立即预约咨询
-                </button>
-</div>
-</div>
-</nav>
-<!-- 首屏 Banner -->
-<section class="relative h-[800px] flex items-center pt-20">
-<div class="absolute inset-0 z-0 overflow-hidden">
-<img alt="Singapore Marina Bay" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/e195cbc76f104671b6f22841e7ee7c60.jpg"/>
-<div class="absolute inset-0 bg-gradient-to-r from-[#005A9C]/90 to-transparent"></div>
-</div>
-<div class="relative z-10 max-w-[1440px] mx-auto px-8 w-full">
-<div class="max-w-2xl text-white">
-<span class="inline-block px-4 py-1 border border-luxury-gold text-luxury-gold font-semibold text-sm mb-6 rounded-full">2026年夏季报名开启</span>
-<h1 class="text-6xl font-bold leading-tight mb-6">2026新加坡研学 | <br/><span class="text-luxury-gold">一站式精英教育服务</span></h1>
-<p class="text-xl text-gray-100 mb-10 leading-relaxed border-l-4 border-luxury-gold pl-6">
-                    本土插班 · 双语研学 · 国际教育 · 移民规划<br/>
-                    为中国精英家庭定制最具深度的狮城成长之旅。
-                </p>
-<div class="flex space-x-6">
-<a class="bg-luxury-gold hover:bg-[#d49552] text-white px-10 py-4 rounded font-bold text-lg shadow-xl transition-all" href="#projects">探索研学项目</a>
-<a class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm text-white px-10 py-4 rounded font-bold text-lg transition-all" href="ep-pass.html">了解移民准证</a>
-</div>
-</div>
-</div>
-</section>
-<!-- 核心优势 -->
-<section class="py-24 bg-white">
-<div class="max-w-[1440px] mx-auto px-8">
-<div class="text-center mb-16">
-<h2 class="text-4xl font-bold text-sg-blue mb-4">为什么选择新加坡？</h2>
-<div class="w-20 h-1 bg-luxury-gold mx-auto mb-6"></div>
-<p class="text-gray-500 max-w-2xl mx-auto italic text-lg">“花园城市”下的顶层教育逻辑，为孩子构建全球竞争力的第一站</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-<!-- 优势1 -->
-<div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl text-center">
-<div class="w-16 h-16 bg-blue-100 text-sg-blue rounded-full flex items-center justify-center mx-auto mb-6">
-<iconify-icon class="text-3xl" icon="mdi:shield-check"></iconify-icon>
-</div>
-<h3 class="text-xl font-bold mb-3">全球安全环境</h3>
-<p class="text-slate-500 text-sm leading-relaxed">低犯罪率，完善的法律保障，让孩子在安全的环境中探索世界。</p>
-</div>
-<!-- 优势2 -->
-<div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl text-center">
-<div class="w-16 h-16 bg-blue-100 text-sg-blue rounded-full flex items-center justify-center mx-auto mb-6">
-<iconify-icon class="text-3xl" icon="mdi:translate"></iconify-icon>
-</div>
-<h3 class="text-xl font-bold mb-3">极致双语教育</h3>
-<p class="text-slate-500 text-sm leading-relaxed">母语般的中英双语环境，在浸润式学习中掌握核心语言能力。</p>
-</div>
-<!-- 优势3 -->
-<div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl text-center">
-<div class="w-16 h-16 bg-blue-100 text-sg-blue rounded-full flex items-center justify-center mx-auto mb-6">
-<iconify-icon class="text-3xl" icon="mdi:trophy-variant"></iconify-icon>
-</div>
-<h3 class="text-xl font-bold mb-3">世界顶尖资源</h3>
-<p class="text-slate-500 text-sm leading-relaxed">汇集NUS、NTU等亚洲顶尖学府资源，接触前沿科技与学术。</p>
-</div>
-<!-- 优势4 -->
-<div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl text-center">
-<div class="w-16 h-16 bg-blue-100 text-sg-blue rounded-full flex items-center justify-center mx-auto mb-6">
-<iconify-icon class="text-3xl" icon="mdi:earth"></iconify-icon>
-</div>
-<h3 class="text-xl font-bold mb-3">国际化大视野</h3>
-<p class="text-slate-500 text-sm leading-relaxed">多元文化交融，培养具备全球胜任力的未来国际公民。</p>
-</div>
-<!-- 优势5 -->
-<div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl text-center">
-<div class="w-16 h-16 bg-blue-100 text-sg-blue rounded-full flex items-center justify-center mx-auto mb-6">
-<iconify-icon class="text-3xl" icon="mdi:airplane-landing"></iconify-icon>
-</div>
-<h3 class="text-xl font-bold mb-3">无时差零距离</h3>
-<p class="text-slate-500 text-sm leading-relaxed">距离中国近，无时差困扰，家长陪读或探视极度便利。</p>
-</div>
-</div>
-</div>
-</section>
-<!-- 四大项目入口 -->
-<section class="py-24 bg-slate-50" id="projects">
-<div class="max-w-[1440px] mx-auto px-8">
-<div class="flex justify-between items-end mb-16">
-<div>
-<h2 class="text-4xl font-bold text-sg-blue mb-4">研学·教育·移民项目矩阵</h2>
-<p class="text-gray-500">满足不同年龄段、不同目标的精准化需求定制</p>
-</div>
-<a class="text-luxury-gold font-bold flex items-center hover:underline" href="#">
-                    查看全部项目对比 <iconify-icon class="ml-2 text-xl" icon="material-symbols:arrow-right-alt-rounded"></iconify-icon>
-</a>
-</div>
-<div class="grid grid-cols-4 gap-8">
-<!-- 项目卡片 1 -->
-<div class="bg-white rounded-2xl overflow-hidden card-shadow group">
-<div class="h-64 overflow-hidden relative">
-<img alt="Growth Camp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/bba9630503764fd8b0e46142f976007c.jpg"/>
-<div class="absolute top-4 left-4 bg-sg-blue text-white px-3 py-1 rounded text-sm font-bold">7天体验</div>
-</div>
-<div class="p-8">
-<h3 class="text-2xl font-bold mb-3">新加坡成长营</h3>
-<p class="text-gray-500 mb-6 line-clamp-2">针对7-14岁青少年，深度融入狮城文化，培养独立思考与团队协作能力。</p>
-<div class="flex items-center space-x-4 mb-6">
-<span class="flex items-center text-sm text-gray-400"><iconify-icon class="mr-1" icon="ph:user-bold"></iconify-icon> 适龄：小学-初中</span>
-<span class="flex items-center text-sm text-gray-400"><iconify-icon class="mr-1" icon="ph:calendar-bold"></iconify-icon> 班期：寒暑假</span>
-</div>
-<a class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue hover:text-white transition-all" href="growth-camp.html">查看详情</a>
-</div>
-</div>
-<!-- 项目卡片 2 -->
-<div class="bg-white rounded-2xl overflow-hidden card-shadow group">
-<div class="h-64 overflow-hidden relative">
-<img alt="Mini Study" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/5e40d764c9b44b689737aa5af7c7c943.jpg"/>
-<div class="absolute top-4 left-4 bg-luxury-gold text-white px-3 py-1 rounded text-sm font-bold">21天深度</div>
-</div>
-<div class="p-8">
-<h3 class="text-2xl font-bold mb-3">新加坡微留学</h3>
-<p class="text-gray-500 mb-6 line-clamp-2">真实入读新加坡政府中小学/优质私立校，沉浸式体验全英文教学环境。</p>
-<div class="flex items-center space-x-4 mb-6">
-<span class="flex items-center text-sm text-gray-400"><iconify-icon class="mr-1" icon="ph:user-bold"></iconify-icon> 适龄：全学段</span>
-<span class="flex items-center text-sm text-gray-400"><iconify-icon class="mr-1" icon="ph:calendar-bold"></iconify-icon> 班期：学期中</span>
-</div>
-<a class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue hover:text-white transition-all" href="mini-study.html">查看详情</a>
-</div>
-</div>
-<!-- 项目卡片 3 -->
-<div class="bg-white rounded-2xl overflow-hidden card-shadow group">
-<div class="h-64 overflow-hidden relative">
-<img alt="EP Pass" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/25e313327fba472bb0d3f47d0be98574.jpg"/>
-<div class="absolute top-4 left-4 bg-gray-800 text-white px-3 py-1 rounded text-sm font-bold">教育移民</div>
-</div>
-<div class="p-8">
-<h3 class="text-2xl font-bold mb-3">人才准证EP</h3>
-<p class="text-gray-500 mb-6 line-clamp-2">为高端精英家庭定制的长期规划，同步解决子女教育与家长身份问题。</p>
-<div class="flex items-center space-x-4 mb-6">
-<span class="flex items-center text-sm text-gray-400"><iconify-icon class="mr-1" icon="ph:briefcase-bold"></iconify-icon> 针对：企业主/高管</span>
-<span class="flex items-center text-sm text-gray-400"><iconify-icon class="mr-1" icon="ph:check-circle-bold"></iconify-icon> 优势：全家移民</span>
-</div>
-<a class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue hover:text-white transition-all" href="ep-pass.html">查看详情</a>
-</div>
-</div>
-<!-- 项目卡片 4 -->
-<div class="bg-white rounded-2xl overflow-hidden card-shadow group">
-<div class="h-64 overflow-hidden relative">
-<img alt="School Camp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/56e6ed7a7b884cd7b5212ed61fdc850d.jpg"/>
-<div class="absolute top-4 left-4 bg-teal-600 text-white px-3 py-1 rounded text-sm font-bold">顶尖名校</div>
-</div>
-<div class="p-8">
-<h3 class="text-2xl font-bold mb-3">国际学校体验营</h3>
-<p class="text-gray-500 mb-6 line-clamp-2">探访UWC、SAS等顶级国际学校，提前锁定未来升学路径与梦校资源。</p>
-<div class="flex items-center space-x-4 mb-6">
-<span class="flex items-center text-sm text-gray-400"><iconify-icon class="mr-1" icon="ph:star-bold"></iconify-icon> 特色：名校环境</span>
-<span class="flex items-center text-sm text-gray-400"><iconify-icon class="mr-1" icon="ph:users-three-bold"></iconify-icon> 师资：名校外教</span>
-</div>
-<a class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue hover:text-white transition-all" href="school-camp.html">查看详情</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 微留学VS夏令营对比 -->
-<section class="py-24 bg-white">
-<div class="max-w-[1200px] mx-auto px-8">
-<div class="text-center mb-16">
-<h2 class="text-4xl font-bold text-sg-blue mb-4">微留学 VS 传统夏令营</h2>
-<p class="text-gray-500">深度专业对比，助您做出最适合孩子的选择</p>
-</div>
-<div class="overflow-hidden rounded-2xl border border-gray-200 shadow-xl">
-<table class="w-full text-left">
-<thead>
-<tr class="bg-sg-blue text-white">
-<th class="py-6 px-8 text-xl">对比维度</th>
-<th class="py-6 px-8 text-xl">传统夏令营 (Growth Camp)</th>
-<th class="py-6 px-8 text-xl bg-luxury-gold/90">21天微留学 (Mini Study)</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-gray-100">
-<tr class="hover:bg-gray-50">
-<td class="py-5 px-8 font-bold text-gray-700">教育重点</td>
-<td class="py-5 px-8">兴趣拓展、文化体验、团队协作</td>
-<td class="py-5 px-8">学术插班、同步课程、母语化语境</td>
-</tr>
-<tr class="hover:bg-gray-50">
-<td class="py-5 px-8 font-bold text-gray-700">语言环境</td>
-<td class="py-5 px-8">以中文助教+外教教学为主</td>
-<td class="py-5 px-8">100%全英教学环境，当地学生同班</td>
-</tr>
-<tr class="hover:bg-gray-50">
-<td class="py-5 px-8 font-bold text-gray-700">住宿形式</td>
-<td class="py-5 px-8">星级酒店或国际学生公寓</td>
-<td class="py-5 px-8">优质寄宿家庭，深度融入本地生活</td>
-</tr>
-<tr class="hover:bg-gray-50">
-<td class="py-5 px-8 font-bold text-gray-700">适合人群</td>
-<td class="py-5 px-8">初次研学、培养兴趣为主的学生</td>
-<td class="py-5 px-8">有海外升学意向、需快速提升英语的学生</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<!-- 师资&权威认证 -->
-<section class="py-24 bg-sg-blue text-white relative overflow-hidden">
-<div class="absolute right-0 top-0 opacity-10">
-<iconify-icon class="text-[600px]" icon="ph:seal-check"></iconify-icon>
-</div>
-<div class="max-w-[1440px] mx-auto px-8 relative z-10">
-<div class="grid grid-cols-2 gap-20 items-center">
-<div>
-<h2 class="text-4xl font-bold mb-8">专家领衔 · 权威护航</h2>
-<p class="text-blue-100 text-lg leading-relaxed mb-10">
-                        我们的团队由新加坡前教育部资深官员、顶尖名校校友以及资深法律顾问组成。
-                        所有合作学校均经过严格筛选，拥有Edutrust 4年期认证或同等资质，确保研学质量与学生安全。
-                    </p>
-<div class="grid grid-cols-3 gap-8">
-<div class="text-center">
-<p class="text-4xl font-bold text-luxury-gold mb-2">15+</p>
-<p class="text-sm text-blue-200">教育行业积淀(年)</p>
-</div>
-<div class="text-center">
-<p class="text-4xl font-bold text-luxury-gold mb-2">50+</p>
-<p class="text-sm text-blue-200">优质合作院校</p>
-</div>
-<div class="text-center">
-<p class="text-4xl font-bold text-luxury-gold mb-2">5000+</p>
-<p class="text-sm text-blue-200">服务成功家庭</p>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20">
-<img alt="Auth 1" class="h-12 mx-auto grayscale invert opacity-80 mb-4" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/b204e49cbc834470afcea281f20f02c3.jpg"/>
-<p class="text-center text-sm">新加坡教育部备案</p>
-</div>
-<div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 mt-8">
-<img alt="Auth 2" class="h-12 mx-auto grayscale invert opacity-80 mb-4" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/251d704d39ff45a8a244dcecf7b285bb.jpg"/>
-<p class="text-center text-sm">Edutrust 权威认证</p>
-</div>
-<div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 -mt-8">
-<img alt="Auth 3" class="h-12 mx-auto grayscale invert opacity-80 mb-4" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/d1910eaf0eb84295abcb7b1d2fa23d9e.jpg"/>
-<p class="text-center text-sm">新加坡移民局合作单位</p>
-</div>
-<div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20">
-<img alt="Auth 4" class="h-12 mx-auto grayscale invert opacity-80 mb-4" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/5be1ef1d58da43258ec16d083db5a75e.jpg"/>
-<p class="text-center text-sm">中国教育部留服认可</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 咨询报名 -->
-<section class="py-24 bg-white">
-<div class="max-w-[1440px] mx-auto px-8">
-<div class="bg-slate-50 rounded-[40px] overflow-hidden flex shadow-2xl">
-<div class="w-1/2 p-16">
-<h2 class="text-4xl font-bold text-sg-blue mb-6">规划狮城教育蓝图</h2>
-<p class="text-gray-500 mb-10 text-lg">留下您的联系方式，我们的资深规划师将在24小时内为您定制专属研学方案。</p>
-<form class="space-y-6">
-<div class="grid grid-cols-2 gap-6">
-<input class="w-full px-6 py-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-sg-blue" placeholder="您的姓名" type="text"/>
-<input class="w-full px-6 py-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-sg-blue" placeholder="手机号码" type="tel"/>
-</div>
-<select class="w-full px-6 py-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-sg-blue text-gray-400">
-<option>意向项目：请选择</option>
-<option>新加坡成长营 (7天)</option>
-<option>新加坡微留学 (21天)</option>
-<option>人才准证EP咨询</option>
-<option>国际学校体验营</option>
-</select>
-<textarea class="w-full px-6 py-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-sg-blue" placeholder="您的具体需求或孩子的年级情况..." rows="4"></textarea>
-<button class="w-full bg-sg-blue hover:bg-[#004a80] text-white font-bold py-5 rounded-lg text-lg shadow-lg transition-all">提交申请 · 免费领取规划手册</button>
-</form>
-</div>
-<div class="w-1/2 bg-sg-blue p-16 text-white flex flex-col justify-center">
-<div class="mb-12">
-<h3 class="text-2xl font-bold mb-6 flex items-center"><iconify-icon class="mr-3 text-luxury-gold" icon="ph:phone-call-fill"></iconify-icon> 官方热线</h3>
-<p class="text-4xl font-bold text-luxury-gold mb-2">400-888-2026</p>
-<p class="text-blue-200">周一至周日 09:00 - 21:00</p>
-</div>
-<div class="mb-12">
-<h3 class="text-2xl font-bold mb-6 flex items-center"><iconify-icon class="mr-3 text-luxury-gold" icon="ph:map-pin-fill"></iconify-icon> 办公地址</h3>
-<p class="mb-2">新加坡总部：7 Temasek Boulevard, Suntec Tower One, Singapore</p>
-<p>中国运营中心：北京市朝阳区国贸中心 A座 22层</p>
-</div>
-<div class="flex space-x-8 items-center">
-<div class="text-center">
-<img alt="QR Code" class="w-24 h-24 bg-white p-2 rounded mb-2" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/e220d9f696ad413eb8c15632811337cd.jpg"/>
-<p class="text-xs text-blue-200">官方公众号</p>
-</div>
-<div class="text-center">
-<img alt="QR Code" class="w-24 h-24 bg-white p-2 rounded mb-2" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/e220d9f696ad413eb8c15632811337cd.jpg"/>
-<p class="text-xs text-blue-200">研学顾问微信</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 页脚 -->
-<footer class="bg-gray-900 text-gray-400 py-16">
-<div class="max-w-[1440px] mx-auto px-8">
-<div class="grid grid-cols-5 gap-12 mb-16">
-<div class="col-span-2">
-<div class="flex items-center space-x-2 mb-8">
-<div class="w-10 h-10 bg-sg-blue flex items-center justify-center rounded">
-<iconify-icon class="text-white text-2xl" icon="mdi:school"></iconify-icon>
-</div>
-<span class="text-xl font-bold text-white tracking-wider">盛昌利民 · LION CITY</span>
-</div>
-<p class="leading-relaxed mb-8 pr-12">
-                        作为新加坡领先的精英教育咨询机构，我们致力于整合全球优质教育资源，为中国家庭提供全方位的研学、升学及移民规划服务。
-                    </p>
-<div class="flex space-x-4">
-<a class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sg-blue transition-all" href="#"><iconify-icon icon="ri:wechat-fill"></iconify-icon></a>
-<a class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sg-blue transition-all" href="#"><iconify-icon icon="ri:douyin-fill"></iconify-icon></a>
-<a class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sg-blue transition-all" href="#"><iconify-icon icon="ri:instagram-fill"></iconify-icon></a>
-</div>
-</div>
-<div>
-<h4 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">研学项目</h4>
-<ul class="space-y-4">
-<li><a class="hover:text-luxury-gold transition-all" href="growth-camp.html">新加坡成长营</a></li>
-<li><a class="hover:text-luxury-gold transition-all" href="mini-study.html">新加坡微留学</a></li>
-<li><a class="hover:text-luxury-gold transition-all" href="school-camp.html">国际学校体验营</a></li>
-<li><a class="hover:text-luxury-gold transition-all" href="#">青少年领袖营</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">教育移民</h4>
-<ul class="space-y-4">
-<li><a class="hover:text-luxury-gold transition-all" href="ep-pass.html">人才准证 EP</a></li>
-<li><a class="hover:text-luxury-gold transition-all" href="#">家族办公室</a></li>
-<li><a class="hover:text-luxury-gold transition-all" href="#">自雇准证办理</a></li>
-<li><a class="hover:text-luxury-gold transition-all" href="#">PR 永居申请</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">关于我们</h4>
-<ul class="space-y-4">
-<li><a class="hover:text-luxury-gold transition-all" href="#">集团简介</a></li>
-<li><a class="hover:text-luxury-gold transition-all" href="#">服务条款</a></li>
-<li><a class="hover:text-luxury-gold transition-all" href="#">隐私政策</a></li>
-<li><a class="hover:text-luxury-gold transition-all" href="#">合作咨询</a></li>
-</ul>
-</div>
-</div>
-<div class="pt-8 border-t border-gray-800 text-sm flex justify-between items-center">
-<p>© 2026 盛昌利民 Elite Education Global. All Rights Reserved.</p>
-<div class="flex space-x-6">
-<span>新加坡会计与企业管制局(ACRA)注册号：2016XXXXXXG</span>
-<span>京ICP备XXXXXXX号</span>
-</div>
-</div>
-</div>
-</footer>
-</body>
+  </head>
+  <body class="w-full overflow-x-hidden">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 h-20">
+      <div class="max-w-[1440px] mx-auto h-full flex items-center justify-between px-8">
+        <div class="flex items-center space-x-2">
+          <div class="w-10 h-10 bg-sg-blue flex items-center justify-center rounded">
+            <iconify-icon class="text-white text-2xl" icon="mdi:school"></iconify-icon>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-bold text-sg-blue tracking-wider">盛昌利民 · LION CITY</span>
+            <span class="text-[10px] text-luxury-gold tracking-widest uppercase font-semibold">Elite Education Global</span>
+          </div>
+        </div>
+        <div class="flex items-center space-x-10 font-medium">
+          <a class="nav-link text-sg-blue" href="index.html">首页</a>
+          <a class="nav-link text-gray-600 hover:text-sg-blue" href="growth-camp.html">新加坡成长营</a>
+          <a class="nav-link text-gray-600 hover:text-sg-blue" href="mini-study.html">新加坡微留学</a>
+          <a class="nav-link text-gray-600 hover:text-sg-blue" href="ep-pass.html">人才准证EP</a>
+          <a class="nav-link text-gray-600 hover:text-sg-blue" href="school-camp.html">国际学校体验营</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="text-right mr-4 border-r pr-4 border-gray-200">
+            <p class="text-xs text-gray-400">全国服务咨询热线</p>
+            <p class="text-lg font-bold text-sg-blue">400-888-2026</p>
+          </div>
+          <button class="bg-luxury-gold hover:bg-[#d49552] text-white px-6 py-2.5 rounded shadow-lg transition-all font-semibold">立即预约咨询</button>
+        </div>
+      </div>
+    </nav>
+    <!-- 首屏 Banner -->
+    <section class="relative h-[800px] flex items-center pt-20">
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <img alt="Singapore Marina Bay" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/e195cbc76f104671b6f22841e7ee7c60.jpg" />
+        <div class="absolute inset-0 bg-gradient-to-r from-[#005A9C]/90 to-transparent"></div>
+      </div>
+      <div class="relative z-10 max-w-[1440px] mx-auto px-8 w-full">
+        <div class="max-w-2xl text-white">
+          <span class="inline-block px-4 py-1 border border-luxury-gold text-luxury-gold font-semibold text-sm mb-6 rounded-full">2026年夏季报名开启</span>
+          <h1 class="text-6xl font-bold leading-tight mb-6">
+            2026新加坡研学 |
+            <br />
+            <span class="text-luxury-gold">一站式精英教育服务</span>
+          </h1>
+          <p class="text-xl text-gray-100 mb-10 leading-relaxed border-l-4 border-luxury-gold pl-6">
+            本土插班 · 双语研学 · 国际教育 · 移民规划
+            <br />
+            为中国精英家庭定制最具深度的狮城成长之旅。
+          </p>
+          <div class="flex space-x-6">
+            <a class="bg-luxury-gold hover:bg-[#d49552] text-white px-10 py-4 rounded font-bold text-lg shadow-xl transition-all" href="#projects">探索研学项目</a>
+            <a class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm text-white px-10 py-4 rounded font-bold text-lg transition-all" href="ep-pass.html">了解移民准证</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 核心优势 -->
+    <section class="py-24 bg-white">
+      <div class="max-w-[1440px] mx-auto px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-sg-blue mb-4">为什么选择新加坡？</h2>
+          <div class="w-20 h-1 bg-luxury-gold mx-auto mb-6"></div>
+          <p class="text-gray-500 max-w-2xl mx-auto italic text-lg">“花园城市”下的顶层教育逻辑，为孩子构建全球竞争力的第一站</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+          <!-- 优势1 -->
+          <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl text-center">
+            <div class="w-16 h-16 bg-blue-100 text-sg-blue rounded-full flex items-center justify-center mx-auto mb-6">
+              <iconify-icon class="text-3xl" icon="mdi:shield-check"></iconify-icon>
+            </div>
+            <h3 class="text-xl font-bold mb-3">全球安全环境</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">低犯罪率，完善的法律保障，让孩子在安全的环境中探索世界。</p>
+          </div>
+          <!-- 优势2 -->
+          <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl text-center">
+            <div class="w-16 h-16 bg-blue-100 text-sg-blue rounded-full flex items-center justify-center mx-auto mb-6">
+              <iconify-icon class="text-3xl" icon="mdi:translate"></iconify-icon>
+            </div>
+            <h3 class="text-xl font-bold mb-3">极致双语教育</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">母语般的中英双语环境，在浸润式学习中掌握核心语言能力。</p>
+          </div>
+          <!-- 优势3 -->
+          <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl text-center">
+            <div class="w-16 h-16 bg-blue-100 text-sg-blue rounded-full flex items-center justify-center mx-auto mb-6">
+              <iconify-icon class="text-3xl" icon="mdi:trophy-variant"></iconify-icon>
+            </div>
+            <h3 class="text-xl font-bold mb-3">世界顶尖资源</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">汇集NUS、NTU等亚洲顶尖学府资源，接触前沿科技与学术。</p>
+          </div>
+          <!-- 优势4 -->
+          <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl text-center">
+            <div class="w-16 h-16 bg-blue-100 text-sg-blue rounded-full flex items-center justify-center mx-auto mb-6">
+              <iconify-icon class="text-3xl" icon="mdi:earth"></iconify-icon>
+            </div>
+            <h3 class="text-xl font-bold mb-3">国际化大视野</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">多元文化交融，培养具备全球胜任力的未来国际公民。</p>
+          </div>
+          <!-- 优势5 -->
+          <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl text-center">
+            <div class="w-16 h-16 bg-blue-100 text-sg-blue rounded-full flex items-center justify-center mx-auto mb-6">
+              <iconify-icon class="text-3xl" icon="mdi:airplane-landing"></iconify-icon>
+            </div>
+            <h3 class="text-xl font-bold mb-3">无时差零距离</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">距离中国近，无时差困扰，家长陪读或探视极度便利。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 四大项目入口 -->
+    <section class="py-24 bg-slate-50" id="projects">
+      <div class="max-w-[1440px] mx-auto px-8">
+        <div class="flex justify-between items-end mb-16">
+          <div>
+            <h2 class="text-4xl font-bold text-sg-blue mb-4">研学·教育·移民项目矩阵</h2>
+            <p class="text-gray-500">满足不同年龄段、不同目标的精准化需求定制</p>
+          </div>
+          <a class="text-luxury-gold font-bold flex items-center hover:underline" href="#">
+            查看全部项目对比
+            <iconify-icon class="ml-2 text-xl" icon="material-symbols:arrow-right-alt-rounded"></iconify-icon>
+          </a>
+        </div>
+        <div class="grid grid-cols-4 gap-8">
+          <!-- 项目卡片 1 -->
+          <div class="bg-white rounded-2xl overflow-hidden card-shadow group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                alt="Growth Camp"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://modao.cc/agent-py/media/generated_images/2026-04-09/bba9630503764fd8b0e46142f976007c.jpg" />
+              <div class="absolute top-4 left-4 bg-sg-blue text-white px-3 py-1 rounded text-sm font-bold">7天体验</div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3">新加坡成长营</h3>
+              <p class="text-gray-500 mb-6 line-clamp-2">针对7-14岁青少年，深度融入狮城文化，培养独立思考与团队协作能力。</p>
+              <div class="flex items-center space-x-4 mb-6">
+                <span class="flex items-center text-sm text-gray-400">
+                  <iconify-icon class="mr-1" icon="ph:user-bold"></iconify-icon>
+                  适龄：小学-初中
+                </span>
+                <span class="flex items-center text-sm text-gray-400">
+                  <iconify-icon class="mr-1" icon="ph:calendar-bold"></iconify-icon>
+                  班期：寒暑假
+                </span>
+              </div>
+              <a class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue hover:text-white transition-all" href="growth-camp.html">查看详情</a>
+            </div>
+          </div>
+          <!-- 项目卡片 2 -->
+          <div class="bg-white rounded-2xl overflow-hidden card-shadow group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                alt="Mini Study"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://modao.cc/agent-py/media/generated_images/2026-04-09/5e40d764c9b44b689737aa5af7c7c943.jpg" />
+              <div class="absolute top-4 left-4 bg-luxury-gold text-white px-3 py-1 rounded text-sm font-bold">21天深度</div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3">新加坡微留学</h3>
+              <p class="text-gray-500 mb-6 line-clamp-2">真实入读新加坡政府中小学/优质私立校，沉浸式体验全英文教学环境。</p>
+              <div class="flex items-center space-x-4 mb-6">
+                <span class="flex items-center text-sm text-gray-400">
+                  <iconify-icon class="mr-1" icon="ph:user-bold"></iconify-icon>
+                  适龄：全学段
+                </span>
+                <span class="flex items-center text-sm text-gray-400">
+                  <iconify-icon class="mr-1" icon="ph:calendar-bold"></iconify-icon>
+                  班期：学期中
+                </span>
+              </div>
+              <a class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue hover:text-white transition-all" href="mini-study.html">查看详情</a>
+            </div>
+          </div>
+          <!-- 项目卡片 3 -->
+          <div class="bg-white rounded-2xl overflow-hidden card-shadow group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                alt="EP Pass"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://modao.cc/agent-py/media/generated_images/2026-04-09/25e313327fba472bb0d3f47d0be98574.jpg" />
+              <div class="absolute top-4 left-4 bg-gray-800 text-white px-3 py-1 rounded text-sm font-bold">教育移民</div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3">人才准证EP</h3>
+              <p class="text-gray-500 mb-6 line-clamp-2">为高端精英家庭定制的长期规划，同步解决子女教育与家长身份问题。</p>
+              <div class="flex items-center space-x-4 mb-6">
+                <span class="flex items-center text-sm text-gray-400">
+                  <iconify-icon class="mr-1" icon="ph:briefcase-bold"></iconify-icon>
+                  针对：企业主/高管
+                </span>
+                <span class="flex items-center text-sm text-gray-400">
+                  <iconify-icon class="mr-1" icon="ph:check-circle-bold"></iconify-icon>
+                  优势：全家移民
+                </span>
+              </div>
+              <a class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue hover:text-white transition-all" href="ep-pass.html">查看详情</a>
+            </div>
+          </div>
+          <!-- 项目卡片 4 -->
+          <div class="bg-white rounded-2xl overflow-hidden card-shadow group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                alt="School Camp"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://modao.cc/agent-py/media/generated_images/2026-04-09/56e6ed7a7b884cd7b5212ed61fdc850d.jpg" />
+              <div class="absolute top-4 left-4 bg-teal-600 text-white px-3 py-1 rounded text-sm font-bold">顶尖名校</div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3">国际学校体验营</h3>
+              <p class="text-gray-500 mb-6 line-clamp-2">探访UWC、SAS等顶级国际学校，提前锁定未来升学路径与梦校资源。</p>
+              <div class="flex items-center space-x-4 mb-6">
+                <span class="flex items-center text-sm text-gray-400">
+                  <iconify-icon class="mr-1" icon="ph:star-bold"></iconify-icon>
+                  特色：名校环境
+                </span>
+                <span class="flex items-center text-sm text-gray-400">
+                  <iconify-icon class="mr-1" icon="ph:users-three-bold"></iconify-icon>
+                  师资：名校外教
+                </span>
+              </div>
+              <a class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue hover:text-white transition-all" href="school-camp.html">查看详情</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 微留学VS夏令营对比表格 -->
+    <section class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4">深度对比：如何选择？</h2>
+          <p class="text-slate-500">根据孩子的适应能力与成长目标，科学选择研学模式</p>
+        </div>
+        <div class="overflow-x-auto shadow-2xl rounded-2xl">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-sg-blue text-white">
+                <th class="p-6 text-left border-r border-blue-400">对比维度</th>
+                <th class="p-6 text-center border-r border-blue-400">研学成长营 (Summer Camp)</th>
+                <th class="p-6 text-center">深度微留学 (Micro-Study)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-100">
+                <td class="p-6 font-bold bg-slate-50 border-r border-slate-100">核心定位</td>
+                <td class="p-6 text-center border-r border-slate-100">体验新加坡文化，寓教于乐</td>
+                <td class="p-6 text-center">真实插班学习，体验完整学期</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="p-6 font-bold bg-slate-50 border-r border-slate-100">持续时长</td>
+                <td class="p-6 text-center border-r border-slate-100">7 - 14 天</td>
+                <td class="p-6 text-center">4周 - 3个月</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="p-6 font-bold bg-slate-50 border-r border-slate-100">学习环境</td>
+                <td class="p-6 text-center border-r border-slate-100">游学团定制课程，同伴多为国内学生</td>
+                <td class="p-6 text-center">当地公立/国际校，与本地学生共同上课</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="p-6 font-bold bg-slate-50 border-r border-slate-100">语言要求</td>
+                <td class="p-6 text-center border-r border-slate-100">较低，配备双语助教</td>
+                <td class="p-6 text-center font-medium text-sg-blue">中级以上，纯英文授课环境</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="p-6 font-bold bg-slate-50 border-r border-slate-100">食宿安排</td>
+                <td class="p-6 text-center border-r border-slate-100">4-5星级酒店</td>
+                <td class="p-6 text-center">本地寄宿家庭或高端学生公寓</td>
+              </tr>
+              <tr>
+                <td class="p-6 font-bold bg-slate-50 border-r border-slate-100">适合人群</td>
+                <td class="p-6 text-center border-r border-slate-100">低龄、初次出国体验者</td>
+                <td class="p-6 text-center">有留学倾向，希望深度体验的学生</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- 微留学VS夏令营对比 -->
+    <section class="py-24 bg-white">
+      <div class="max-w-[1200px] mx-auto px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-sg-blue mb-4">微留学 VS 传统夏令营</h2>
+          <p class="text-gray-500">深度专业对比，助您做出最适合孩子的选择</p>
+        </div>
+        <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-xl">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="bg-sg-blue text-white">
+                <th class="py-6 px-8 text-xl">对比维度</th>
+                <th class="py-6 px-8 text-xl">传统夏令营 (Growth Camp)</th>
+                <th class="py-6 px-8 text-xl bg-luxury-gold/90">21天微留学 (Mini Study)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr class="hover:bg-gray-50">
+                <td class="py-5 px-8 font-bold text-gray-700">教育重点</td>
+                <td class="py-5 px-8">兴趣拓展、文化体验、团队协作</td>
+                <td class="py-5 px-8">学术插班、同步课程、母语化语境</td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="py-5 px-8 font-bold text-gray-700">语言环境</td>
+                <td class="py-5 px-8">以中文助教+外教教学为主</td>
+                <td class="py-5 px-8">100%全英教学环境，当地学生同班</td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="py-5 px-8 font-bold text-gray-700">住宿形式</td>
+                <td class="py-5 px-8">星级酒店或国际学生公寓</td>
+                <td class="py-5 px-8">优质寄宿家庭，深度融入本地生活</td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="py-5 px-8 font-bold text-gray-700">适合人群</td>
+                <td class="py-5 px-8">初次研学、培养兴趣为主的学生</td>
+                <td class="py-5 px-8">有海外升学意向、需快速提升英语的学生</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- 师资&权威认证 -->
+    <section class="py-24 bg-sg-blue text-white relative overflow-hidden">
+      <div class="absolute right-0 top-0 opacity-10">
+        <iconify-icon class="text-[600px]" icon="ph:seal-check"></iconify-icon>
+      </div>
+      <div class="max-w-[1440px] mx-auto px-8 relative z-10">
+        <div class="grid grid-cols-2 gap-20 items-center">
+          <div>
+            <h2 class="text-4xl font-bold mb-8">专家领衔 · 权威护航</h2>
+            <p class="text-blue-100 text-lg leading-relaxed mb-10">
+              我们的团队由新加坡前教育部资深官员、顶尖名校校友以及资深法律顾问组成。 所有合作学校均经过严格筛选，拥有Edutrust 4年期认证或同等资质，确保研学质量与学生安全。
+            </p>
+            <div class="grid grid-cols-3 gap-8">
+              <div class="text-center">
+                <p class="text-4xl font-bold text-luxury-gold mb-2">15+</p>
+                <p class="text-sm text-blue-200">教育行业积淀(年)</p>
+              </div>
+              <div class="text-center">
+                <p class="text-4xl font-bold text-luxury-gold mb-2">50+</p>
+                <p class="text-sm text-blue-200">优质合作院校</p>
+              </div>
+              <div class="text-center">
+                <p class="text-4xl font-bold text-luxury-gold mb-2">5000+</p>
+                <p class="text-sm text-blue-200">服务成功家庭</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20">
+              <img alt="Auth 1" class="h-12 mx-auto grayscale invert opacity-80 mb-4" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/b204e49cbc834470afcea281f20f02c3.jpg" />
+              <p class="text-center text-sm">新加坡教育部备案</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 mt-8">
+              <img alt="Auth 2" class="h-12 mx-auto grayscale invert opacity-80 mb-4" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/251d704d39ff45a8a244dcecf7b285bb.jpg" />
+              <p class="text-center text-sm">Edutrust 权威认证</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 -mt-8">
+              <img alt="Auth 3" class="h-12 mx-auto grayscale invert opacity-80 mb-4" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/d1910eaf0eb84295abcb7b1d2fa23d9e.jpg" />
+              <p class="text-center text-sm">新加坡移民局合作单位</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20">
+              <img alt="Auth 4" class="h-12 mx-auto grayscale invert opacity-80 mb-4" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/5be1ef1d58da43258ec16d083db5a75e.jpg" />
+              <p class="text-center text-sm">中国教育部留服认可</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 咨询报名 -->
+    <section class="py-24 bg-white">
+      <div class="max-w-[1440px] mx-auto px-8">
+        <div class="bg-slate-50 rounded-[40px] overflow-hidden flex shadow-2xl">
+          <div class="w-1/2 p-16">
+            <h2 class="text-4xl font-bold text-sg-blue mb-6">规划狮城教育蓝图</h2>
+            <p class="text-gray-500 mb-10 text-lg">留下您的联系方式，我们的资深规划师将在24小时内为您定制专属研学方案。</p>
+            <form class="space-y-6">
+              <div class="grid grid-cols-2 gap-6">
+                <input class="w-full px-6 py-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-sg-blue" placeholder="您的姓名" type="text" />
+                <input class="w-full px-6 py-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-sg-blue" placeholder="手机号码" type="tel" />
+              </div>
+              <select class="w-full px-6 py-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-sg-blue text-gray-400">
+                <option>意向项目：请选择</option>
+                <option>新加坡成长营 (7天)</option>
+                <option>新加坡微留学 (21天)</option>
+                <option>人才准证EP咨询</option>
+                <option>国际学校体验营</option>
+              </select>
+              <textarea class="w-full px-6 py-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-sg-blue" placeholder="您的具体需求或孩子的年级情况..." rows="4"></textarea>
+              <button class="w-full bg-sg-blue hover:bg-[#004a80] text-white font-bold py-5 rounded-lg text-lg shadow-lg transition-all">提交申请 · 免费领取规划手册</button>
+            </form>
+          </div>
+          <div class="w-1/2 bg-sg-blue p-16 text-white flex flex-col justify-center">
+            <div class="mb-12">
+              <h3 class="text-2xl font-bold mb-6 flex items-center">
+                <iconify-icon class="mr-3 text-luxury-gold" icon="ph:phone-call-fill"></iconify-icon>
+                官方热线
+              </h3>
+              <p class="text-4xl font-bold text-luxury-gold mb-2">400-888-2026</p>
+              <p class="text-blue-200">周一至周日 09:00 - 21:00</p>
+            </div>
+            <div class="mb-12">
+              <h3 class="text-2xl font-bold mb-6 flex items-center">
+                <iconify-icon class="mr-3 text-luxury-gold" icon="ph:map-pin-fill"></iconify-icon>
+                办公地址
+              </h3>
+              <p class="mb-2">新加坡总部：7 Temasek Boulevard, Suntec Tower One, Singapore</p>
+              <p>中国运营中心：北京市朝阳区国贸中心 A座 22层</p>
+            </div>
+            <div class="flex space-x-8 items-center">
+              <div class="text-center">
+                <img alt="QR Code" class="w-24 h-24 bg-white p-2 rounded mb-2" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/e220d9f696ad413eb8c15632811337cd.jpg" />
+                <p class="text-xs text-blue-200">官方公众号</p>
+              </div>
+              <div class="text-center">
+                <img alt="QR Code" class="w-24 h-24 bg-white p-2 rounded mb-2" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/e220d9f696ad413eb8c15632811337cd.jpg" />
+                <p class="text-xs text-blue-200">研学顾问微信</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-gray-400 py-16">
+      <div class="max-w-[1440px] mx-auto px-8">
+        <div class="grid grid-cols-5 gap-12 mb-16">
+          <div class="col-span-2">
+            <div class="flex items-center space-x-2 mb-8">
+              <div class="w-10 h-10 bg-sg-blue flex items-center justify-center rounded">
+                <iconify-icon class="text-white text-2xl" icon="mdi:school"></iconify-icon>
+              </div>
+              <span class="text-xl font-bold text-white tracking-wider">盛昌利民 · LION CITY</span>
+            </div>
+            <p class="leading-relaxed mb-8 pr-12">作为海南领先的精英教育咨询机构，我们致力于整合全球优质教育资源，为中国家庭提供全方位的研学、升学及移民规划服务。</p>
+            <div class="flex space-x-4">
+              <a class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sg-blue transition-all" href="#"><iconify-icon icon="ri:wechat-fill"></iconify-icon></a>
+              <a class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sg-blue transition-all" href="#"><iconify-icon icon="ri:douyin-fill"></iconify-icon></a>
+              <a class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sg-blue transition-all" href="#"><iconify-icon icon="ri:instagram-fill"></iconify-icon></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">研学项目</h4>
+            <ul class="space-y-4">
+              <li><a class="hover:text-luxury-gold transition-all" href="growth-camp.html">新加坡成长营</a></li>
+              <li><a class="hover:text-luxury-gold transition-all" href="mini-study.html">新加坡微留学</a></li>
+              <li><a class="hover:text-luxury-gold transition-all" href="school-camp.html">国际学校体验营</a></li>
+              <li><a class="hover:text-luxury-gold transition-all" href="#">青少年领袖营</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">教育移民</h4>
+            <ul class="space-y-4">
+              <li><a class="hover:text-luxury-gold transition-all" href="ep-pass.html">人才准证 EP</a></li>
+              <li><a class="hover:text-luxury-gold transition-all" href="#">家族办公室</a></li>
+              <li><a class="hover:text-luxury-gold transition-all" href="#">自雇准证办理</a></li>
+              <li><a class="hover:text-luxury-gold transition-all" href="#">PR 永居申请</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">关于我们</h4>
+            <ul class="space-y-4">
+              <li><a class="hover:text-luxury-gold transition-all" href="#">集团简介</a></li>
+              <li><a class="hover:text-luxury-gold transition-all" href="#">服务条款</a></li>
+              <li><a class="hover:text-luxury-gold transition-all" href="#">隐私政策</a></li>
+              <li><a class="hover:text-luxury-gold transition-all" href="#">合作咨询</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pt-8 border-t border-gray-800 text-sm flex justify-between items-center">
+          <p>© 2026 盛昌利民 Elite Education Global. All Rights Reserved.</p>
+          <div class="flex space-x-6">
+            <span>新加坡会计与企业管制局(ACRA)注册号：2016XXXXXXG</span>
+            <span>京ICP备XXXXXXX号</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

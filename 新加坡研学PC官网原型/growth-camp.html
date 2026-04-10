@@ -1,225 +1,282 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="zh-CN">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=1920, initial-scale=1.0" name="viewport"/>
-<title>新加坡成长营详情页 | 7天深度深度体验研学项目</title>
-<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
-<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
-<style>
-        body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; background-color: #FFFFFF; color: #1E293B; }
-        .text-sg-blue { color: #005A9C; }
-        .bg-sg-blue { background-color: #005A9C; }
-        .text-luxury-gold { color: #E5A663; }
-        .bg-luxury-gold { background-color: #E5A663; }
-        .nav-link { position: relative; transition: all 0.3s; }
-        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #E5A663; transition: width 0.3s; }
-        .nav-link:hover::after { width: 100%; }
-        .timeline-line { position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: #E5A663; opacity: 0.3; }
-        .timeline-dot { position: absolute; left: 50%; transform: translateX(-50%); width: 16px; height: 16px; border-radius: 50%; background: #E5A663; border: 4px solid white; z-index: 10; }
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=1920, initial-scale=1.0" name="viewport" />
+    <title>新加坡成长营详情页 | 7天深度深度体验研学项目</title>
+    <script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+    <script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+    <style>
+      body {
+        font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        background-color: #ffffff;
+        color: #1e293b;
+      }
+      .text-sg-blue {
+        color: #005a9c;
+      }
+      .bg-sg-blue {
+        background-color: #005a9c;
+      }
+      .text-luxury-gold {
+        color: #e5a663;
+      }
+      .bg-luxury-gold {
+        background-color: #e5a663;
+      }
+      .nav-link {
+        position: relative;
+        transition: all 0.3s;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #e5a663;
+        transition: width 0.3s;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .timeline-line {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background: #e5a663;
+        opacity: 0.3;
+      }
+      .timeline-dot {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #e5a663;
+        border: 4px solid white;
+        z-index: 10;
+      }
     </style>
-</head>
-<body class="w-full">
-<!-- 导航栏 (复用) -->
-<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 h-20">
-<div class="max-w-[1440px] mx-auto h-full flex items-center justify-between px-8">
-<div class="flex items-center space-x-2">
-<a class="flex items-center space-x-2" href="index.html">
-<div class="w-10 h-10 bg-sg-blue flex items-center justify-center rounded">
-<iconify-icon class="text-white text-2xl" icon="mdi:school"></iconify-icon>
-</div>
-<div class="flex flex-col text-left">
-<span class="text-xl font-bold text-sg-blue tracking-wider">盛昌利民 · LION CITY</span>
-<span class="text-[10px] text-luxury-gold tracking-widest uppercase font-semibold">Elite Education Global</span>
-</div>
-</a>
-</div>
-<div class="flex items-center space-x-10 font-medium">
-<a class="nav-link text-gray-600 hover:text-sg-blue" href="index.html">首页</a>
-<a class="nav-link text-sg-blue" href="growth-camp.html">新加坡成长营</a>
-<a class="nav-link text-gray-600 hover:text-sg-blue" href="mini-study.html">新加坡微留学</a>
-<a class="nav-link text-gray-600 hover:text-sg-blue" href="ep-pass.html">人才准证EP</a>
-<a class="nav-link text-gray-600 hover:text-sg-blue" href="school-camp.html">国际学校体验营</a>
-</div>
-<button class="bg-luxury-gold hover:bg-[#d49552] text-white px-6 py-2.5 rounded shadow-lg transition-all font-semibold">
-                在线报名咨询
-            </button>
-</div>
-</nav>
-<!-- 项目专属Banner -->
-<header class="relative pt-20 h-[500px] flex items-center text-white overflow-hidden">
-<img alt="Camp Banner" class="absolute inset-0 w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/68d330f3ed4e49a9a5a25fd8c10f36ed.jpg"/>
-<div class="absolute inset-0 bg-sg-blue/70"></div>
-<div class="relative z-10 max-w-[1440px] mx-auto px-8 w-full text-center">
-<p class="text-luxury-gold tracking-[0.2em] font-bold mb-4 uppercase">Growth &amp; Discovery</p>
-<h1 class="text-5xl font-bold mb-6">新加坡·青少年先锋成长营</h1>
-<p class="text-xl max-w-2xl mx-auto text-blue-100">7天深度沉浸，对话狮城名校，在“花园城市”中重塑孩子的全球视野与领导力。</p>
-</div>
-</header>
-<!-- 项目亮点 -->
-<section class="py-24 bg-white">
-<div class="max-w-[1440px] mx-auto px-8">
-<div class="grid grid-cols-2 gap-20 items-center">
-<div class="grid grid-cols-2 gap-6">
-<img alt="Camp Life 1" class="rounded-2xl shadow-lg mt-8" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/8adcbdd4a71943f8b4213e3fcdf7380a.jpg"/>
-<img alt="Camp Life 2" class="rounded-2xl shadow-lg" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/1fde9dbfd69442858f7a71571604d3a0.jpg"/>
-</div>
-<div>
-<h2 class="text-4xl font-bold text-sg-blue mb-8">项目亮点与营地特色</h2>
-<ul class="space-y-8">
-<li class="flex items-start">
-<div class="w-12 h-12 bg-luxury-gold/10 rounded flex items-center justify-center mr-6 shrink-0 text-luxury-gold">
-<iconify-icon class="text-2xl" icon="ph:chalkboard-teacher-bold"></iconify-icon>
-</div>
-<div>
-<h4 class="text-xl font-bold mb-2">名校学子领队</h4>
-<p class="text-gray-500">由新加坡国立大学(NUS)或南洋理工大学(NTU)在校精英带队，近距离传承学霸经验。</p>
-</div>
-</li>
-<li class="flex items-start">
-<div class="w-12 h-12 bg-luxury-gold/10 rounded flex items-center justify-center mr-6 shrink-0 text-luxury-gold">
-<iconify-icon class="text-2xl" icon="ph:flask-bold"></iconify-icon>
-</div>
-<div>
-<h4 class="text-xl font-bold mb-2">STEM科学探索</h4>
-<p class="text-gray-500">深入新加坡科学馆、新生水中心，在真实的科学场景中动手实验，激发好奇心。</p>
-</div>
-</li>
-<li class="flex items-start">
-<div class="w-12 h-12 bg-luxury-gold/10 rounded flex items-center justify-center mr-6 shrink-0 text-luxury-gold">
-<iconify-icon class="text-2xl" icon="ph:microphone-stage-bold"></iconify-icon>
-</div>
-<div>
-<h4 class="text-xl font-bold mb-2">双语演讲工作坊</h4>
-<p class="text-gray-500">专业导师指导，提升公共演讲技巧，结业颁发极具含金量的研学荣誉证书。</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- 7天每日行程 -->
-<section class="py-24 bg-slate-50 overflow-hidden">
-<div class="max-w-[1200px] mx-auto px-8 relative">
-<div class="text-center mb-20">
-<h2 class="text-4xl font-bold text-sg-blue mb-4">7天深度研学日程表</h2>
-<p class="text-gray-500">每一分钟的规划都服务于孩子的成长逻辑</p>
-</div>
-<div class="relative">
-<div class="timeline-line"></div>
-<!-- Day 1 -->
-<div class="flex items-center justify-between mb-16 relative">
-<div class="w-5/12 text-right pr-12">
-<h4 class="text-2xl font-bold text-sg-blue mb-2">DAY 1</h4>
-<p class="text-luxury-gold font-bold mb-2 italic">狮城初见 · 开启征途</p>
-<p class="text-gray-500">抵达樟宜机场，专人接机送往营地。举行隆重的【开营仪式】，结识队友并领取研学包。</p>
-</div>
-<div class="timeline-dot"></div>
-<div class="w-5/12 pl-12">
-<img alt="Day 1" class="rounded-xl shadow-md h-40 w-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/c47e5e6f35a542638f3504dea716c2bf.jpg"/>
-</div>
-</div>
-<!-- Day 2 -->
-<div class="flex items-center justify-between mb-16 relative flex-row-reverse">
-<div class="w-5/12 text-left pl-12">
-<h4 class="text-2xl font-bold text-sg-blue mb-2">DAY 2</h4>
-<p class="text-luxury-gold font-bold mb-2 italic">人文狮城 · 历史碰撞</p>
-<p class="text-gray-500">探访鱼尾狮公园、市政区，了解新加坡建国史。下午前往【小印度/甘榜格南】体验多元族群文化。</p>
-</div>
-<div class="timeline-dot"></div>
-<div class="w-5/12 pr-12">
-<img alt="Day 2" class="rounded-xl shadow-md h-40 w-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/5ba0c00af0f443f5a69906e83d7373dc.jpg"/>
-</div>
-</div>
-<!-- Day 3-6 (省略具体详情，保持结构完整) -->
-<div class="flex items-center justify-between mb-16 relative">
-<div class="w-5/12 text-right pr-12">
-<h4 class="text-2xl font-bold text-sg-blue mb-2">DAY 3-4</h4>
-<p class="text-luxury-gold font-bold mb-2 italic">顶尖学府 · 学霸对话</p>
-<p class="text-gray-500">深入新加坡国立大学(NUS)实验室，与名校教授面对面交流。下午开启STEM水资源主题探索。</p>
-</div>
-<div class="timeline-dot"></div>
-<div class="w-5/12 pl-12">
-<img alt="Day 3" class="rounded-xl shadow-md h-40 w-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/51fd5abcfe7e4e18bf816cc0d41e49e5.jpg"/>
-</div>
-</div>
-<div class="flex items-center justify-between mb-16 relative flex-row-reverse">
-<div class="w-5/12 text-left pl-12">
-<h4 class="text-2xl font-bold text-sg-blue mb-2">DAY 5-6</h4>
-<p class="text-luxury-gold font-bold mb-2 italic">环保森林 · 自然和谐</p>
-<p class="text-gray-500">打卡【滨海湾花园】擎天树林，学习热带植物学知识。圣淘沙岛团队建设活动，强化协作意识。</p>
-</div>
-<div class="timeline-dot"></div>
-<div class="w-5/12 pr-12">
-<img alt="Day 5" class="rounded-xl shadow-md h-40 w-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/2133f952649f445d9c941664d55b640f.jpg"/>
-</div>
-</div>
-<!-- Day 7 -->
-<div class="flex items-center justify-between relative">
-<div class="w-5/12 text-right pr-12">
-<h4 class="text-2xl font-bold text-sg-blue mb-2">DAY 7</h4>
-<p class="text-luxury-gold font-bold mb-2 italic">成果展示 · 荣耀归航</p>
-<p class="text-gray-500">举行小组研学汇报，评审老师颁发结业证书。前往机场，载着满满的收获返回温馨的家。</p>
-</div>
-<div class="timeline-dot"></div>
-<div class="w-5/12 pl-12">
-<img alt="Day 7" class="rounded-xl shadow-md h-40 w-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/11d6350571e743c09fd40800c8d14c93.jpg"/>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 食宿标准 -->
-<section class="py-24 bg-white">
-<div class="max-w-[1440px] mx-auto px-8">
-<h2 class="text-4xl font-bold text-sg-blue mb-16 text-center">五星级标准 · 全方位保障</h2>
-<div class="grid grid-cols-2 gap-12">
-<div class="relative rounded-3xl overflow-hidden group">
-<img alt="Hotel" class="w-full h-80 object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/61210345f0524427ae693aade986a49f.jpg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8 text-white">
-<h4 class="text-2xl font-bold mb-2">住宿：四星级酒店/学生公寓</h4>
-<p class="text-sm opacity-80">2人标准间，配备24小时保安及中文生活老师。确保孩子在舒适的环境中休息，恢复精力。</p>
-</div>
-</div>
-<div class="relative rounded-3xl overflow-hidden group">
-<img alt="Food" class="w-full h-80 object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/6248aa287c1444838dbc1f1944f4bafa.jpg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8 text-white">
-<h4 class="text-2xl font-bold mb-2">饮食：多元狮城美食+中餐</h4>
-<p class="text-sm opacity-80">体验娘惹菜、海南鸡饭等特色美食，并合理搭配营养均衡的中式餐食，适应中国孩子的口味。</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 费用说明 -->
-<section class="py-24 bg-sg-blue text-white">
-<div class="max-w-[1440px] mx-auto px-8">
-<div class="flex flex-col md:flex-row items-center justify-between">
-<div class="mb-10 md:mb-0">
-<h2 class="text-4xl font-bold mb-4">项目费用及报名</h2>
-<p class="text-blue-100 italic">2026年夏季早鸟价开启中</p>
-</div>
-<div class="bg-white text-sg-blue p-10 rounded-2xl shadow-2xl text-center">
-<p class="text-gray-400 mb-2 uppercase tracking-widest text-sm">官方统一售价</p>
-<p class="text-5xl font-bold text-luxury-gold mb-6 italic">¥ 19,800 <span class="text-lg">/人</span></p>
-<ul class="text-left text-sm space-y-3 mb-8 text-gray-600">
-<li class="flex items-center"><iconify-icon class="text-green-500 mr-2" icon="ph:check-circle-fill"></iconify-icon> 新加坡期间交通、食宿</li>
-<li class="flex items-center"><iconify-icon class="text-green-500 mr-2" icon="ph:check-circle-fill"></iconify-icon> 课程研发及场地使用费</li>
-<li class="flex items-center"><iconify-icon class="text-green-500 mr-2" icon="ph:check-circle-fill"></iconify-icon> 官方导游及老师陪同费用</li>
-<li class="flex items-center"><iconify-icon class="text-green-500 mr-2" icon="ph:check-circle-fill"></iconify-icon> 最高标准研学旅游意外保险</li>
-</ul>
-<button class="w-full bg-luxury-gold hover:bg-[#d49552] text-white py-4 rounded-xl font-bold text-xl shadow-lg transition-all">立即抢占名额</button>
-</div>
-</div>
-</div>
-</section>
-<!-- 页脚复用 -->
-<footer class="bg-gray-900 text-gray-400 py-16">
-<div class="max-w-[1440px] mx-auto px-8 text-center">
-<p>© 2026 盛昌利民 Elite Education Global. All Rights Reserved.</p>
-</div>
-</footer>
-</body>
+  </head>
+  <body class="w-full">
+    <!-- 导航栏 (复用) -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 h-20">
+      <div class="max-w-[1440px] mx-auto h-full flex items-center justify-between px-8">
+        <div class="flex items-center space-x-2">
+          <a class="flex items-center space-x-2" href="index.html">
+            <div class="w-10 h-10 bg-sg-blue flex items-center justify-center rounded">
+              <iconify-icon class="text-white text-2xl" icon="mdi:school"></iconify-icon>
+            </div>
+            <div class="flex flex-col text-left">
+              <span class="text-xl font-bold text-sg-blue tracking-wider">盛昌利民 · LION CITY</span>
+              <span class="text-[10px] text-luxury-gold tracking-widest uppercase font-semibold">Elite Education Global</span>
+            </div>
+          </a>
+        </div>
+        <div class="flex items-center space-x-10 font-medium">
+          <a class="nav-link text-gray-600 hover:text-sg-blue" href="index.html">首页</a>
+          <a class="nav-link text-sg-blue" href="growth-camp.html">新加坡成长营</a>
+          <a class="nav-link text-gray-600 hover:text-sg-blue" href="mini-study.html">新加坡微留学</a>
+          <a class="nav-link text-gray-600 hover:text-sg-blue" href="ep-pass.html">人才准证EP</a>
+          <a class="nav-link text-gray-600 hover:text-sg-blue" href="school-camp.html">国际学校体验营</a>
+        </div>
+        <button class="bg-luxury-gold hover:bg-[#d49552] text-white px-6 py-2.5 rounded shadow-lg transition-all font-semibold">在线报名咨询</button>
+      </div>
+    </nav>
+    <!-- 项目专属Banner -->
+    <header class="relative pt-20 h-[500px] flex items-center text-white overflow-hidden">
+      <img alt="Camp Banner" class="absolute inset-0 w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/68d330f3ed4e49a9a5a25fd8c10f36ed.jpg" />
+      <div class="absolute inset-0 bg-sg-blue/70"></div>
+      <div class="relative z-10 max-w-[1440px] mx-auto px-8 w-full text-center">
+        <p class="text-luxury-gold tracking-[0.2em] font-bold mb-4 uppercase">Growth &amp; Discovery</p>
+        <h1 class="text-5xl font-bold mb-6">新加坡·青少年先锋成长营</h1>
+        <p class="text-xl max-w-2xl mx-auto text-blue-100">7天深度沉浸，对话狮城名校，在“花园城市”中重塑孩子的全球视野与领导力。</p>
+      </div>
+    </header>
+    <!-- 项目亮点 -->
+    <section class="py-24 bg-white">
+      <div class="max-w-[1440px] mx-auto px-8">
+        <div class="grid grid-cols-2 gap-20 items-center">
+          <div class="grid grid-cols-2 gap-6">
+            <img alt="Camp Life 1" class="rounded-2xl shadow-lg mt-8" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/8adcbdd4a71943f8b4213e3fcdf7380a.jpg" />
+            <img alt="Camp Life 2" class="rounded-2xl shadow-lg" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/1fde9dbfd69442858f7a71571604d3a0.jpg" />
+          </div>
+          <div>
+            <h2 class="text-4xl font-bold text-sg-blue mb-8">项目亮点与营地特色</h2>
+            <ul class="space-y-8">
+              <li class="flex items-start">
+                <div class="w-12 h-12 bg-luxury-gold/10 rounded flex items-center justify-center mr-6 shrink-0 text-luxury-gold">
+                  <iconify-icon class="text-2xl" icon="ph:chalkboard-teacher-bold"></iconify-icon>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold mb-2">名校学子领队</h4>
+                  <p class="text-gray-500">由新加坡国立大学(NUS)或南洋理工大学(NTU)在校精英带队，近距离传承学霸经验。</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div class="w-12 h-12 bg-luxury-gold/10 rounded flex items-center justify-center mr-6 shrink-0 text-luxury-gold">
+                  <iconify-icon class="text-2xl" icon="ph:flask-bold"></iconify-icon>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold mb-2">STEM科学探索</h4>
+                  <p class="text-gray-500">深入新加坡科学馆、新生水中心，在真实的科学场景中动手实验，激发好奇心。</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div class="w-12 h-12 bg-luxury-gold/10 rounded flex items-center justify-center mr-6 shrink-0 text-luxury-gold">
+                  <iconify-icon class="text-2xl" icon="ph:microphone-stage-bold"></iconify-icon>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold mb-2">双语演讲工作坊</h4>
+                  <p class="text-gray-500">专业导师指导，提升公共演讲技巧，结业颁发极具含金量的研学荣誉证书。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 7天每日行程 -->
+    <section class="py-24 bg-slate-50 overflow-hidden">
+      <div class="max-w-[1200px] mx-auto px-8 relative">
+        <div class="text-center mb-20">
+          <h2 class="text-4xl font-bold text-sg-blue mb-4">7天深度研学日程表</h2>
+          <p class="text-gray-500">每一分钟的规划都服务于孩子的成长逻辑</p>
+        </div>
+        <div class="relative">
+          <div class="timeline-line"></div>
+          <!-- Day 1 -->
+          <div class="flex items-center justify-between mb-16 relative">
+            <div class="w-5/12 text-right pr-12">
+              <h4 class="text-2xl font-bold text-sg-blue mb-2">DAY 1</h4>
+              <p class="text-luxury-gold font-bold mb-2 italic">狮城初见 · 开启征途</p>
+              <p class="text-gray-500">抵达樟宜机场，专人接机送往营地。举行隆重的【开营仪式】，结识队友并领取研学包。</p>
+            </div>
+            <div class="timeline-dot"></div>
+            <div class="w-5/12 pl-12">
+              <img alt="Day 1" class="rounded-xl shadow-md h-40 w-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/c47e5e6f35a542638f3504dea716c2bf.jpg" />
+            </div>
+          </div>
+          <!-- Day 2 -->
+          <div class="flex items-center justify-between mb-16 relative flex-row-reverse">
+            <div class="w-5/12 text-left pl-12">
+              <h4 class="text-2xl font-bold text-sg-blue mb-2">DAY 2</h4>
+              <p class="text-luxury-gold font-bold mb-2 italic">人文狮城 · 历史碰撞</p>
+              <p class="text-gray-500">探访鱼尾狮公园、市政区，了解新加坡建国史。下午前往【小印度/甘榜格南】体验多元族群文化。</p>
+            </div>
+            <div class="timeline-dot"></div>
+            <div class="w-5/12 pr-12">
+              <img alt="Day 2" class="rounded-xl shadow-md h-40 w-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/5ba0c00af0f443f5a69906e83d7373dc.jpg" />
+            </div>
+          </div>
+          <!-- Day 3-6 (省略具体详情，保持结构完整) -->
+          <div class="flex items-center justify-between mb-16 relative">
+            <div class="w-5/12 text-right pr-12">
+              <h4 class="text-2xl font-bold text-sg-blue mb-2">DAY 3-4</h4>
+              <p class="text-luxury-gold font-bold mb-2 italic">顶尖学府 · 学霸对话</p>
+              <p class="text-gray-500">深入新加坡国立大学(NUS)实验室，与名校教授面对面交流。下午开启STEM水资源主题探索。</p>
+            </div>
+            <div class="timeline-dot"></div>
+            <div class="w-5/12 pl-12">
+              <img alt="Day 3" class="rounded-xl shadow-md h-40 w-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/51fd5abcfe7e4e18bf816cc0d41e49e5.jpg" />
+            </div>
+          </div>
+          <div class="flex items-center justify-between mb-16 relative flex-row-reverse">
+            <div class="w-5/12 text-left pl-12">
+              <h4 class="text-2xl font-bold text-sg-blue mb-2">DAY 5-6</h4>
+              <p class="text-luxury-gold font-bold mb-2 italic">环保森林 · 自然和谐</p>
+              <p class="text-gray-500">打卡【滨海湾花园】擎天树林，学习热带植物学知识。圣淘沙岛团队建设活动，强化协作意识。</p>
+            </div>
+            <div class="timeline-dot"></div>
+            <div class="w-5/12 pr-12">
+              <img alt="Day 5" class="rounded-xl shadow-md h-40 w-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/2133f952649f445d9c941664d55b640f.jpg" />
+            </div>
+          </div>
+          <!-- Day 7 -->
+          <div class="flex items-center justify-between relative">
+            <div class="w-5/12 text-right pr-12">
+              <h4 class="text-2xl font-bold text-sg-blue mb-2">DAY 7</h4>
+              <p class="text-luxury-gold font-bold mb-2 italic">成果展示 · 荣耀归航</p>
+              <p class="text-gray-500">举行小组研学汇报，评审老师颁发结业证书。前往机场，载着满满的收获返回温馨的家。</p>
+            </div>
+            <div class="timeline-dot"></div>
+            <div class="w-5/12 pl-12">
+              <img alt="Day 7" class="rounded-xl shadow-md h-40 w-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/11d6350571e743c09fd40800c8d14c93.jpg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 食宿标准 -->
+    <section class="py-24 bg-white">
+      <div class="max-w-[1440px] mx-auto px-8">
+        <h2 class="text-4xl font-bold text-sg-blue mb-16 text-center">五星级标准 · 全方位保障</h2>
+        <div class="grid grid-cols-2 gap-12">
+          <div class="relative rounded-3xl overflow-hidden group">
+            <img alt="Hotel" class="w-full h-80 object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/61210345f0524427ae693aade986a49f.jpg" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8 text-white">
+              <h4 class="text-2xl font-bold mb-2">住宿：四星级酒店/学生公寓</h4>
+              <p class="text-sm opacity-80">2人标准间，配备24小时保安及中文生活老师。确保孩子在舒适的环境中休息，恢复精力。</p>
+            </div>
+          </div>
+          <div class="relative rounded-3xl overflow-hidden group">
+            <img alt="Food" class="w-full h-80 object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/6248aa287c1444838dbc1f1944f4bafa.jpg" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8 text-white">
+              <h4 class="text-2xl font-bold mb-2">饮食：多元狮城美食+中餐</h4>
+              <p class="text-sm opacity-80">体验娘惹菜、海南鸡饭等特色美食，并合理搭配营养均衡的中式餐食，适应中国孩子的口味。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 费用说明 -->
+    <section class="py-24 bg-sg-blue text-white">
+      <div class="max-w-[1440px] mx-auto px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="mb-10 md:mb-0">
+            <h2 class="text-4xl font-bold mb-4">项目费用及报名</h2>
+            <p class="text-blue-100 italic">2026年夏季早鸟价开启中</p>
+          </div>
+          <div class="bg-white text-sg-blue p-10 rounded-2xl shadow-2xl text-center">
+            <p class="text-gray-400 mb-2 uppercase tracking-widest text-sm">官方统一售价</p>
+            <p class="text-5xl font-bold text-luxury-gold mb-6 italic">
+              ¥ 19,800
+              <span class="text-lg">/人</span>
+            </p>
+            <ul class="text-left text-sm space-y-3 mb-8 text-gray-600">
+              <li class="flex items-center">
+                <iconify-icon class="text-green-500 mr-2" icon="ph:check-circle-fill"></iconify-icon>
+                新加坡期间交通、食宿
+              </li>
+              <li class="flex items-center">
+                <iconify-icon class="text-green-500 mr-2" icon="ph:check-circle-fill"></iconify-icon>
+                课程研发及场地使用费
+              </li>
+              <li class="flex items-center">
+                <iconify-icon class="text-green-500 mr-2" icon="ph:check-circle-fill"></iconify-icon>
+                官方导游及老师陪同费用
+              </li>
+              <li class="flex items-center">
+                <iconify-icon class="text-green-500 mr-2" icon="ph:check-circle-fill"></iconify-icon>
+                最高标准研学旅游意外保险
+              </li>
+            </ul>
+            <button class="w-full bg-luxury-gold hover:bg-[#d49552] text-white py-4 rounded-xl font-bold text-xl shadow-lg transition-all">立即抢占名额</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 页脚复用 -->
+    <footer class="bg-gray-900 text-gray-400 py-16">
+      <div class="max-w-[1440px] mx-auto px-8 text-center">
+        <p>© 2026 盛昌利民 Elite Education Global. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
 </html>
