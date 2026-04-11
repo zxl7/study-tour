@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta content="width=1920, initial-scale=1.0" name="viewport" />
     <title>新加坡成长营详情页 | 7天深度深度体验研学项目</title>
-    <script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
-    <script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+    <script src="./js/tailwindcss.3.4.3.js"></script>
+    <script src="./js/iconify-icon.min.1.0.7.js"></script>
     <style>
       body {
         font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -92,56 +92,313 @@
     <!-- 项目专属Banner -->
     <header class="relative pt-20 h-[500px] flex items-center text-white overflow-hidden">
       <img alt="Camp Banner" class="absolute inset-0 w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/68d330f3ed4e49a9a5a25fd8c10f36ed.jpg" />
-      <div class="absolute inset-0 bg-sg-blue/70"></div>
+      <div class="absolute inset-0 bg-sg-blue/80"></div>
       <div class="relative z-10 max-w-[1440px] mx-auto px-8 w-full text-center">
-        <p class="text-luxury-gold tracking-[0.2em] font-bold mb-4 uppercase">Growth &amp; Discovery</p>
-        <h1 class="text-5xl font-bold mb-6">新加坡·青少年先锋成长营</h1>
-        <p class="text-xl max-w-2xl mx-auto text-blue-100">7天深度沉浸，对话狮城名校，在“花园城市”中重塑孩子的全球视野与领导力。</p>
+        <div class="flex justify-center gap-4 mb-6">
+          <span class="bg-luxury-gold text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider shadow-lg">7天6晚</span>
+          <span class="bg-white text-sg-blue px-4 py-1.5 rounded-full text-sm font-bold tracking-wider shadow-lg">适龄 3-15岁</span>
+        </div>
+        <h1 class="text-5xl font-bold mb-8 tracking-widest">新加坡成长营</h1>
+        <p class="text-2xl max-w-3xl mx-auto text-blue-50 font-light leading-relaxed">
+          别让孩子的假期只停留在屏幕里
+          <br />
+          <span class="font-bold text-luxury-gold mt-2 block">带娃实地来新加坡，看不一样的世界</span>
+        </p>
       </div>
     </header>
-    <!-- 项目亮点 -->
-    <section class="py-24 bg-white">
+
+    <!-- 项目亮点：痛点与解决方案 -->
+    <section class="py-20 bg-slate-50">
       <div class="max-w-[1440px] mx-auto px-8">
-        <div class="grid grid-cols-2 gap-20 items-center">
-          <div class="grid grid-cols-2 gap-6">
-            <img alt="Camp Life 1" class="rounded-2xl shadow-lg mt-8" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/8adcbdd4a71943f8b4213e3fcdf7380a.jpg" />
-            <img alt="Camp Life 2" class="rounded-2xl shadow-lg" src="https://modao.cc/agent-py/media/generated_images/2026-04-09/1fde9dbfd69442858f7a71571604d3a0.jpg" />
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-sg-blue mb-4">补习班太枯燥，纯旅游没收获？</h2>
+          <div class="w-20 h-1 bg-luxury-gold mx-auto mb-6"></div>
+          <p class="text-gray-500 text-lg italic">不如来新加坡成长营，给孩子一个真正有价值的假期</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- 特点 1 -->
+          <div class="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 text-center border border-slate-100 group">
+            <div class="w-full h-40 rounded-2xl overflow-hidden mb-6 relative">
+              <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80" alt="School Campus" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <h3 class="text-2xl font-bold text-sg-blue mb-4">本地学校/正规营地</h3>
+            <p class="text-gray-500 leading-relaxed">甄选新加坡顶尖国际学校与官方认证营地，共享世界级教育硬件设施与学术资源，沉浸式体验名校氛围。</p>
           </div>
-          <div>
-            <h2 class="text-4xl font-bold text-sg-blue mb-8">项目亮点与营地特色</h2>
-            <ul class="space-y-8">
-              <li class="flex items-start">
-                <div class="w-12 h-12 bg-luxury-gold/10 rounded flex items-center justify-center mr-6 shrink-0 text-luxury-gold">
-                  <iconify-icon class="text-2xl" icon="ph:chalkboard-teacher-bold"></iconify-icon>
-                </div>
-                <div>
-                  <h4 class="text-xl font-bold mb-2">名校学子领队</h4>
-                  <p class="text-gray-500">由新加坡国立大学(NUS)或南洋理工大学(NTU)在校精英带队，近距离传承学霸经验。</p>
-                </div>
-              </li>
-              <li class="flex items-start">
-                <div class="w-12 h-12 bg-luxury-gold/10 rounded flex items-center justify-center mr-6 shrink-0 text-luxury-gold">
-                  <iconify-icon class="text-2xl" icon="ph:flask-bold"></iconify-icon>
-                </div>
-                <div>
-                  <h4 class="text-xl font-bold mb-2">STEM科学探索</h4>
-                  <p class="text-gray-500">深入新加坡科学馆、新生水中心，在真实的科学场景中动手实验，激发好奇心。</p>
-                </div>
-              </li>
-              <li class="flex items-start">
-                <div class="w-12 h-12 bg-luxury-gold/10 rounded flex items-center justify-center mr-6 shrink-0 text-luxury-gold">
-                  <iconify-icon class="text-2xl" icon="ph:microphone-stage-bold"></iconify-icon>
-                </div>
-                <div>
-                  <h4 class="text-xl font-bold mb-2">双语演讲工作坊</h4>
-                  <p class="text-gray-500">专业导师指导，提升公共演讲技巧，结业颁发极具含金量的研学荣誉证书。</p>
-                </div>
-              </li>
-            </ul>
+          <!-- 特点 2 -->
+          <div class="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 text-center border border-slate-100 group">
+            <div class="w-full h-40 rounded-2xl overflow-hidden mb-6 relative">
+              <img src="https://images.unsplash.com/photo-1511629091441-ee46146481b6?auto=format&fit=crop&w=800&q=80" alt="English Environment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <h3 class="text-2xl font-bold text-sg-blue mb-4">沉浸式英文环境</h3>
+            <p class="text-gray-500 leading-relaxed">全天候英语母语导师陪伴，打破哑巴英语，让孩子在真实的自然交流场景中建立语言自信。</p>
+          </div>
+          <!-- 特点 3 -->
+          <div class="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 text-center border border-slate-100 group">
+            <div class="w-full h-40 rounded-2xl overflow-hidden mb-6 relative">
+              <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Study and Play" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <h3 class="text-2xl font-bold text-sg-blue mb-4">研学+游玩+能力提升</h3>
+            <p class="text-gray-500 leading-relaxed">科学配比学习与探索时间，玩中学、学中玩，全面提升孩子的独立思考能力与跨文化交际能力。</p>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- 您在身边，我们护航 -->
+    <section class="py-24 bg-white overflow-hidden">
+      <div class="max-w-[1440px] mx-auto px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 class="text-4xl font-bold text-sg-blue mb-6">您在身边，我们为您护航</h2>
+            <div class="w-20 h-1 bg-luxury-gold mb-8"></div>
+            <p class="text-gray-600 text-xl mb-12 leading-relaxed border-l-4 border-sg-blue pl-6 italic">
+              第一次出国，我们陪您和孩子一起迈出第一步。
+              <br />
+              孩子在安全中成长，您亲身旁陪伴，第一次远行，本该如此。
+            </p>
+            <ul class="space-y-10">
+              <li class="flex items-start">
+                <div class="w-14 h-14 bg-sg-blue/10 rounded-2xl flex items-center justify-center mr-6 shrink-0 text-sg-blue">
+                  <iconify-icon class="text-3xl" icon="ph:airplane-tilt-bold"></iconify-icon>
+                </div>
+                <div>
+                  <h4 class="text-2xl font-bold text-sg-blue mb-2">机酒全含，领队同机</h4>
+                  <p class="text-gray-500 text-lg">孩子往返机票已含，专属客轮同机穿梭，安心从第一刻开始。</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div class="w-14 h-14 bg-sg-blue/10 rounded-2xl flex items-center justify-center mr-6 shrink-0 text-sg-blue">
+                  <iconify-icon class="text-3xl" icon="ph:car-profile-bold"></iconify-icon>
+                </div>
+                <div>
+                  <h4 class="text-2xl font-bold text-sg-blue mb-2">私享专人接送</h4>
+                  <p class="text-gray-500 text-lg">配备私享专人接送，每日酒店专属车辆接送孩子上下学。</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div class="w-14 h-14 bg-sg-blue/10 rounded-2xl flex items-center justify-center mr-6 shrink-0 text-sg-blue">
+                  <iconify-icon class="text-3xl" icon="ph:buildings-bold"></iconify-icon>
+                </div>
+                <div>
+                  <h4 class="text-2xl font-bold text-sg-blue mb-2">高星酒店，家长同住</h4>
+                  <p class="text-gray-500 text-lg">孩子与家长同住，起居皆在星级酒店，配套齐全，无忧操心。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="relative">
+            <!-- 图片与悬浮卡片 -->
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Family Travel" class="rounded-3xl shadow-2xl w-full object-cover h-[600px]" />
+            <div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-xl max-w-sm border border-gray-100 z-10">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-luxury-gold rounded-full flex items-center justify-center text-white">
+                  <iconify-icon icon="ph:shield-check-bold" class="text-2xl"></iconify-icon>
+                </div>
+                <h4 class="font-bold text-xl text-sg-blue">360° 安全保障</h4>
+              </div>
+              <p class="text-gray-500 leading-relaxed">让家长的每一次陪伴都轻松愉悦，见证孩子的每一个成长瞬间。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 学校介绍 -->
+    <section class="py-24 bg-slate-50 relative overflow-hidden">
+      <!-- 背景装饰 -->
+      <div class="absolute top-0 right-0 w-full h-full opacity-5 pointer-events-none">
+        <iconify-icon class="absolute top-10 right-10 text-[400px] text-sg-blue" icon="ph:student-bold"></iconify-icon>
+      </div>
+
+      <div class="max-w-[1440px] mx-auto px-8 relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-5xl font-bold text-sg-blue mb-6 tracking-widest" style="font-family: &quot;STKaiti&quot;, &quot;Kaiti SC&quot;, serif">学校介绍</h2>
+          <div class="w-20 h-1 bg-luxury-gold mx-auto mb-8"></div>
+          <p class="text-gray-500 text-xl">携手新加坡四大知名国际学校，定制专属菁英课程</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <!-- School 1: 斯坦福 -->
+          <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80"
+                alt="Stamford"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-sg-blue/90 via-sg-blue/40 to-transparent"></div>
+              <h3 class="absolute bottom-6 left-8 text-2xl font-bold text-white tracking-wide">新加坡斯坦福美国国际学校</h3>
+            </div>
+            <div class="p-8 relative">
+              <div class="absolute -top-6 right-8 w-12 h-12 bg-luxury-gold rounded-full flex items-center justify-center text-white shadow-lg">
+                <iconify-icon class="text-2xl" icon="ph:buildings-bold"></iconify-icon>
+              </div>
+              <p class="text-gray-600 text-lg leading-relaxed mt-2">
+                旗下拥有久负盛名的
+                <strong class="text-sg-blue">Camp Asia</strong>
+                官方直营营地。提供 STEM、编程、艺术、体育等多维度主题课程，全面激发孩子的潜能与创造力，完美契合各年龄段的探索需求。
+              </p>
+            </div>
+          </div>
+
+          <!-- School 2: 瑞士学校 -->
+          <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80"
+                alt="Swiss School"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-sg-blue/90 via-sg-blue/40 to-transparent"></div>
+              <h3 class="absolute bottom-6 left-8 text-2xl font-bold text-white tracking-wide">新加坡瑞士学校</h3>
+            </div>
+            <div class="p-8 relative">
+              <div class="absolute -top-6 right-8 w-12 h-12 bg-luxury-gold rounded-full flex items-center justify-center text-white shadow-lg">
+                <iconify-icon class="text-2xl" icon="ph:tree-evergreen-bold"></iconify-icon>
+              </div>
+              <p class="text-gray-600 text-lg leading-relaxed mt-2">
+                崇尚
+                <strong class="text-sg-blue">“拥抱大自然的小课堂”</strong>
+                教育理念。在这里，孩子们将参与充满活力的户外探险，在纯正的瑞士教育体系中培养环保意识与强大的动手实践能力。
+              </p>
+            </div>
+          </div>
+
+          <!-- School 3: UWC -->
+          <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80"
+                alt="UWC"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-sg-blue/90 via-sg-blue/40 to-transparent"></div>
+              <h3 class="absolute bottom-6 left-8 text-2xl font-bold text-white tracking-wide">UWC 世界联合书院</h3>
+            </div>
+            <div class="p-8 relative">
+              <div class="absolute -top-6 right-8 w-12 h-12 bg-luxury-gold rounded-full flex items-center justify-center text-white shadow-lg">
+                <iconify-icon class="text-2xl" icon="ph:globe-hemisphere-east-bold"></iconify-icon>
+              </div>
+              <p class="text-gray-600 text-lg leading-relaxed mt-2">
+                国际文凭（IB）教育的
+                <strong class="text-sg-blue">全球领航者</strong>
+                。不仅提供卓越的学术体验，更通过极其丰富的课外活动，致力于将孩子培养为具有国际视野及强烈社会责任感的未来领袖。
+              </p>
+            </div>
+          </div>
+
+          <!-- School 4: XCL -->
+          <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group">
+            <div class="h-64 overflow-hidden relative">
+              <img
+                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+                alt="XCL"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-sg-blue/90 via-sg-blue/40 to-transparent"></div>
+              <h3 class="absolute bottom-6 left-8 text-2xl font-bold text-white tracking-wide">XCL 加慧世界书院</h3>
+            </div>
+            <div class="p-8 relative">
+              <div class="absolute -top-6 right-8 w-12 h-12 bg-luxury-gold rounded-full flex items-center justify-center text-white shadow-lg">
+                <iconify-icon class="text-2xl" icon="ph:star-bold"></iconify-icon>
+              </div>
+              <p class="text-gray-600 text-lg leading-relaxed mt-2">
+                个性化菁英教育的
+                <strong class="text-sg-blue">典范学府</strong>
+                。学校提供丰富多彩且极具挑战的学术、艺术及体育特色课程，旨在精准发掘并放大每一个孩子身上独一无二的闪光点。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- 课程设置 -->
+    <section class="py-24 bg-sg-blue relative overflow-hidden">
+      <!-- 装饰背景线条 -->
+      <div class="absolute inset-0 z-0 opacity-10">
+        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+              <path d="M 100 0 L 0 0 0 100" fill="none" stroke="white" stroke-width="2" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
+
+      <div class="max-w-[1440px] mx-auto px-8 relative z-10">
+        <div class="text-center mb-20">
+          <h2 class="text-5xl font-bold text-white mb-6 tracking-widest" style="font-family: 'STKaiti', 'Kaiti SC', serif;">课程设置</h2>
+          <div class="w-20 h-1 bg-luxury-gold mx-auto mb-8"></div>
+          <p class="text-blue-100 text-xl max-w-2xl mx-auto">多维度沉浸式体验，全面激发孩子潜能</p>
+        </div>
+
+        <!-- 课程网格布局 (十字交叉型) -->
+        <div class="relative max-w-6xl mx-auto">
+          <!-- 中心核心标识 (仅在桌面端显示为中心，移动端隐藏或在顶部) -->
+          <div class="hidden lg:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-white rounded-3xl shadow-[0_0_50px_rgba(229,166,99,0.3)] items-center justify-center z-20 border-4 border-luxury-gold rotate-45">
+            <div class="text-center -rotate-45">
+              <iconify-icon class="text-5xl text-luxury-gold mb-2" icon="ph:books-bold"></iconify-icon>
+              <h3 class="text-xl font-bold text-sg-blue">核心<br>课程</h3>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-32 gap-y-16 relative z-10">
+            
+            <!-- 课程 1: STEAM -->
+            <div class="bg-white/10 backdrop-blur-md rounded-[40px] p-8 border border-white/20 hover:-translate-y-2 hover:bg-white/20 transition-all duration-300 group">
+              <div class="h-56 rounded-3xl overflow-hidden mb-8 relative border-4 border-white/50">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="STEAM Education" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 bg-sky-500 text-white px-6 py-2 rounded-full font-bold text-lg shadow-lg">STEAM</div>
+              </div>
+              <div class="text-center lg:text-left px-4">
+                <p class="text-white text-xl leading-relaxed">
+                  编码机器人、虚拟现实、3D打印和工程
+                </p>
+              </div>
+            </div>
+
+            <!-- 课程 2: 综合活动 -->
+            <div class="bg-white/10 backdrop-blur-md rounded-[40px] p-8 border border-white/20 hover:-translate-y-2 hover:bg-white/20 transition-all duration-300 group lg:mt-24">
+              <div class="h-56 rounded-3xl overflow-hidden mb-8 relative border-4 border-white/50">
+                <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80" alt="Comprehensive Activities" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 right-4 lg:left-4 lg:right-auto bg-blue-500 text-white px-6 py-2 rounded-full font-bold text-lg shadow-lg">综合活动</div>
+              </div>
+              <div class="text-center lg:text-left px-4">
+                <p class="text-white text-xl leading-relaxed">
+                  木材制作、园艺、烘焙、运动
+                </p>
+              </div>
+            </div>
+
+            <!-- 课程 3: 多重冒险 -->
+            <div class="bg-white/10 backdrop-blur-md rounded-[40px] p-8 border border-white/20 hover:-translate-y-2 hover:bg-white/20 transition-all duration-300 group lg:-mt-24">
+              <div class="h-56 rounded-3xl overflow-hidden mb-8 relative border-4 border-white/50">
+                <img src="https://images.unsplash.com/photo-1533560904424-a0c61dc306fc?auto=format&fit=crop&w=800&q=80" alt="Adventure" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute bottom-4 left-4 bg-teal-500 text-white px-6 py-2 rounded-full font-bold text-lg shadow-lg">多重冒险</div>
+              </div>
+              <div class="text-center lg:text-right px-4">
+                <p class="text-white text-xl leading-relaxed">
+                  射箭、跑酷、定向越野、攀岩、无人机
+                </p>
+              </div>
+            </div>
+
+            <!-- 课程 4: 英语强化 -->
+            <div class="bg-white/10 backdrop-blur-md rounded-[40px] p-8 border border-white/20 hover:-translate-y-2 hover:bg-white/20 transition-all duration-300 group">
+              <div class="h-56 rounded-3xl overflow-hidden mb-8 relative border-4 border-white/50">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="English Immersion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute bottom-4 right-4 lg:left-4 lg:right-auto bg-indigo-500 text-white px-6 py-2 rounded-full font-bold text-lg shadow-lg">英语强化</div>
+              </div>
+              <div class="text-center lg:text-right px-4">
+                <p class="text-white text-xl leading-relaxed">
+                  语言游戏、趣味活动、听说读写
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 7天每日行程 -->
     <section class="py-24 bg-slate-50 overflow-hidden">
       <div class="max-w-[1200px] mx-auto px-8 relative">
