@@ -1,0 +1,43 @@
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+.text-sg-blue {
+  color: #005a9c;
+}
+.bg-sg-blue {
+  background-color: #005a9c;
+}
+.text-luxury-gold {
+  color: #e5a663;
+}
+.bg-luxury-gold {
+  background-color: #e5a663;
+}
+.border-luxury-gold {
+  border-color: #e5a663;
+}
+.nav-link {
+  position: relative;
+  transition: all 0.3s;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #e5a663;
+  transition: width 0.3s;
+}
+.nav-link:hover::after,
+.nav-link.router-link-active::after,
+.nav-link.router-link-exact-active::after {
+  width: 100%;
+}
+
+.card-shadow {
+  box-shadow: 0 10px 30px -5px rgba(0, 90, 156, 0.1);
+}

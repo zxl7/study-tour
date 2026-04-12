@@ -1,0 +1,484 @@
+<template>
+  <div class="page-container">
+    <!-- 项目专属Banner -->
+    <header class="relative pt-20 h-[500px] flex items-center bg-gray-900 overflow-hidden">
+      <img alt="EP Banner" class="absolute inset-0 w-full h-full object-cover opacity-40" src="/img/EP_Banner.jpg" />
+      <div class="relative z-10 max-w-[1440px] mx-auto px-8 w-full text-center">
+        <h1 class="text-6xl font-bold text-white mb-6 uppercase tracking-widest">Singapore Employment Pass</h1>
+        <h2 class="text-3xl font-light text-luxury-gold mb-8">精英人才准证 · 移居新加坡的最优路径</h2>
+        <p class="text-gray-300 max-w-4xl mx-auto text-lg leading-relaxed tracking-wide flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 mt-4">
+          <span class="flex items-center">
+            <iconify-icon class="text-luxury-gold mr-2" icon="mdi:circle-small"></iconify-icon>
+            寻求税务优化与资产配置的企业主及高管
+          </span>
+          <span class="hidden md:block text-luxury-gold/30">|</span>
+          <span class="flex items-center">
+            <iconify-icon class="text-luxury-gold mr-2" icon="mdi:circle-small"></iconify-icon>
+            计划海外拓展与设立总部的企业家
+          </span>
+          <span class="hidden md:block text-luxury-gold/30">|</span>
+          <span class="flex items-center">
+            <iconify-icon class="text-luxury-gold mr-2" icon="mdi:circle-small"></iconify-icon>
+            重视子女教育、规划家族未来的高净值人士
+          </span>
+        </p>
+      </div>
+    </header>
+    <!-- 政策解读 -->
+    <section class="py-8 bg-white">
+      <div class="max-w-[1440px] mx-auto px-8 grid grid-cols-2 gap-20 items-center">
+        <div>
+          <h2 class="text-4xl font-bold text-sg-blue mb-8">2026 EP政策最新解读</h2>
+          <div class="space-y-6">
+            <div class="p-6 border-l-4 border-sg-blue bg-slate-50">
+              <h4 class="font-bold mb-2">什么是COMPASS评估体系？</h4>
+              <p class="text-gray-500 text-sm">自2023年9月起，所有EP申请必须通过互补专才评估框架。从个人薪资、学历、企业多元化及本地支持四个维度综合打分。</p>
+            </div>
+            <div class="p-6 border-l-4 border-luxury-gold bg-slate-50">
+              <h4 class="font-bold mb-2">教育红利与身份同步</h4>
+              <p class="text-gray-500 text-sm">持EP准证其子女可申请DP家属准证，以更低门槛入读新加坡政府中小学，且申请PR(永久居民)成功率更高。</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-sg-blue/5 p-10 rounded-2xl border border-sg-blue/10">
+          <img alt="Policy Infographic" class="w-full rounded-lg shadow-md mb-6" src="https://loremflickr.com/1200/700/business,infographic,data,chart" />
+          <p class="text-center text-sm text-gray-400 italic">2026年度EP评分权重示意图</p>
+        </div>
+      </div>
+    </section>
+    <!-- 为何选择新加坡EP -->
+    <section class="py-8 bg-white">
+      <div class="max-w-[1440px] mx-auto px-8">
+        <div class="text-center mb-20">
+          <h2 class="text-4xl font-bold text-sg-blue mb-4">为何选择新加坡EP</h2>
+          <div class="w-20 h-1 bg-luxury-gold mx-auto mb-6"></div>
+          <p class="text-gray-500 max-w-2xl mx-auto italic text-lg">新加坡为吸引外国专业人才设立的最高等级工作准证</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+          <!-- 左侧：什么是EP及核心权益 -->
+          <div class="lg:col-span-5 bg-slate-50 rounded-3xl p-12 border border-slate-100 hover:shadow-xl transition-shadow relative overflow-hidden flex flex-col justify-center h-full">
+            <!-- 装饰图案 -->
+            <div class="absolute -right-10 -bottom-10 text-blue-100/50">
+              <iconify-icon class="text-[250px]" icon="ph:identification-card-bold"></iconify-icon>
+            </div>
+
+            <div class="relative z-10">
+              <h3 class="text-2xl font-bold text-sg-blue mb-4 flex items-center">
+                <iconify-icon class="mr-3 text-3xl" icon="mdi:help-circle-outline"></iconify-icon>
+                什么是EP？
+              </h3>
+              <p class="text-gray-600 text-lg mb-10 leading-relaxed border-l-4 border-luxury-gold pl-4">新加坡为吸引外国专业人才设立的最高等级工作准证，是实现全球化资产配置与身份规划的顶级通道。</p>
+
+              <h3 class="text-2xl font-bold text-sg-blue mb-6 flex items-center">
+                <iconify-icon class="mr-3 text-3xl" icon="mdi:star-circle"></iconify-icon>
+                核心权益
+              </h3>
+              <ul class="space-y-6 text-gray-600 text-lg">
+                <li class="flex items-start">
+                  <span class="w-2 h-2 rounded-full bg-luxury-gold mt-2.5 mr-4 flex-shrink-0"></span>
+                  <p>
+                    自由通行：
+                    <strong class="text-sg-blue">无限次</strong>
+                    进出，最长连续停留
+                    <strong class="text-sg-blue">2年</strong>
+                    。
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span class="w-2 h-2 rounded-full bg-luxury-gold mt-2.5 mr-4 flex-shrink-0"></span>
+                  <p class="leading-relaxed">
+                    家庭团聚：配偶、子女可申请
+                    <strong class="text-sg-blue">家属准证(DP)</strong>
+                    ，父母可申请
+                    <strong class="text-sg-blue">长期探访证(LTVP)</strong>
+                    。
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span class="w-2 h-2 rounded-full bg-luxury-gold mt-2.5 mr-4 flex-shrink-0"></span>
+                  <p>
+                    精英教育：子女可
+                    <strong class="text-sg-blue">直入</strong>
+                    新加坡政府中小学。
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span class="w-2 h-2 rounded-full bg-luxury-gold mt-2.5 mr-4 flex-shrink-0"></span>
+                  <p class="leading-relaxed">
+                    黄金跳板：是申请
+                    <strong class="text-sg-blue">新加坡永居(PR)</strong>
+                    及
+                    <strong class="text-sg-blue">公民身份</strong>
+                    的主要通道。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 右侧：四大优势网格 -->
+          <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- 优势 1: 税务避风港 -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+              <div class="w-14 h-14 bg-blue-50 text-sg-blue rounded-xl flex items-center justify-center mb-6 group-hover:bg-sg-blue group-hover:text-white transition-colors">
+                <iconify-icon class="text-3xl" icon="ph:piggy-bank-bold"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-bold text-sg-blue mb-6">税务避风港</h3>
+              <ul class="space-y-3 text-gray-600">
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>
+                    个税税率
+                    <strong class="text-sg-blue px-1">极低</strong>
+                    （0-22%阶梯）
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>
+                    企业所得税仅
+                    <strong class="text-sg-blue px-1">17%</strong>
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>拥有新加坡税号轻松开户</p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>合理规避CRS信息交换</p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>享受和公民同等的税务抵扣</p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 优势 2: 子女教育及亲属探访 -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+              <div class="w-14 h-14 bg-blue-50 text-sg-blue rounded-xl flex items-center justify-center mb-6 group-hover:bg-sg-blue group-hover:text-white transition-colors">
+                <iconify-icon class="text-3xl" icon="ph:graduation-cap-bold"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-bold text-sg-blue mb-6">子女教育及亲属探访</h3>
+              <ul class="space-y-3 text-gray-600">
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>配偶和子女申请DP签证</p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>父母申请长期探访准证LTVP</p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>子女直入政府中小学</p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>免去留学签证烦恼</p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>居住满2年即可申请永居</p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 优势 3: 企业运营开挂体验 -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+              <div class="w-14 h-14 bg-blue-50 text-sg-blue rounded-xl flex items-center justify-center mb-6 group-hover:bg-sg-blue group-hover:text-white transition-colors">
+                <iconify-icon class="text-3xl" icon="ph:buildings-bold"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-bold text-sg-blue mb-6">企业运营体验</h3>
+              <ul class="space-y-3 text-gray-600">
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>
+                    <strong class="text-sg-blue px-1">自主</strong>
+                    担任本地董事
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>再也不需要依赖挂名董事</p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>
+                    公司决策
+                    <strong class="text-sg-blue px-1">效率翻倍</strong>
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>运营成本直线下降</p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>银行账户安全有保障</p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 优势 4: 社会福利全享受 -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+              <div class="w-14 h-14 bg-blue-50 text-sg-blue rounded-xl flex items-center justify-center mb-6 group-hover:bg-sg-blue group-hover:text-white transition-colors">
+                <iconify-icon class="text-3xl" icon="ph:t-shirt-bold"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-bold text-sg-blue mb-6">社会福利全享受</h3>
+              <ul class="space-y-3 text-gray-600">
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>优质医疗体系覆盖</p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>完善公共服务设施</p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>可购买商业保险补充</p>
+                </li>
+                <li class="flex items-start">
+                  <iconify-icon class="text-luxury-gold mt-1 mr-2" icon="mdi:check-circle-outline"></iconify-icon>
+                  <p>生活质量直线上升</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 为什么选择我们 -->
+    <section class="py-24 bg-sg-blue relative overflow-hidden">
+      <!-- 装饰图案 -->
+      <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full border-[40px] border-white"></div>
+        <div class="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full border-[60px] border-white"></div>
+      </div>
+
+      <div class="max-w-[1200px] mx-auto px-8 relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-wide">选择我们，快速直达</h2>
+          <div class="w-24 h-1 bg-luxury-gold mx-auto"></div>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-10 md:p-16 border border-white/20 shadow-2xl">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- 特性 1 -->
+            <div class="flex items-start group">
+              <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mr-6 group-hover:bg-luxury-gold transition-colors flex-shrink-0">
+                <iconify-icon class="text-3xl text-white" icon="ph:door-open-bold"></iconify-icon>
+              </div>
+              <div>
+                <h4 class="text-2xl font-bold text-white mb-3">门槛低</h4>
+                <p class="text-blue-100 text-lg leading-relaxed">无强制学历与年龄要求，提供专业的背景优化指导。</p>
+              </div>
+            </div>
+
+            <!-- 特性 2 -->
+            <div class="flex items-start group">
+              <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mr-6 group-hover:bg-luxury-gold transition-colors flex-shrink-0">
+                <iconify-icon class="text-3xl text-white" icon="ph:clock-countdown-bold"></iconify-icon>
+              </div>
+              <div>
+                <h4 class="text-2xl font-bold text-white mb-3">周期短</h4>
+                <p class="text-blue-100 text-lg leading-relaxed">
+                  专业团队全程负责，办理周期仅需
+                  <strong class="text-white">30-60天</strong>
+                  。
+                </p>
+              </div>
+            </div>
+
+            <!-- 特性 3 -->
+            <div class="flex items-start group">
+              <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mr-6 group-hover:bg-luxury-gold transition-colors flex-shrink-0">
+                <iconify-icon class="text-3xl text-white" icon="ph:chart-line-up-bold"></iconify-icon>
+              </div>
+              <div>
+                <h4 class="text-2xl font-bold text-white mb-3">通过率高</h4>
+                <p class="text-blue-100 text-lg leading-relaxed">资深文案与顶尖法律团队保驾护航，确保极高的获批率。</p>
+              </div>
+            </div>
+
+            <!-- 特性 4 -->
+            <div class="flex items-start group">
+              <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mr-6 group-hover:bg-luxury-gold transition-colors flex-shrink-0">
+                <iconify-icon class="text-3xl text-white" icon="ph:handshake-bold"></iconify-icon>
+              </div>
+              <div>
+                <h4 class="text-2xl font-bold text-white mb-3">一站式全包</h4>
+                <p class="text-blue-100 text-lg leading-relaxed">
+                  <strong class="text-white">20万新币一价全包</strong>
+                  ，涵盖签证、公司注册、银行开户等所有核心环节。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 一站式流程 -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-[1440px] mx-auto px-8">
+        <h2 class="text-4xl font-bold text-sg-blue mb-20 text-center">标准化一站式办理流程</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div class="ep-process-step text-center px-2">
+            <div class="w-16 h-16 bg-sg-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">01</div>
+            <h4 class="font-bold mb-2">初步咨询</h4>
+            <p class="text-xs text-gray-500">评估与方案制定</p>
+          </div>
+
+          <div class="ep-process-step text-center px-2">
+            <div class="w-16 h-16 bg-luxury-gold text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">02</div>
+            <h4 class="font-bold mb-2">准备签约</h4>
+            <p class="text-xs text-gray-500">确认方案，签署协议</p>
+          </div>
+
+          <div class="ep-process-step text-center px-2">
+            <div class="w-16 h-16 bg-sg-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">03</div>
+            <h4 class="font-bold mb-2">材料准备</h4>
+            <p class="text-xs text-gray-500">我方全程代办新加坡端手续</p>
+          </div>
+
+          <div class="ep-process-step text-center px-2">
+            <div class="w-16 h-16 bg-luxury-gold text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">04</div>
+            <h4 class="font-bold mb-2">递交申请</h4>
+            <p class="text-xs text-gray-500">向新加坡人力部(MOM)提交</p>
+          </div>
+
+          <div class="ep-process-step text-center px-2">
+            <div class="w-16 h-16 bg-sg-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">05</div>
+            <h4 class="font-bold mb-2">获批领卡</h4>
+            <p class="text-xs text-gray-500">申请通过，安排面试领取EP卡</p>
+          </div>
+
+          <div class="ep-process-step text-center px-2" style="--tw-content: none">
+            <div class="w-16 h-16 bg-luxury-gold text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">06</div>
+            <h4 class="font-bold mb-2">安家服务</h4>
+            <p class="text-xs text-gray-500">协助银行开户、家庭证件办理等</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 您的安全，我们保障 -->
+    <section class="py-24 bg-white">
+      <div class="max-w-[1200px] mx-auto px-8">
+        <div class="text-center mb-20">
+          <h2 class="text-4xl font-bold text-sg-blue mb-6">您的安全，我们保障</h2>
+          <div class="w-20 h-1 bg-luxury-gold mx-auto"></div>
+        </div>
+
+        <div class="space-y-16">
+          <!-- 保障 1: 权威授权 -->
+          <div class="flex flex-col md:flex-row items-center gap-12 group">
+            <div class="w-full md:w-1/2 relative">
+              <!-- 模拟授权书占位图，带阴影和圆角 -->
+              <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-lg relative overflow-hidden group-hover:shadow-xl transition-shadow">
+                <img src="https://loremflickr.com/1200/800/certificate,document,signature" alt="Authorization Certificate" class="w-full h-64 object-cover rounded-xl opacity-90" />
+                <!-- 悬浮图标徽章 -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-sky-500 rounded-full flex items-center justify-center border-4 border-white shadow-xl">
+                  <iconify-icon class="text-3xl text-white" icon="ph:certificate-bold"></iconify-icon>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 md:pl-10 text-center md:text-left">
+              <h3 class="text-3xl font-bold text-sg-blue mb-6">权威授权</h3>
+              <p class="text-gray-500 text-xl leading-relaxed">
+                海南盛昌利民为新加坡老牌咨询机构
+                <br />
+                <strong class="text-sg-blue">“JK新时代”</strong>
+                大中华区唯一总代理。
+              </p>
+            </div>
+          </div>
+
+          <!-- 保障 2: 资金合规 -->
+          <div class="flex flex-col md:flex-row-reverse items-center gap-12 group">
+            <div class="w-full md:w-1/2 relative">
+              <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-lg relative overflow-hidden group-hover:shadow-xl transition-shadow">
+                <img src="/img/Law_Firm_Compliance.jpg" alt="Law Firm Compliance" class="w-full h-64 object-cover rounded-xl opacity-90" />
+                <!-- 悬浮图标徽章 -->
+                <!-- <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gray-400 rounded-full flex items-center justify-center border-4 border-white shadow-xl">
+              <iconify-icon class="text-3xl text-white" icon="ph:diamond-bold"></iconify-icon>
+            </div> -->
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 md:pr-10 text-center md:text-right">
+              <h3 class="text-3xl font-bold text-sg-blue mb-6">资金合规</h3>
+              <p class="text-gray-500 text-xl leading-relaxed">
+                由上海知名律所提供全流程合规监管，
+                <br />
+                确保合规安全。
+              </p>
+            </div>
+          </div>
+
+          <!-- 保障 3: 行胜于言 -->
+          <div class="flex flex-col md:flex-row items-center gap-12 group">
+            <div class="w-full md:w-1/2 relative">
+              <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-lg relative overflow-hidden group-hover:shadow-xl transition-shadow">
+                <img src="/img/Approved_Documents.jpg" alt="Approved Documents" class="w-full h-64 object-cover rounded-xl opacity-90" />
+                <!-- 悬浮图标徽章 -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gray-500 rounded-full flex items-center justify-center border-4 border-white shadow-xl">
+                  <iconify-icon class="text-3xl text-white" icon="ph:lock-key-bold"></iconify-icon>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 md:pl-10 text-center md:text-left">
+              <h3 class="text-3xl font-bold text-sg-blue mb-6">行胜于言</h3>
+              <p class="text-gray-500 text-xl leading-relaxed">
+                <strong class="text-sg-blue">95%以上通过率</strong>
+                ，每时每刻都有客户获签。
+                <br />
+                全程兜底，任何原因未过审，
+                <strong class="text-sg-blue">2小时内退回客户所支付全部费用</strong>
+                ，已发生申报费用由我司全额承担。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 收费标准 -->
+    <section class="py-8 bg-white">
+      <!-- <div class="max-w-[1200px] mx-auto px-8">
+        <div class="border-2 border-luxury-gold rounded-3xl overflow-hidden flex shadow-2xl">
+          <div class="w-2/3 p-12">
+            <h2 class="text-3xl font-bold text-sg-blue mb-8">EP准证全程委托服务</h2>
+            <div class="grid grid-cols-2 gap-8 mb-8">
+              <div>
+                <h5 class="font-bold mb-2 text-luxury-gold">自雇/雇佣EP申请</h5>
+                <p class="text-sm text-gray-500">含商业计划书撰写、公司设立引导及COMPASS提分规划。</p>
+              </div>
+              <div>
+                <h5 class="font-bold mb-2 text-luxury-gold">家属DP/父母LTVP</h5>
+                <p class="text-sm text-gray-500">同步办理全家属居住证件，确保家庭团聚无忧。</p>
+              </div>
+            </div>
+            <p class="text-xs text-gray-400">* 所有咨询均受保密协议保护，保障您的信息安全。</p>
+          </div>
+          <div class="w-1/3 bg-luxury-gold p-12 text-white flex flex-col justify-center items-center">
+            <p class="text-sm uppercase tracking-widest mb-4">全程咨询服务费</p>
+            <p class="text-5xl font-black mb-10 italic">
+              ¥ 88,000
+              <span class="text-lg">起</span>
+            </p>
+            <button class="bg-gray-900 text-white w-full py-4 rounded font-bold hover:bg-black transition-all">立即发起评估</button>
+          </div>
+        </div>
+      </div> -->
+    </section>
+    <!-- 底部 -->
+  </div>
+</template>
+
+<script setup lang="ts">
+// EpPass page component
+</script>
