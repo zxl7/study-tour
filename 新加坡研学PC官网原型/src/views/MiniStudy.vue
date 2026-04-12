@@ -180,7 +180,7 @@
         </div>
       </div>
     </section>
-<!-- 入学准备 -->
+    <!-- 入学准备 -->
     <section class="py-16 bg-white">
       <div class="max-w-[1440px] mx-auto px-8">
         <div class="text-center mb-16">
@@ -196,26 +196,36 @@
             <div class="absolute -right-6 -bottom-6 text-blue-100/50">
               <iconify-icon class="text-[180px]" icon="ph:stack-bold"></iconify-icon>
             </div>
-            
+
             <div class="flex items-center mb-8 relative z-10">
               <div class="w-12 h-12 bg-blue-100 text-sg-blue rounded-xl flex items-center justify-center mr-4">
                 <iconify-icon class="text-2xl" icon="mdi:file-document-multiple"></iconify-icon>
               </div>
               <h3 class="text-2xl font-bold text-sg-blue">申请材料</h3>
             </div>
-            
+
             <ul class="space-y-6 text-gray-600 relative z-10">
               <li class="flex items-start">
                 <iconify-icon class="text-luxury-gold text-xl mr-4 mt-1" icon="mdi:check-circle"></iconify-icon>
-                <p>学生及家长的 <strong class="text-sg-blue">护照复印件</strong></p>
+                <p>
+                  学生及家长的
+                  <strong class="text-sg-blue">护照复印件</strong>
+                </p>
               </li>
               <li class="flex items-start">
                 <iconify-icon class="text-luxury-gold text-xl mr-4 mt-1" icon="mdi:check-circle"></iconify-icon>
-                <p>学生 <strong class="text-sg-blue">最近的学校成绩单或完成当前年级的证明</strong></p>
+                <p>
+                  学生
+                  <strong class="text-sg-blue">最近的学校成绩单或完成当前年级的证明</strong>
+                </p>
               </li>
               <li class="flex items-start">
                 <iconify-icon class="text-luxury-gold text-xl mr-4 mt-1" icon="mdi:check-circle"></iconify-icon>
-                <p class="leading-relaxed">入学后，学生需要在学校参加 <strong class="text-sg-blue">英语水平测试</strong>。该测试将帮助教师为学生选择最合适的学习材料和教学方式。</p>
+                <p class="leading-relaxed">
+                  入学后，学生需要在学校参加
+                  <strong class="text-sg-blue">英语水平测试</strong>
+                  。该测试将帮助教师为学生选择最合适的学习材料和教学方式。
+                </p>
               </li>
             </ul>
           </div>
@@ -237,15 +247,25 @@
             <ul class="space-y-6 text-gray-600 relative z-10">
               <li class="flex items-start">
                 <span class="w-2 h-2 rounded-full bg-luxury-gold mt-2 mr-4 flex-shrink-0"></span>
-                <p class="leading-relaxed">新加坡的寄宿家庭 <strong class="text-sg-blue">受到政府的严格监管</strong>，必须符合所有关于安全和居住环境的官方要求。</p>
+                <p class="leading-relaxed">
+                  新加坡的寄宿家庭
+                  <strong class="text-sg-blue">受到政府的严格监管</strong>
+                  ，必须符合所有关于安全和居住环境的官方要求。
+                </p>
               </li>
               <li class="flex items-start">
                 <span class="w-2 h-2 rounded-full bg-luxury-gold mt-2 mr-4 flex-shrink-0"></span>
-                <p>家庭成员身份：<strong class="text-sg-blue">新加坡本地人或永久居民</strong></p>
+                <p>
+                  家庭成员身份：
+                  <strong class="text-sg-blue">新加坡本地人或永久居民</strong>
+                </p>
               </li>
               <li class="flex items-start">
                 <span class="w-2 h-2 rounded-full bg-luxury-gold mt-2 mr-4 flex-shrink-0"></span>
-                <p>居住空间符合政府标准，加上家庭成员<strong class="text-sg-blue">不得超过6人</strong></p>
+                <p>
+                  居住空间符合政府标准，加上家庭成员
+                  <strong class="text-sg-blue">不得超过6人</strong>
+                </p>
               </li>
               <li class="flex items-start">
                 <span class="w-2 h-2 rounded-full bg-luxury-gold mt-2 mr-4 flex-shrink-0"></span>
@@ -352,7 +372,6 @@
         </div>
       </div>
     </section>
-
     <!-- 费用明细 -->
     <section class="py-16 bg-white">
       <div class="max-w-[1440px] mx-auto px-8">
@@ -425,3 +444,49 @@
 <script setup lang="ts">
 // MiniStudy page component
 </script>
+
+<style scoped>
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  background-color: #ffffff;
+}
+
+.calendar-header {
+  background-color: #005a9c;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  text-align: center;
+  padding: 0.9rem 0.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.calendar-header:last-child {
+  border-right: none;
+}
+
+.calendar-day {
+  min-height: 7rem;
+  padding: 0.75rem 0.65rem;
+  border-right: 1px solid #e5e7eb;
+  border-top: 1px solid #e5e7eb;
+  line-height: 1.45;
+}
+
+.calendar-day:nth-child(7n) {
+  border-right: none;
+}
+
+@media (max-width: 1200px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, minmax(140px, 1fr));
+    overflow-x: auto;
+  }
+
+  .calendar-day {
+    min-height: 7.5rem;
+  }
+}
+</style>

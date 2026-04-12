@@ -481,3 +481,25 @@
 <script setup lang="ts">
 // GrowthCamp page component
 </script>
+
+<style scoped>
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, rgba(229, 166, 99, 0.18), rgba(229, 166, 99, 0.55), rgba(229, 166, 99, 0.18));
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background-color: #e5a663;
+  box-shadow: 0 0 0 6px #ffffff, 0 6px 14px rgba(0, 90, 156, 0.15);
+  flex-shrink: 0;
+  z-index: 10;
+}
+</style>
