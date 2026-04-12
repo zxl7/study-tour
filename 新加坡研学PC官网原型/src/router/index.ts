@@ -5,6 +5,13 @@ import GrowthCamp from '@/views/GrowthCamp.vue'
 import MiniStudy from '@/views/MiniStudy.vue'
 import EpPass from '@/views/EpPass.vue'
 import SchoolCamp from '@/views/SchoolCamp.vue'
+import AboutPage from '@/views/AboutPage.vue'
+import FamilyOfficePage from '@/views/FamilyOfficePage.vue'
+import SelfEmployedPassPage from '@/views/SelfEmployedPassPage.vue'
+import PrApplicationPage from '@/views/PrApplicationPage.vue'
+import TermsPage from '@/views/TermsPage.vue'
+import PrivacyPage from '@/views/PrivacyPage.vue'
+import PartnershipPage from '@/views/PartnershipPage.vue'
 
 // 使用纯函数生成路由配置
 const createRoutes = (): RouteRecordRaw[] => [
@@ -41,6 +48,48 @@ const createRoutes = (): RouteRecordRaw[] => [
         name: 'SchoolCamp',
         component: SchoolCamp,
         meta: { title: '国际学校体验营 - 2026新加坡研学' }
+      },
+      {
+        path: 'about',
+        name: 'About',
+        component: AboutPage,
+        meta: { title: '集团简介 - 2026新加坡研学' }
+      },
+      {
+        path: 'family-office',
+        name: 'FamilyOffice',
+        component: FamilyOfficePage,
+        meta: { title: '家族办公室 - 2026新加坡研学' }
+      },
+      {
+        path: 'self-employed-pass',
+        name: 'SelfEmployedPass',
+        component: SelfEmployedPassPage,
+        meta: { title: '自雇准证办理 - 2026新加坡研学' }
+      },
+      {
+        path: 'pr-application',
+        name: 'PrApplication',
+        component: PrApplicationPage,
+        meta: { title: 'PR 永居申请 - 2026新加坡研学' }
+      },
+      {
+        path: 'terms',
+        name: 'Terms',
+        component: TermsPage,
+        meta: { title: '服务条款 - 2026新加坡研学' }
+      },
+      {
+        path: 'privacy',
+        name: 'Privacy',
+        component: PrivacyPage,
+        meta: { title: '隐私政策 - 2026新加坡研学' }
+      },
+      {
+        path: 'partnership',
+        name: 'Partnership',
+        component: PartnershipPage,
+        meta: { title: '合作咨询 - 2026新加坡研学' }
       }
     ]
   }

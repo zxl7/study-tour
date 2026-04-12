@@ -61,18 +61,18 @@
             <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">教育移民</h4>
             <ul class="space-y-4">
               <li><router-link class="hover:text-luxury-gold transition-all" to="/ep-pass">人才准证 EP</router-link></li>
-              <li><a class="hover:text-luxury-gold transition-all" href="#">家族办公室</a></li>
-              <li><a class="hover:text-luxury-gold transition-all" href="#">自雇准证办理</a></li>
-              <li><a class="hover:text-luxury-gold transition-all" href="#">PR 永居申请</a></li>
+              <li><router-link class="hover:text-luxury-gold transition-all" to="/family-office">家族办公室</router-link></li>
+              <li><router-link class="hover:text-luxury-gold transition-all" to="/self-employed-pass">自雇准证办理</router-link></li>
+              <li><router-link class="hover:text-luxury-gold transition-all" to="/pr-application">PR 永居申请</router-link></li>
             </ul>
           </div>
           <div>
             <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">关于我们</h4>
             <ul class="space-y-4">
-              <li><a class="hover:text-luxury-gold transition-all" href="#">集团简介</a></li>
-              <li><a class="hover:text-luxury-gold transition-all" href="#">服务条款</a></li>
-              <li><a class="hover:text-luxury-gold transition-all" href="#">隐私政策</a></li>
-              <li><a class="hover:text-luxury-gold transition-all" href="#">合作咨询</a></li>
+              <li><router-link class="hover:text-luxury-gold transition-all" to="/about">集团简介</router-link></li>
+              <li><router-link class="hover:text-luxury-gold transition-all" to="/terms">服务条款</router-link></li>
+              <li><router-link class="hover:text-luxury-gold transition-all" to="/privacy">隐私政策</router-link></li>
+              <li><router-link class="hover:text-luxury-gold transition-all" to="/partnership">合作咨询</router-link></li>
             </ul>
           </div>
         </div>
