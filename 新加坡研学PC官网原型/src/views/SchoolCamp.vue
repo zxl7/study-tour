@@ -142,7 +142,7 @@
 
         <div class="relative max-w-4xl mx-auto">
           <!-- 时间轴中心线 -->
-          <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-luxury-gold/30"></div>
+          <div class="timeline-line"></div>
 
           <div class="space-y-16">
             <!-- Day 1 -->
@@ -154,7 +154,7 @@
                 </div>
               </div>
               <!-- 时间轴节点 -->
-              <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-luxury-gold rounded-full border-4 border-white shadow-lg z-10"></div>
+              <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pl-12">
                 <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 1</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【开启名校探秘之旅，从这里梦开始】</h4>
@@ -170,7 +170,7 @@
                   <img src="/img/Tour_7.jpg" alt="Tour" class="rounded-xl object-cover h-32 w-full shadow-md group-hover:scale-105 transition-transform duration-300" />
                 </div>
               </div>
-              <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-luxury-gold rounded-full border-4 border-white shadow-lg z-10"></div>
+              <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pr-12 md:pl-0 text-left md:text-right">
                 <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 2</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【上午探索多元，下午体验自然与城市发展】</h4>
@@ -193,7 +193,7 @@
                     class="rounded-xl object-cover h-32 w-full shadow-md group-hover:scale-105 transition-transform duration-300" />
                 </div>
               </div>
-              <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-luxury-gold rounded-full border-4 border-white shadow-lg z-10"></div>
+              <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pl-12">
                 <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 3</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【上午学校学习，下午走进新加坡科学艺术博物馆】</h4>
@@ -216,7 +216,7 @@
                   <img src="/img/Night_Safari_1.jpg" alt="Night Safari" class="rounded-xl object-cover h-32 w-full shadow-md group-hover:scale-105 transition-transform duration-300" />
                 </div>
               </div>
-              <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-luxury-gold rounded-full border-4 border-white shadow-lg z-10"></div>
+              <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pr-12 md:pl-0 text-left md:text-right">
                 <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 4</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【上午学校学习，下午夜间动物园】</h4>
@@ -242,7 +242,7 @@
                     class="rounded-xl object-cover h-32 w-full shadow-md group-hover:scale-105 transition-transform duration-300" />
                 </div>
               </div>
-              <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-luxury-gold rounded-full border-4 border-white shadow-lg z-10"></div>
+              <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pl-12">
                 <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 5</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【上午学校学习，下午名校参访营结业】</h4>
@@ -265,7 +265,7 @@
                   <img src="https://picsum.photos/seed/play/400/300" alt="Play" class="rounded-xl object-cover h-32 w-full shadow-md group-hover:scale-105 transition-transform duration-300" />
                 </div>
               </div>
-              <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-luxury-gold rounded-full border-4 border-white shadow-lg z-10"></div>
+              <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pr-12 md:pl-0 text-left md:text-right">
                 <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 6</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【上午环球影城，晚上星耀樟宜购物】</h4>
@@ -286,7 +286,7 @@
                   <img src="/img/Flight_1.jpg" alt="Flight" class="rounded-xl object-cover h-32 w-full shadow-md group-hover:scale-105 transition-transform duration-300" />
                 </div>
               </div>
-              <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-luxury-gold rounded-full border-4 border-white shadow-lg z-10"></div>
+              <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pl-12">
                 <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 7</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【满载而归，分享成长经历】</h4>
@@ -442,3 +442,75 @@
 <script setup lang="ts">
 // SchoolCamp page component
 </script>
+
+<style scoped>
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2rem;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(229, 166, 99, 0.2), rgba(229, 166, 99, 0.65), rgba(229, 166, 99, 0.2));
+  z-index: 1;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 2rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background-color: #e5a663;
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 90, 156, 0.15);
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .timeline-line {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-dot {
+    left: 50%;
+  }
+}
+</style>
+
+<style scoped>
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2rem;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(229, 166, 99, 0.2), rgba(229, 166, 99, 0.65), rgba(229, 166, 99, 0.2));
+  z-index: 1;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 2rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background-color: #e5a663;
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 90, 156, 0.15);
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .timeline-line {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-dot {
+    left: 50%;
+  }
+}
+</style>

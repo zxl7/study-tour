@@ -55,7 +55,6 @@
               <li><router-link class="hover:text-luxury-gold transition-all" to="/growth-camp">新加坡成长营</router-link></li>
               <li><router-link class="hover:text-luxury-gold transition-all" to="/mini-study">新加坡微留学</router-link></li>
               <li><router-link class="hover:text-luxury-gold transition-all" to="/school-camp">国际学校体验营</router-link></li>
-              <li><a class="hover:text-luxury-gold transition-all" href="#">青少年领袖营</a></li>
             </ul>
           </div>
           <div>
