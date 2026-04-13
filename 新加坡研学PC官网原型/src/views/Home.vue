@@ -21,7 +21,9 @@
           </p>
           <div class="flex space-x-6">
             <a class="bg-luxury-gold hover:bg-[#d49552] text-white px-10 py-4 rounded font-bold text-lg shadow-xl transition-all" href="#projects">探索研学项目</a>
-            <router-link class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm text-white px-10 py-4 rounded font-bold text-lg transition-all" to="/ep-pass">了解移民准证</router-link>
+            <router-link class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm text-white px-10 py-4 rounded font-bold text-lg transition-all" to="/ep-pass">
+              了解移民准证
+            </router-link>
           </div>
         </div>
       </div>
@@ -172,7 +174,7 @@
                   班期：寒暑假
                 </span>
               </div>
-              <router-link class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue hover:text-white transition-all" to="/growth-camp">查看详情</router-link>
+              <router-link class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue transition-all" to="/growth-camp">查看详情</router-link>
             </div>
           </div>
           <!-- 项目卡片 2 -->
@@ -194,7 +196,7 @@
                   班期：学期中
                 </span>
               </div>
-              <router-link class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue hover:text-white transition-all" to="/mini-study">查看详情</router-link>
+              <router-link class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue transition-all" to="/mini-study">查看详情</router-link>
             </div>
           </div>
           <!-- 项目卡片 3 -->
@@ -216,7 +218,7 @@
                   优势：全家移民
                 </span>
               </div>
-              <router-link class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue hover:text-white transition-all" to="/ep-pass">查看详情</router-link>
+              <router-link class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue transition-all" to="/ep-pass">查看详情</router-link>
             </div>
           </div>
           <!-- 项目卡片 4 -->
@@ -238,7 +240,7 @@
                   师资：名校外教
                 </span>
               </div>
-              <router-link class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue hover:text-white transition-all" to="/school-camp">查看详情</router-link>
+              <router-link class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue transition-all" to="/school-camp">查看详情</router-link>
             </div>
           </div>
         </div>
@@ -542,7 +544,7 @@
               <button class="w-full bg-sg-blue hover:bg-[#004a80] text-white font-bold py-5 rounded-lg text-lg shadow-lg transition-all">提交申请 · 免费领取规划手册</button>
             </form>
           </div>
-          <div class="w-1/2 bg-sg-blue p-16 text-white flex flex-col justify-center">
+          <div class="w-1/2 bg-sg-blue p-16 text-white flex flex-col justify-between">
             <div class="mb-12">
               <h3 class="text-2xl font-bold mb-6 flex items-center">
                 <iconify-icon class="mr-3 text-luxury-gold" icon="ph:phone-call-fill"></iconify-icon>
@@ -556,8 +558,8 @@
                 <iconify-icon class="mr-3 text-luxury-gold" icon="ph:map-pin-fill"></iconify-icon>
                 办公地址
               </h3>
-              <p class="mb-2">新加坡总部：7 Temasek Boulevard, Suntec Tower One, Singapore</p>
-              <p>中国运营中心：北京市朝阳区国贸中心 A座 22层</p>
+              <p class="mb-2">新加坡总部：xxxxxx</p>
+              <p>中国运营中心：海南xxxxx</p>
             </div>
             <div class="flex space-x-8 items-center">
               <div class="text-center">

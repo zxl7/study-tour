@@ -91,7 +91,7 @@
     </section>
 
     <!-- 国际学校同步课程 -->
-    <section class="py-24 bg-sg-blue relative overflow-hidden">
+    <section class="py-16 bg-sg-blue relative overflow-hidden">
       <div class="max-w-[1440px] mx-auto px-8 relative z-10">
         <div class="text-center mb-16">
           <h2 class="text-4xl font-bold text-white mb-4">国际学校同步课程</h2>
@@ -140,7 +140,7 @@
           <p class="text-gray-500 italic text-lg">8天7晚 · 新加坡国际学校全真体验营</p>
         </div>
 
-        <div class="relative max-w-4xl mx-auto">
+        <div class="relative max-w-5xl mx-auto">
           <!-- 时间轴中心线 -->
           <div class="timeline-line"></div>
 
@@ -156,7 +156,7 @@
               <!-- 时间轴节点 -->
               <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pl-12">
-                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 1</h3>
+                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: serif">Day 1</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【开启名校探秘之旅，从这里梦开始】</h4>
                 <p class="text-gray-600 leading-relaxed">集合出发，乘机飞往享有"花园城市"美誉的新加坡。接机后入住，小营员们签到破冰，随后享用欢迎晚宴，感受特色南洋之美。</p>
               </div>
@@ -172,7 +172,7 @@
               </div>
               <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pr-12 md:pl-0 text-left md:text-right">
-                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 2</h3>
+                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: serif">Day 2</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【上午探索多元，下午体验自然与城市发展】</h4>
                 <p class="text-gray-600 leading-relaxed">
                   上午：走上跨越历史的多元文化街区，体验当地异域风情，探访新加坡河畔、鱼尾狮公园、国会区，感受城市新旧交融。了解新加坡历史。
@@ -187,15 +187,12 @@
               <div class="hidden md:block w-5/12 text-right pr-12">
                 <div class="grid grid-cols-2 gap-2">
                   <img src="/img/School_building_1.jpg" alt="School building" class="rounded-xl object-cover h-32 w-full shadow-md group-hover:scale-105 transition-transform duration-300" />
-                  <img
-                    src="/img/Students_in_classroom.jpg"
-                    alt="Students in classroom"
-                    class="rounded-xl object-cover h-32 w-full shadow-md group-hover:scale-105 transition-transform duration-300" />
+                  <img src="/img/Students_in_classroom.jpg" alt="Students in classroom" class="rounded-xl object-cover h-32 w-full shadow-md group-hover:scale-105 transition-transform duration-300" />
                 </div>
               </div>
               <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pl-12">
-                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 3</h3>
+                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: serif">Day 3</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【上午学校学习，下午走进新加坡科学艺术博物馆】</h4>
                 <p class="text-gray-600 leading-relaxed">
                   上午：国际学校课程体验。
@@ -218,7 +215,7 @@
               </div>
               <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pr-12 md:pl-0 text-left md:text-right">
-                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 4</h3>
+                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: serif">Day 4</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【上午学校学习，下午夜间动物园】</h4>
                 <p class="text-gray-600 leading-relaxed">
                   上午：国际学校课程体验。
@@ -244,7 +241,7 @@
               </div>
               <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pl-12">
-                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 5</h3>
+                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: serif">Day 5</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【上午学校学习，下午名校参访营结业】</h4>
                 <p class="text-gray-600 leading-relaxed">
                   上午：国际学校课程体验。
@@ -267,7 +264,7 @@
               </div>
               <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pr-12 md:pl-0 text-left md:text-right">
-                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 6</h3>
+                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: serif">Day 6</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【上午环球影城，晚上星耀樟宜购物】</h4>
                 <p class="text-gray-600 leading-relaxed">
                   全天：畅游东南亚唯一的环球影城，在各大主题乐园（如侏罗纪公园、变形金刚、木乃伊复仇记等）尽情玩耍。在游乐中释放童真，通过团队协作挑战各种项目，度过充满欢笑与刺激的一天，让身心在紧张学习后彻底放松。
@@ -288,7 +285,7 @@
               </div>
               <div class="timeline-dot"></div>
               <div class="w-full md:w-5/12 pl-20 md:pl-12">
-                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: &quot;Georgia&quot;, serif">Day 7</h3>
+                <h3 class="text-3xl font-bold text-luxury-gold mb-2" style="font-family: serif">Day 7</h3>
                 <h4 class="text-xl font-bold text-sg-blue mb-3">【满载而归，分享成长经历】</h4>
                 <p class="text-gray-600 leading-relaxed">前往世界闻名的星耀樟宜机场，观赏震撼的室内瀑布（雨漩涡）。在商场选购伴手礼。结束充实而难忘的新加坡游学之旅，搭乘航班返回温馨的家。</p>
               </div>

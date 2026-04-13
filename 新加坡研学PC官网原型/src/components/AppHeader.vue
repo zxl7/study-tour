@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="flex items-center space-x-10 font-medium">
-        <router-link class="nav-link text-gray-600 hover:text-sg-blue" exact-active-class="text-sg-blue" to="/">首页</router-link>
+        <router-link class="nav-link text-gray-600 hover:text-sg-blue" active-class="text-sg-blue" to="/">首页</router-link>
         <router-link class="nav-link text-gray-600 hover:text-sg-blue" active-class="text-sg-blue" to="/growth-camp">新加坡成长营</router-link>
         <router-link class="nav-link text-gray-600 hover:text-sg-blue" active-class="text-sg-blue" to="/mini-study">新加坡微留学</router-link>
         <router-link class="nav-link text-gray-600 hover:text-sg-blue" active-class="text-sg-blue" to="/ep-pass">人才准证EP</router-link>
