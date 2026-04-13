@@ -17,10 +17,11 @@ import PartnershipPage from '@/views/PartnershipPage.vue'
 const createRoutes = (): RouteRecordRaw[] => [
   {
     path: '/',
+    redirect: '/home',
     component: Layout,
     children: [
       {
-        path: '',
+        path: 'home',
         name: 'Home',
         component: Home,
         meta: { title: '首页 - 2026新加坡研学' }
