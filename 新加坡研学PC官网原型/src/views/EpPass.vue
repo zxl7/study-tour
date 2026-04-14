@@ -327,38 +327,38 @@
       <div class="max-w-[1440px] mx-auto px-8">
         <h2 class="text-4xl font-bold text-sg-blue mb-20 text-center">标准化一站式办理流程</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          <div class="ep-process-step text-center px-2">
-            <div class="w-16 h-16 bg-sg-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">01</div>
+          <div class="ep-process-step text-center px-2 relative">
+            <div class="relative z-10 w-16 h-16 bg-sg-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">01</div>
             <h4 class="font-bold mb-2">初步咨询</h4>
             <p class="text-xs text-gray-500">评估与方案制定</p>
           </div>
 
-          <div class="ep-process-step text-center px-2">
-            <div class="w-16 h-16 bg-luxury-gold text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">02</div>
+          <div class="ep-process-step text-center px-2 relative">
+            <div class="relative z-10 w-16 h-16 bg-luxury-gold text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">02</div>
             <h4 class="font-bold mb-2">准备签约</h4>
             <p class="text-xs text-gray-500">确认方案，签署协议</p>
           </div>
 
-          <div class="ep-process-step text-center px-2">
-            <div class="w-16 h-16 bg-sg-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">03</div>
+          <div class="ep-process-step text-center px-2 relative">
+            <div class="relative z-10 w-16 h-16 bg-sg-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">03</div>
             <h4 class="font-bold mb-2">材料准备</h4>
             <p class="text-xs text-gray-500">我方全程代办新加坡端手续</p>
           </div>
 
-          <div class="ep-process-step text-center px-2">
-            <div class="w-16 h-16 bg-luxury-gold text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">04</div>
+          <div class="ep-process-step text-center px-2 relative">
+            <div class="relative z-10 w-16 h-16 bg-luxury-gold text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">04</div>
             <h4 class="font-bold mb-2">递交申请</h4>
             <p class="text-xs text-gray-500">向新加坡人力部(MOM)提交</p>
           </div>
 
-          <div class="ep-process-step text-center px-2">
-            <div class="w-16 h-16 bg-sg-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">05</div>
+          <div class="ep-process-step text-center px-2 relative">
+            <div class="relative z-10 w-16 h-16 bg-sg-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">05</div>
             <h4 class="font-bold mb-2">获批领卡</h4>
             <p class="text-xs text-gray-500">申请通过，安排面试领取EP卡</p>
           </div>
 
-          <div class="ep-process-step text-center px-2" style="--tw-content: none">
-            <div class="w-16 h-16 bg-luxury-gold text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">06</div>
+          <div class="ep-process-step text-center px-2 relative">
+            <div class="relative z-10 w-16 h-16 bg-luxury-gold text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">06</div>
             <h4 class="font-bold mb-2">安家服务</h4>
             <p class="text-xs text-gray-500">协助银行开户、家庭证件办理等</p>
           </div>
@@ -482,3 +482,44 @@
 <script setup lang="ts">
 // EpPass page component
 </script>
+
+<style scoped>
+/* 流程大屏横向连线 (lg: 6列) */
+@media (min-width: 1024px) {
+  .ep-process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 2rem; /* 16/2 = 8, 8*4px = 32px = 2rem */
+    left: 50%;
+    width: calc(100% + 1.5rem); /* column width + gap-6 (1.5rem) */
+    border-top: 2px dashed #e5a663;
+    z-index: 0;
+  }
+}
+
+/* 流程中屏横向连线 (md: 3列) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ep-process-step:not(:nth-child(3n))::after {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    width: calc(100% + 1.5rem);
+    border-top: 2px dashed #e5a663;
+    z-index: 0;
+  }
+}
+
+/* 流程小屏纵向连线 (1列) */
+@media (max-width: 767px) {
+  .ep-process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 4rem; /* 刚好穿过文字下方到下一个圆圈 */
+    left: 50%;
+    height: calc(100% - 2rem);
+    border-left: 2px dashed #e5a663;
+    z-index: 0;
+  }
+}
+</style>
