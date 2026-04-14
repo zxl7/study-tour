@@ -43,12 +43,12 @@
           </ul>
         </div>
       </div>
-      <div class="pt-8 border-t border-gray-800 text-sm flex justify-between items-center">
-        <p>© 2026 盛昌利民 Elite Education Global. All Rights Reserved.</p>
+      <div class="pt-8 border-t border-gray-800 text-sm flex justify-center items-center">
         <div class="flex space-x-6">
-          <span>新加坡会计与企业管制局(ACRA)注册号：2016XXXXXXG</span>
           <span>京ICP备XXXXXXX号</span>
         </div>
+        ·
+        <p>2026 盛昌利民 · 狮城研学</p>
       </div>
     </div>
   </footer>

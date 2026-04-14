@@ -20,7 +20,7 @@
       <div class="flex items-center space-x-4">
         <div class="text-right mr-4 border-r pr-4 border-gray-200">
           <p class="text-xs text-gray-400">全国服务咨询热线</p>
-          <p class="text-lg font-bold text-sg-blue">400-888-2026</p>
+          <p class="text-lg font-bold text-sg-blue">0898-65392581</p>
         </div>
         <button class="bg-luxury-gold hover:bg-[#d49552] text-white px-6 py-2.5 rounded shadow-lg transition-all font-semibold">立即预约咨询</button>
       </div>

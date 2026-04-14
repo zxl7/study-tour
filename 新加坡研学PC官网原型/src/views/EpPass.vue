@@ -41,8 +41,8 @@
           </div>
         </div>
         <div class="bg-sg-blue/5 p-10 rounded-2xl border border-sg-blue/10">
-          <img alt="Policy Infographic" class="w-full rounded-lg shadow-md mb-6" src="https://loremflickr.com/1200/700/business,infographic,data,chart" />
-          <p class="text-center text-sm text-gray-400 italic">2026年度EP评分权重示意图</p>
+          <img alt="Policy Infographic" class="w-full rounded-lg shadow-md mb-6" src="/img/EP.png" />
+          <p class="text-center text-sm text-gray-400 italic">COMPASS评估框架</p>
         </div>
       </div>
     </section>

@@ -154,7 +154,7 @@
             <p class="text-gray-500">满足不同年龄段、不同目标的精准化需求定制</p>
           </div>
         </div>
-        <div class="grid grid-cols-4 gap-8">
+        <div class="grid grid-cols-3 gap-8">
           <!-- 项目卡片 1 -->
           <div class="bg-white rounded-2xl overflow-hidden card-shadow group">
             <div class="h-64 overflow-hidden relative">
@@ -163,7 +163,7 @@
             </div>
             <div class="p-8">
               <h3 class="text-2xl font-bold mb-3">新加坡成长营</h3>
-              <p class="text-gray-500 mb-6 line-clamp-2">针对7-14岁青少年，深度融入狮城文化，培养独立思考与团队协作能力。</p>
+              <p class="text-gray-500 mb-6">针对3-15岁的孩子，与UWC，SAS等顶级国际学校合作深度融入狮城文化，培养独立思考与团队协作能力。</p>
               <div class="flex items-center space-x-4 mb-6">
                 <span class="flex items-center text-sm text-gray-400">
                   <iconify-icon class="mr-1" icon="ph:user-bold"></iconify-icon>
@@ -222,7 +222,7 @@
             </div>
           </div>
           <!-- 项目卡片 4 -->
-          <div class="bg-white rounded-2xl overflow-hidden card-shadow group">
+          <!-- <div class="bg-white rounded-2xl overflow-hidden card-shadow group">
             <div class="h-64 overflow-hidden relative">
               <img alt="School Camp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="/img/4.jpg" />
               <div class="absolute top-4 left-4 bg-teal-600 text-white px-3 py-1 rounded text-sm font-bold">顶尖名校</div>
@@ -242,7 +242,7 @@
               </div>
               <router-link class="block w-full text-center py-3 border border-sg-blue text-sg-blue font-bold rounded hover:bg-sg-blue transition-all" to="/school-camp">查看详情</router-link>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -483,7 +483,7 @@
           <div>
             <h2 class="text-4xl font-bold mb-8">专家领衔 · 权威护航</h2>
             <p class="text-blue-100 text-lg leading-relaxed mb-10">
-              我们的团队由新加坡前教育部资深官员、顶尖名校校友以及资深法律顾问组成。 所有合作学校均经过严格筛选，拥有Edutrust 4年期认证或同等资质，确保研学质量与学生安全。
+              <!-- 我们的团队由新加坡前教育部资深官员、顶尖名校校友以及资深法律顾问组成。 所有合作学校均经过严格筛选，拥有Edutrust 4年期认证或同等资质，确保研学质量与学生安全。 -->
             </p>
             <div class="grid grid-cols-3 gap-8">
               <div class="text-center">
@@ -550,7 +550,7 @@
                 <iconify-icon class="mr-3 text-luxury-gold" icon="ph:phone-call-fill"></iconify-icon>
                 官方热线
               </h3>
-              <p class="text-4xl font-bold text-luxury-gold mb-2">400-888-2026</p>
+              <p class="text-4xl font-bold text-luxury-gold mb-2">0898-65392581</p>
               <p class="text-blue-200">周一至周日 09:00 - 21:00</p>
             </div>
             <div class="mb-12">
@@ -558,17 +558,17 @@
                 <iconify-icon class="mr-3 text-luxury-gold" icon="ph:map-pin-fill"></iconify-icon>
                 办公地址
               </h3>
-              <p class="mb-2">新加坡总部：xxxxxx</p>
-              <p>中国运营中心：海南xxxxx</p>
+              <!-- <p class="mb-2">新加坡总部：xxxxxx</p> -->
+              <p>中国运营中心：海南省海口市美兰区国兴街道国兴大道15A号，全球贸易之窗9003室</p>
             </div>
             <div class="flex space-x-8 items-center">
               <div class="text-center">
-                <img alt="QR Code" class="w-24 h-24 bg-white p-2 rounded mb-2" src="/img/QR_Code.jpg" />
-                <p class="text-xs text-blue-200">官方公众号</p>
+                <img alt="QR Code" class="w-24 h-24 bg-white p-2 rounded mb-2" src="/img/QR_Code-J.jpg" />
+                <p class="text-xs text-blue-200">研学顾问：Jason</p>
               </div>
               <div class="text-center">
-                <img alt="QR Code" class="w-24 h-24 bg-white p-2 rounded mb-2" src="/img/QR_Code.jpg" />
-                <p class="text-xs text-blue-200">研学顾问微信</p>
+                <img alt="QR Code" class="w-24 h-24 bg-white p-2 rounded mb-2" src="/img/QR_Code-A.jpg" />
+                <p class="text-xs text-blue-200">研学顾问：Adela</p>
               </div>
             </div>
           </div>

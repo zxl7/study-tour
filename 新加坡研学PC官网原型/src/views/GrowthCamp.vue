@@ -124,7 +124,7 @@
 
       <div class="max-w-[1440px] mx-auto px-8 relative z-10">
         <div class="text-center mb-16">
-          <h2 class="text-5xl font-bold text-sg-blue mb-6 tracking-widest" style="font-family: &quot;STKaiti&quot;, &quot;Kaiti SC&quot;, serif">学校介绍</h2>
+          <h2 class="text-5xl font-bold text-sg-blue mb-6 tracking-widest">学校介绍</h2>
           <div class="w-20 h-1 bg-luxury-gold mx-auto mb-8"></div>
           <p class="text-gray-500 text-xl">携手新加坡四大知名国际学校，定制专属菁英课程</p>
         </div>
@@ -133,7 +133,7 @@
           <!-- School 1: 斯坦福 -->
           <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group">
             <div class="h-64 overflow-hidden relative">
-              <img src="/img/School_1.jpg" alt="Stamford" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <img src="/img/sitanfu.jpg" alt="Stamford" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" />
               <div class="absolute inset-0 bg-gradient-to-t from-sg-blue/90 via-sg-blue/40 to-transparent"></div>
               <h3 class="absolute bottom-6 left-8 text-2xl font-bold text-white tracking-wide">新加坡斯坦福美国国际学校</h3>
             </div>
@@ -142,9 +142,9 @@
                 <iconify-icon class="text-2xl" icon="ph:buildings-bold"></iconify-icon>
               </div>
               <p class="text-gray-600 text-lg leading-relaxed mt-2">
-                旗下拥有久负盛名的
-                <strong class="text-sg-blue">Camp Asia</strong>
-                官方直营营地。提供 STEM、编程、艺术、体育等多维度主题课程，全面激发孩子的潜能与创造力，完美契合各年龄段的探索需求。
+                新加坡斯坦福美国国际学校（Stamford American International School, SAIS） 是新加坡顶尖的美式国际学校之一，以双课程体系
+                <strong class="text-sg-blue">（IB + AP）</strong>
+                、顶级设施和多元文化著称。 耗资3亿新币打造，含奥运泳池、3图书馆、攀岩墙、科技中心。提供10种母语课程（含中文）95%毕业生进全球前100大学
               </p>
             </div>
           </div>
@@ -152,7 +152,7 @@
           <!-- School 2: 瑞士学校 -->
           <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group">
             <div class="h-64 overflow-hidden relative">
-              <img src="/img/Swiss_School.jpg" alt="Swiss School" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <img src="/img/ruishi.jpg" alt="Swiss School" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               <div class="absolute inset-0 bg-gradient-to-t from-sg-blue/90 via-sg-blue/40 to-transparent"></div>
               <h3 class="absolute bottom-6 left-8 text-2xl font-bold text-white tracking-wide">新加坡瑞士学校</h3>
             </div>
@@ -161,9 +161,9 @@
                 <iconify-icon class="text-2xl" icon="ph:tree-evergreen-bold"></iconify-icon>
               </div>
               <p class="text-gray-600 text-lg leading-relaxed mt-2">
-                崇尚
-                <strong class="text-sg-blue">“拥抱大自然的小课堂”</strong>
-                教育理念。在这里，孩子们将参与充满活力的户外探险，在纯正的瑞士教育体系中培养环保意识与强大的动手实践能力。
+                新加坡瑞士学校（Swiss School in Singapore, SSiS） 是新加坡历史最悠久的国际学校之一，以
+                <strong class="text-sg-blue">纯正瑞士教育、三语环境（德/法/英）和小而美的温馨氛围</strong>
+                著称。是UWCSEA（东南亚世界联合书院） 的联盟校，小学毕业可直升。
               </p>
             </div>
           </div>
@@ -171,7 +171,7 @@
           <!-- School 3: UWC -->
           <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group">
             <div class="h-64 overflow-hidden relative">
-              <img src="/img/UWC.jpg" alt="UWC" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <img src="/img/uwc.jpg" alt="UWC" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               <div class="absolute inset-0 bg-gradient-to-t from-sg-blue/90 via-sg-blue/40 to-transparent"></div>
               <h3 class="absolute bottom-6 left-8 text-2xl font-bold text-white tracking-wide">UWC 世界联合书院</h3>
             </div>
@@ -180,9 +180,9 @@
                 <iconify-icon class="text-2xl" icon="ph:globe-hemisphere-east-bold"></iconify-icon>
               </div>
               <p class="text-gray-600 text-lg leading-relaxed mt-2">
-                国际文凭（IB）教育的
-                <strong class="text-sg-blue">全球领航者</strong>
-                。不仅提供卓越的学术体验，更通过极其丰富的课外活动，致力于将孩子培养为具有国际视野及强烈社会责任感的未来领袖。
+                被誉为
+                <strong class="text-sg-blue">“藤校收割机”</strong>
+                的新加坡东南亚联合世界书院（UWCSEA）是全球规模最大的UWC校区，K-12全龄IB体系与全球105国生源构成“联合国式”多元社区，以强学术+全人教育为核心。
               </p>
             </div>
           </div>
@@ -224,7 +224,11 @@
 
       <div class="max-w-[1440px] mx-auto px-8 relative z-10">
         <div class="text-center mb-20">
-          <h2 class="text-5xl font-bold text-white mb-6 tracking-widest" style="font-family: &quot;STKaiti&quot;, &quot;Kaiti SC&quot;, serif">课程设置</h2>
+          <h2
+            class="text-5xl font-bold text-white mb-6 tracking-widest"
+            >
+            课程设置
+          </h2>
           <div class="w-20 h-1 bg-luxury-gold mx-auto mb-8"></div>
           <p class="text-blue-100 text-xl max-w-2xl mx-auto">多维度沉浸式体验，全面激发孩子潜能</p>
         </div>
@@ -305,7 +309,7 @@
           <!-- Day 1 -->
           <div class="flex items-center justify-between mb-16 relative">
             <div class="w-5/12 text-right pr-12">
-              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: &quot;Georgia&quot;, serif">Day.1</h4>
+              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: Georgia, serif">Day.1</h4>
               <p class="text-luxury-gold font-bold mb-3 text-2xl tracking-wide">大学城</p>
               <p class="text-gray-500 leading-relaxed">初抵狮城，入住营地。随后探访新加坡顶级学府（如新加坡国立大学/南洋理工大学），感受世界级大学的学术氛围与校园文化。</p>
             </div>
@@ -319,7 +323,7 @@
           <!-- Day 2 -->
           <div class="flex items-center justify-between mb-16 relative flex-row-reverse">
             <div class="w-5/12 text-left pl-12">
-              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: &quot;Georgia&quot;, serif">Day.2</h4>
+              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: Georgia, serif">Day.2</h4>
               <p class="text-luxury-gold font-bold mb-3 text-2xl tracking-wide">甘榜格南 & 小印度</p>
               <p class="text-gray-500 leading-relaxed">开启多元文化探索之旅。穿梭于甘榜格南的阿拉伯风情街道，随后前往小印度体验色彩斑斓的异域文化，感受新加坡种族和谐的魅力。</p>
             </div>
@@ -336,7 +340,7 @@
           <!-- Day 3 -->
           <div class="flex items-center justify-between mb-16 relative">
             <div class="w-5/12 text-right pr-12">
-              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: &quot;Georgia&quot;, serif">Day.3</h4>
+              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: Georgia, serif">Day.3</h4>
               <p class="text-luxury-gold font-bold mb-3 text-2xl tracking-wide">动物园</p>
               <p class="text-gray-500 leading-relaxed">前往世界闻名的新加坡动物园（或夜间野生动物园）。采用开放式理念设计，让孩子们在近乎自然的生态环境中观察野生动物，学习生物多样性保护。</p>
             </div>
@@ -350,7 +354,7 @@
           <!-- Day 4 -->
           <div class="flex items-center justify-between mb-16 relative flex-row-reverse">
             <div class="w-5/12 text-left pl-12">
-              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: &quot;Georgia&quot;, serif">Day.4</h4>
+              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: Georgia, serif">Day.4</h4>
               <p class="text-luxury-gold font-bold mb-3 text-2xl tracking-wide">艺术科学博物馆</p>
               <p class="text-gray-500 leading-relaxed">参观形似莲花的艺术科学博物馆。在这里，艺术、科学、设计、媒体与技术完美交融，激发孩子们的创新思维与跨学科认知。</p>
             </div>
@@ -367,7 +371,7 @@
           <!-- Day 5 -->
           <div class="flex items-center justify-between mb-16 relative">
             <div class="w-5/12 text-right pr-12">
-              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: &quot;Georgia&quot;, serif">Day.5</h4>
+              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: Georgia, serif">Day.5</h4>
               <p class="text-luxury-gold font-bold mb-3 text-2xl tracking-wide">环球影城</p>
               <p class="text-gray-500 leading-relaxed">畅游东南亚首个好莱坞电影主题公园——新加坡环球影城。在七大主题区中尽情释放天性，体验沉浸式的欢乐与刺激。</p>
             </div>
@@ -384,7 +388,7 @@
           <!-- Day 6 -->
           <div class="flex items-center justify-between mb-16 relative flex-row-reverse">
             <div class="w-5/12 text-left pl-12">
-              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: &quot;Georgia&quot;, serif">Day.6</h4>
+              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: Georgia, serif">Day.6</h4>
               <p class="text-luxury-gold font-bold mb-3 text-2xl tracking-wide">城市环游</p>
               <p class="text-gray-500 leading-relaxed">打卡新加坡地标建筑：鱼尾狮公园、滨海湾金沙、市政区历史建筑等。在城市漫步中，全面了解新加坡的发展奇迹与城市规划。</p>
             </div>
@@ -398,7 +402,7 @@
           <!-- Day 7 -->
           <div class="flex items-center justify-between relative">
             <div class="w-5/12 text-right pr-12">
-              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: &quot;Georgia&quot;, serif">Day.7</h4>
+              <h4 class="text-3xl font-bold text-sg-blue mb-2" style="font-family: Georgia, serif">Day.7</h4>
               <p class="text-luxury-gold font-bold mb-3 text-2xl tracking-wide">星耀樟宜机场</p>
               <p class="text-gray-500 leading-relaxed">参观将自然与现代建筑完美结合的星耀樟宜（Jewel Changi），观赏震撼的室内瀑布雨漩涡。带着满满的收获，登机返程。</p>
             </div>
@@ -418,7 +422,7 @@
     <!-- 食宿标准 -->
     <section class="py-24 bg-white">
       <div class="max-w-[1440px] mx-auto px-8">
-        <h2 class="text-4xl font-bold text-sg-blue mb-16 text-center">五星级标准 · 全方位保障</h2>
+        <h2 class="text-4xl font-bold text-sg-blue mb-16 text-center">星级服务标准 · 全方位保障</h2>
         <div class="grid grid-cols-2 gap-12">
           <div class="relative rounded-3xl overflow-hidden group">
             <img alt="Hotel" class="w-full h-80 object-cover" src="/img/Hotel.jpg" />
@@ -498,7 +502,9 @@
   height: 12px;
   border-radius: 9999px;
   background-color: #e5a663;
-  box-shadow: 0 0 0 6px #ffffff, 0 6px 14px rgba(0, 90, 156, 0.15);
+  box-shadow:
+    0 0 0 6px #ffffff,
+    0 6px 14px rgba(0, 90, 156, 0.15);
   flex-shrink: 0;
   z-index: 10;
 }
