@@ -1,29 +1,52 @@
 <template>
-  <div class="bg-slate-50 min-h-[calc(100vh-80px)] py-16">
-    <div class="max-w-[1200px] mx-auto px-8">
-      <section class="rounded-3xl bg-white border border-slate-100 shadow-xl p-10 md:p-14">
-        <h1 class="text-5xl font-bold text-sg-blue mb-6">合作咨询</h1>
-        <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mb-10">欢迎学校、机构与行业伙伴围绕研学项目、课程研发、渠道合作与活动运营开展协同共创。</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-          <div class="rounded-2xl bg-blue-50 border border-blue-100 p-6">
-            <h2 class="text-2xl font-bold text-sg-blue mb-3">合作方向</h2>
-            <p class="text-gray-600">研学项目联营、课程共建、品牌活动、海外资源对接与长期渠道协作。</p>
+  <div class="py-24 px-8 max-w-[1000px] mx-auto text-center">
+    <iconify-icon icon="ph:handshake-bold" class="text-7xl text-luxury-gold mb-6"></iconify-icon>
+    <h1 class="text-4xl font-bold text-gray-900 mb-6">合作与咨询</h1>
+    <p class="text-xl text-gray-500 mb-16 max-w-2xl mx-auto">我们期待与国内外优秀的教育机构、留学中介、财富管理机构及各界伙伴建立长期共赢的合作关系。</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
+      <div class="bg-sg-blue text-white p-10 rounded-3xl shadow-xl">
+        <h3 class="text-2xl font-bold mb-6">成为渠道代理</h3>
+        <p class="text-blue-100 mb-8 leading-relaxed">依托我们强大的新加坡本土资源和履约能力，为您拓展高净值客户服务边界。我们提供丰厚的佣金回报与全套业务培训。</p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center"><iconify-icon icon="ph:check-circle" class="mr-2"></iconify-icon> 共享狮城教育资源</li>
+          <li class="flex items-center"><iconify-icon icon="ph:check-circle" class="mr-2"></iconify-icon> 专属渠道经理对接</li>
+          <li class="flex items-center"><iconify-icon icon="ph:check-circle" class="mr-2"></iconify-icon> 丰厚透明的返佣机制</li>
+        </ul>
+        <button class="bg-white text-sg-blue font-bold px-6 py-3 rounded-lg w-full hover:bg-gray-100 transition-colors">申请渠道合作</button>
+      </div>
+      
+      <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
+        <h3 class="text-2xl font-bold mb-6 text-sg-blue">联系方式</h3>
+        <div class="space-y-6 text-gray-600">
+          <div class="flex items-start">
+            <iconify-icon icon="ph:phone-call-fill" class="text-2xl text-luxury-gold mr-4 mt-1"></iconify-icon>
+            <div>
+              <p class="font-bold text-gray-800">服务热线</p>
+              <p>400-888-8888 (中国大陆)</p>
+              <p>+65 6888 8888 (新加坡)</p>
+            </div>
           </div>
-          <div class="rounded-2xl bg-blue-50 border border-blue-100 p-6">
-            <h2 class="text-2xl font-bold text-sg-blue mb-3">对接流程</h2>
-            <p class="text-gray-600">提交需求 → 初步沟通 → 方案确认 → 联合执行 → 复盘迭代。</p>
+          <div class="flex items-start">
+            <iconify-icon icon="ph:envelope-simple-fill" class="text-2xl text-luxury-gold mr-4 mt-1"></iconify-icon>
+            <div>
+              <p class="font-bold text-gray-800">商务邮箱</p>
+              <p>bd@sclm-edu.com</p>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <iconify-icon icon="ph:map-pin-fill" class="text-2xl text-luxury-gold mr-4 mt-1"></iconify-icon>
+            <div>
+              <p class="font-bold text-gray-800">新加坡总部</p>
+              <p>Marina Bay Financial Centre, Tower 1, Singapore</p>
+            </div>
           </div>
         </div>
-
-        <div class="rounded-2xl bg-sg-blue text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <p class="text-blue-100 mb-2">商务合作邮箱</p>
-            <p class="text-2xl font-bold">partnership@eliteeducation.global</p>
-          </div>
-          <router-link class="bg-luxury-gold hover:bg-[#d49552] px-7 py-3 rounded-xl font-bold transition-all" to="/">返回首页</router-link>
-        </div>
-      </section>
+      </div>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+// 合作与咨询页面组件
+</script>

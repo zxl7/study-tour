@@ -1,29 +1,30 @@
 <template>
-  <div class="bg-white min-h-[calc(100vh-80px)] py-16">
-    <div class="max-w-[1200px] mx-auto px-8">
-      <header class="mb-12">
-        <h1 class="text-5xl font-bold text-sg-blue mb-5">隐私政策</h1>
-        <p class="text-gray-600 text-lg max-w-3xl leading-relaxed">我们尊重并保护每一位用户的个人信息，以下内容说明信息收集、使用与保护方式。</p>
-      </header>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <article class="rounded-3xl bg-slate-50 border border-slate-100 p-8">
-          <h2 class="text-2xl font-bold text-sg-blue mb-4">信息收集</h2>
-          <p class="text-gray-600 leading-relaxed">仅在提供咨询与执行服务所需范围内收集必要信息，遵循最小化原则，避免超范围获取。</p>
-        </article>
-        <article class="rounded-3xl bg-slate-50 border border-slate-100 p-8">
-          <h2 class="text-2xl font-bold text-sg-blue mb-4">信息使用</h2>
-          <p class="text-gray-600 leading-relaxed">用于咨询评估、流程执行、服务回访与质量改进，不用于与服务无关的商业用途。</p>
-        </article>
-        <article class="rounded-3xl bg-slate-50 border border-slate-100 p-8">
-          <h2 class="text-2xl font-bold text-sg-blue mb-4">信息保护</h2>
-          <p class="text-gray-600 leading-relaxed">通过权限分级、流程管控与内部审计降低泄露风险，持续优化数据安全机制。</p>
-        </article>
-        <article class="rounded-3xl bg-slate-50 border border-slate-100 p-8">
-          <h2 class="text-2xl font-bold text-sg-blue mb-4">用户权利</h2>
-          <p class="text-gray-600 leading-relaxed">用户有权查询、更正及申请删除相关信息，我们将在合规范围内及时响应处理。</p>
-        </article>
+  <div class="py-24 px-8 max-w-[900px] mx-auto bg-slate-50 rounded-3xl mt-10 mb-20 shadow-sm border border-slate-100">
+    <h1 class="text-3xl font-bold mb-10 text-sg-blue flex items-center">
+      <iconify-icon icon="ph:shield-check-bold" class="mr-3 text-4xl"></iconify-icon>
+      隐私保护政策
+    </h1>
+    <div class="space-y-8 text-gray-600">
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+        <h3 class="text-lg font-bold text-gray-800 mb-3">信息收集</h3>
+        <p>我们仅在您主动提交咨询表单、评估需求时收集必要的个人信息（如姓名、联系方式、孩子年龄、教育背景等），用于为您提供定制化的服务方案。</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+        <h3 class="text-lg font-bold text-gray-800 mb-3">信息使用</h3>
+        <p>您的个人信息将被严格保密，仅限于内部顾问团队进行业务评估与联络。我们承诺，绝不向任何第三方出售、出租或交易您的个人数据。</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+        <h3 class="text-lg font-bold text-gray-800 mb-3">数据安全</h3>
+        <p>我们采用行业标准的安全技术和内部管理制度，防止您的个人信息泄露、毁损或丢失。所有涉及核心身份规划的材料均受严格的保密协议(NDA)保护。</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+        <h3 class="text-lg font-bold text-gray-800 mb-3">您的权利</h3>
+        <p>您有权随时要求查看、修改或删除我们在系统中保存的您的个人信息。如需操作，请联系我们的客服专员。</p>
       </div>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+// 隐私保护政策页面组件
+</script>

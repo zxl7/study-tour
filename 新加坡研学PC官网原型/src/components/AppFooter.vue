@@ -1,18 +1,16 @@
 <template>
   <footer class="bg-gray-900 text-gray-400 py-8">
     <div class="max-w-[1440px] mx-auto px-8">
-      <div class="grid grid-cols-5 gap-12 mb-16">
+      <div class="grid grid-cols-5 gap-12 mb-8">
         <div class="col-span-2">
           <div class="flex items-center space-x-2 mb-8">
-            <div class="w-10 h-10 bg-sg-blue flex items-center justify-center rounded">
-              <iconify-icon class="text-white text-2xl" icon="mdi:school"></iconify-icon>
-            </div>
+            <img src="/src/assets/logo.jpg" alt="logo" class="w-6 h-6" />
             <span class="text-xl font-bold text-white tracking-wider">盛昌利民 · 狮城研学</span>
           </div>
           <p class="leading-relaxed mb-8 pr-12">作为海南领先的精英教育咨询机构，我们致力于整合全球优质教育资源，为中国家庭提供全方位的研学、升学及移民规划服务。</p>
           <div class="flex space-x-4">
             <a class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sg-blue transition-all" href="#"><iconify-icon icon="ri:wechat-fill"></iconify-icon></a>
-            <a class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sg-blue transition-all" href="#"><iconify-icon icon="ri:douyin-fill"></iconify-icon></a>
+            <a class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sg-blue transition-all" href="#"><iconify-icon icon="ri:qq-fill"></iconify-icon></a>
             <a class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sg-blue transition-all" href="#"><iconify-icon icon="ri:instagram-fill"></iconify-icon></a>
           </div>
         </div>

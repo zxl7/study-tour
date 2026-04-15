@@ -1,12 +1,13 @@
 <template>
-  <div class="bg-slate-50 min-h-[calc(100vh-80px)]">
-    <section class="bg-sg-blue text-white py-20">
-      <div class="max-w-[1200px] mx-auto px-8">
-        <p class="text-luxury-gold tracking-[0.18em] font-bold mb-4">ABOUT US</p>
-        <h1 class="text-5xl font-bold mb-6">集团简介</h1>
-        <p class="text-blue-100 text-lg max-w-3xl leading-relaxed">海南盛昌利民传媒有限公司专注新加坡教育规划与身份咨询，提供研学、升学、家庭长期发展的一体化服务。</p>
-      </div>
-    </section>
+  <div class="py-24 px-8 max-w-[1200px] mx-auto text-center">
+    <h1 class="text-4xl font-bold text-sg-blue mb-8">集团简介</h1>
+    <div class="w-20 h-1 bg-luxury-gold mx-auto mb-12"></div>
+    <p class="text-gray-600 mb-16 text-lg max-w-2xl mx-auto">
+      海南盛昌利民传媒有限公司致力于为家庭与学生提供专业、高效、值得信赖的一站式留学与移民支持服务。依托本地化服务优势及丰富的合作资源，我们帮助客户明确发展方向，享受安心的办理过程，并获得切实落地的服务体验。
+    </p>
+    <p class="text-gray-600 mb-16 text-lg max-w-2xl mx-auto">
+      核心服务覆盖从幼儿园到大学的升学规划、身份规划、签证申请、出行安排、职业发展及企业出海等全流程需求。公司始终秉持专业、诚信与责任，陪伴客户从咨询、申请到落地衔接的每一步，让整个过程更加顺畅、省心。
+    </p>
 
     <section class="py-16">
       <div class="max-w-[1200px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -26,3 +27,7 @@
     </section>
   </div>
 </template>
+
+<script setup lang="ts">
+// 集团简介页面组件
+</script>

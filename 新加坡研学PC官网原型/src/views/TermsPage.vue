@@ -1,26 +1,21 @@
 <template>
-  <div class="bg-slate-100 min-h-[calc(100vh-80px)] py-16">
-    <div class="max-w-[1100px] mx-auto px-8">
-      <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
-        <div class="px-10 py-8 bg-slate-900 text-white">
-          <h1 class="text-4xl font-bold mb-3">服务条款</h1>
-          <p class="text-slate-300">请在使用服务前仔细阅读以下条款内容。</p>
-        </div>
-        <div class="p-10 space-y-8">
-          <section>
-            <h2 class="text-2xl font-bold text-sg-blue mb-3">服务范围</h2>
-            <p class="text-gray-600 leading-relaxed">服务内容、流程节点与交付标准以双方签署的正式文件为准，未书面确认事项不作为交付义务。</p>
-          </section>
-          <section>
-            <h2 class="text-2xl font-bold text-sg-blue mb-3">用户义务</h2>
-            <p class="text-gray-600 leading-relaxed">用户应确保提交信息真实、完整、合法，并及时配合所需材料更新，不得用于任何违法用途。</p>
-          </section>
-          <section>
-            <h2 class="text-2xl font-bold text-sg-blue mb-3">责任边界</h2>
-            <p class="text-gray-600 leading-relaxed">因政策变化、主管机构审核标准调整或用户资料不完整导致的结果变化，不视为违约。</p>
-          </section>
-        </div>
-      </div>
+  <div class="py-24 px-8 max-w-[900px] mx-auto bg-white">
+    <h1 class="text-3xl font-bold mb-10 text-gray-900 border-b pb-4">服务条款 (Terms of Service)</h1>
+    <div class="prose prose-slate max-w-none text-gray-600 space-y-6">
+      <p>欢迎访问盛昌利民·狮城研学官方网站。在使用我们的服务之前，请您仔细阅读以下条款。</p>
+      <h3 class="text-xl font-bold text-gray-800 mt-8">1. 服务内容</h3>
+      <p>我们提供包括但不限于新加坡研学营、微留学、国际学校体验、家族办公室设立、自雇准证办理及PR申请咨询等服务。具体服务内容以双方签订的正式合同为准。</p>
+      <h3 class="text-xl font-bold text-gray-800 mt-8">2. 用户责任</h3>
+      <p>用户在提交咨询或办理业务时，应保证所提供的信息真实、准确、完整。因提供虚假信息导致服务延误或被拒的，责任由用户自行承担。</p>
+      <h3 class="text-xl font-bold text-gray-800 mt-8">3. 费用与退款</h3>
+      <p>各项服务的收费标准会在签约前明确告知。如遇不可抗力或我方承诺的兜底条款触发，退款流程将严格按照合同约定执行。</p>
+      <h3 class="text-xl font-bold text-gray-800 mt-8">4. 知识产权</h3>
+      <p>本网站上的所有内容，包括文字、图片、Logo及版面设计，版权均归盛昌利民所有。未经书面授权，任何人不得非法转载或使用。</p>
+      <p class="text-sm text-gray-400 mt-12 pt-8 border-t">最后更新日期：2026年1月1日</p>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+// 服务条款页面组件
+</script>

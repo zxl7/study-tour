@@ -1,10 +1,9 @@
 <template>
-  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 h-20">
+  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 h-20" style="background-color: #fff;">
     <div class="max-w-[1440px] mx-auto h-full flex items-center justify-between px-8">
       <router-link to="/home" class="flex items-center space-x-2 cursor-pointer transition-opacity hover:opacity-80">
-        <div class="w-10 h-10 bg-sg-blue flex items-center justify-center rounded">
-          <iconify-icon class="text-white text-2xl" icon="mdi:school"></iconify-icon>
-        </div>
+        <img src="/src/assets/logo.jpg" alt="logo" class="w-10 h-10" />
+
         <div class="flex flex-col">
           <span class="text-xl font-bold text-sg-blue tracking-wider">盛昌利民 · 狮城研学</span>
           <span class="text-[10px] text-luxury-gold tracking-widest uppercase font-semibold">Elite Education Global</span>
