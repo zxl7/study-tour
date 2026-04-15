@@ -501,21 +501,13 @@
             </div>
           </div>
           <div class="grid grid-cols-2 gap-4">
-            <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 mb-8">
-              <img alt="Auth 1" class="h-12 mx-auto grayscale invert opacity-80 mb-4" src="/img/5.jpg" />
-              <p class="text-center text-sm">新加坡教育部备案</p>
-            </div>
-            <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 mt-8">
-              <img alt="Auth 2" class="h-12 mx-auto grayscale invert opacity-80 mb-4" src="/img/5.jpg" />
-              <p class="text-center text-sm">Edutrust 权威认证</p>
-            </div>
-            <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 -mt-8 mb-8">
-              <img alt="Auth 3" class="h-12 mx-auto grayscale invert opacity-80 mb-4" src="/img/5.jpg" />
-              <p class="text-center text-sm">新加坡移民局合作单位</p>
+            <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20">
+              <img alt="Auth 1" class="h-48 mx-auto mb-4" src="/img/资质证书.jpg" />
+              <p class="text-center text-sm">资质证书</p>
             </div>
             <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20">
-              <img alt="Auth 4" class="h-12 mx-auto grayscale invert opacity-80 mb-4" src="/img/5.jpg" />
-              <p class="text-center text-sm">中国教育部留服认可</p>
+              <img alt="Auth 2" class="h-48 mx-auto mb-4" src="/img/授权信.jpg" />
+              <p class="text-center text-sm">授权信</p>
             </div>
           </div>
         </div>
@@ -541,7 +533,7 @@
                 <option>国际学校体验营</option>
               </select>
               <textarea class="w-full px-6 py-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-sg-blue" placeholder="您的具体需求或孩子的年级情况..." rows="4"></textarea>
-              <button class="w-full bg-sg-blue hover:bg-[#004a80] text-white font-bold py-5 rounded-lg text-lg shadow-lg transition-all">提交申请 · 免费领取规划手册</button>
+              <button type="button" @click.prevent="openContactModal" class="w-full bg-sg-blue hover:bg-[#004a80] text-white font-bold py-5 rounded-lg text-lg shadow-lg transition-all">提交申请 · 免费领取规划手册</button>
             </form>
           </div>
           <div class="w-1/2 bg-sg-blue p-16 text-white flex flex-col justify-between">
@@ -580,5 +572,7 @@
 </template>
 
 <script setup lang="ts">
-// Home page component
+import { inject } from 'vue'
+
+const openContactModal = inject('openContactModal') as () => void
 </script>

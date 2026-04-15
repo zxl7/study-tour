@@ -6,7 +6,7 @@
 
         <div class="flex flex-col">
           <span class="text-xl font-bold text-sg-blue tracking-wider">盛昌利民 · 狮城研学</span>
-          <span class="text-[10px] text-luxury-gold tracking-widest uppercase font-semibold">Elite Education Global</span>
+          <span class="text-[10px] text-luxury-gold tracking-widest uppercase font-semibold">Shengchang Limin · Singapore Study Tour</span>
         </div>
       </router-link>
       <div class="flex items-center space-x-10 font-medium">
@@ -21,8 +21,14 @@
           <p class="text-xs text-gray-400">全国服务咨询热线</p>
           <p class="text-lg font-bold text-sg-blue">0898-65392581</p>
         </div>
-        <button class="bg-luxury-gold hover:bg-[#d49552] text-white px-6 py-2.5 rounded shadow-lg transition-all font-semibold">立即预约咨询</button>
+        <button @click="openContactModal" class="bg-luxury-gold hover:bg-[#d49552] text-white px-6 py-2.5 rounded shadow-lg transition-all font-semibold">立即预约咨询</button>
       </div>
     </div>
   </nav>
 </template>
+
+<script setup lang="ts">
+import { inject } from 'vue'
+
+const openContactModal = inject('openContactModal') as () => void
+</script>

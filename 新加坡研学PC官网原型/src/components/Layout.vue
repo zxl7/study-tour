@@ -13,12 +13,24 @@
     </main>
 
     <AppFooter />
+    
+    <ContactModal :visible="isContactModalVisible" @close="isContactModalVisible = false" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, provide } from 'vue'
 import AppFooter from '@/components/AppFooter.vue'
 import AppHeader from '@/components/AppHeader.vue'
+import ContactModal from '@/components/ContactModal.vue'
+
+const isContactModalVisible = ref(false)
+
+const openContactModal = () => {
+  isContactModalVisible.value = true
+}
+
+provide('openContactModal', openContactModal)
 </script>
 
 <style scoped>

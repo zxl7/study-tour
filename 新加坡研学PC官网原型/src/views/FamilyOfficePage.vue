@@ -20,12 +20,14 @@
       <div class="bg-slate-50 p-10 rounded-3xl border border-slate-100 shadow-xl">
         <h2 class="text-2xl font-bold mb-6 text-sg-blue">专属服务团队</h2>
         <p class="text-gray-600 mb-6">我们联合新加坡本地顶尖律所、私人银行与资深税务师，提供全方位的保驾护航。</p>
-        <button class="w-full bg-luxury-gold text-white py-4 rounded-xl font-bold hover:bg-yellow-600 transition-colors shadow-lg">预约资深顾问咨询</button>
+        <button @click="openContactModal" class="w-full bg-luxury-gold text-white py-4 rounded-xl font-bold hover:bg-yellow-600 transition-colors shadow-lg">预约资深顾问咨询</button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// 家族办公室页面组件
+import { inject } from 'vue'
+
+const openContactModal = inject('openContactModal') as () => void
 </script>

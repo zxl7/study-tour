@@ -431,16 +431,17 @@
               <p class="text-luxury-gold font-bold mb-2">ALL-INCLUSIVE</p>
               <p class="text-6xl font-black mb-4 italic">¥ 38,600</p>
               <p class="text-xs text-blue-200 mb-8">* 不包含机票</p>
-              <button class="bg-luxury-gold hover:bg-[#d49552] text-white w-full py-4 rounded-xl font-bold transition-all shadow-xl">索取详细日程单</button>
+              <button @click="openContactModal" class="bg-luxury-gold hover:bg-[#d49552] text-white w-full py-4 rounded-xl font-bold transition-all shadow-xl">索取详细日程单</button>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- 底部复用 -->
   </div>
 </template>
 
 <script setup lang="ts">
-// MiniStudy page component
+import { inject } from 'vue'
+
+const openContactModal = inject('openContactModal') as () => void
 </script>

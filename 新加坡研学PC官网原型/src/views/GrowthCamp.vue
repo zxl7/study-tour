@@ -473,7 +473,7 @@
                 最高标准研学旅游意外保险
               </li>
             </ul>
-            <button class="w-full bg-luxury-gold hover:bg-[#d49552] text-white py-4 rounded-xl font-bold text-xl shadow-lg transition-all">立即抢占名额</button>
+            <button @click="openContactModal" class="w-full bg-luxury-gold hover:bg-[#d49552] text-white py-4 rounded-xl font-bold text-xl shadow-lg transition-all">立即抢占名额</button>
           </div>
         </div>
       </div>

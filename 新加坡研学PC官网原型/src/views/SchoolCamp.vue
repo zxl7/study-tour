@@ -428,16 +428,17 @@
               留学入学能力测评
             </div>
           </div>
-          <button class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 rounded-xl text-xl shadow-lg transition-all">立即在线申请</button>
+          <button @click="openContactModal" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 rounded-xl text-xl shadow-lg transition-all">立即在线申请</button>
         </div>
       </div>
     </section>
-    <!-- 底部 -->
   </div>
 </template>
 
 <script setup lang="ts">
-// SchoolCamp page component
+import { inject } from 'vue'
+
+const openContactModal = inject('openContactModal') as () => void
 </script>
 
 <style scoped>

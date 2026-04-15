@@ -13,7 +13,7 @@
           <li class="flex items-center"><iconify-icon icon="ph:check-circle" class="mr-2"></iconify-icon> 专属渠道经理对接</li>
           <li class="flex items-center"><iconify-icon icon="ph:check-circle" class="mr-2"></iconify-icon> 丰厚透明的返佣机制</li>
         </ul>
-        <button class="bg-white text-sg-blue font-bold px-6 py-3 rounded-lg w-full hover:bg-gray-100 transition-colors">申请渠道合作</button>
+        <button @click="openContactModal" class="bg-white text-sg-blue font-bold px-6 py-3 rounded-lg w-full hover:bg-gray-100 transition-colors">申请渠道合作</button>
       </div>
       
       <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
@@ -48,5 +48,7 @@
 </template>
 
 <script setup lang="ts">
-// 合作与咨询页面组件
+import { inject } from 'vue'
+
+const openContactModal = inject('openContactModal') as () => void
 </script>

@@ -470,7 +470,7 @@
               ¥ 88,000
               <span class="text-lg">起</span>
             </p>
-            <button class="bg-gray-900 text-white w-full py-4 rounded font-bold hover:bg-black transition-all">立即发起评估</button>
+            <button @click="openContactModal" class="bg-gray-900 text-white w-full py-4 rounded font-bold hover:bg-black transition-all">立即发起评估</button>
           </div>
         </div>
       </div> -->
