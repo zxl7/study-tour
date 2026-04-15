@@ -23,22 +23,21 @@
             <iconify-icon icon="ph:phone-call-fill" class="text-2xl text-luxury-gold mr-4 mt-1"></iconify-icon>
             <div>
               <p class="font-bold text-gray-800">服务热线</p>
-              <p>400-888-8888 (中国大陆)</p>
-              <p>+65 6888 8888 (新加坡)</p>
+              <p>0898-65392581 (全国服务咨询热线)</p>
             </div>
           </div>
           <div class="flex items-start">
             <iconify-icon icon="ph:envelope-simple-fill" class="text-2xl text-luxury-gold mr-4 mt-1"></iconify-icon>
             <div>
               <p class="font-bold text-gray-800">商务邮箱</p>
-              <p>bd@sclm-edu.com</p>
+              <p>shengchanglimin@163.com</p>
             </div>
           </div>
           <div class="flex items-start">
             <iconify-icon icon="ph:map-pin-fill" class="text-2xl text-luxury-gold mr-4 mt-1"></iconify-icon>
             <div>
-              <p class="font-bold text-gray-800">新加坡总部</p>
-              <p>Marina Bay Financial Centre, Tower 1, Singapore</p>
+              <p class="font-bold text-gray-800">公司地址</p>
+              <p>海南省海口市美兰区国兴大道15A号全球贸易之窗30楼</p>
             </div>
           </div>
         </div>

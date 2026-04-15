@@ -285,88 +285,85 @@
     <section class="py-16 bg-slate-50">
       <div class="max-w-[1440px] mx-auto px-8">
         <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-sg-blue mb-4">28天微留学日程概览</h2>
-          <p class="text-gray-500 italic">三周深度进化：从“观察者”到“参与者”再到“领跑者”</p>
+          <h2 class="text-4xl font-bold text-sg-blue mb-4">28天深度研学日程表</h2>
+          <p class="text-gray-500 italic">每一分钟的规划都服务于孩子的成长逻辑</p>
         </div>
         <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
           <div class="calendar-grid">
+            <!-- Headers -->
+            <div class="calendar-header bg-luxury-gold">周日 (Sun)</div>
             <div class="calendar-header">周一 (Mon)</div>
             <div class="calendar-header">周二 (Tue)</div>
             <div class="calendar-header">周三 (Wed)</div>
             <div class="calendar-header">周四 (Thu)</div>
             <div class="calendar-header">周五 (Fri)</div>
             <div class="calendar-header bg-luxury-gold">周六 (Sat)</div>
-            <div class="calendar-header bg-luxury-gold">周日 (Sun)</div>
+            
             <!-- Week 1 -->
-            <div class="calendar-day">
-              <span class="text-xs text-gray-400 font-bold">D1</span>
+            <div class="calendar-day bg-orange-50 hover:bg-orange-100 transition-colors group">
+              <span class="text-xs text-luxury-gold font-bold">D1</span>
               <br />
-              <p class="text-sm font-bold mt-2">接机/入宿</p>
-              <p class="text-[10px] text-gray-500">安排寄宿家庭会面，熟悉周边环境。</p>
+              <p class="text-sm font-bold mt-2 text-sg-blue">入境新加坡</p>
+              <p class="text-[10px] text-gray-500 mt-1 leading-relaxed">专人接机、介绍概况、入住寄宿家庭</p>
             </div>
-            <div class="calendar-day bg-blue-50">
-              <span class="text-xs text-blue-400 font-bold">D2</span>
+            <div class="calendar-day bg-blue-50 hover:bg-blue-100 transition-colors col-span-5 flex flex-col items-center justify-center text-sg-blue group">
+              <span class="text-lg font-bold tracking-widest mb-1 group-hover:scale-105 transition-transform">DAY 2-6</span>
+              <span class="text-sm font-medium">新加坡本地国际学校全真课程</span>
+            </div>
+            <div class="calendar-day bg-orange-50 hover:bg-orange-100 transition-colors group">
+              <span class="text-xs text-luxury-gold font-bold">D7</span>
               <br />
-              <p class="text-sm font-bold mt-2">开学典礼</p>
-              <p class="text-[10px] text-gray-500">进入政府/私立校，分配专属Buddy(学伴)。</p>
+              <p class="text-sm font-bold mt-2 text-sg-blue">City Walk</p>
+              <p class="text-[10px] text-gray-500 mt-1 leading-relaxed">参观地标、了解历史文化、品尝美食</p>
             </div>
-            <div class="calendar-day bg-blue-50">
-              <span class="text-xs text-blue-400 font-bold">D3</span>
+
+            <!-- Week 2 -->
+            <div class="calendar-day bg-orange-50 hover:bg-orange-100 transition-colors group">
+              <span class="text-xs text-luxury-gold font-bold">D8</span>
               <br />
-              <p class="text-sm font-bold mt-2">全真课堂</p>
-              <p class="text-[10px] text-gray-500">同步数学/科学课程，初试英文教学。</p>
+              <p class="text-sm font-bold mt-2 text-sg-blue">自由活动</p>
             </div>
-            <div class="calendar-day bg-blue-50">
-              <span class="text-xs text-blue-400 font-bold">D4</span>
+            <div class="calendar-day bg-blue-50 hover:bg-blue-100 transition-colors col-span-5 flex flex-col items-center justify-center text-sg-blue group">
+              <span class="text-lg font-bold tracking-widest mb-1 group-hover:scale-105 transition-transform">DAY 9-13</span>
+              <span class="text-sm font-medium">新加坡本地国际学校全真课程</span>
+            </div>
+            <div class="calendar-day bg-orange-50 hover:bg-orange-100 transition-colors group">
+              <span class="text-xs text-luxury-gold font-bold">D14</span>
               <br />
-              <p class="text-sm font-bold mt-2">特色CCA</p>
-              <p class="text-[10px] text-gray-500">参与课外活动：机器人、交响乐等。</p>
+              <p class="text-sm font-bold mt-2 text-sg-blue">新加坡动物园</p>
             </div>
-            <div class="calendar-day bg-blue-50">
-              <span class="text-xs text-blue-400 font-bold">D5</span>
+
+            <!-- Week 3 -->
+            <div class="calendar-day bg-orange-50 hover:bg-orange-100 transition-colors group">
+              <span class="text-xs text-luxury-gold font-bold">D15</span>
               <br />
-              <p class="text-sm font-bold mt-2">口语集训</p>
-              <p class="text-[10px] text-gray-500">课后针对性口语纠偏与学术指导。</p>
+              <p class="text-sm font-bold mt-2 text-sg-blue">自由活动</p>
             </div>
-            <div class="calendar-day">
-              <span class="text-xs text-gray-400 font-bold">D6</span>
+            <div class="calendar-day bg-blue-50 hover:bg-blue-100 transition-colors col-span-5 flex flex-col items-center justify-center text-sg-blue group">
+              <span class="text-lg font-bold tracking-widest mb-1 group-hover:scale-105 transition-transform">DAY 16-20</span>
+              <span class="text-sm font-medium">新加坡本地国际学校全真课程</span>
+            </div>
+            <div class="calendar-day bg-orange-50 hover:bg-orange-100 transition-colors group">
+              <span class="text-xs text-luxury-gold font-bold">D21</span>
               <br />
-              <p class="text-sm font-bold mt-2 text-luxury-gold">城市探索</p>
-              <p class="text-[10px] text-gray-500">圣淘沙环球影城全天游玩。</p>
+              <p class="text-sm font-bold mt-2 text-sg-blue">影城及圣淘沙</p>
             </div>
-            <div class="calendar-day">
-              <span class="text-xs text-gray-400 font-bold">D7</span>
+
+            <!-- Week 4 -->
+            <div class="calendar-day bg-orange-50 hover:bg-orange-100 transition-colors group">
+              <span class="text-xs text-luxury-gold font-bold">D22</span>
               <br />
-              <p class="text-sm font-bold mt-2 text-luxury-gold">家庭日</p>
-              <p class="text-[10px] text-gray-500">与Host Family一起去超市或公园。</p>
+              <p class="text-sm font-bold mt-2 text-sg-blue">自由活动</p>
             </div>
-            <!-- Week 2 & 3 simplified -->
-            <div class="calendar-day bg-blue-50 col-span-5 flex items-center justify-center text-sg-blue font-bold italic">Week 2: 深度融合阶段 · 全科目参与 · 社团竞赛体验</div>
-            <div class="calendar-day text-center">
-              <span class="text-xs text-gray-400 font-bold">D13</span>
-              <p class="text-xs">艺术馆研学</p>
+            <div class="calendar-day bg-blue-50 hover:bg-blue-100 transition-colors col-span-5 flex flex-col items-center justify-center text-sg-blue group">
+              <span class="text-lg font-bold tracking-widest mb-1 group-hover:scale-105 transition-transform">DAY 23-27</span>
+              <span class="text-sm font-medium">新加坡本地国际学校全真课程</span>
             </div>
-            <div class="calendar-day text-center">
-              <span class="text-xs text-gray-400 font-bold">D14</span>
-              <p class="text-xs">新加坡动物园</p>
-            </div>
-            <div class="calendar-day bg-blue-50 col-span-5 flex items-center justify-center text-sg-blue font-bold italic">Week 3: 深度融合阶段 · 全科目参与 · 社团竞赛体验</div>
-            <div class="calendar-day text-center bg-luxury-gold/5">
-              <span class="text-xs text-gray-400 font-bold">D20</span>
-              <p class="text-xs">科学探索</p>
-            </div>
-            <div class="calendar-day text-center bg-luxury-gold/5">
-              <span class="text-xs text-gray-400 font-bold">D21</span>
-              <p class="text-xs">自由活动</p>
-            </div>
-            <div class="calendar-day bg-luxury-gold/10 col-span-5 flex items-center justify-center text-luxury-gold font-bold italic">Week 4: 汇报展示阶段 · 结业演讲 · 颁奖典礼 · 感恩告别</div>
-            <div class="calendar-day text-center bg-luxury-gold/5">
-              <span class="text-xs text-gray-400 font-bold">D27</span>
-              <p class="text-xs">购物季</p>
-            </div>
-            <div class="calendar-day text-center bg-luxury-gold/5">
-              <span class="text-xs text-gray-400 font-bold">D28</span>
-              <p class="text-xs">荣誉凯旋</p>
+            <div class="calendar-day bg-orange-50 hover:bg-orange-100 transition-colors group">
+              <span class="text-xs text-luxury-gold font-bold">D28</span>
+              <br />
+              <p class="text-sm font-bold mt-2 text-sg-blue">荣誉返程</p>
+              <p class="text-[10px] text-gray-500 mt-1 leading-relaxed">返回温暖的家</p>
             </div>
           </div>
         </div>
@@ -441,7 +438,53 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue'
+import { inject } from "vue"
 
-const openContactModal = inject('openContactModal') as () => void
+const openContactModal = inject("openContactModal") as () => void
 </script>
+
+<style scoped>
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  background-color: #ffffff;
+}
+
+.calendar-header {
+  background-color: #005a9c;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  text-align: center;
+  padding: 0.9rem 0.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.calendar-header:last-child {
+  border-right: none;
+}
+
+.calendar-day {
+  min-height: 7rem;
+  padding: 0.75rem 0.65rem;
+  border-right: 1px solid #e5e7eb;
+  border-top: 1px solid #e5e7eb;
+  line-height: 1.45;
+}
+
+.calendar-day:nth-child(7n) {
+  border-right: none;
+}
+
+@media (max-width: 1200px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, minmax(140px, 1fr));
+    overflow-x: auto;
+  }
+
+  .calendar-day {
+    min-height: 7.5rem;
+  }
+}
+</style>
