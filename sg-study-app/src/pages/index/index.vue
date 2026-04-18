@@ -142,40 +142,48 @@
         </view>
         <view class="certs">
           <view class="cert">
-            <image class="cert-img" mode="aspectFit" src="/static/img/资质证书.jpg" />
+            <image class="cert-img" mode="aspectFit" src="../../static/img/资质证书.jpg" />
             <text class="cert-t">资质证书</text>
           </view>
           <view class="cert">
-            <image class="cert-img" mode="aspectFit" src="/static/img/授权信.jpg" />
+            <image class="cert-img" mode="aspectFit" src="../../static/img/授权信.jpg" />
             <text class="cert-t">授权信</text>
           </view>
         </view>
       </view>
 
-      <!-- 咨询报名 -->
+      <!-- 咨询报名/联系方式 (新版深蓝背景卡片) -->
       <view class="section">
-        <view class="apply sg-card">
-          <text class="apply-title">规划狮城教育蓝图</text>
-          <text class="apply-desc">留下您的联系方式，我们的资深规划师将在24小时内为您定制专属研学方案。</text>
-          <view class="apply-meta">
-            <view class="apply-meta-row">
-              <text class="apply-meta-k">服务热线：</text>
-              <text class="apply-meta-v">{{ SITE.hotline }}</text>
+        <view class="contact-card">
+          <view class="contact-header">
+            <view class="contact-title-wrap">
+              <SgIcon name="phone-filled" size="20" color="#E5A663" class="contact-icon" />
+              <text class="contact-title">官方热线</text>
             </view>
-            <view class="apply-meta-row">
-              <text class="apply-meta-k">中国运营中心：</text>
-              <text class="apply-meta-v">{{ SITE.chinaOfficeAddress }}</text>
-            </view>
+            <text class="contact-hotline">{{ SITE.hotline }}</text>
+            <text class="contact-time">周一至周日 09:00 - 21:00</text>
           </view>
-          <button class="apply-btn" @tap="goForm">提交申请 · 免费领取规划手册</button>
-          <view class="apply-qr">
-            <view class="qr-item">
-              <image class="qr-img" mode="aspectFit" src="/static/img/QR_Code-J.jpg" />
-              <text class="qr-t">研学顾问：Jason</text>
+
+          <view class="contact-address-wrap">
+            <view class="contact-title-wrap">
+              <SgIcon name="location-filled" size="20" color="#E5A663" class="contact-icon" />
+              <text class="contact-title">办公地址</text>
             </view>
-            <view class="qr-item">
-              <image class="qr-img" mode="aspectFit" src="/static/img/QR_Code-A.jpg" />
-              <text class="qr-t">研学顾问：Adela</text>
+            <text class="contact-address">中国运营中心：{{ SITE.chinaOfficeAddress }}</text>
+          </view>
+
+          <view class="contact-qr-wrap">
+            <view class="contact-qr-item">
+              <view class="qr-box">
+                <image class="qr-img" mode="aspectFit" src="/static/img/QR_Code-J.jpg" />
+              </view>
+              <text class="qr-name">研学顾问：Jason</text>
+            </view>
+            <view class="contact-qr-item">
+              <view class="qr-box">
+                <image class="qr-img" mode="aspectFit" src="/static/img/QR_Code-A.jpg" />
+              </view>
+              <text class="qr-name">研学顾问：Adela</text>
             </view>
           </view>
         </view>
@@ -292,10 +300,6 @@ onShareAppMessage(() => ({
 </script>
 
 <style scoped lang="scss">
-.page {
-   
-}
-
 .navbar {
   position: sticky;
   top: 0;
@@ -362,7 +366,7 @@ onShareAppMessage(() => ({
 
 .content {
    
-  padding: 0 32rpx 260rpx;
+  padding: 0 32rpx 32rpx;
   box-sizing: border-box;
 }
 
@@ -435,8 +439,8 @@ onShareAppMessage(() => ({
 }
 
 .btn {
-  height: 84rpx;
-  line-height: 84rpx;
+  height: 64rpx;
+  line-height: 64rpx;
   border-radius: 18rpx;
   padding: 0 28rpx;
   font-size: 26rpx;
@@ -825,90 +829,91 @@ onShareAppMessage(() => ({
   color: rgba(255, 255, 255, 0.82);
 }
 
-.apply {
-  padding: 26rpx;
+.contact-card {
+  background-color: #1d5b91;
   border-radius: 28rpx;
-}
-
-.apply-title {
-  font-size: 30rpx;
-  font-weight: 900;
-  color: $sg-color-primary;
-}
-
-.apply-desc {
-  margin-top: 10rpx;
-  font-size: 22rpx;
-  color: $sg-color-muted;
-  line-height: 1.5;
-}
-
-.apply-meta {
-  margin-top: 12rpx;
-  padding: 14rpx 16rpx;
-  border-radius: 18rpx;
-  background: rgba($sg-color-primary, 0.04);
-  border: 1px solid $sg-color-border;
+  padding: 40rpx 36rpx;
   display: flex;
   flex-direction: column;
-  gap: 10rpx;
+  gap: 60rpx;
 }
 
-.apply-meta-row {
+.contact-title-wrap {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8rpx;
-  align-items: flex-start;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
 }
 
-.apply-meta-k {
-  font-size: 22rpx;
-  font-weight: 900;
-  color: $sg-color-text;
+.contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.apply-meta-v {
-  font-size: 22rpx;
-  color: #4b5563;
-  line-height: 1.5;
-}
-
-.apply-btn {
-  margin-top: 18rpx;
-  height: 92rpx;
-  line-height: 92rpx;
-  border-radius: 20rpx;
-  background: $sg-color-primary;
+.contact-title {
   color: #fff;
+  font-size: 32rpx;
   font-weight: 900;
-  font-size: 26rpx;
 }
 
-.apply-qr {
-  margin-top: 18rpx;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.contact-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-hotline {
+  color: #e5a663;
+  font-size: 56rpx;
+  font-weight: 900;
+  margin-bottom: 12rpx;
+}
+
+.contact-time {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24rpx;
+}
+
+.contact-address-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-address {
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.contact-qr-wrap {
+  display: flex;
+  gap: 40rpx;
+}
+
+.contact-qr-item {
+  display: flex;
+  flex-direction: column;
   gap: 12rpx;
 }
 
-.qr-item {
-  border: 1px solid $sg-color-border;
-  border-radius: 22rpx;
-  background: #fff;
-  padding: 14rpx;
+.qr-box {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 12rpx;
+  width: 160rpx;
+  height: 160rpx;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 8rpx;
+  justify-content: center;
 }
 
 .qr-img {
-  width: 160rpx;
-  height: 160rpx;
+  width: 100%;
+  height: 100%;
 }
 
-.qr-t {
+.qr-name {
+  color: rgba(255, 255, 255, 0.8);
   font-size: 20rpx;
-  color: #6b7280;
 }
 </style>
