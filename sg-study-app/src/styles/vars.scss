@@ -1,0 +1,12 @@
+/**
+ * 功能：全局 SCSS 变量（只放变量/函数，不输出任何 CSS）。
+ * 用法：通过 vite.config.js 的 css.preprocessorOptions.scss.additionalData 自动注入到每个 <style lang="scss">。
+ */
+
+$sg-color-primary: #005a9c; // PC 官网主色（sg-blue）
+$sg-color-accent: #e5a663; // PC 官网点缀色（luxury-gold）
+$sg-color-bg: #f8fafc;
+$sg-color-border: #f1f5f9;
+$sg-color-text: #111827;
+$sg-color-muted: #6b7280;
+

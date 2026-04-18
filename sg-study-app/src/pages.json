@@ -54,5 +54,34 @@
 		"navigationBarTitleText": "盛昌利民研学",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"custom": true,
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "black",
+		"color": "#9CA3AF",
+		"selectedColor": "#005A9C",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/camp/index",
+				"text": "成长营"
+			},
+			{
+				"pagePath": "pages/study/index",
+				"text": "微留学"
+			},
+			{
+				"pagePath": "pages/ep-pass/index",
+				"text": "人才EP"
+			},
+			{
+				"pagePath": "pages/about/index",
+				"text": "我的"
+			}
+		]
 	}
 }

@@ -80,11 +80,25 @@ $uni-font-size-paragraph: 15px;
  * 业务主题变量（研学项目）
  * ==========================
  */
-$sg-color-primary: #0f2f67; // 近似原型的 blue-900
-$sg-color-bg: #f8fafc;
-$sg-color-border: #f1f5f9;
-$sg-color-text: #111827;
-$sg-color-muted: #6b7280;
+@import '@/styles/vars.scss';
+
+/**
+ * ==========================
+ * 全局图标字体（矢量）
+ * ==========================
+ * 功能：让 tabBar（包含 custom-tab-bar）也能使用图标字体。
+ * 说明：这里将字体与 css 本地化到 static，避免不同端对 node_modules 资源引用差异导致的图标不显示。
+ */
+@font-face {
+	font-family: uniicons;
+	src: url('/static/uniicons/uniicons.ttf');
+}
+
+@import '@/static/uniicons/uniicons.css';
+
+.uni-icons {
+	font-family: uniicons;
+}
 
 /**
  * ==========================

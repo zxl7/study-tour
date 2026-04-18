@@ -9,8 +9,8 @@
 				<text class="brand-title">盛昌利民研学 EDU</text>
 			</view>
 			<view class="nav-actions">
-				<text class="nav-action">搜索</text>
-				<text class="nav-action">更多</text>
+				<SgIcon type="search" :size="20" color="#4b5563" />
+				<SgIcon type="more" :size="20" color="#4b5563" />
 			</view>
 		</view>
 
@@ -18,10 +18,10 @@
 		<scroll-view scroll-y class="content">
 			<!-- Banner -->
 			<view class="banner">
-				<image class="banner-img" mode="aspectFill" src="/static/img/Singapore_Marina_Bay.jpg" />
+				<image class="banner-img" mode="aspectFill" src="/static/img/bg.jpg" />
 				<view class="banner-mask">
-					<text class="banner-title">开启新加坡\n菁英研学之旅</text>
-					<text class="banner-sub">Global Vision · Future Leader</text>
+					<text class="banner-title">2026新加坡研学 |\n一站式精英教育服务</text>
+					<text class="banner-sub">本土插班 · 双语研学 · 国际教育 · 移民规划</text>
 				</view>
 			</view>
 
@@ -53,7 +53,9 @@
 				</view>
 				<view class="adv-list">
 					<view v-for="item in advantages" :key="item.title" class="adv-item sg-card">
-						<view class="adv-icon">{{ item.icon }}</view>
+						<view class="adv-icon">
+							<SgIcon :type="item.icon" :size="22" color="#005a9c" />
+						</view>
 						<view class="adv-body">
 							<text class="adv-title">{{ item.title }}</text>
 							<text class="adv-desc">{{ item.desc }}</text>
@@ -80,32 +82,45 @@
 
 		<!-- 悬浮按钮 -->
 		<view class="float-btn" @tap="goForm">
-			<text class="float-icon">☎</text>
+			<SgIcon type="headphones" :size="22" color="#ffffff" />
 			<text class="float-text">咨询</text>
 		</view>
-
-		<AppTabBar active="home" />
 	</view>
 </template>
 
 <script setup>
 import { onShareAppMessage } from '@dcloudio/uni-app'
-import AppTabBar from '@/components/AppTabBar.vue'
 import { navigateToByKey } from '@/utils/routes'
+import SgIcon from '@/components/SgIcon.vue'
 
 /**
  * 功能：首页卡片数据（纯数据驱动渲染）。
  */
 const advantages = [
 	{
-		icon: '安',
-		title: '全球最安全城市',
-		desc: '完善的治安法律体系，未成年研学的首选目的地。',
+		icon: 'shield-filled',
+		title: '全球安全环境',
+		desc: '低犯罪率，完善的法律保障，让孩子在安全的环境中探索世界。',
 	},
 	{
-		icon: '语',
-		title: '双语菁英教育',
-		desc: '完美的英语环境，同时保留中华文化底蕴，无缝衔接。',
+		icon: 'staff',
+		title: '极致双语教育',
+		desc: '母语般的中英双语环境，在浸润式学习中掌握核心语言能力。',
+	},
+	{
+		icon: 'star-filled',
+		title: '世界顶尖资源',
+		desc: '汇集NUS、NTU等亚洲顶尖学府资源，接触前沿科技与学术。',
+	},
+	{
+		icon: 'world-filled',
+		title: '国际化大视野',
+		desc: '多元文化交融，培养具备全球胜任力的未来国际公民。',
+	},
+	{
+		icon: 'paperplane-filled',
+		title: '无时差零距离',
+		desc: '距离中国近，无时差困扰，家长陪读或探视极度便利。',
 	},
 ]
 
@@ -128,7 +143,8 @@ onShareAppMessage(() => ({
 
 <style scoped lang="scss">
 .page {
-	padding-bottom: 180rpx;
+	// 预留 TabBar 安全区
+	padding-bottom: calc(160rpx + env(safe-area-inset-bottom));
 }
 
 .navbar {
@@ -178,14 +194,9 @@ onShareAppMessage(() => ({
 	gap: 20rpx;
 }
 
-.nav-action {
-	font-size: 22rpx;
-	color: #4b5563;
-}
-
 .content {
 	height: calc(100vh - 112rpx - var(--status-bar-height));
-	padding: 0 32rpx 160rpx;
+	padding: 0 32rpx 260rpx;
 	box-sizing: border-box;
 }
 
@@ -224,8 +235,8 @@ onShareAppMessage(() => ({
 .banner-sub {
 	margin-top: 16rpx;
 	color: rgba(255, 255, 255, 0.8);
-	font-size: 20rpx;
-	font-style: italic;
+	font-size: 22rpx;
+	line-height: 1.4;
 }
 
 .grid {
@@ -317,12 +328,10 @@ onShareAppMessage(() => ({
 	width: 80rpx;
 	height: 80rpx;
 	border-radius: 999rpx;
-	background: rgba(15, 47, 103, 0.1);
+	background: rgba($sg-color-primary, 0.12);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: $sg-color-primary;
-	font-weight: 800;
 }
 
 .adv-body {
@@ -388,7 +397,7 @@ onShareAppMessage(() => ({
 .float-btn {
 	position: fixed;
 	right: 32rpx;
-	bottom: 180rpx;
+	bottom: 260rpx;
 	width: 112rpx;
 	height: 112rpx;
 	border-radius: 999rpx;
@@ -399,11 +408,6 @@ onShareAppMessage(() => ({
 	align-items: center;
 	justify-content: center;
 	box-shadow: 0 16rpx 40rpx rgba(15, 47, 103, 0.35);
-}
-
-.float-icon {
-	font-size: 36rpx;
-	line-height: 1;
 }
 
 .float-text {

@@ -7,15 +7,30 @@
 
 			<view class="body">
 				<view class="tags">
-					<text class="tag tag-blue">官方招募</text>
-					<text class="tag tag-amber">7天6夜</text>
+					<text class="tag tag-gold">7天6晚</text>
+					<text class="tag tag-blue">适龄 3-15岁</text>
 				</view>
 
-				<text class="title">“未来领袖”新加坡名校探秘成长营</text>
+				<text class="title">新加坡成长营</text>
+				<text class="subtitle">别让孩子的假期只停留在屏幕里，带娃实地来新加坡，看不一样的世界。</text>
 
 				<view class="price-card">
 					<text class="price-k">项目费用</text>
 					<text class="price-v">¥18,800<text class="price-unit">/人</text></text>
+				</view>
+
+				<view class="section">
+					<view class="section-hd">
+						<view class="section-bar" />
+						<text class="section-title">项目亮点</text>
+					</view>
+					<view class="highlight-grid">
+						<view v-for="item in highlights" :key="item.title" class="highlight-item">
+							<image class="highlight-img" :src="item.img" mode="aspectFill" />
+							<text class="highlight-title">{{ item.title }}</text>
+							<text class="highlight-desc">{{ item.desc }}</text>
+						</view>
+					</view>
 				</view>
 
 				<view class="section">
@@ -39,7 +54,21 @@
 							<view class="tl-body">
 								<text class="tl-title">{{ item.day }}</text>
 								<text class="tl-desc">{{ item.desc }}</text>
+								<image v-if="item.img" class="tl-img" :src="item.img" mode="aspectFill" />
 							</view>
+						</view>
+					</view>
+				</view>
+
+				<view class="section">
+					<view class="section-hd">
+						<view class="section-bar" />
+						<text class="section-title">我们为您护航</text>
+					</view>
+					<view class="guard sg-card">
+						<view v-for="g in guards" :key="g.title" class="guard-item">
+							<text class="guard-title">{{ g.title }}</text>
+							<text class="guard-desc">{{ g.desc }}</text>
 						</view>
 					</view>
 				</view>
@@ -74,12 +103,46 @@ import AppHeader from '@/components/AppHeader.vue'
 import { navigateToByKey } from '@/utils/routes'
 
 /**
+ * 功能：项目亮点（纯数据）。
+ */
+const highlights = [
+	{
+		title: '本地学校/正规营地',
+		desc: '甄选新加坡顶尖国际学校与官方认证营地，共享世界级教育硬件设施与学术资源。',
+		img: '/static/img/School_Campus.jpg',
+	},
+	{
+		title: '沉浸式英文环境',
+		desc: '全天候英语母语导师陪伴，打破哑巴英语，在真实交流中建立语言自信。',
+		img: '/static/img/English_Environment.jpg',
+	},
+	{
+		title: '研学+游玩+能力提升',
+		desc: '科学配比学习与探索时间，玩中学、学中玩，提升独立思考与跨文化交际能力。',
+		img: '/static/img/Study_and_Play.jpg',
+	},
+]
+
+/**
  * 功能：行程安排（纯数据）。
  */
 const timeline = [
-	{ day: 'Day 1：抵达狮城，开启航程', desc: '机场接机，入住四星级营地酒店，破冰晚餐。' },
-	{ day: 'Day 2：名校访学 - 南洋理工大学', desc: '参观黑川纪章设计的蜂巢大楼，体验机器人科技课程。' },
-	{ day: 'Day 3：环保与可持续发展探索', desc: '参观新生水厂，学习新加坡的水资源循环智慧。' },
+	{ day: 'Day 1：抵达狮城，开启航程', desc: '接机入住，破冰活动，适应环境。', img: '/static/img/Day_1_University.jpg' },
+	{ day: 'Day 2：名校访学', desc: '走进顶尖学府，体验互动课程。', img: '/static/img/Day_2_Kampong_Glam_Little_India.jpg' },
+	{ day: 'Day 3：自然与生态探索', desc: '动物园/夜间动物园，理解生态与保护。', img: '/static/img/Day_3_Zoo.jpg' },
+	{ day: 'Day 4：STEAM 与创客日', desc: '项目制学习，动手实践与展示。' },
+	{ day: 'Day 5：主题乐园与城市文化', desc: '在探索中学习规则与协作。' },
+	{ day: 'Day 6：城市深度走读', desc: '地标打卡 + 城市规划与文化解读。', img: '/static/img/Day_6_City_Tour.jpg' },
+	{ day: 'Day 7：结营与凯旋', desc: '成果展示与结营仪式，带着收获回家。', img: '/static/img/Day_7_Jewel_Changi.jpg' },
+]
+
+/**
+ * 功能：家长陪伴与安全保障（纯数据）。
+ */
+const guards = [
+	{ title: '机酒全含，领队同机', desc: '安心从第一刻开始，行程安排更省心。' },
+	{ title: '私享专人接送', desc: '每日酒店专属车辆接送孩子上下学，减少奔波。' },
+	{ title: '高星酒店，家长同住', desc: '孩子与家长同住，起居皆在星级酒店，配套齐全。' },
 ]
 
 /**
@@ -95,7 +158,7 @@ const goForm = () => navigateToByKey('form')
 
 <style scoped lang="scss">
 .page {
-	padding-bottom: 160rpx;
+	padding-bottom: 300rpx;
 }
 
 .content {
@@ -125,13 +188,13 @@ const goForm = () => navigateToByKey('form')
 }
 
 .tag-blue {
-	background: rgba(15, 47, 103, 0.1);
+	background: rgba($sg-color-primary, 0.12);
 	color: $sg-color-primary;
 }
 
-.tag-amber {
-	background: rgba(245, 158, 11, 0.14);
-	color: #92400e;
+.tag-gold {
+	background: rgba($sg-color-accent, 0.22);
+	color: #7c4a1c;
 }
 
 .title {
@@ -139,6 +202,13 @@ const goForm = () => navigateToByKey('form')
 	font-weight: 800;
 	color: $sg-color-text;
 	line-height: 1.25;
+}
+
+.subtitle {
+	margin-top: 12rpx;
+	font-size: 24rpx;
+	color: $sg-color-muted;
+	line-height: 1.5;
 }
 
 .price-card {
@@ -199,6 +269,39 @@ const goForm = () => navigateToByKey('form')
 	text-align: justify;
 }
 
+.highlight-grid {
+	display: flex;
+	flex-direction: column;
+	gap: 20rpx;
+}
+
+.highlight-item {
+	padding: 24rpx;
+	border-radius: 28rpx;
+	background: #fff;
+	border: 1px solid $sg-color-border;
+}
+
+.highlight-img {
+	width: 100%;
+	height: 220rpx;
+	border-radius: 20rpx;
+}
+
+.highlight-title {
+	margin-top: 16rpx;
+	font-size: 28rpx;
+	font-weight: 900;
+	color: $sg-color-primary;
+}
+
+.highlight-desc {
+	margin-top: 8rpx;
+	font-size: 22rpx;
+	color: $sg-color-muted;
+	line-height: 1.5;
+}
+
 .timeline {
 	margin-left: 8rpx;
 	padding-left: 24rpx;
@@ -240,6 +343,36 @@ const goForm = () => navigateToByKey('form')
 	color: $sg-color-muted;
 }
 
+.tl-img {
+	margin-top: 12rpx;
+	width: 100%;
+	height: 220rpx;
+	border-radius: 18rpx;
+}
+
+.guard {
+	padding: 24rpx;
+	border-radius: 28rpx;
+}
+
+.guard-item + .guard-item {
+	margin-top: 18rpx;
+	padding-top: 18rpx;
+	border-top: 1px solid $sg-color-border;
+}
+
+.guard-title {
+	font-size: 26rpx;
+	font-weight: 900;
+	color: $sg-color-primary;
+}
+
+.guard-desc {
+	margin-top: 6rpx;
+	font-size: 22rpx;
+	color: $sg-color-muted;
+}
+
 .include-grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -266,7 +399,7 @@ const goForm = () => navigateToByKey('form')
 	position: fixed;
 	left: 0;
 	right: 0;
-	bottom: 0;
+	bottom: calc(140rpx + env(safe-area-inset-bottom));
 	height: 140rpx;
 	padding: 16rpx 32rpx calc(16rpx + env(safe-area-inset-bottom));
 	display: flex;

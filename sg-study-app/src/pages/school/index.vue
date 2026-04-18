@@ -7,11 +7,12 @@
 
 			<view class="body">
 				<view class="tags">
-					<text class="tag tag-purple">名校直通</text>
-					<text class="tag tag-sky">深度考察</text>
+					<text class="tag tag-gold">IB/AP课程对接</text>
+					<text class="tag tag-teal">深度学术探访</text>
 				</view>
 
-				<text class="title">新加坡顶级国际学校访校体验营</text>
+				<text class="title">探秘新加坡顶级国际学校</text>
+				<text class="subtitle">UWC / SAS / Stamford / Tanglin 深度学术探访营</text>
 
 				<view class="price-card">
 					<text class="price-k">项目费用</text>
@@ -31,12 +32,31 @@
 				<view class="section">
 					<view class="section-hd">
 						<view class="section-bar" />
-						<text class="section-title">访校名单</text>
+						<text class="section-title">国际学校插班课程</text>
 					</view>
-					<view class="school-list">
-						<view v-for="name in schools" :key="name" class="school-item">
-							<text class="school-dot">◎</text>
-							<text class="school-name">{{ name }}</text>
+					<view class="course-grid">
+						<view v-for="c in courses" :key="c.title" class="course-item">
+							<view class="course-hd">
+								<text class="course-title">{{ c.title }}</text>
+							</view>
+							<text class="course-desc">{{ c.desc }}</text>
+							<view class="course-imgs">
+								<image v-for="img in c.imgs" :key="img" class="course-img" :src="img" mode="aspectFill" />
+							</view>
+						</view>
+					</view>
+				</view>
+
+				<view class="section">
+					<view class="section-hd">
+						<view class="section-bar" />
+						<text class="section-title">国际学校同步课程</text>
+					</view>
+					<view class="sync-grid">
+						<view v-for="s in syncs" :key="s.title" class="sync-item">
+							<text class="sync-title">{{ s.title }}</text>
+							<text class="sync-desc">{{ s.desc }}</text>
+							<image class="sync-img" :src="s.img" mode="aspectFill" />
 						</view>
 					</view>
 				</view>
@@ -54,12 +74,38 @@ import AppHeader from '@/components/AppHeader.vue'
 import { navigateToByKey } from '@/utils/routes'
 
 /**
- * 功能：访校名单（纯数据）。
+ * 功能：插班课程模块（纯数据）。
  */
-const schools = [
-	'UWC South East Asia',
-	'Singapore American School',
-	'Stamford American Intl School',
+const courses = [
+	{
+		title: '综合活动',
+		desc: '木材制作、园艺、烘焙等，激发创造力与动手能力。',
+		imgs: ['/static/img/Activity_1.jpg', '/static/img/Activity.jpg'],
+	},
+	{
+		title: '多重冒险',
+		desc: '射箭、跑酷、定向越野、攀岩、无人机等，锻炼体能与协作。',
+		imgs: ['/static/img/活动2.jpg', '/static/img/XCL.jpg'],
+	},
+	{
+		title: '英语强化',
+		desc: '语言游戏与趣味互动，听说读写全面提升，建立交流自信。',
+		imgs: ['/static/img/English.jpg', '/static/img/English_1.jpg'],
+	},
+	{
+		title: '创意STEAM',
+		desc: '编程机器人、VR、3D打印、科学工程，培养创新思维。',
+		imgs: ['/static/img/STEAM.jpg', '/static/img/STEAM_1.jpg'],
+	},
+]
+
+/**
+ * 功能：同步课程模块（纯数据）。
+ */
+const syncs = [
+	{ title: '人工智能', desc: '结合编程与AI技术，启发逻辑思维与计算思维。', img: '/static/img/AI.jpg' },
+	{ title: '小小探索家活动', desc: '室内外互动游戏、自然观察、艺术启蒙，激发好奇心。', img: '/static/img/Explorer.jpg' },
+	{ title: '创意编程', desc: '从图形化编程启蒙到高级语言进阶，培养数字时代核心技能。', img: '/static/img/Coding.jpg' },
 ]
 
 /**
@@ -90,6 +136,7 @@ const goForm = () => navigateToByKey('form')
 	display: flex;
 	gap: 16rpx;
 	margin-bottom: 16rpx;
+	flex-wrap: wrap;
 }
 
 .tag {
@@ -99,14 +146,14 @@ const goForm = () => navigateToByKey('form')
 	font-weight: 800;
 }
 
-.tag-purple {
-	background: rgba(139, 92, 246, 0.12);
-	color: #6d28d9;
+.tag-gold {
+	background: rgba($sg-color-accent, 0.22);
+	color: #7c4a1c;
 }
 
-.tag-sky {
-	background: rgba(14, 165, 233, 0.12);
-	color: #0369a1;
+.tag-teal {
+	background: rgba($sg-color-primary, 0.12);
+	color: $sg-color-primary;
 }
 
 .title {
@@ -114,6 +161,13 @@ const goForm = () => navigateToByKey('form')
 	font-weight: 800;
 	color: $sg-color-text;
 	line-height: 1.25;
+}
+
+.subtitle {
+	margin-top: 12rpx;
+	font-size: 24rpx;
+	color: $sg-color-muted;
+	line-height: 1.5;
 }
 
 .price-card {
@@ -174,29 +228,76 @@ const goForm = () => navigateToByKey('form')
 	text-align: justify;
 }
 
-.school-list {
+.course-grid {
 	display: flex;
 	flex-direction: column;
-	gap: 16rpx;
+	gap: 20rpx;
 }
 
-.school-item {
-	padding: 20rpx;
-	background: #f9fafb;
-	border-radius: 20rpx;
-	display: flex;
-	align-items: center;
-	gap: 12rpx;
+.course-item {
+	padding: 24rpx;
+	border-radius: 28rpx;
+	background: #fff;
+	border: 1px solid $sg-color-border;
 }
 
-.school-dot {
+.course-title {
+	font-size: 28rpx;
+	font-weight: 900;
 	color: $sg-color-primary;
 }
 
-.school-name {
-	font-size: 24rpx;
-	color: #374151;
-	font-weight: 600;
+.course-desc {
+	margin-top: 8rpx;
+	font-size: 22rpx;
+	color: $sg-color-muted;
+	line-height: 1.5;
+}
+
+.course-imgs {
+	margin-top: 16rpx;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 12rpx;
+}
+
+.course-img {
+	width: 100%;
+	height: 180rpx;
+	border-radius: 18rpx;
+}
+
+.sync-grid {
+	display: flex;
+	flex-direction: column;
+	gap: 20rpx;
+}
+
+.sync-item {
+	padding: 24rpx;
+	border-radius: 28rpx;
+	background: rgba($sg-color-primary, 0.06);
+	border: 1px solid rgba($sg-color-primary, 0.12);
+}
+
+.sync-title {
+	font-size: 28rpx;
+	font-weight: 900;
+	color: $sg-color-text;
+}
+
+.sync-desc {
+	margin-top: 8rpx;
+	font-size: 22rpx;
+	color: rgba(17, 24, 39, 0.75);
+	line-height: 1.5;
+}
+
+.sync-img {
+	margin-top: 16rpx;
+	width: 100%;
+	height: 260rpx;
+	border-radius: 18rpx;
 }
 
 .bottom {

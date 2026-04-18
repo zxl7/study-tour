@@ -8,18 +8,18 @@
 			</text>
 
 			<button class="btn" @tap="goHome">返回首页</button>
-			<text class="tip">如有紧急需求，可直接致电 400-888-9999</text>
+			<text class="tip">如有紧急需求，可直接致电 400-888-2026</text>
 		</view>
 	</view>
 </template>
 
 <script setup>
-import { reLaunchByKey } from '@/utils/routes'
+import { switchTabByKey } from '@/utils/routes'
 
 /**
  * 功能：返回首页并清空栈。
  */
-const goHome = () => reLaunchByKey('home')
+const goHome = () => switchTabByKey('home')
 </script>
 
 <style scoped lang="scss">
@@ -84,4 +84,3 @@ const goHome = () => reLaunchByKey('home')
 	text-align: center;
 }
 </style>
-

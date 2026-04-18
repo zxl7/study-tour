@@ -4,6 +4,7 @@
  */
 
 export const ROUTES = Object.freeze({
+	// 说明：应用入口为 TabBar 首页。
 	home: '/pages/index/index',
 	camp: '/pages/camp/index',
 	study: '/pages/study/index',
@@ -34,3 +35,12 @@ export const reLaunchByKey = (key) => {
 	uni.reLaunch({ url })
 }
 
+/**
+ * 功能：用于 TabBar 页面切换（switchTab）。
+ * @param {keyof typeof ROUTES} key 页面 key
+ */
+export const switchTabByKey = (key) => {
+	const url = ROUTES[key]
+	if (!url) return
+	uni.switchTab({ url })
+}

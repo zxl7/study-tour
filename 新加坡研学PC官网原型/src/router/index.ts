@@ -18,6 +18,7 @@ const createRoutes = (): RouteRecordRaw[] => [
   {
     path: "/",
     component: Layout,
+    redirect: "/home", // 默认重定向到首页
     children: [
       {
         path: "home",

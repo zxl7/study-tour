@@ -1,7 +1,7 @@
 <template>
 	<view class="header">
 		<view v-if="showBack" class="back" @tap="handleBack">
-			<text class="back-text">‹</text>
+			<SgIcon type="back" :size="22" :color="colors.text" />
 		</view>
 		<view v-else class="back-placeholder" />
 
@@ -17,6 +17,8 @@
  * 特点：组件无状态，依赖 props + 事件，符合函数式组件思想。
  */
 import { computed } from 'vue'
+import { safeBack } from '@/utils/nav'
+import SgIcon from '@/components/SgIcon.vue'
 
 const props = defineProps({
 	title: { type: String, default: '' },
@@ -24,10 +26,13 @@ const props = defineProps({
 })
 
 const canGoBack = computed(() => props.showBack)
+const colors = computed(() => ({
+	text: '#111827',
+}))
 
 const handleBack = () => {
 	if (!canGoBack.value) return
-	uni.navigateBack({ delta: 1 })
+	safeBack()
 }
 </script>
 
