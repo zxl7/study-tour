@@ -13,6 +13,12 @@ export const ROUTES = Object.freeze({
 	form: '/pages/form/index',
 	success: '/pages/success/index',
 	about: '/pages/about/index',
+	familyOffice: '/pages/family-office/index',
+	selfEmployedPass: '/pages/self-employed-pass/index',
+	prApplication: '/pages/pr-application/index',
+	terms: '/pages/terms/index',
+	privacy: '/pages/privacy/index',
+	partnership: '/pages/partnership/index',
 })
 
 /**

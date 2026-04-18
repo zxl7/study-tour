@@ -126,3 +126,148 @@ $uni-font-size-paragraph: 15px;
 .sg-text-muted {
 	color: $sg-color-muted;
 }
+
+/**
+ * ==========================
+ * 排版与区块（移动端通用）
+ * ==========================
+ * 目标：
+ * - 统一各页面的标题层级与间距密度
+ * - 让“允许合并裁剪模块”后仍保持一致的阅读节奏
+ */
+
+.sg-h1 {
+	font-size: 40rpx;
+	font-weight: 900;
+	color: $sg-color-text;
+}
+
+.sg-h2 {
+	font-size: 30rpx;
+	font-weight: 900;
+	color: $sg-color-text;
+}
+
+.sg-p {
+	font-size: 24rpx;
+	line-height: 1.65;
+	color: rgba(17, 24, 39, 0.74);
+}
+
+.sg-section {
+	margin-top: 40rpx;
+}
+
+.sg-section-hd {
+	display: flex;
+	align-items: center;
+	gap: 16rpx;
+	margin-bottom: 20rpx;
+}
+
+.sg-section-bar {
+	width: 8rpx;
+	height: 32rpx;
+	background: $sg-color-primary;
+	border-radius: 8rpx;
+	flex-shrink: 0;
+}
+
+.sg-section-txt {
+	display: flex;
+	flex-direction: column;
+	gap: 6rpx;
+}
+
+.sg-section-title {
+	font-size: 30rpx;
+	font-weight: 900;
+	color: $sg-color-text;
+}
+
+.sg-section-sub {
+	font-size: 22rpx;
+	line-height: 1.4;
+	color: $sg-color-muted;
+}
+
+.sg-chip {
+	padding: 6rpx 16rpx;
+	border-radius: 12rpx;
+	font-size: 20rpx;
+	font-weight: 800;
+}
+
+.sg-chip-blue {
+	background: rgba($sg-color-primary, 0.12);
+	color: $sg-color-primary;
+}
+
+.sg-chip-gold {
+	background: rgba($sg-color-accent, 0.22);
+	color: #7c4a1c;
+}
+
+.sg-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10rpx;
+}
+
+.sg-li {
+	display: flex;
+	gap: 10rpx;
+	align-items: flex-start;
+}
+
+.sg-dot {
+	margin-top: 2rpx;
+	color: $sg-color-accent;
+}
+
+.sg-li-text {
+	flex: 1;
+	font-size: 22rpx;
+	line-height: 1.5;
+	color: rgba(17, 24, 39, 0.74);
+}
+
+/**
+ * ==========================
+ * 文档类页面（条款/隐私）通用
+ * ==========================
+ */
+.sg-doc {
+	padding: 28rpx;
+	border-radius: 28rpx;
+}
+
+.sg-doc-title {
+	font-size: 34rpx;
+	font-weight: 900;
+	color: $sg-color-text;
+	padding-bottom: 16rpx;
+	border-bottom: 1px solid $sg-color-border;
+}
+
+.sg-doc-h {
+	margin-top: 22rpx;
+	font-size: 28rpx;
+	font-weight: 900;
+	color: $sg-color-text;
+}
+
+.sg-doc-p {
+	margin-top: 12rpx;
+	font-size: 24rpx;
+	color: #4b5563;
+	line-height: 1.7;
+}
+
+.sg-doc-foot {
+	margin-top: 28rpx;
+	padding-top: 18rpx;
+	border-top: 1px solid $sg-color-border;
+	font-size: 20rpx;
+	color: #9ca3af;
+}

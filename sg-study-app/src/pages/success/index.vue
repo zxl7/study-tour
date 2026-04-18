@@ -7,19 +7,26 @@
 				我们将尽快为您匹配资深教育顾问，并在24小时内通过电话与您联系。
 			</text>
 
-			<button class="btn" @tap="goHome">返回首页</button>
-			<text class="tip">如有紧急需求，可直接致电 400-888-2026</text>
+			<button class="btn sg-btn-primary" @tap="goHome">返回首页</button>
+			<text class="tip">如有紧急需求，可直接致电 {{ SITE.hotline }}</text>
 		</view>
 	</view>
 </template>
 
 <script setup>
 import { switchTabByKey } from '@/utils/routes'
+import { SITE } from '@/config/site'
+import { onShareAppMessage } from '@dcloudio/uni-app'
 
 /**
  * 功能：返回首页并清空栈。
  */
 const goHome = () => switchTabByKey('home')
+
+onShareAppMessage(() => ({
+	title: '提交成功 - 盛昌利民研学',
+	path: '/pages/success/index',
+}))
 </script>
 
 <style scoped lang="scss">
@@ -71,8 +78,6 @@ const goHome = () => switchTabByKey('home')
 	width: 100%;
 	height: 96rpx;
 	border-radius: 999rpx;
-	background: $sg-color-primary;
-	color: #fff;
 	font-size: 28rpx;
 	font-weight: 900;
 }

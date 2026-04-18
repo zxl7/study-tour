@@ -48,6 +48,47 @@
 					</view>
 				</view>
 
+				<!-- 入学准备（同步 PC：申请材料 + 寄宿家庭） -->
+				<view class="section">
+					<view class="section-hd">
+						<view class="section-bar" />
+						<text class="section-title">入学准备</text>
+					</view>
+
+					<view class="prep-grid">
+						<view class="prep-card sg-card">
+							<view class="prep-title">申请材料</view>
+							<view v-for="t in prepMaterials" :key="t" class="prep-li">
+								<text class="prep-dot">•</text>
+								<text class="prep-text">{{ t }}</text>
+							</view>
+						</view>
+
+						<view class="prep-card sg-card">
+							<view class="prep-title">寄宿家庭</view>
+							<view v-for="t in homestayRules" :key="t" class="prep-li">
+								<text class="prep-dot gold">•</text>
+								<text class="prep-text">{{ t }}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+
+				<!-- 28天日程（移动端改为“日程概览”列表，更易读） -->
+				<view class="section">
+					<view class="section-hd">
+						<view class="section-bar" />
+						<text class="section-title">28天日程概览</text>
+					</view>
+					<view class="schedule sg-card">
+						<view v-for="it in schedule" :key="it.k" class="schedule-item">
+							<text class="schedule-k">{{ it.k }}</text>
+							<text class="schedule-v">{{ it.v }}</text>
+						</view>
+					</view>
+					<text class="include-tip">* 以上为概要版，具体课表与周末活动以顾问沟通为准。</text>
+				</view>
+
 				<view class="section">
 					<view class="section-hd">
 						<view class="section-bar" />
@@ -57,6 +98,13 @@
 						<view v-for="t in includes" :key="t" class="include-item">
 							<text class="include-dot">•</text>
 							<text class="include-text">{{ t }}</text>
+						</view>
+					</view>
+					<view class="exclude sg-card">
+						<text class="exclude-title">温馨提示</text>
+						<view v-for="t in excludes" :key="t" class="exclude-item">
+							<text class="exclude-dot">•</text>
+							<text class="exclude-text">{{ t }}</text>
 						</view>
 					</view>
 					<text class="include-tip">* 不包含机票；周末行程为赠送项目，可自行选择。</text>
@@ -77,6 +125,7 @@
 <script setup>
 import AppHeader from '@/components/AppHeader.vue'
 import { navigateToByKey } from '@/utils/routes'
+import { onShareAppMessage } from '@dcloudio/uni-app'
 
 /**
  * 功能：适合人群（纯数据）。
@@ -109,9 +158,61 @@ const includes = [
 ]
 
 /**
+ * 功能：入学准备-申请材料（纯数据）。
+ */
+const prepMaterials = [
+	'学生及家长的护照复印件',
+	'学生最近的学校成绩单或完成当前年级的证明',
+	'入学后需参加英语水平测试，用于匹配学习材料与教学方式',
+]
+
+/**
+ * 功能：入学准备-寄宿家庭要求（纯数据）。
+ */
+const homestayRules = [
+	'寄宿家庭受政府严格监管，必须符合安全与居住环境的官方要求',
+	'家庭成员身份：新加坡本地人或永久居民',
+	'居住空间符合政府标准，家庭成员不得超过6人',
+	'有固定时间给孩子安排校外活动，并定期向家长反馈学习与生活情况',
+]
+
+/**
+ * 功能：28天日程概览（纯数据）。
+ * 说明：与 PC「28天日程日历」语义一致，但移动端不使用横向日历，改为纵向列表。
+ */
+const schedule = [
+	{ k: 'D1', v: '入境新加坡：专人接机、介绍概况、入住寄宿家庭' },
+	{ k: 'D2-6', v: '新加坡本地国际学校全真课程' },
+	{ k: 'D7', v: 'City Walk：参观地标、了解历史文化、品尝美食' },
+	{ k: 'D8', v: '自由活动（家长陪同可选）' },
+	{ k: 'D9-13', v: '新加坡本地国际学校全真课程' },
+	{ k: 'D14', v: '新加坡动物园（可选行程）' },
+	{ k: 'D15', v: '自由活动（家长陪同可选）' },
+	{ k: 'D16-20', v: '新加坡本地国际学校全真课程' },
+	{ k: 'D21', v: '影城及圣淘沙（可选行程）' },
+	{ k: 'D22', v: '自由活动（家长陪同可选）' },
+	{ k: 'D23-27', v: '新加坡本地国际学校全真课程' },
+	{ k: 'D28', v: '荣誉返程：带着收获回家' },
+]
+
+/**
+ * 功能：不包含/说明（纯数据）。
+ */
+const excludes = [
+	'不包含机票',
+	'环球影城、动物园等门票需额外购买；若不参加相应行程不退费',
+	'周末行程为赠送项目，可自行选择；不参加不退费',
+]
+
+/**
  * 功能：跳转到表单页。
  */
 const goForm = () => navigateToByKey('form')
+
+onShareAppMessage(() => ({
+	title: '狮城微留学 - 盛昌利民研学',
+	path: '/pages/study/index',
+}))
 </script>
 
 <style scoped lang="scss">
@@ -120,7 +221,7 @@ const goForm = () => navigateToByKey('form')
 }
 
 .content {
-	height: calc(100vh - 112rpx - var(--status-bar-height));
+	 
 }
 
 .banner {
@@ -322,6 +423,112 @@ const goForm = () => navigateToByKey('form')
 	margin-top: 12rpx;
 	font-size: 20rpx;
 	color: #9ca3af;
+}
+
+.prep-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16rpx;
+}
+
+.prep-card {
+	padding: 24rpx;
+	border-radius: 24rpx;
+	background: #f9fafb;
+}
+
+.prep-title {
+	font-size: 26rpx;
+	font-weight: 900;
+	color: $sg-color-primary;
+	margin-bottom: 10rpx;
+}
+
+.prep-li {
+	display: flex;
+	gap: 10rpx;
+	align-items: flex-start;
+	margin-top: 10rpx;
+}
+
+.prep-dot {
+	color: $sg-color-primary;
+	margin-top: 2rpx;
+}
+
+.prep-dot.gold {
+	color: $sg-color-accent;
+}
+
+.prep-text {
+	flex: 1;
+	font-size: 22rpx;
+	color: rgba(17, 24, 39, 0.75);
+	line-height: 1.5;
+}
+
+.schedule {
+	padding: 22rpx;
+	border-radius: 24rpx;
+}
+
+.schedule-item {
+	padding: 16rpx 0;
+	border-top: 1px solid $sg-color-border;
+	display: flex;
+	gap: 14rpx;
+}
+
+.schedule-item:first-child {
+	border-top: none;
+	padding-top: 0;
+}
+
+.schedule-k {
+	width: 112rpx;
+	font-size: 22rpx;
+	font-weight: 900;
+	color: $sg-color-primary;
+	flex-shrink: 0;
+}
+
+.schedule-v {
+	flex: 1;
+	font-size: 22rpx;
+	color: rgba(17, 24, 39, 0.75);
+	line-height: 1.5;
+}
+
+.exclude {
+	margin-top: 16rpx;
+	padding: 22rpx;
+	border-radius: 24rpx;
+	background: #fffbeb;
+	border: 1px solid #fef3c7;
+}
+
+.exclude-title {
+	font-size: 24rpx;
+	font-weight: 900;
+	color: #92400e;
+}
+
+.exclude-item {
+	display: flex;
+	gap: 10rpx;
+	margin-top: 12rpx;
+}
+
+.exclude-dot {
+	color: #f59e0b;
+	margin-top: 2rpx;
+}
+
+.exclude-text {
+	flex: 1;
+	font-size: 22rpx;
+	color: #374151;
+	line-height: 1.5;
 }
 
 .bottom {

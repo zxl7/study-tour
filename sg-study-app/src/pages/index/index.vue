@@ -1,418 +1,914 @@
 <template>
-	<view class="sg-page page">
-		<!-- 顶部导航栏（自定义） -->
-		<view class="navbar">
-			<view class="brand">
-				<view class="brand-dot">
-					<text class="brand-text">盛昌</text>
-				</view>
-				<text class="brand-title">盛昌利民研学 EDU</text>
-			</view>
-			<view class="nav-actions">
-				<SgIcon type="search" :size="20" color="#4b5563" />
-				<SgIcon type="more" :size="20" color="#4b5563" />
-			</view>
-		</view>
+  <view class="sg-page page">
+    <!-- 顶部导航栏（移动端简化 PC Header） -->
+    <!-- <view class="navbar">
+      <view class="brand">
+        <view class="brand-dot">
+          <img src="/src/assets/logo.jpg" alt="logo" style="width: 32px; height: 32px;" />
+        </view>
+        <view class="brand-meta">
+          <text class="brand-title">盛昌利民 · 狮城研学</text>
+          <text class="brand-sub">Shengchang Limin · Singapore Study Tour</text>
+        </view>
+      </view>
+      <button class="nav-cta" @tap="goForm">预约咨询</button>
+    </view> -->
 
-		<!-- 内容区域 -->
-		<scroll-view scroll-y class="content">
-			<!-- Banner -->
-			<view class="banner">
-				<image class="banner-img" mode="aspectFill" src="/static/img/bg.jpg" />
-				<view class="banner-mask">
-					<text class="banner-title">2026新加坡研学 |\n一站式精英教育服务</text>
-					<text class="banner-sub">本土插班 · 双语研学 · 国际教育 · 移民规划</text>
-				</view>
-			</view>
+    <scroll-view scroll-y class="content">
+      <!-- 首屏 Banner -->
+      <view class="hero">
+        <image class="hero-img" mode="aspectFill" src="/static/img/bg.jpg" />
+        <view class="hero-mask" />
+        <view class="hero-inner">
+          <text class="hero-badge">2026年夏季报名开启</text>
+          <text class="hero-title">
+            2026新加坡研学 |
+            <text class="hero-title-gold">\n一站式精英教育服务</text>
+          </text>
+          <text class="hero-desc">本土插班 · 双语研学 · 国际教育 · 移民规划 \n为中国精英家庭定制最具深度的狮城成长之旅。</text>
+          <view class="hero-actions">
+            <button class="btn btn-gold" @tap="scrollToProjects">探索研学项目</button>
+            <button class="btn btn-ghost" @tap="goEp">了解移民准证</button>
+          </view>
+        </view>
+      </view>
 
-			<!-- 金刚区 -->
-			<view class="grid">
-				<view class="grid-item" @tap="() => go('camp')">
-					<view class="grid-icon grid-icon-blue">营</view>
-					<text class="grid-text">成长营</text>
-				</view>
-				<view class="grid-item" @tap="() => go('study')">
-					<view class="grid-icon grid-icon-amber">学</view>
-					<text class="grid-text">微留学</text>
-				</view>
-				<view class="grid-item" @tap="() => go('epPass')">
-					<view class="grid-icon grid-icon-emerald">证</view>
-					<text class="grid-text">EP准证</text>
-				</view>
-				<view class="grid-item" @tap="() => go('school')">
-					<view class="grid-icon grid-icon-purple">校</view>
-					<text class="grid-text">体验营</text>
-				</view>
-			</view>
+      <!-- 核心优势 -->
+      <view class="section">
+        <view class="section-center">
+          <text class="section-title-lg">为什么选择新加坡？</text>
+          <view class="section-line" />
+          <text class="section-sub">“花园城市”下的顶层教育逻辑，为孩子构建全球竞争力的第一站</text>
+        </view>
+        <view class="adv-grid">
+          <view v-for="item in advantages" :key="item.title" class="adv-card">
+            <view class="adv-circle">
+              <SgIcon :type="item.icon" :size="22" color="#005a9c" />
+            </view>
+            <text class="adv-card-title">{{ item.title }}</text>
+            <text class="adv-card-desc">{{ item.desc }}</text>
+          </view>
+        </view>
+      </view>
 
-			<!-- 优势 -->
-			<view class="section">
-				<view class="section-hd">
-					<text class="section-title">为何选择新加坡？</text>
-					<text class="section-more">查看更多 ></text>
-				</view>
-				<view class="adv-list">
-					<view v-for="item in advantages" :key="item.title" class="adv-item sg-card">
-						<view class="adv-icon">
-							<SgIcon :type="item.icon" :size="22" color="#005a9c" />
-						</view>
-						<view class="adv-body">
-							<text class="adv-title">{{ item.title }}</text>
-							<text class="adv-desc">{{ item.desc }}</text>
-						</view>
-					</view>
-				</view>
-			</view>
+      <!-- 为什么选择我们 -->
+      <view class="section section-blue">
+        <view class="section-center">
+          <text class="section-title-lg white">为什么选择我们</text>
+          <view class="section-line gold" />
+          <text class="section-sub white-sub">专业、靠谱、一站式的海外教育与身份规划专家</text>
+        </view>
+        <view class="why-list">
+          <view v-for="w in whyUs" :key="w.title" class="why-item">
+            <view class="why-icon">
+              <SgIcon :type="w.icon" :size="22" color="#ffffff" />
+            </view>
+            <view class="why-body">
+              <text class="why-title">{{ w.title }}</text>
+              <text class="why-desc">{{ w.desc }}</text>
+            </view>
+          </view>
+        </view>
+      </view>
 
-			<!-- 推荐 -->
-			<view class="section">
-				<text class="section-title">精选推荐项目</text>
-				<view class="recommend" @tap="() => go('camp')">
-					<image class="recommend-img" mode="aspectFill" src="/static/img/Science_Center.jpg" />
-					<view class="recommend-bd">
-						<view class="recommend-row">
-							<text class="recommend-title">新加坡名校成长营 · 暑期档</text>
-							<text class="recommend-price">¥18,800起</text>
-						</view>
-						<text class="recommend-desc sg-text-muted">南洋理工/国大深度访学 + 环球影城科技日</text>
-					</view>
-				</view>
-			</view>
-		</scroll-view>
+      <!-- 项目矩阵 -->
+      <view class="section" :id="projectsAnchor">
+        <view class="section-hd">
+          <view>
+            <h2 class="section-title-lg">研学·教育·移民项目矩阵</h2>
+            <text class="section-sub2">满足不同年龄段、不同目标的精准化需求定制</text>
+          </view>
+        </view>
+        <view class="project-list">
+          <view v-for="p in projects" :key="p.title" class="project-card">
+            <view class="project-img-wrap">
+              <image class="project-img" mode="aspectFill" :src="p.img" />
+              <text class="project-tag" :class="p.tagCls">{{ p.tag }}</text>
+            </view>
+            <view class="project-bd">
+              <h3 class="project-title">{{ p.title }}</h3>
+              <text class="project-desc">{{ p.desc }}</text>
+              <view class="project-meta">
+                <text class="meta-item">{{ p.meta1 }}</text>
+                <text class="meta-sep">·</text>
+                <text class="meta-item">{{ p.meta2 }}</text>
+              </view>
+              <button class="project-btn" @tap="() => goTab(p.to)">查看详情</button>
+            </view>
+          </view>
+        </view>
+      </view>
 
-		<!-- 悬浮按钮 -->
-		<view class="float-btn" @tap="goForm">
-			<SgIcon type="headphones" :size="22" color="#ffffff" />
-			<text class="float-text">咨询</text>
-		</view>
-	</view>
+      <!-- 微留学 VS 夏令营 -->
+      <view class="section">
+        <view class="section-center">
+          <text class="section-title-lg">微留学 VS 夏令营</text>
+          <view class="section-line" />
+          <text class="section-sub">根据孩子的适应能力与成长目标，科学选择研学模式</text>
+        </view>
+        <view class="compare">
+          <view v-for="row in compareRows" :key="row.title" class="compare-row">
+            <text class="compare-title">{{ row.title }}</text>
+            <view class="compare-cols">
+              <view class="compare-col compare-left">
+                <text class="compare-col-title">微留学</text>
+                <view v-for="t in row.left" :key="t" class="compare-li">
+                  <text class="compare-dot left-dot">•</text>
+                  <text class="compare-txt">{{ t }}</text>
+                </view>
+              </view>
+              <view class="compare-col compare-right">
+                <text class="compare-col-title">夏令营</text>
+                <view v-for="t in row.right" :key="t" class="compare-li">
+                  <text class="compare-dot right-dot">•</text>
+                  <text class="compare-txt">{{ t }}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 专家领衔 · 权威护航 -->
+      <view class="section section-blue">
+        <view class="section-hd">
+          <text class="section-title-lg white">专家领衔 · 权威护航</text>
+        </view>
+        <view class="stats">
+          <view v-for="s in stats" :key="s.label" class="stat-item">
+            <text class="stat-val">{{ s.val }}</text>
+            <text class="stat-label">{{ s.label }}</text>
+          </view>
+        </view>
+        <view class="certs">
+          <view class="cert">
+            <image class="cert-img" mode="aspectFit" src="/static/img/资质证书.jpg" />
+            <text class="cert-t">资质证书</text>
+          </view>
+          <view class="cert">
+            <image class="cert-img" mode="aspectFit" src="/static/img/授权信.jpg" />
+            <text class="cert-t">授权信</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 咨询报名 -->
+      <view class="section">
+        <view class="apply sg-card">
+          <text class="apply-title">规划狮城教育蓝图</text>
+          <text class="apply-desc">留下您的联系方式，我们的资深规划师将在24小时内为您定制专属研学方案。</text>
+          <view class="apply-meta">
+            <view class="apply-meta-row">
+              <text class="apply-meta-k">服务热线：</text>
+              <text class="apply-meta-v">{{ SITE.hotline }}</text>
+            </view>
+            <view class="apply-meta-row">
+              <text class="apply-meta-k">中国运营中心：</text>
+              <text class="apply-meta-v">{{ SITE.chinaOfficeAddress }}</text>
+            </view>
+          </view>
+          <button class="apply-btn" @tap="goForm">提交申请 · 免费领取规划手册</button>
+          <view class="apply-qr">
+            <view class="qr-item">
+              <image class="qr-img" mode="aspectFit" src="/static/img/QR_Code-J.jpg" />
+              <text class="qr-t">研学顾问：Jason</text>
+            </view>
+            <view class="qr-item">
+              <image class="qr-img" mode="aspectFit" src="/static/img/QR_Code-A.jpg" />
+              <text class="qr-t">研学顾问：Adela</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
 </template>
 
 <script setup>
-import { onShareAppMessage } from '@dcloudio/uni-app'
-import { navigateToByKey } from '@/utils/routes'
-import SgIcon from '@/components/SgIcon.vue'
+import { onShareAppMessage } from "@dcloudio/uni-app"
+import SgIcon from "@/components/SgIcon.vue"
+import { navigateToByKey, switchTabByKey } from "@/utils/routes"
+import { SITE } from "@/config/site"
 
-/**
- * 功能：首页卡片数据（纯数据驱动渲染）。
- */
+const projectsAnchor = "projects"
+
 const advantages = [
-	{
-		icon: 'shield-filled',
-		title: '全球安全环境',
-		desc: '低犯罪率，完善的法律保障，让孩子在安全的环境中探索世界。',
-	},
-	{
-		icon: 'staff',
-		title: '极致双语教育',
-		desc: '母语般的中英双语环境，在浸润式学习中掌握核心语言能力。',
-	},
-	{
-		icon: 'star-filled',
-		title: '世界顶尖资源',
-		desc: '汇集NUS、NTU等亚洲顶尖学府资源，接触前沿科技与学术。',
-	},
-	{
-		icon: 'world-filled',
-		title: '国际化大视野',
-		desc: '多元文化交融，培养具备全球胜任力的未来国际公民。',
-	},
-	{
-		icon: 'paperplane-filled',
-		title: '无时差零距离',
-		desc: '距离中国近，无时差困扰，家长陪读或探视极度便利。',
-	},
+  { icon: "locked-filled", title: "全球安全环境", desc: "低犯罪率，完善的法律保障，让孩子在安全的环境中探索世界。" },
+  { icon: "staff", title: "极致双语教育", desc: "母语般的中英双语环境，在浸润式学习中掌握核心语言能力。" },
+  { icon: "star", title: "世界顶尖资源", desc: "汇集NUS、NTU等亚洲顶尖学府资源，接触前沿科技与学术。" },
+  { icon: "navigate", title: "国际化大视野", desc: "多元文化交融，培养具备全球胜任力的未来国际公民。" },
+  { icon: "paperplane", title: "无时差零距离", desc: "距离中国近，无时差困扰，家长陪读或探视极度便利。" },
 ]
 
-/**
- * 功能：统一路由跳转（保持模板层尽量无逻辑）。
- * @param {'camp'|'study'|'epPass'|'school'} key
- */
-const go = (key) => navigateToByKey(key)
+const whyUs = [
+  { icon: "medal", title: "官方权威认证", desc: "合作学校均获得新加坡教育部(MOE)认证，确保合法合规。" },
+  { icon: "person-filled", title: "本土化资深团队", desc: "中新双总部运营，提供7x24小时在地响应与安全保障。" },
+  { icon: "vip", title: "全定制化教育", desc: "提供“一人一课表”的精细化排班，匹配不同年龄段需求。" },
+  { icon: "wallet", title: "高端圈层赋能", desc: "同步提供身份规划(EP)、置业、税务等高净值服务。" },
+]
 
-/**
- * 功能：跳转到报名/咨询页面。
- */
-const goForm = () => navigateToByKey('form')
+const projects = [
+  {
+    title: "新加坡成长营",
+    desc: "针对3-15岁的孩子，与顶级国际学校合作深度融入狮城文化，培养独立思考与团队协作能力。",
+    tag: "7天体验",
+    tagCls: "tag-blue",
+    img: "/static/img/1.jpg",
+    meta1: "适龄：小学-初中",
+    meta2: "班期：寒暑假",
+    to: "camp",
+  },
+  {
+    title: "新加坡微留学",
+    desc: "真实入读新加坡政府中小学/优质私立校，沉浸式体验全英文教学环境。",
+    tag: "28天深度",
+    tagCls: "tag-gold",
+    img: "/static/img/2.jpg",
+    meta1: "适龄：全学段",
+    meta2: "班期：学期中",
+    to: "study",
+  },
+  {
+    title: "人才准证EP",
+    desc: "为高端精英家庭定制长期规划，同步解决子女教育与家长身份问题。",
+    tag: "教育移民",
+    tagCls: "tag-dark",
+    img: "/static/img/3.jpg",
+    meta1: "针对：企业主/高管",
+    meta2: "优势：全家移民",
+    to: "epPass",
+  },
+]
+
+const compareRows = [
+  {
+    title: "环境与节奏",
+    left: ["入住寄宿家庭，作为家庭成员参与生活", "进入当地学校插班，遵循严谨真实的学术节奏"],
+    right: ["入住星级酒店或营地宿舍，享受集体生活乐趣", "以主题游览、素质拓展为主，氛围轻松活跃"],
+  },
+  {
+    title: "社交模式",
+    left: ["离开母语舒适区，锻炼沟通能力", "与本地家庭及同学建立长期海外联系"],
+    right: ["与来自各地同龄参与者快速破冰", "在团队协作任务中建立短期友谊"],
+  },
+  {
+    title: "核心价值",
+    left: ["低成本试错：体验教学风格与文化适配", "精准定位：通过课程反馈为后续升学做参考"],
+    right: ["开阔视野：高密度多元活动拓宽认知边界", "兴趣探索：短时间接触多个领域发现特长"],
+  },
+  {
+    title: "心智成长",
+    left: ["经历“新鲜→挑战→适应→掌控”的完整情绪周期", "建立心理韧性与对陌生环境的掌控感"],
+    right: ["无忧行程确保正向情绪的高频反馈", "鼓励式拓展中收获成就感与自我认同"],
+  },
+  {
+    title: "最终收获",
+    left: ["获得真实海外生存技能，塑造独立人格", "提前预演留学生活，缩短未来适应期"],
+    right: ["收获美好旅程与珍贵国际友谊", "通过游历打开世界大门，种下全球思维种子"],
+  },
+]
+
+const stats = [
+  { val: "15+", label: "教育行业积淀(年)" },
+  { val: "50+", label: "优质合作院校" },
+  { val: "5000+", label: "服务成功家庭" },
+]
+
+const goForm = () => navigateToByKey("form")
+const goTab = (key) => switchTabByKey(key)
+const goEp = () => switchTabByKey("epPass")
+
+const scrollToProjects = () => {
+  // #ifdef H5
+  const el = document.getElementById(projectsAnchor)
+  el?.scrollIntoView?.({ behavior: "smooth" })
+  // #endif
+}
 
 onShareAppMessage(() => ({
-	title: '盛昌利民研学',
-	path: '/pages/index/index',
+  title: "盛昌利民研学",
+  path: "/pages/index/index",
 }))
 </script>
 
 <style scoped lang="scss">
 .page {
-	// 预留 TabBar 安全区
-	padding-bottom: calc(160rpx + env(safe-area-inset-bottom));
+   
 }
 
 .navbar {
-	position: sticky;
-	top: 0;
-	z-index: 10;
-	height: calc(112rpx + var(--status-bar-height));
-	padding: var(--status-bar-height) 32rpx 0;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background: rgba(255, 255, 255, 0.86);
-	backdrop-filter: blur(10px);
-	border-bottom: 1px solid $sg-color-border;
-	box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: calc(112rpx + var(--status-bar-height));
+  padding: var(--status-bar-height) 32rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $sg-color-border;
+  box-sizing: border-box;
 }
 
 .brand {
-	display: flex;
-	align-items: center;
-	gap: 16rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
 }
 
 .brand-dot {
-	width: 64rpx;
-	height: 64rpx;
-	border-radius: 999rpx;
-	background: $sg-color-primary;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 999rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .brand-text {
-	color: #fff;
-	font-size: 20rpx;
-	font-weight: 700;
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: 700;
+}
+
+.brand-meta {
+  display: flex;
+  flex-direction: column;
 }
 
 .brand-title {
-	font-weight: 700;
-	font-size: 28rpx;
+  font-weight: 900;
+  font-size: 26rpx;
 }
 
-.nav-actions {
-	display: flex;
-	gap: 20rpx;
+.brand-sub {
+  margin-top: 2rpx;
+  font-size: 18rpx;
+  letter-spacing: 2rpx;
+  color: rgba(17, 24, 39, 0.5);
+}
+
+.nav-cta {
+  height: 72rpx;
+  line-height: 72rpx;
+  padding: 0 24rpx;
+  border-radius: 999rpx;
+  background: rgba($sg-color-accent, 0.95);
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 900;
 }
 
 .content {
-	height: calc(100vh - 112rpx - var(--status-bar-height));
-	padding: 0 32rpx 260rpx;
-	box-sizing: border-box;
+   
+  padding: 0 32rpx 260rpx;
+  box-sizing: border-box;
 }
 
-.banner {
-	margin-top: 24rpx;
-	height: 360rpx;
-	border-radius: 32rpx;
-	overflow: hidden;
-	position: relative;
-	box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.08);
+.hero {
+  margin-top: 24rpx;
+  height: 420rpx;
+  border-radius: 32rpx;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.08);
 }
 
-.banner-img {
-	width: 100%;
-	height: 100%;
+.hero-img {
+  width: 100%;
+  height: 100%;
 }
 
-.banner-mask {
-	position: absolute;
-	inset: 0;
-	padding: 48rpx 40rpx;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	background: linear-gradient(90deg, rgba(15, 47, 103, 0.72), rgba(15, 47, 103, 0));
+.hero-mask {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 90, 156, 0.92), rgba(0, 90, 156, 0.25), rgba(0, 90, 156, 0));
 }
 
-.banner-title {
-	color: #fff;
-	font-size: 40rpx;
-	font-weight: 800;
-	line-height: 1.2;
-	white-space: pre-line;
+.hero-inner {
+  position: absolute;
+  inset: 0;
+  padding: 44rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.banner-sub {
-	margin-top: 16rpx;
-	color: rgba(255, 255, 255, 0.8);
-	font-size: 22rpx;
-	line-height: 1.4;
+.hero-badge {
+  align-self: flex-start;
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  border: 1px solid rgba($sg-color-accent, 0.95);
+  color: $sg-color-accent;
+  font-size: 22rpx;
+  font-weight: 900;
+  margin-bottom: 18rpx;
 }
 
-.grid {
-	margin-top: 40rpx;
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 16rpx;
+.hero-title {
+  color: #fff;
+  font-size: 44rpx;
+  font-weight: 900;
+  line-height: 1.4;
+  white-space: pre-line;
 }
 
-.grid-item {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.hero-title-gold {
+  color: $sg-color-accent;
 }
 
-.grid-icon {
-	width: 96rpx;
-	height: 96rpx;
-	border-radius: 24rpx;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 32rpx;
-	font-weight: 700;
+.hero-desc {
+  margin-top: 16rpx;
+  padding-left: 18rpx;
+  border-left: 6rpx solid rgba($sg-color-accent, 0.9);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 22rpx;
+  line-height: 1.55;
+  white-space: pre-line;
 }
 
-.grid-icon-blue {
-	background: rgba(15, 47, 103, 0.08);
-	color: $sg-color-primary;
+.hero-actions {
+  margin-top: 22rpx;
+  display: flex;
+  gap: 16rpx;
 }
 
-.grid-icon-amber {
-	background: rgba(245, 158, 11, 0.12);
-	color: #b45309;
+.btn {
+  height: 84rpx;
+  line-height: 84rpx;
+  border-radius: 18rpx;
+  padding: 0 28rpx;
+  font-size: 26rpx;
+  font-weight: 900;
 }
 
-.grid-icon-emerald {
-	background: rgba(16, 185, 129, 0.12);
-	color: #047857;
+.btn-gold {
+  background: $sg-color-accent;
+  color: #fff;
 }
 
-.grid-icon-purple {
-	background: rgba(139, 92, 246, 0.12);
-	color: #6d28d9;
-}
-
-.grid-text {
-	margin-top: 12rpx;
-	font-size: 22rpx;
-	color: #374151;
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
 }
 
 .section {
-	margin-top: 56rpx;
+  margin-top: 56rpx;
+}
+
+.section-blue {
+  padding: 40rpx 28rpx;
+  border-radius: 32rpx;
+  background: $sg-color-primary;
+  color: #fff;
+}
+
+.section-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section-title-lg {
+  font-size: 34rpx;
+  font-weight: 900;
+  color: $sg-color-text;
+}
+
+.section-title-lg.white {
+  color: #fff;
+}
+
+.section-line {
+  margin-top: 14rpx;
+  width: 120rpx;
+  height: 6rpx;
+  border-radius: 999rpx;
+  background: $sg-color-accent;
+}
+
+.section-line.gold {
+  background: $sg-color-accent;
+}
+
+.section-sub {
+  margin-top: 14rpx;
+  font-size: 22rpx;
+  color: $sg-color-muted;
+  line-height: 1.5;
+}
+
+.section-sub.white-sub {
+  color: rgba(255, 255, 255, 0.86);
 }
 
 .section-hd {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: 24rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
 }
 
-.section-title {
-	font-size: 32rpx;
-	font-weight: 800;
+.section-sub2 {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: $sg-color-muted;
 }
 
-.section-more {
-	font-size: 22rpx;
-	color: $sg-color-primary;
+.adv-grid {
+  margin-top: 22rpx;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
 }
 
-.adv-list {
-	display: flex;
-	flex-direction: column;
-	gap: 20rpx;
+.adv-card {
+  background: #fff;
+  border: 1px solid $sg-color-border;
+  border-radius: 24rpx;
+  padding: 22rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.adv-item {
-	padding: 24rpx;
-	display: flex;
-	gap: 24rpx;
-	align-items: flex-start;
-	box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.04);
+.adv-circle {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 999rpx;
+  background: rgba($sg-color-primary, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.adv-icon {
-	width: 80rpx;
-	height: 80rpx;
-	border-radius: 999rpx;
-	background: rgba($sg-color-primary, 0.12);
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.adv-card-title {
+  margin-top: 14rpx;
+  font-size: 26rpx;
+  font-weight: 900;
+  color: $sg-color-text;
 }
 
-.adv-body {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
+.adv-card-desc {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: $sg-color-muted;
+  line-height: 1.45;
 }
 
-.adv-title {
-	font-size: 26rpx;
-	font-weight: 800;
+.why-list {
+  margin-top: 18rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
 }
 
-.adv-desc {
-	margin-top: 8rpx;
-	font-size: 22rpx;
-	color: $sg-color-muted;
-	line-height: 1.4;
+.why-item {
+  display: flex;
+  gap: 18rpx;
+  align-items: flex-start;
+  padding: 18rpx;
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.recommend {
-	margin-top: 24rpx;
-	border-radius: 32rpx;
-	overflow: hidden;
-	border: 1px solid $sg-color-border;
-	background: #fff;
+.why-icon {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 18rpx;
+  background: rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.recommend-img {
-	width: 100%;
-	height: 256rpx;
+.why-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
 }
 
-.recommend-bd {
-	padding: 24rpx;
+.why-title {
+  font-size: 26rpx;
+  font-weight: 900;
+  color: #fff;
 }
 
-.recommend-row {
-	display: flex;
-	align-items: flex-start;
-	justify-content: space-between;
-	gap: 20rpx;
+.why-desc {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.5;
 }
 
-.recommend-title {
-	font-size: 26rpx;
-	font-weight: 800;
-	flex: 1;
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
 }
 
-.recommend-price {
-	font-size: 24rpx;
-	font-weight: 800;
-	color: #ef4444;
-	white-space: nowrap;
+.project-card {
+  overflow: hidden;
+  background: #fff;
+  border-radius: 28rpx;
+  border: 1px solid $sg-color-border;
 }
 
-.recommend-desc {
-	margin-top: 8rpx;
-	font-size: 22rpx;
+.project-img-wrap {
+  position: relative;
+  height: 260rpx;
 }
 
-.float-btn {
-	position: fixed;
-	right: 32rpx;
-	bottom: 260rpx;
-	width: 112rpx;
-	height: 112rpx;
-	border-radius: 999rpx;
-	background: $sg-color-primary;
-	color: #fff;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	box-shadow: 0 16rpx 40rpx rgba(15, 47, 103, 0.35);
+.project-img {
+  width: 100%;
+  height: 100%;
 }
 
-.float-text {
-	margin-top: 6rpx;
-	font-size: 20rpx;
-	font-weight: 700;
+.project-tag {
+  position: absolute;
+  top: 18rpx;
+  left: 18rpx;
+  padding: 10rpx 16rpx;
+  border-radius: 14rpx;
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: 900;
+}
+
+.tag-blue {
+  background: rgba($sg-color-primary, 0.95);
+}
+.tag-gold {
+  background: rgba($sg-color-accent, 0.95);
+}
+.tag-dark {
+  background: rgba(17, 24, 39, 0.92);
+}
+
+.project-bd {
+  padding: 24rpx 24rpx 28rpx;
+}
+
+.project-title {
+  font-size: 30rpx;
+  font-weight: 900;
+  color: $sg-color-text;
+}
+
+.project-desc {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: $sg-color-muted;
+  line-height: 1.55;
+}
+
+.project-meta {
+  margin-top: 12rpx;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  color: #9ca3af;
+  font-size: 20rpx;
+}
+
+.meta-sep {
+  opacity: 0.6;
+}
+
+.project-btn {
+  margin-top: 16rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  border-radius: 18rpx;
+  border: 1px solid rgba($sg-color-primary, 0.95);
+  color: $sg-color-primary;
+  font-weight: 900;
+  background: #fff;
+}
+
+.compare {
+  margin-top: 22rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}
+
+.compare-row {
+  border: 1px solid $sg-color-border;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 18rpx;
+}
+
+.compare-title {
+  font-size: 26rpx;
+  font-weight: 900;
+  color: $sg-color-primary;
+}
+
+.compare-cols {
+  margin-top: 12rpx;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12rpx;
+}
+
+.compare-col {
+  border-radius: 18rpx;
+  padding: 14rpx;
+  border: 1px solid $sg-color-border;
+}
+
+.compare-left {
+  background: rgba($sg-color-primary, 0.06);
+}
+
+.compare-right {
+  background: rgba(5, 150, 105, 0.06);
+}
+
+.compare-col-title {
+  font-size: 22rpx;
+  font-weight: 900;
+  color: $sg-color-text;
+  margin-bottom: 8rpx;
+}
+
+.compare-li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8rpx;
+  margin-top: 6rpx;
+}
+
+.compare-dot {
+  margin-top: 2rpx;
+}
+
+.left-dot {
+  color: $sg-color-primary;
+}
+
+.right-dot {
+  color: #059669;
+}
+
+.compare-txt {
+  font-size: 20rpx;
+  color: rgba(17, 24, 39, 0.75);
+  line-height: 1.45;
+}
+
+.stats {
+  margin-top: 18rpx;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12rpx;
+}
+
+.stat-item {
+  padding: 16rpx;
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.stat-val {
+  font-size: 34rpx;
+  font-weight: 900;
+  color: $sg-color-accent;
+}
+
+.stat-label {
+  font-size: 20rpx;
+  color: rgba(255, 255, 255, 0.82);
+  text-align: center;
+}
+
+.certs {
+  margin-top: 18rpx;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12rpx;
+}
+
+.cert {
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.cert-img {
+  width: 100%;
+  height: 240rpx;
+  border-radius: 18rpx;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.cert-t {
+  font-size: 20rpx;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.apply {
+  padding: 26rpx;
+  border-radius: 28rpx;
+}
+
+.apply-title {
+  font-size: 30rpx;
+  font-weight: 900;
+  color: $sg-color-primary;
+}
+
+.apply-desc {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: $sg-color-muted;
+  line-height: 1.5;
+}
+
+.apply-meta {
+  margin-top: 12rpx;
+  padding: 14rpx 16rpx;
+  border-radius: 18rpx;
+  background: rgba($sg-color-primary, 0.04);
+  border: 1px solid $sg-color-border;
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.apply-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+  align-items: flex-start;
+}
+
+.apply-meta-k {
+  font-size: 22rpx;
+  font-weight: 900;
+  color: $sg-color-text;
+}
+
+.apply-meta-v {
+  font-size: 22rpx;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.apply-btn {
+  margin-top: 18rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  border-radius: 20rpx;
+  background: $sg-color-primary;
+  color: #fff;
+  font-weight: 900;
+  font-size: 26rpx;
+}
+
+.apply-qr {
+  margin-top: 18rpx;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12rpx;
+}
+
+.qr-item {
+  border: 1px solid $sg-color-border;
+  border-radius: 22rpx;
+  background: #fff;
+  padding: 14rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.qr-img {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.qr-t {
+  font-size: 20rpx;
+  color: #6b7280;
 }
 </style>

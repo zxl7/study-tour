@@ -31,6 +31,11 @@
 					</view>
 				</view>
 
+				<view class="policy-figure sg-card">
+					<image class="policy-img" mode="aspectFit" src="/static/img/EP.png" />
+					<text class="policy-tip">COMPASS评估框架示意</text>
+				</view>
+
 				<view class="section">
 					<view class="section-hd">
 						<view class="section-bar" />
@@ -47,6 +52,57 @@
 						<view v-for="b in benefits" :key="b" class="benefit-item">
 							<text class="benefit-icon">●</text>
 							<text class="benefit-text">{{ b }}</text>
+						</view>
+					</view>
+				</view>
+
+				<!-- 为何选择新加坡EP（同步 PC：四大优势卡片） -->
+				<view class="section">
+					<view class="section-hd">
+						<view class="section-bar" />
+						<text class="section-title">为何选择新加坡EP</text>
+					</view>
+
+					<view class="adv-grid">
+						<view v-for="a in advantages" :key="a.title" class="adv-item sg-card">
+							<text class="adv-title">{{ a.title }}</text>
+							<view class="adv-list">
+								<view v-for="t in a.items" :key="t" class="adv-li">
+									<text class="adv-dot">•</text>
+									<text class="adv-text">{{ t }}</text>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+
+				<!-- 选择我们，快速直达（同步 PC：四项卖点） -->
+				<view class="section section-blue">
+					<view class="section-hd">
+						<view class="section-bar white" />
+						<text class="section-title white">选择我们，快速直达</text>
+					</view>
+					<view class="fast-grid">
+						<view v-for="f in fastTrack" :key="f.title" class="fast-item">
+							<text class="fast-title">{{ f.title }}</text>
+							<text class="fast-desc">{{ f.desc }}</text>
+						</view>
+					</view>
+				</view>
+
+				<!-- 标准化办理流程（同步 PC：6步流程） -->
+				<view class="section">
+					<view class="section-hd">
+						<view class="section-bar" />
+						<text class="section-title">标准化一站式办理流程</text>
+					</view>
+					<view class="process sg-card">
+						<view v-for="p in process" :key="p.no" class="process-item">
+							<view class="process-no" :class="p.noCls">{{ p.no }}</view>
+							<view class="process-body">
+								<text class="process-title">{{ p.title }}</text>
+								<text class="process-sub">{{ p.sub }}</text>
+							</view>
 						</view>
 					</view>
 				</view>
@@ -76,6 +132,7 @@
 <script setup>
 import AppHeader from '@/components/AppHeader.vue'
 import { navigateToByKey } from '@/utils/routes'
+import { onShareAppMessage } from '@dcloudio/uni-app'
 
 /**
  * 功能：适合人群（纯数据）。
@@ -97,6 +154,50 @@ const benefits = [
 ]
 
 /**
+ * 功能：四大优势卡片（纯数据）。
+ */
+const advantages = [
+	{
+		title: '税务避风港',
+		items: ['个税税率极低（0-22%阶梯）', '企业所得税仅17%', '拥有新加坡税号更容易开户', '合理规避CRS信息交换', '享受与公民同等的税务抵扣'],
+	},
+	{
+		title: '子女教育及亲属探访',
+		items: ['配偶和子女可申请DP家属准证', '父母可申请长期探访准证LTVP', '子女更低门槛入读政府中小学', '免去留学签证烦恼', '居住满2年可规划PR'],
+	},
+	{
+		title: '企业运营体验',
+		items: ['自主担任本地董事', '不再依赖挂名董事', '公司决策效率翻倍', '运营成本直线下降', '银行账户安全更有保障'],
+	},
+	{
+		title: '社会福利全享受',
+		items: ['优质医疗体系覆盖', '完善公共服务设施', '可购买商业保险补充', '生活质量直线上升'],
+	},
+]
+
+/**
+ * 功能：快速直达卖点（纯数据）。
+ */
+const fastTrack = [
+	{ title: '门槛低', desc: '无强制学历与年龄要求，提供专业的背景优化指导。' },
+	{ title: '周期短', desc: '专业团队全程负责，办理周期仅需 30-60 天。' },
+	{ title: '通过率高', desc: '资深文案与顶尖法律团队保驾护航，确保极高的获批率。' },
+	{ title: '一站式全包', desc: '20万新币一价全包，涵盖签证、公司注册、银行开户等核心环节。' },
+]
+
+/**
+ * 功能：标准化办理流程（纯数据）。
+ */
+const process = [
+	{ no: '01', noCls: 'a', title: '初步咨询', sub: '评估与方案制定' },
+	{ no: '02', noCls: 'b', title: '准备签约', sub: '确认方案，签署协议' },
+	{ no: '03', noCls: 'a', title: '材料准备', sub: '我方全程代办新加坡端手续' },
+	{ no: '04', noCls: 'b', title: '递交申请', sub: '向新加坡人力部(MOM)提交' },
+	{ no: '05', noCls: 'a', title: '获批领卡', sub: '申请通过，安排面试领取EP卡' },
+	{ no: '06', noCls: 'b', title: '安家服务', sub: '协助银行开户、家庭证件办理等' },
+]
+
+/**
  * 功能：条件列表（纯数据）。
  */
 const conditions = [
@@ -109,6 +210,11 @@ const conditions = [
  * 功能：跳转到表单页。
  */
 const goForm = () => navigateToByKey('form')
+
+onShareAppMessage(() => ({
+	title: 'EP人才准证 - 盛昌利民研学',
+	path: '/pages/ep-pass/index',
+}))
 </script>
 
 <style scoped lang="scss">
@@ -117,7 +223,7 @@ const goForm = () => navigateToByKey('form')
 }
 
 .content {
-	height: calc(100vh - 112rpx - var(--status-bar-height));
+	 
 }
 
 .hero {
@@ -192,6 +298,24 @@ const goForm = () => navigateToByKey('form')
 	border-radius: 24rpx;
 }
 
+.policy-figure {
+	margin-top: 16rpx;
+	padding: 22rpx;
+	border-radius: 24rpx;
+}
+
+.policy-img {
+	width: 100%;
+	height: 320rpx;
+}
+
+.policy-tip {
+	margin-top: 10rpx;
+	font-size: 20rpx;
+	color: #9ca3af;
+	text-align: center;
+}
+
 .policy-title {
 	font-size: 28rpx;
 	font-weight: 900;
@@ -237,10 +361,18 @@ const goForm = () => navigateToByKey('form')
 	border-radius: 8rpx;
 }
 
+.section-bar.white {
+	background: rgba(255, 255, 255, 0.9);
+}
+
 .section-title {
 	font-size: 30rpx;
 	font-weight: 800;
 	color: $sg-color-text;
+}
+
+.section-title.white {
+	color: #fff;
 }
 
 .section-text {
@@ -248,6 +380,13 @@ const goForm = () => navigateToByKey('form')
 	color: #4b5563;
 	line-height: 1.6;
 	text-align: justify;
+}
+
+.section-blue {
+	padding: 28rpx;
+	border-radius: 32rpx;
+	background: $sg-color-primary;
+	color: #fff;
 }
 
 .benefit {
@@ -293,6 +432,130 @@ const goForm = () => navigateToByKey('form')
 	display: flex;
 	flex-direction: column;
 	gap: 16rpx;
+}
+
+.adv-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16rpx;
+}
+
+.adv-item {
+	padding: 22rpx;
+	border-radius: 24rpx;
+}
+
+.adv-title {
+	font-size: 26rpx;
+	font-weight: 900;
+	color: $sg-color-primary;
+}
+
+.adv-list {
+	margin-top: 12rpx;
+	display: flex;
+	flex-direction: column;
+	gap: 10rpx;
+}
+
+.adv-li {
+	display: flex;
+	gap: 10rpx;
+	align-items: flex-start;
+}
+
+.adv-dot {
+	color: $sg-color-accent;
+	margin-top: 2rpx;
+}
+
+.adv-text {
+	flex: 1;
+	font-size: 22rpx;
+	color: rgba(17, 24, 39, 0.75);
+	line-height: 1.5;
+}
+
+.fast-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 14rpx;
+}
+
+.fast-item {
+	padding: 18rpx;
+	border-radius: 24rpx;
+	background: rgba(255, 255, 255, 0.10);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.fast-title {
+	font-size: 24rpx;
+	font-weight: 900;
+	color: $sg-color-accent;
+}
+
+.fast-desc {
+	margin-top: 8rpx;
+	font-size: 22rpx;
+	color: rgba(255, 255, 255, 0.82);
+	line-height: 1.45;
+}
+
+.process {
+	padding: 10rpx 22rpx;
+	border-radius: 24rpx;
+}
+
+.process-item {
+	display: flex;
+	gap: 16rpx;
+	align-items: center;
+	padding: 18rpx 0;
+	border-top: 1px solid $sg-color-border;
+}
+
+.process-item:first-child {
+	border-top: none;
+}
+
+.process-no {
+	width: 72rpx;
+	height: 72rpx;
+	border-radius: 999rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	font-size: 22rpx;
+	font-weight: 900;
+	flex-shrink: 0;
+}
+
+.process-no.a {
+	background: $sg-color-primary;
+}
+
+.process-no.b {
+	background: $sg-color-accent;
+}
+
+.process-body {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 6rpx;
+}
+
+.process-title {
+	font-size: 24rpx;
+	font-weight: 900;
+	color: $sg-color-text;
+}
+
+.process-sub {
+	font-size: 22rpx;
+	color: $sg-color-muted;
 }
 
 .cond-item {

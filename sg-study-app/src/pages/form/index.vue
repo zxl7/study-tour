@@ -3,12 +3,13 @@
 		<AppHeader title="在线咨询/报名" />
 
 		<scroll-view scroll-y class="content">
-			<view class="intro">
-				<text class="intro-title">填写信息</text>
-				<text class="intro-sub">顾问将在24小时内与您取得联系</text>
-			</view>
+			<view class="sg-card card">
+				<view class="intro">
+					<text class="intro-title">填写信息</text>
+					<text class="intro-sub">顾问将在24小时内与您取得联系</text>
+				</view>
 
-			<view class="form">
+				<view class="form">
 				<view class="field">
 					<text class="label">姓名</text>
 					<input v-model="form.name" class="input" placeholder="请输入您的姓名" />
@@ -38,11 +39,14 @@
 					<checkbox :checked="form.privacy" />
 					<text class="privacy-text">
 						我已阅读并同意
-						<text class="privacy-link">《隐私政策及用户服务协议》</text>
+						<text class="privacy-link" @tap.stop="goPrivacy">《隐私政策》</text>
+						<text class="privacy-text">与</text>
+						<text class="privacy-link" @tap.stop="goTerms">《服务条款》</text>
 					</text>
 				</label>
 
-				<button class="submit" @tap="handleSubmit">提交申请</button>
+				<button class="submit sg-btn-primary" @tap="handleSubmit">提交申请</button>
+			</view>
 			</view>
 		</scroll-view>
 	</view>
@@ -52,8 +56,9 @@
 import { reactive } from 'vue'
 import AppHeader from '@/components/AppHeader.vue'
 import { navigateToByKey } from '@/utils/routes'
+import { onShareAppMessage } from '@dcloudio/uni-app'
 
-const projects = ['新加坡名校成长营', '新加坡微留学', 'EP人才准证', '国际学校体验营']
+const projects = ['新加坡成长营 (7天)', '新加坡微留学 (28天)', '人才准证EP咨询', '国际学校体验营']
 
 const form = reactive({
 	name: '',
@@ -101,6 +106,14 @@ const handleSubmit = () => {
 	}
 	navigateToByKey('success')
 }
+
+const goPrivacy = () => navigateToByKey('privacy')
+const goTerms = () => navigateToByKey('terms')
+
+onShareAppMessage(() => ({
+	title: '在线咨询/报名 - 盛昌利民研学',
+	path: '/pages/form/index',
+}))
 </script>
 
 <style scoped lang="scss">
@@ -109,9 +122,14 @@ const handleSubmit = () => {
 }
 
 .content {
-	height: calc(100vh - 112rpx - var(--status-bar-height));
+	 
 	padding: 32rpx;
 	box-sizing: border-box;
+}
+
+.card {
+	padding: 28rpx;
+	border-radius: 28rpx;
 }
 
 .intro-title {
@@ -201,8 +219,6 @@ const handleSubmit = () => {
 	margin-top: 8rpx;
 	height: 112rpx;
 	border-radius: 32rpx;
-	background: $sg-color-primary;
-	color: #fff;
 	font-weight: 900;
 	font-size: 32rpx;
 	box-shadow: 0 16rpx 40rpx rgba(15, 47, 103, 0.18);
