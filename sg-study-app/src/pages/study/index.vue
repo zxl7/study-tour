@@ -3,50 +3,57 @@
     <AppHeader title="微留学详情" />
 
     <scroll-view scroll-y class="content">
-      <image class="banner" mode="aspectFill" src="/static/img/28day.jpeg" />
+      <view class="hero">
+        <image class="hero-bg" mode="aspectFill" src="/static/img/28day.jpeg" />
+        <view class="hero-mask" />
+        <view class="hero-inner text-center">
+          <view class="tags justify-center">
+            <text class="tag tag-gold">28天微留学</text>
+            <text class="tag tag-white">全真插班</text>
+          </view>
 
-      <view class="body">
-        <view class="tags">
-          <text class="tag tag-gold">28-Day Immersion</text>
-          <text class="tag tag-blue">全真插班</text>
-        </view>
-
-        <text class="title">28天真实插班 · 狮城微留学</text>
-        <text class="subtitle">像当地学生一样生活，在全英环境中快速突破语言瓶颈，全真体验新加坡中小学精英教育体系。</text>
-
-        <view class="price-card">
-          <text class="price-k">项目费用</text>
-          <text class="price-v">
-            ¥38,600
-            <text class="price-unit">起/人</text>
+          <text class="title">新加坡微留学</text>
+          <text class="subtitle">
+            像当地学生一样生活，在全英环境中快速突破语言瓶颈
+            <text class="subtitle-strong">全真体验新加坡中小学精英教育体系</text>
           </text>
         </view>
+      </view>
 
+      <view class="body">
+        <!-- 适合怎样的家庭？ (优化布局) -->
         <view class="section">
           <view class="section-hd">
             <view class="section-bar" />
             <text class="section-title">适合怎样的家庭？</text>
           </view>
           <view class="fit-grid">
-            <view v-for="item in fits" :key="item.title" class="fit-item">
-              <text class="fit-title">{{ item.title }}</text>
-              <text class="fit-desc">{{ item.desc }}</text>
+            <view v-for="item in fits" :key="item.title" class="fit-card">
+              <view class="fit-icon-wrap">
+                <SgIcon :type="item.icon" :size="24" color="#005a9c" />
+              </view>
+              <view class="fit-content">
+                <text class="fit-title">{{ item.title }}</text>
+                <text class="fit-desc">{{ item.desc }}</text>
+              </view>
             </view>
           </view>
         </view>
 
+        <!-- 核心特色 (优化布局，突出展示) -->
         <view class="section">
           <view class="section-hd">
             <view class="section-bar" />
             <text class="section-title">核心特色</text>
           </view>
-          <view class="feature-list">
-            <view v-for="item in features" :key="item.title" class="feature-item">
-              <text class="feature-no">{{ item.no }}</text>
-              <view class="feature-body">
+          <view class="feature-grid">
+            <view v-for="item in features" :key="item.title" class="feature-card">
+              <view class="feature-header">
+                <text class="feature-no">0{{ item.no }}</text>
                 <text class="feature-title">{{ item.title }}</text>
-                <text class="feature-desc">{{ item.desc }}</text>
               </view>
+              <view class="feature-divider"></view>
+              <text class="feature-desc">{{ item.desc }}</text>
             </view>
           </view>
         </view>
@@ -77,18 +84,29 @@
           </view>
         </view>
 
-        <!-- 28天日程（移动端改为“日程概览”列表，更易读） -->
+        <!-- 28天日程（优化为垂直时间轴 Timeline） -->
         <view class="section">
           <view class="section-hd">
             <view class="section-bar" />
             <text class="section-title">28天日程概览</text>
           </view>
-          <view class="schedule sg-card">
-            <view v-for="it in schedule" :key="it.k" class="schedule-item">
-              <text class="schedule-k">{{ it.k }}</text>
-              <text class="schedule-v">{{ it.v }}</text>
+
+          <view class="timeline-container">
+            <view class="timeline-line"></view>
+            <view v-for="(it, index) in schedule" :key="it.k" class="timeline-item">
+              <view class="timeline-dot-wrap">
+                <view class="timeline-dot" :class="{ 'dot-highlight': it.v.includes('课程') }"></view>
+              </view>
+              <view class="timeline-content sg-card" :class="{ 'content-highlight': it.v.includes('课程') }">
+                <view class="timeline-header">
+                  <text class="timeline-k" :class="{ 'text-highlight': it.v.includes('课程') }">{{ it.k }}</text>
+                  <text class="timeline-day" :class="{ 'day-highlight': it.v.includes('课程') }">{{ it.day }}</text>
+                </view>
+                <text class="timeline-v" :class="{ 'text-highlight': it.v.includes('课程') }">{{ it.v }}</text>
+              </view>
             </view>
           </view>
+
           <text class="include-tip">* 以上为概要版，具体课表与周末活动以顾问沟通为准。</text>
         </view>
 
@@ -96,52 +114,52 @@
         <view class="section fee-section">
           <view class="fee-left">
             <text class="fee-title">28天微留学 · 费用标准</text>
-            <view class="fee-list">
-              <view class="fee-item">
-                <SgIcon name="check-circle" size="18" color="#e5a663" class="fee-icon" />
-                <view class="fee-text-wrap">
-                  <text class="fee-label">包含：</text>
-                  <text class="fee-text">28天27晚住宿，及接送机各一次</text>
+            <view class="fee-table">
+              <view class="fee-row">
+                <view class="fee-cell fee-cell-label text-gold">
+                  <SgIcon type="checkbox-filled" :size="14" color="#e5a663" class="fee-table-icon" />
+                  包含
                 </view>
+                <view class="fee-cell fee-cell-content text-white">28天27晚住宿，及接送机各一次</view>
               </view>
-              <view class="fee-item">
-                <SgIcon name="check-circle" size="18" color="#e5a663" class="fee-icon" />
-                <view class="fee-text-wrap">
-                  <text class="fee-label">包含：</text>
-                  <text class="fee-text">寄宿家庭餐饮，上学日早餐及晚餐，非上学日全天寄宿家庭饮食（若非上学日外出，则餐饮费不退还）</text>
+              <view class="fee-row">
+                <view class="fee-cell fee-cell-label text-gold">
+                  <SgIcon type="checkbox-filled" :size="14" color="#e5a663" class="fee-table-icon" />
+                  包含
                 </view>
+                <view class="fee-cell fee-cell-content text-white">寄宿家庭餐饮，上学日早餐及晚餐，非上学日全天寄宿家庭饮食（若非上学日外出，则餐饮费不退还）</view>
               </view>
-              <view class="fee-item">
-                <SgIcon name="check-circle" size="18" color="#e5a663" class="fee-icon" />
-                <view class="fee-text-wrap">
-                  <text class="fee-label">包含：</text>
-                  <text class="fee-text">课程费</text>
+              <view class="fee-row">
+                <view class="fee-cell fee-cell-label text-gold">
+                  <SgIcon type="checkbox-filled" :size="14" color="#e5a663" class="fee-table-icon" />
+                  包含
                 </view>
+                <view class="fee-cell fee-cell-content text-white">课程费</view>
               </view>
-              <view class="fee-item">
-                <SgIcon name="check-circle" size="18" color="#e5a663" class="fee-icon" />
-                <view class="fee-text-wrap">
-                  <text class="fee-label">包含：</text>
-                  <text class="fee-text">每日上学车辆接送，外出日车辆接送</text>
+              <view class="fee-row">
+                <view class="fee-cell fee-cell-label text-gold">
+                  <SgIcon type="checkbox-filled" :size="14" color="#e5a663" class="fee-table-icon" />
+                  包含
                 </view>
+                <view class="fee-cell fee-cell-content text-white">每日上学车辆接送，外出日车辆接送</view>
               </view>
-              <view class="fee-item">
-                <SgIcon name="info" size="18" color="#9ca3af" class="fee-icon" />
-                <view class="fee-text-wrap">
-                  <text class="fee-label text-gray">赠送：</text>
-                  <text class="fee-text">周末行程为赠送项目，可自行选择，如不参加，没有退费</text>
+              <view class="fee-row">
+                <view class="fee-cell fee-cell-label text-gray">
+                  <SgIcon type="info-filled" :size="14" color="#9ca3af" class="fee-table-icon" />
+                  赠送
                 </view>
+                <view class="fee-cell fee-cell-content text-gray">周末行程为赠送项目，可自行选择，如不参加，没有退费</view>
               </view>
-              <view class="fee-item">
-                <SgIcon name="close-circle" size="18" color="#ef4444" class="fee-icon" />
-                <view class="fee-text-wrap">
-                  <text class="fee-label text-red">不包含：</text>
-                  <text class="fee-text">以上行程中的门票（环球影城、动物园门票需额外购买），如果不参加行程，不退费</text>
+              <view class="fee-row">
+                <view class="fee-cell fee-cell-label text-red">
+                  <SgIcon type="clear" :size="14" color="#ef4444" class="fee-table-icon" />
+                  不包含
                 </view>
+                <view class="fee-cell fee-cell-content text-gray">以上行程中的门票（环球影城、动物园门票需额外购买），如果不参加行程，不退费</view>
               </view>
             </view>
           </view>
-          
+
           <view class="fee-right-card">
             <text class="fee-tag">ALL-INCLUSIVE</text>
             <view class="fee-price-wrap">
@@ -159,6 +177,7 @@
 
 <script setup>
 import AppHeader from "@/components/AppHeader.vue"
+import SgIcon from "@/components/SgIcon.vue"
 import { navigateToByKey } from "@/utils/routes"
 import { onShareAppMessage } from "@dcloudio/uni-app"
 
@@ -166,10 +185,10 @@ import { onShareAppMessage } from "@dcloudio/uni-app"
  * 功能：适合人群（纯数据）。
  */
 const fits = [
-  { title: "计划低龄留学的家庭", desc: "在正式决定前，让孩子提前测试对新加坡教育环境的适应能力。" },
-  { title: "需快速提升口语的学生", desc: "28天全英社交+全英课堂，强迫式开口，告别“哑巴英语”。" },
-  { title: "提升升学竞争力的学生", desc: "海外插班经历是学生履历的一大亮点，有助于未来申请国际学校。" },
-  { title: "想体验寄宿家庭生活", desc: "与当地精英中产家庭同吃同住，深度了解社会文化与教养。" },
+  { icon: "person-filled", title: "计划低龄留学的家庭", desc: "在正式决定前，让孩子提前测试对新加坡教育环境的适应能力。" },
+  { icon: "chatboxes-filled", title: "需快速提升口语的学生", desc: "28天全英社交+全英课堂，强迫式开口，告别“哑巴英语”。" },
+  { icon: "flag-filled", title: "提升升学竞争力的学生", desc: "海外插班经历是学生履历的一大亮点，有助于未来申请国际学校。" },
+  { icon: "home-filled", title: "想体验寄宿家庭生活", desc: "与当地精英中产家庭同吃同住，深度了解社会文化与教养。" },
 ]
 
 /**
@@ -207,18 +226,18 @@ const homestayRules = [
  * 说明：与 PC「28天日程日历」语义一致，但移动端不使用横向日历，改为纵向列表。
  */
 const schedule = [
-  { k: "D1", v: "入境新加坡：专人接机、介绍概况、入住寄宿家庭" },
-  { k: "D2-6", v: "新加坡本地国际学校全真课程" },
-  { k: "D7", v: "City Walk：参观地标、了解历史文化、品尝美食" },
-  { k: "D8", v: "自由活动（家长陪同可选）" },
-  { k: "D9-13", v: "新加坡本地国际学校全真课程" },
-  { k: "D14", v: "新加坡动物园（可选行程）" },
-  { k: "D15", v: "自由活动（家长陪同可选）" },
-  { k: "D16-20", v: "新加坡本地国际学校全真课程" },
-  { k: "D21", v: "影城及圣淘沙（可选行程）" },
-  { k: "D22", v: "自由活动（家长陪同可选）" },
-  { k: "D23-27", v: "新加坡本地国际学校全真课程" },
-  { k: "D28", v: "荣誉返程：带着收获回家" },
+  { k: "D1", v: "入境新加坡：专人接机、介绍概况、入住寄宿家庭", day: "周日" },
+  { k: "D2-6", v: "新加坡本地国际学校全真课程", day: "周一 至 周五" },
+  { k: "D7", v: "City Walk：参观地标、了解历史文化、品尝美食", day: "周六" },
+  { k: "D8", v: "自由活动（家长陪同可选）", day: "周日" },
+  { k: "D9-13", v: "新加坡本地国际学校全真课程", day: "周一 至 周五" },
+  { k: "D14", v: "新加坡动物园（可选行程）", day: "周六" },
+  { k: "D15", v: "自由活动（家长陪同可选）", day: "周日" },
+  { k: "D16-20", v: "新加坡本地国际学校全真课程", day: "周一 至 周五" },
+  { k: "D21", v: "影城及圣淘沙（可选行程）", day: "周六" },
+  { k: "D22", v: "自由活动（家长陪同可选）", day: "周日" },
+  { k: "D23-27", v: "新加坡本地国际学校全真课程", day: "周一 至 周五" },
+  { k: "D28", v: "荣誉返程：带着收获回家", day: "周六" },
 ]
 
 /**
@@ -238,9 +257,43 @@ onShareAppMessage(() => ({
 </script>
 
 <style scoped lang="scss">
-.banner {
+.hero {
+  position: relative;
+  height: 560rpx;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 448rpx;
+  height: 100%;
+}
+
+.hero-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 28rpx 32rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .body {
@@ -250,39 +303,45 @@ onShareAppMessage(() => ({
 .tags {
   display: flex;
   gap: 16rpx;
-  margin-bottom: 16rpx;
-  flex-wrap: wrap;
+  margin-bottom: 24rpx;
 }
 
 .tag {
-  padding: 6rpx 16rpx;
-  border-radius: 12rpx;
-  font-size: 20rpx;
-  font-weight: 800;
-}
-
-.tag-blue {
-  background: rgba($sg-color-primary, 0.12);
-  color: $sg-color-primary;
+  padding: 8rpx 20rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  font-weight: bold;
 }
 
 .tag-gold {
-  background: rgba($sg-color-accent, 0.22);
-  color: #7c4a1c;
+  background: #e5a663;
+  color: #fff;
+}
+
+.tag-white {
+  background: #ffffff;
+  color: #005a9c;
 }
 
 .title {
-  font-size: 40rpx;
-  font-weight: 800;
-  color: $sg-color-text;
+  font-size: 56rpx;
+  font-weight: 900;
+  color: #fff;
   line-height: 1.25;
+  margin-bottom: 24rpx;
+  letter-spacing: 2rpx;
 }
 
 .subtitle {
-  margin-top: 12rpx;
-  font-size: 24rpx;
-  color: $sg-color-muted;
-  line-height: 1.5;
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.subtitle-strong {
+  color: #e5a663;
+  font-weight: bold;
 }
 
 .price-card {
@@ -338,73 +397,120 @@ onShareAppMessage(() => ({
 
 .fit-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16rpx;
-}
-
-.fit-item {
-  padding: 20rpx;
-  border-radius: 20rpx;
-  background: #f9fafb;
-  border: 1px solid $sg-color-border;
-}
-
-.fit-title {
-  font-size: 24rpx;
-  font-weight: 900;
-  color: $sg-color-primary;
-}
-
-.fit-desc {
-  margin-top: 8rpx;
-  font-size: 20rpx;
-  color: $sg-color-muted;
-  line-height: 1.4;
-}
-
-.feature-list {
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: 1fr;
   gap: 20rpx;
+  margin-top: 24rpx;
 }
 
-.feature-item {
-  padding: 24rpx;
-  border-radius: 24rpx;
-  background: #f9fafb;
+.fit-card {
   display: flex;
-  gap: 16rpx;
-  align-items: flex-start;
+  gap: 24rpx;
+  padding: 32rpx;
+  border-radius: 24rpx;
+  background: #ffffff;
+  border: 1px solid rgba(0, 90, 156, 0.08);
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-no {
-  width: 44rpx;
-  height: 44rpx;
-  border-radius: 999rpx;
-  background: rgba($sg-color-accent, 0.22);
-  color: #7c4a1c;
-  font-weight: 900;
+.fit-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.02);
+}
+
+.fit-icon-wrap {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  background: rgba(0, 90, 156, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.feature-body {
+.fit-content {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.fit-title {
+  font-size: 28rpx;
+  font-weight: 900;
+  color: #1f2937;
+  margin-bottom: 8rpx;
+}
+
+.fit-desc {
+  font-size: 24rpx;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24rpx;
+  margin-top: 16rpx;
+}
+
+.feature-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 90, 156, 0.06);
+  border: 1px solid rgba(0, 90, 156, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.feature-card:active {
+  transform: translateY(-4rpx);
+  box-shadow: 0 12rpx 32rpx rgba(0, 90, 156, 0.1);
+}
+
+.feature-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.feature-no {
+  font-size: 56rpx;
+  font-weight: 900;
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 90, 156, 0.2);
+  letter-spacing: 2rpx;
+  line-height: 1;
 }
 
 .feature-title {
-  font-size: 26rpx;
-  font-weight: 800;
+  font-size: 30rpx;
+  font-weight: 900;
+  color: #005a9c;
+  flex: 1;
+  text-align: right;
+}
+
+.feature-divider {
+  width: 48rpx;
+  height: 6rpx;
+  background: #e5a663;
+  border-radius: 6rpx;
+  margin-bottom: 20rpx;
 }
 
 .feature-desc {
-  margin-top: 8rpx;
-  font-size: 22rpx;
-  color: $sg-color-muted;
+  font-size: 24rpx;
+  color: #4b5563;
+  line-height: 1.6;
 }
 
 .include {
@@ -481,36 +587,118 @@ onShareAppMessage(() => ({
   line-height: 1.5;
 }
 
-.schedule {
-  padding: 22rpx;
-  border-radius: 24rpx;
+.timeline-container {
+  position: relative;
+  padding: 20rpx 0 20rpx 40rpx;
+  margin-top: 10rpx;
 }
 
-.schedule-item {
-  padding: 16rpx 0;
-  border-top: 1px solid $sg-color-border;
+.timeline-line {
+  position: absolute;
+  left: 16rpx;
+  top: 30rpx;
+  bottom: 20rpx;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(229, 166, 99, 0.2), rgba(229, 166, 99, 0.65), rgba(229, 166, 99, 0.2));
+  z-index: 1;
+}
+
+.timeline-item {
+  position: relative;
   display: flex;
-  gap: 14rpx;
+  margin-bottom: 24rpx;
+  align-items: stretch;
 }
 
-.schedule-item:first-child {
-  border-top: none;
-  padding-top: 0;
+.timeline-item:last-child {
+  margin-bottom: 0;
 }
 
-.schedule-k {
-  width: 112rpx;
-  font-size: 22rpx;
-  font-weight: 900;
-  color: $sg-color-primary;
-  flex-shrink: 0;
+.timeline-dot-wrap {
+  position: absolute;
+  left: -40rpx;
+  top: 20rpx;
+  width: 32rpx;
+  height: 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
 
-.schedule-v {
+.timeline-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #d1d5db;
+  box-shadow: 0 0 0 6rpx #fff;
+  transition: all 0.3s;
+}
+
+.timeline-dot.dot-highlight {
+  background-color: #005a9c;
+  box-shadow: 0 0 0 6rpx #e0f2fe;
+}
+
+.timeline-content {
   flex: 1;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+  border: 1px solid #f3f4f6;
+  transition: all 0.3s;
+}
+
+.timeline-content.content-highlight {
+  background-color: #f0f9ff;
+  border-color: #bae6fd;
+}
+
+.timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timeline-day {
   font-size: 22rpx;
-  color: rgba(17, 24, 39, 0.75);
+  color: #9ca3af;
+  background-color: #f3f4f6;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.timeline-day.day-highlight {
+  color: #0369a1;
+  background-color: #bae6fd;
+}
+
+.timeline-k {
+  font-size: 26rpx;
+  font-weight: 900;
+  color: #4b5563;
+  transition: color 0.3s;
+}
+
+.timeline-k.text-highlight {
+  color: #005a9c;
+}
+
+.timeline-v {
+  font-size: 24rpx;
+  color: #6b7280;
   line-height: 1.5;
+  transition: color 0.3s;
+}
+
+.timeline-v.text-highlight {
+  color: #0369a1;
+  font-weight: bold;
 }
 
 .fee-section {
@@ -534,37 +722,54 @@ onShareAppMessage(() => ({
   display: block;
 }
 
-.fee-list {
+.fee-table {
   display: flex;
   flex-direction: column;
-  gap: 20rpx;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16rpx;
+  overflow: hidden;
 }
 
-.fee-item {
+.fee-row {
   display: flex;
-  align-items: flex-start;
-  gap: 16rpx;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.fee-icon {
-  margin-top: 4rpx;
+.fee-row:last-child {
+  border-bottom: none;
 }
 
-.fee-text-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  flex: 1;
+.fee-cell {
+  padding: 24rpx 20rpx;
   font-size: 24rpx;
-  line-height: 1.6;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
 }
 
-.fee-label {
+.fee-cell-label {
+  width: 180rpx;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
   font-weight: bold;
-  color: #ffffff;
+  gap: 8rpx;
 }
 
-.fee-text {
-  color: rgba(255, 255, 255, 0.85);
+.fee-cell-content {
+  flex: 1;
+}
+
+.fee-table-icon {
+  flex-shrink: 0;
+}
+
+.text-gold {
+  color: #e5a663;
+}
+
+.text-white {
+  color: #ffffff;
 }
 
 .text-gray {
