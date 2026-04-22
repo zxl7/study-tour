@@ -100,23 +100,33 @@
 		"list": [
 			{
 				"pagePath": "pages/index/index",
-				"text": "首页"
+				"text": "首页",
+				"iconPath": "static/tabbar/home.svg",
+				"selectedIconPath": "static/tabbar/home-active.svg"
 			},
 			{
 				"pagePath": "pages/camp/index",
-				"text": "成长营"
+				"text": "成长营",
+				"iconPath": "static/tabbar/camp.svg",
+				"selectedIconPath": "static/tabbar/camp-active.svg"
 			},
 			{
 				"pagePath": "pages/study/index",
-				"text": "微留学"
+				"text": "微留学",
+				"iconPath": "static/tabbar/study.svg",
+				"selectedIconPath": "static/tabbar/study-active.svg"
 			},
 			{
 				"pagePath": "pages/ep-pass/index",
-				"text": "人才EP"
+				"text": "人才EP",
+				"iconPath": "static/tabbar/ep.svg",
+				"selectedIconPath": "static/tabbar/ep-active.svg"
 			},
 			{
 				"pagePath": "pages/about/index",
-				"text": "我的"
+				"text": "我的",
+				"iconPath": "static/tabbar/me.svg",
+				"selectedIconPath": "static/tabbar/me-active.svg"
 			}
 		]
 	}

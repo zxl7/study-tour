@@ -72,8 +72,13 @@ const handleSwitch = (item) => {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	height: 140rpx;
-	padding: 16rpx 28rpx calc(16rpx + env(safe-area-inset-bottom));
+	/**
+	 * 说明：
+	 * - 之前 height + padding 会叠加，导致“底部实际高度”比预期更大，从而出现页面底部留白/遮挡不一致。
+	 * - 这里统一把 safe-area 与 padding 收进 height，并开启 border-box，保证总高度可控。
+	 */
+	height: calc(140rpx + env(safe-area-inset-bottom));
+	padding: 12rpx 28rpx calc(12rpx + env(safe-area-inset-bottom));
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -87,7 +92,7 @@ const handleSwitch = (item) => {
 	flex-direction: column;
 	align-items: center;
 	gap: 8rpx;
-	padding: 10rpx 18rpx;
+	padding: 8rpx 16rpx;
 	border-radius: 18rpx;
 }
 
