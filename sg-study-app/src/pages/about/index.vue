@@ -62,7 +62,7 @@
           <text class="contact-v">{{ email }}</text>
         </view>
 
-        <button class="contact-btn sg-btn-primary" @tap="goForm">预约咨询</button>
+        <!-- <button class="contact-btn sg-btn-primary" @tap="goForm">预约咨询</button> -->
       </view>
 
       <view class="more sg-card">
