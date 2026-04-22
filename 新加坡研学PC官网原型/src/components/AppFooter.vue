@@ -43,7 +43,7 @@
       </div>
       <div class="pt-8 border-t border-gray-800 text-sm flex justify-center items-center">
         <div class="flex space-x-6">
-          <span>京ICP备XXXXXXX号</span>
+          <span>琼ICP备2026005428号-1</span>
         </div>
         ·
         <p>2026 盛昌利民 · 狮城研学</p>

@@ -36,12 +36,8 @@
 
       <view class="section">
         <text class="section-title">集团简介</text>
-        <text class="section-text">
-          海南盛昌利民传媒有限公司致力于为家庭与学生提供专业、高效、值得信赖的一站式留学与移民支持服务。依托本地化服务优势及丰富的合作资源，我们帮助客户明确发展方向，享受安心的办理过程，并获得切实落地的服务体验。
-        </text>
-        <text class="section-text">
-          核心服务覆盖从幼儿园到大学的升学规划、身份规划、签证申请、出行安排、职业发展及企业出海等全流程需求。公司始终秉持专业、诚信与责任，陪伴客户从咨询、申请到落地衔接的每一步，让整个过程更加顺畅、省心。
-        </text>
+        <text class="section-text">海南盛昌利民传媒有限公司</text>
+        <text class="section-text">作为海南领先的精英教育咨询机构，我们致力于整合全球优质教育资源，为中国家庭提供全方位的研学、升学及移民规划服务。</text>
       </view>
 
       <view class="cards">
