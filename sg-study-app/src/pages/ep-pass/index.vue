@@ -563,7 +563,7 @@ onShareAppMessage(() => ({
   position: fixed;
   left: 0;
   right: 0;
-  bottom: calc(140rpx + env(safe-area-inset-bottom));
+	bottom: calc(120rpx + env(safe-area-inset-bottom));
   height: 140rpx;
   padding: 16rpx 32rpx calc(16rpx + env(safe-area-inset-bottom));
   background: #fff;

@@ -77,8 +77,9 @@ const handleSwitch = (item) => {
 	 * - 之前 height + padding 会叠加，导致“底部实际高度”比预期更大，从而出现页面底部留白/遮挡不一致。
 	 * - 这里统一把 safe-area 与 padding 收进 height，并开启 border-box，保证总高度可控。
 	 */
-	height: calc(140rpx + env(safe-area-inset-bottom));
-	padding: 12rpx 28rpx calc(12rpx + env(safe-area-inset-bottom));
+	/* 说明：tabbar 由 50px（约 100rpx）提升为 60px（约 120rpx） */
+	height: calc(120rpx + env(safe-area-inset-bottom));
+	padding: 10rpx 28rpx calc(10rpx + env(safe-area-inset-bottom));
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
