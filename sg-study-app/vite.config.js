@@ -9,6 +9,20 @@ export default defineConfig(({ command }) => ({
    */
   base: command === 'build' ? './' : '/',
 
+  /**
+   * 功能：兼容较老版本 iOS Safari（常见于 iOS 12/13 低版本）。
+   * 背景：
+   * - Vite 默认 target=modules，会产出更“现代”的语法（如可选链/空值合并等），
+   *   低版本 iOS Safari 可能直接语法报错，导致 uni-app H5 白屏并出现“内容显示超时”。
+   * - 这里把构建目标降到 es2015，提升兼容性（代价：产物略大一点点）。
+   */
+  build: {
+    target: 'es2015',
+  },
+  esbuild: {
+    target: 'es2015',
+  },
+
   css: {
     preprocessorOptions: {
       scss: {
