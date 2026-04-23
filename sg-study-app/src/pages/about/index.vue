@@ -68,18 +68,18 @@
       <view class="more sg-card">
         <text class="section-title">更多</text>
         <view class="menu">
-          <view class="menu-item" @tap="go('familyOffice')">
+          <!-- <view class="menu-item" @tap="go('familyOffice')">
             <text class="menu-text">家族办公室</text>
             <text class="menu-arrow">›</text>
           </view>
           <view class="menu-item" @tap="go('selfEmployedPass')">
             <text class="menu-text">自雇准证办理</text>
             <text class="menu-arrow">›</text>
-          </view>
-          <view class="menu-item" @tap="go('prApplication')">
+          </view> -->
+          <!-- <view class="menu-item" @tap="go('prApplication')">
             <text class="menu-text">PR永居申请</text>
             <text class="menu-arrow">›</text>
-          </view>
+          </view> -->
           <view class="menu-item" @tap="go('partnership')">
             <text class="menu-text">合作咨询</text>
             <text class="menu-arrow">›</text>

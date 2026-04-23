@@ -149,6 +149,10 @@
             <image class="cert-img" mode="aspectFit" src="../../static/img/授权信.jpg" />
             <text class="cert-t">授权信</text>
           </view>
+          <view class="cert cert-wide">
+            <image class="cert-img" mode="aspectFit" src="../../static/img/营业执照.jpg" />
+            <text class="cert-t">营业执照</text>
+          </view>
         </view>
       </view>
 
@@ -815,6 +819,11 @@ onShareAppMessage(() => ({
   flex-direction: column;
   align-items: center;
   gap: 10rpx;
+}
+
+.cert-wide {
+  /* 说明：第三张证件在移动端占满一行，避免单列孤立导致视觉不平衡 */
+  grid-column: 1 / -1;
 }
 
 .cert-img {

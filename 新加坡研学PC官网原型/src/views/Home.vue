@@ -509,6 +509,10 @@
               <img alt="Auth 2" class="h-48 mx-auto mb-4" src="/img/授权信.jpg" />
               <p class="text-center text-sm">授权信</p>
             </div>
+            <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 col-span-2">
+              <img alt="Business License" class="h-48 mx-auto mb-4" src="/img/营业执照.jpg" />
+              <p class="text-center text-sm">营业执照</p>
+            </div>
           </div>
         </div>
       </div>
