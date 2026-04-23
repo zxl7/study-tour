@@ -65,7 +65,13 @@
     "mp-toutiao" : {
         "usingComponents" : true
     },
-    "uniStatistics": {  
+    "h5" : {
+        "router" : {
+            "mode" : "history",
+            "base" : "/h5/"
+        }
+    },
+    "uniStatistics": {
         "enable": false
     },
     "vueVersion" : "3"
