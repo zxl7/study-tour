@@ -91,10 +91,10 @@ $uni-font-size-paragraph: 15px;
  */
 @font-face {
 	font-family: uniicons;
-	src: url('/static/uniicons/uniicons.ttf');
+	src: url('@/static/uniicons/uniicons.ttf') format('truetype');
+	font-display: swap;
 }
 
-@import '@/static/uniicons/uniicons.css';
 
 .uni-icons {
 	font-family: uniicons;

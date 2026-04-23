@@ -3,11 +3,13 @@ import uni from '@dcloudio/vite-plugin-uni'
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
   /**
-   * 功能：修复 H5 部署在 /h5/ 子路径时资源 404 被 SPA 回退成 index.html 的问题。
-   * 原因：默认产物会生成以 /assets/ 开头的绝对路径，部署到 /h5/ 后会请求到站点根路径 /assets/，从而返回 HTML（text/html）导致模块脚本加载报错。
-   * 方案：仅在 build 时把 base 改为 ./，让产物使用相对路径 assets/xxx.js，从而在 /h5/ 下正确请求 /h5/assets/xxx.js。
+   * 功能：修复 H5 部署在 /h5/ 子路径时资源 404 的问题。
+   * 原因：使用相对路径 ./ 在 SPA 子路由（如 /h5/about）下会错误解析为 /h5/about/assets/，导致 404；
+   *       iOS Safari 在子路由刷新时对资源 404 零容忍，直接表现为"内容显示超时"。
+   * 方案：build 时使用绝对路径 /h5/，保证所有页面资源路径都指向 /h5/assets/，
+   *       同时 manifest.json 的 router.base 也已设为 /h5/，两者保持一致。
    */
-  base: command === 'build' ? './' : '/',
+  base: command === 'build' ? '/h5/' : '/',
 
   /**
    * 功能：兼容较老版本 iOS Safari（常见于 iOS 12/13 低版本）。
@@ -28,8 +30,19 @@ export default defineConfig(({ command }) => ({
       scss: {
         /**
          * 功能：为每个 <style lang="scss"> 自动注入全局变量，避免各页面重复 import。
+         * 直接内联变量而非 @import，避免 additionalData 注入到 uni-ui 等第三方库时
+         * 触发路径解析失败（ENOENT: /static/uniicons/uniicons.css）。
+         * silenceDeprecations 静默 uni-app 内部依赖旧 Sass API 产生的废弃警告。
          */
-        additionalData: '@import "@/styles/vars.scss";',
+        additionalData: `
+$sg-color-primary: #005a9c;
+$sg-color-accent: #e5a663;
+$sg-color-bg: #f8fafc;
+$sg-color-border: #f1f5f9;
+$sg-color-text: #111827;
+$sg-color-muted: #6b7280;
+`,
+        silenceDeprecations: ['legacy-js-api', 'import'],
       },
     },
   },
