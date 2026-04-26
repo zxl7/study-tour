@@ -906,7 +906,7 @@ onShareAppMessage(() => ({
   display: flex;
   flex-direction: column;
   gap: 12rpx;
-  width: 48%;
+  width: 30%;
 }
 
 .qr-box {

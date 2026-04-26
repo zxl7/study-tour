@@ -5,51 +5,52 @@ set -euo pipefail
 # 自动部署脚本（h5 / PC）
 # 目标：Nginx 静态目录（通过 SSH + rsync 上传）
 #
-# 设计原则（尽量函数式）：
-# - 配置通过参数/环境变量注入，函数尽量“输入 -> 输出/副作用”清晰
-# - 逻辑拆成小函数，可复用、可测试（至少易读）
-# - 默认不执行 build（符合“不要主动 build 项目”），需要显式 --build
+# 设计原则：
+# - 配置通过参数/环境变量注入
+# - 逻辑拆成小函数，可复用、易读
+# - 默认不执行 build（需要显式 --build）
 #
-# 安全说明：
-# - 不要把服务器密码写进脚本/仓库
-# - 如需走密码登录：建议仅通过环境变量 DEPLOY_PASSWORD，并启用 sshpass
-# - 更推荐改用 SSH Key（更安全、更稳定）
+# 常用命令示例：
+#   # 快速部署 PC（跳过 build）
+#   ./deploy.sh deploy pc --no-build
+#
+#   # 部署并 reload nginx
+#   ./deploy.sh deploy all --build --reload-nginx
+#
+#   # 预览会执行什么（不实际操作）
+#   ./deploy.sh deploy all --dry-run
 # ==============
 
 #######################################
 # 函数：打印用法
-# 参数：无
-# 返回：无（输出到 stdout）
 #######################################
 usage() {
   cat <<'EOF'
 用法：
-  ./deploy.sh deploy <h5|pc|all> [--build] [--reload-nginx] [--dry-run]
-                      [--host user@ip] [--port 22]
-                      [--h5-project path] [--pc-project path]
-                      [--h5-dist path] [--pc-dist path]
-                      [--h5-dir  /app/h5] [--pc-dir /app/pc]
+  ./deploy.sh deploy <h5|pc|all> [--build|--no-build] [--reload-nginx] [--dry-run]
 
-示例：
-  # 只部署 h5（不 build，直接上传 dist）
-  ./deploy.sh deploy h5 --host root@120.76.96.112 --h5-project ./sg-study-app --h5-dist dist --h5-dir /app/h5
+快捷命令（已内置路径）：
+  ./deploy.sh deploy pc --no-build      # 部署 PC（跳过 build）
+  ./deploy.sh deploy h5 --no-build      # 部署 H5（跳过 build）
+  ./deploy.sh deploy all --no-build     # 部署 PC + H5
+  ./deploy.sh deploy all --build        # 构建 + 部署
+  ./deploy.sh deploy all --dry-run      # 预览（不实际操作）
 
-  # 部署 all，并在本地先 build
-  DEPLOY_PASSWORD='***' ./deploy.sh deploy all --build --host root@120.76.96.112 \
-    --h5-project ./sg-study-app --pc-project "./新加坡研学PC官网原型" \
-    --h5-dist dist --pc-dist dist \
-    --h5-dir /app/h5 --pc-dir /app/pc
+选项：
+  --build         执行本地构建
+  --no-build      跳过构建（使用已有 dist）
+  --reload-nginx  部署后 reload nginx
+  --dry-run       仅预览，不实际执行
+  --host user@ip  服务器地址（默认：root@120.76.96.112）
+  --keep N        保留最近 N 个版本（默认：5）
 
-环境变量（可选）：
-  DEPLOY_HOST, DEPLOY_PORT
-  DEPLOY_PASSWORD（如需密码登录，不建议；建议改用 SSH Key）
-  H5_PROJECT, PC_PROJECT
-  H5_DIST, PC_DIST
-  H5_DIR,  PC_DIR
+版本回滚：
+  ./deploy.sh rollback <h5|pc|all>     # 回滚到上一版本
+  ./deploy.sh rollback <h5|pc|all> --tag 20260326-143000  # 回滚到指定版本
 
-要求：
-  - 本机：bash, ssh, rsync（可选：sshpass）
-  - 远端：可写入目标目录；如需 --reload-nginx，需有 nginx reload 权限
+内置路径：
+  PC → ./新加坡研学PC官网原型/dist -> /app/pc
+  H5 → ./sg-study-app/dist/build/h5 -> /app/h5
 EOF
 }
 
@@ -73,6 +74,42 @@ require_cmd() {
 }
 
 #######################################
+# 函数：按需加载 .env/.env.local（不执行任意 shell 代码）
+# 支持格式：
+#   KEY=value
+#   KEY="value with spaces"
+# 会忽略空行与 # 注释行
+# 参数：
+#   $1 - 文件路径
+#######################################
+load_env_file() {
+  local file="$1"
+  [[ -f "$file" ]] || return 0
+
+  # 逐行解析，避免 source 带来的任意代码执行风险
+  while IFS= read -r line || [[ -n "$line" ]]; do
+    [[ -z "$line" ]] && continue
+    [[ "$line" =~ ^[[:space:]]*# ]] && continue
+    [[ "$line" =~ ^[A-Za-z_][A-Za-z0-9_]*= ]] || continue
+
+    local key="${line%%=*}"
+    local val="${line#*=}"
+    # 去掉首尾空格
+    val="${val#"${val%%[![:space:]]*}"}"
+    val="${val%"${val##*[![:space:]]}"}"
+    # 去掉可能的成对引号
+    if [[ "$val" =~ ^\".*\"$ ]]; then
+      val="${val:1:${#val}-2}"
+    elif [[ "$val" =~ ^\'.*\'$ ]]; then
+      val="${val:1:${#val}-2}"
+    fi
+
+    # shellcheck disable=SC2163
+    export "${key}=${val}"
+  done < "$file"
+}
+
+#######################################
 # 函数：生成 rsync 的远端 shell 字符串（用于 rsync -e）
 # 参数：
 #   $1 - port
@@ -82,7 +119,7 @@ rsync_remote_shell() {
   local port="$1"
   if [[ -n "${DEPLOY_PASSWORD:-}" ]]; then
     require_cmd sshpass
-    # 注意：这里需要给 rsync 一个“远端 shell”，并在其中嵌入 sshpass
+    # 注意：这里需要给 rsync 一个"远端 shell"，并在其中嵌入 sshpass
     # 密码仍从 SSHPASS（环境变量）读取
     echo "sshpass -e ssh -p ${port}"
   else
@@ -154,7 +191,7 @@ rsync_dir() {
   local dest_dir="$5"
 
   [[ -d "$src_dir" ]] || die "本地目录不存在：$src_dir"
-  # 注意：src_dir 末尾加 /，表示同步“目录内容”而不是目录本身
+  # 注意：src_dir 末尾加 /，表示同步"目录内容"而不是目录本身
   local remote_shell
   remote_shell="$(rsync_remote_shell "$port")"
   if [[ -n "${DEPLOY_PASSWORD:-}" ]]; then
@@ -178,8 +215,7 @@ build_local() {
   local h5_project_dir="${3:-}"
   local pc_project_dir="${4:-}"
 
-  [[ -n "$h5_project_dir" || "$target" == "pc" ]] || true
-  [[ -n "$pc_project_dir" || "$target" == "h5" ]] || true
+  require_cmd bash
 
   # 你可以按实际项目改成 pnpm / yarn / npm
   case "$target" in
@@ -217,18 +253,30 @@ resolve_dist_dir() {
   local dist_path="${2:-}"
   [[ -n "$dist_path" ]] || die "dist 路径不能为空"
 
-  require_cmd realpath
-
-  if [[ "$dist_path" = /* ]]; then
-    realpath "$dist_path"
+  # 兼容：优先 realpath；否则用 python3 做路径归一化
+  if command -v realpath >/dev/null 2>&1; then
+    if [[ "$dist_path" = /* ]]; then
+      realpath "$dist_path"
+    elif [[ -n "$project_dir" ]]; then
+      realpath "${project_dir}/${dist_path}"
+    else
+      realpath "$dist_path"
+    fi
     return 0
   fi
 
-  if [[ -n "$project_dir" ]]; then
-    realpath "${project_dir}/${dist_path}"
-  else
-    realpath "$dist_path"
-  fi
+  require_cmd python3
+  python3 - <<PY
+import os,sys
+project_dir = ${project_dir@Q}
+dist_path = ${dist_path@Q}
+if os.path.isabs(dist_path):
+  print(os.path.realpath(dist_path))
+elif project_dir:
+  print(os.path.realpath(os.path.join(project_dir, dist_path)))
+else:
+  print(os.path.realpath(dist_path))
+PY
 }
 
 #######################################
@@ -244,6 +292,8 @@ resolve_dist_dir() {
 #   $4 - name(h5|pc)
 #   $5 - dist_dir（本地）
 #   $6 - deploy_dir（远端，nginx 指向 deploy_dir/current）
+#   $7 - release_tag（版本号/时间戳）
+#   $8 - keep_releases（保留最近 N 个版本；0 表示不清理）
 #######################################
 deploy_one() {
   local dry_run="$1"
@@ -252,28 +302,31 @@ deploy_one() {
   local name="$4"
   local dist_dir="$5"
   local deploy_dir="$6"
+  local release_tag="$7"
+  local keep_releases="${8:-0}"
 
-  local ts
-  ts="$(now_ts)"
+  [[ -d "$dist_dir" ]] || die "dist 不存在：$dist_dir（请先 build 或检查 --*-dist）"
+  [[ -n "$release_tag" ]] || die "release_tag 不能为空"
 
   local releases_dir="${deploy_dir}/releases"
-  local release_dir="${releases_dir}/${ts}"
+  local release_dir="${releases_dir}/${release_tag}"
   local current_link="${deploy_dir}/current"
 
-  echo "[INFO] 部署 ${name}: ${dist_dir} -> ${host}:${current_link} (release=${ts})"
+  echo "[INFO] 部署 ${name}: ${dist_dir} -> ${host}:${current_link} (release=${release_tag})"
 
   ssh_run "$dry_run" "$host" "$port" "mkdir -p '${releases_dir}' && mkdir -p '${release_dir}'"
   rsync_dir "$dry_run" "$port" "$dist_dir" "$host" "$release_dir"
   # 原子切换：ln -sfn
   ssh_run "$dry_run" "$host" "$port" "ln -sfn '${release_dir}' '${current_link}'"
+
+  # 可选：清理旧版本（仅保留最近 N 个）
+  if [[ "$keep_releases" != "0" ]]; then
+    ssh_run "$dry_run" "$host" "$port" "cd '${releases_dir}' && ls -1dt */ 2>/dev/null | tail -n +$((keep_releases+1)) | xargs -r rm -rf"
+  fi
 }
 
 #######################################
 # 函数：可选的 nginx reload
-# 参数：
-#   $1 - dry_run(true/false)
-#   $2 - host
-#   $3 - port
 #######################################
 reload_nginx() {
   local dry_run="$1"
@@ -284,22 +337,93 @@ reload_nginx() {
 }
 
 #######################################
-# 函数：主逻辑（副作用集中在这里）
+# 函数：列出可用版本
+#######################################
+list_releases() {
+  local host="$1"
+  local port="$2"
+  local deploy_dir="$3"
+  local name="$4"
+
+  echo "=== ${name} 可用版本 ==="
+  ssh_run "false" "$host" "$port" "ls -1dt '${deploy_dir}/releases'/*/ 2>/dev/null | head -10 | xargs -I{} basename {}"
+}
+
+#######################################
+# 函数：回滚到指定版本
+#######################################
+rollback_one() {
+  local dry_run="$1"
+  local host="$2"
+  local port="$3"
+  local name="$4"
+  local deploy_dir="$5"
+  local target_tag="${6:-}"
+
+  local releases_dir="${deploy_dir}/releases"
+  local current_link="${deploy_dir}/current"
+
+  # 获取可用版本列表
+  echo "=== ${name} 可用版本 ==="
+  ssh_run "$dry_run" "$host" "$port" "ls -1dt '${releases_dir}'/*/ 2>/dev/null | head -10 | cat -n"
+
+  # 确定目标版本
+  local release_dir
+  if [[ -n "$target_tag" ]]; then
+    release_dir="${releases_dir}/${target_tag}"
+  else
+    # 默认回滚到上一个版本（current 指向的不算）
+    release_dir=$(ssh_run "false" "$host" "$port" "ls -1dt '${releases_dir}'/*/ 2>/dev/null | sed -n '2p'" | tr -d '/')
+    [[ -z "$release_dir" ]] && die "没有可回滚的版本"
+    release_dir="${releases_dir}/${release_dir}"
+  fi
+
+  echo "[INFO] 回滚 ${name}: ${current_link} -> ${release_dir}"
+  ssh_run "$dry_run" "$host" "$port" "ln -sfn '${release_dir}' '${current_link}'"
+  echo "[OK] ${name} 已回滚到：$(basename "$release_dir")"
+}
+
+#######################################
+# 函数：主逻辑（命令分发）
 #######################################
 main() {
+  if [[ "${1:-}" == "-h" || "${1:-}" == "--help" || "${1:-}" == "help" ]]; then
+    usage
+    exit 0
+  fi
+
+  load_env_file ".env"
+  load_env_file ".env.local"
+
   local cmd="${1:-}"; shift || true
+  local target="${1:-}"; shift || true
+
+  case "${cmd}" in
+    deploy)   main_deploy "$target" "$@" ;;
+    rollback) main_rollback "$target" "$@" ;;
+    list)     main_list "$target" "$@" ;;
+    *)        usage; die "未知命令：${cmd}（支持：deploy / rollback / list）" ;;
+  esac
+}
+
+#######################################
+# 子命令：deploy
+#######################################
+main_deploy() {
   local target="${1:-}"; shift || true
 
   local host="${DEPLOY_HOST:-root@120.76.96.112}"
   local port="${DEPLOY_PORT:-22}"
   local deploy_password="${DEPLOY_PASSWORD:-}"
-  local h5_project="${H5_PROJECT:-}"
-  local pc_project="${PC_PROJECT:-}"
-  local h5_dist="${H5_DIST:-dist}"
+  local h5_project="${H5_PROJECT:-$(pwd)/sg-study-app}"
+  local pc_project="${PC_PROJECT:-$(pwd)/新加坡研学PC官网原型}"
+  local h5_dist="${H5_DIST:-dist/build/h5}"
   local pc_dist="${PC_DIST:-dist}"
   local h5_dir="${H5_DIR:-/app/h5}"
   local pc_dir="${PC_DIR:-/app/pc}"
-  local do_build="false"
+  local release_tag="${DEPLOY_TAG:-}"
+  local keep_releases="${DEPLOY_KEEP:-5}"
+  local do_build="${DEPLOY_BUILD:-false}"
   local do_reload="false"
   local dry_run="false"
 
@@ -313,51 +437,126 @@ main() {
       --pc-dist) pc_dist="${2:-}"; shift 2 ;;
       --h5-dir) h5_dir="${2:-}"; shift 2 ;;
       --pc-dir) pc_dir="${2:-}"; shift 2 ;;
+      --tag) release_tag="${2:-}"; shift 2 ;;
+      --keep) keep_releases="${2:-}"; shift 2 ;;
       --build) do_build="true"; shift ;;
+      --no-build) do_build="false"; shift ;;
       --reload-nginx) do_reload="true"; shift ;;
       --dry-run) dry_run="true"; shift ;;
       -h|--help) usage; exit 0 ;;
-      *) die "未知参数：$1（用 --help 查看用法）" ;;
+      *) die "未知参数：$1" ;;
     esac
   done
 
-  # 仅把密码留在变量/环境中，不要输出
   DEPLOY_PASSWORD="${deploy_password}"
-
-  [[ "${cmd}" == "deploy" ]] || { usage; die "仅支持命令：deploy"; }
   [[ -n "${target}" ]] || { usage; die "缺少 target：h5|pc|all"; }
-  [[ -n "${host}" ]] || die "缺少 --host 或环境变量 DEPLOY_HOST"
 
   require_cmd ssh
   require_cmd rsync
 
+  # 统一版本号
+  [[ -n "$release_tag" ]] || release_tag="$(now_ts)"
+
+  # 密码登录检查
+  [[ -n "${DEPLOY_PASSWORD:-}" ]] && require_cmd sshpass
+
+  # Build
   if [[ "${do_build}" == "true" ]]; then
     require_cmd npm
-    echo "[INFO] 开始本地 build：${target}"
+    echo "[INFO] 构建：${target}"
     build_local "${dry_run}" "${target}" "${h5_project}" "${pc_project}"
   else
-    echo "[INFO] 跳过 build（如需 build 请加 --build）"
+    echo "[INFO] 跳过构建"
   fi
 
+  # 部署
   case "${target}" in
     h5)
-      deploy_one "${dry_run}" "${host}" "${port}" "h5" "$(resolve_dist_dir "${h5_project}" "${h5_dist}")" "${h5_dir}"
+      deploy_one "${dry_run}" "${host}" "${port}" "h5" "$(resolve_dist_dir "${h5_project}" "${h5_dist}")" "${h5_dir}" "${release_tag}" "${keep_releases}"
       ;;
     pc)
-      deploy_one "${dry_run}" "${host}" "${port}" "pc" "$(resolve_dist_dir "${pc_project}" "${pc_dist}")" "${pc_dir}"
+      deploy_one "${dry_run}" "${host}" "${port}" "pc" "$(resolve_dist_dir "${pc_project}" "${pc_dist}")" "${pc_dir}" "${release_tag}" "${keep_releases}"
       ;;
     all)
-      deploy_one "${dry_run}" "${host}" "${port}" "h5" "$(resolve_dist_dir "${h5_project}" "${h5_dist}")" "${h5_dir}"
-      deploy_one "${dry_run}" "${host}" "${port}" "pc" "$(resolve_dist_dir "${pc_project}" "${pc_dist}")" "${pc_dir}"
+      deploy_one "${dry_run}" "${host}" "${port}" "h5" "$(resolve_dist_dir "${h5_project}" "${h5_dist}")" "${h5_dir}" "${release_tag}" "${keep_releases}"
+      deploy_one "${dry_run}" "${host}" "${port}" "pc" "$(resolve_dist_dir "${pc_project}" "${pc_dist}")" "${pc_dir}" "${release_tag}" "${keep_releases}"
       ;;
-    *) usage; die "target 只能是：h5|pc|all" ;;
+    *) die "target 只能是：h5|pc|all" ;;
   esac
 
-  if [[ "${do_reload}" == "true" ]]; then
-    reload_nginx "${dry_run}" "${host}" "${port}"
-  fi
+  [[ "${do_reload}" == "true" ]] && reload_nginx "${dry_run}" "${host}" "${port}"
 
-  echo "[OK] 完成"
+  echo "[OK] 部署完成：${release_tag}"
+}
+
+#######################################
+# 子命令：rollback
+#######################################
+main_rollback() {
+  local target="${1:-}"; shift || true
+
+  local host="${DEPLOY_HOST:-root@120.76.96.112}"
+  local port="${DEPLOY_PORT:-22}"
+  local h5_dir="${H5_DIR:-/app/h5}"
+  local pc_dir="${PC_DIR:-/app/pc}"
+  local rollback_tag=""
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --host) host="${2:-}"; shift 2 ;;
+      --port) port="${2:-}"; shift 2 ;;
+      --tag) rollback_tag="${2:-}"; shift 2 ;;
+      -h|--help) usage; exit 0 ;;
+      *) die "未知参数：$1" ;;
+    esac
+  done
+
+  [[ -n "${target}" ]] || { usage; die "缺少 target：h5|pc|all"; }
+  require_cmd ssh
+
+  case "${target}" in
+    h5)  rollback_one "false" "${host}" "${port}" "h5" "${h5_dir}" "${rollback_tag}" ;;
+    pc)  rollback_one "false" "${host}" "${port}" "pc" "${pc_dir}" "${rollback_tag}" ;;
+    all)
+      rollback_one "false" "${host}" "${port}" "h5" "${h5_dir}" "${rollback_tag}"
+      rollback_one "false" "${host}" "${port}" "pc" "${pc_dir}" "${rollback_tag}"
+      ;;
+    *) die "target 只能是：h5|pc|all" ;;
+  esac
+}
+
+#######################################
+# 子命令：list
+#######################################
+main_list() {
+  local target="${1:-}"; shift || true
+
+  local host="${DEPLOY_HOST:-root@120.76.96.112}"
+  local port="${DEPLOY_PORT:-22}"
+  local h5_dir="${H5_DIR:-/app/h5}"
+  local pc_dir="${PC_DIR:-/app/pc}"
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --host) host="${2:-}"; shift 2 ;;
+      --port) port="${2:-}"; shift 2 ;;
+      -h|--help) usage; exit 0 ;;
+      *) die "未知参数：$1" ;;
+    esac
+  done
+
+  [[ -n "${target}" ]] || { usage; die "缺少 target：h5|pc|all"; }
+  require_cmd ssh
+
+  case "${target}" in
+    h5)  list_releases "${host}" "${port}" "${h5_dir}" "H5" ;;
+    pc)  list_releases "${host}" "${port}" "${pc_dir}" "PC" ;;
+    all)
+      list_releases "${host}" "${port}" "${h5_dir}" "H5"
+      list_releases "${host}" "${port}" "${pc_dir}" "PC"
+      ;;
+    *) die "target 只能是：h5|pc|all" ;;
+  esac
 }
 
 main "$@"
