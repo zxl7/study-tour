@@ -129,7 +129,7 @@
 			},
 			{
 				"pagePath": "pages/about/index",
-				"text": "我的",
+				"text": "关于我们",
 				"iconPath": "static/tabbar/me.png",
 				"selectedIconPath": "static/tabbar/me-active.png"
 			}

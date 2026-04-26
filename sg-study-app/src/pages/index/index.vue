@@ -1,5 +1,7 @@
 <template>
   <view class="sg-page page">
+    <AppHeader title="盛昌利民·狮城研学" :showBack="false" />
+
     <!-- 顶部导航栏（移动端简化 PC Header） -->
     <!-- <view class="navbar">
       <view class="brand">
@@ -177,17 +179,16 @@
           </view>
 
           <view class="contact-qr-wrap">
-            <view class="contact-qr-item">
+            <view v-for="a in SITE.advisors" :key="a.name" class="contact-qr-item">
               <view class="qr-box">
-                <image class="qr-img" mode="aspectFit" src="/static/img/QR_Code-J.jpg" />
+                <image v-if="a.qr" class="qr-img" mode="aspectFit" :src="a.qr" />
+                <view v-else class="qr-fallback">
+                  <text class="qr-fallback-title">电话</text>
+                  <text class="qr-fallback-phone">{{ a.phone }}</text>
+                </view>
               </view>
-              <text class="qr-name">研学顾问：Jason</text>
-            </view>
-            <view class="contact-qr-item">
-              <view class="qr-box">
-                <image class="qr-img" mode="aspectFit" src="/static/img/QR_Code-A.jpg" />
-              </view>
-              <text class="qr-name">研学顾问：Adela</text>
+              <text class="qr-name">研学顾问：{{ a.name }}</text>
+              <text class="qr-phone">{{ a.phone }}</text>
             </view>
           </view>
         </view>
@@ -198,6 +199,7 @@
 
 <script setup>
 import { onShareAppMessage } from "@dcloudio/uni-app"
+import AppHeader from "@/components/AppHeader.vue"
 import SgIcon from "@/components/SgIcon.vue"
 import { navigateToByKey, switchTabByKey } from "@/utils/routes"
 import { SITE } from "@/config/site"
@@ -896,13 +898,15 @@ onShareAppMessage(() => ({
 
 .contact-qr-wrap {
   display: flex;
-  gap: 40rpx;
+  flex-wrap: wrap;
+  gap: 28rpx;
 }
 
 .contact-qr-item {
   display: flex;
   flex-direction: column;
   gap: 12rpx;
+  width: 48%;
 }
 
 .qr-box {
@@ -924,5 +928,33 @@ onShareAppMessage(() => ({
 .qr-name {
   color: rgba(255, 255, 255, 0.8);
   font-size: 20rpx;
+}
+
+.qr-phone {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 22rpx;
+  font-weight: 800;
+}
+
+.qr-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+}
+
+.qr-fallback-title {
+  color: #6b7280;
+  font-size: 20rpx;
+  font-weight: 800;
+}
+
+.qr-fallback-phone {
+  color: #111827;
+  font-size: 22rpx;
+  font-weight: 900;
 }
 </style>

@@ -24,6 +24,6 @@ export const SITE = Object.freeze({
 	advisors: [
 		{ name: 'Jason', phone: '166 8978 0303', qr: '/static/img/QR_Code-J.jpg' },
 		{ name: 'Adela', phone: '173 3083 5386', qr: '/static/img/QR_Code-A.jpg' },
+		{ name: 'Joey', phone: '19907618131', qr: '/static/img/QR_Code-O.jpg' },
 	],
 })
-

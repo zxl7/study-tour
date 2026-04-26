@@ -1,17 +1,19 @@
 <template>
   <view class="sg-page page">
-    <view class="hero">
-      <view class="hero-card">
-        <img src="/src/assets/logo.jpg" alt="logo" style="width: 32px; height: 32px" />
-
-        <view class="hero-info">
-          <text class="hero-title">盛昌利民·狮城研学</text>
-          <text class="hero-sub">Shengchang Limin · Singapore Study Tour</text>
-        </view>
-      </view>
-    </view>
+    <AppHeader title="关于我们" :showBack="false" />
 
     <scroll-view scroll-y class="content">
+      <view class="hero">
+        <view class="hero-card">
+          <img src="/src/assets/logo.jpg" alt="logo" style="width: 32px; height: 32px" />
+
+          <view class="hero-info">
+            <text class="hero-title">盛昌利民·狮城研学</text>
+            <text class="hero-sub">Shengchang Limin · Singapore Study Tour</text>
+          </view>
+        </view>
+      </view>
+
       <view class="panel sg-card">
         <text class="panel-title">核心服务</text>
         <view class="panel-grid">
@@ -102,6 +104,7 @@
 
 <script setup>
 import { onShareAppMessage } from "@dcloudio/uni-app"
+import AppHeader from "@/components/AppHeader.vue"
 import { SITE } from "@/config/site"
 import { navigateToByKey } from "@/utils/routes"
 
@@ -133,14 +136,15 @@ onShareAppMessage(() => ({
 }
 
 .hero {
-  height: calc(320rpx + var(--status-bar-height));
+  /* 说明：现在页面顶部使用 AppHeader 处理状态栏高度，这里无需再叠加 var(--status-bar-height) */
+  height: 560rpx;
   background: $sg-color-primary;
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--status-bar-height) 32rpx 0;
+  padding: 48rpx 32rpx 0;
   box-sizing: border-box;
 }
 
@@ -149,7 +153,7 @@ onShareAppMessage(() => ({
   display: flex;
   align-items: center;
   gap: 20rpx;
-  padding: 0 32rpx;
+  padding: 0;
   box-sizing: border-box;
 }
 

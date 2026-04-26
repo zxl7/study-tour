@@ -34,7 +34,7 @@ const items = Object.freeze([
 	{ key: 'camp', label: '成长营', icon: 'flag-filled', url: '/pages/camp/index' },
 	{ key: 'study', label: '微留学', icon: 'paperplane-filled', url: '/pages/study/index' },
 	{ key: 'epPass', label: '人才EP', icon: 'auth-filled', url: '/pages/ep-pass/index' },
-	{ key: 'about', label: '我的', icon: 'person-filled', url: '/pages/about/index' },
+	{ key: 'about', label: '关于我们', icon: 'person-filled', url: '/pages/about/index' },
 ])
 
 const activeKey = ref('home')

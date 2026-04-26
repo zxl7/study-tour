@@ -43,6 +43,7 @@ const styleText = computed(() => `color:${props.color};font-size:${toPx(props.si
  */
 const mpChar = computed(() => {
 	const map = {
+		back: '‹',
 		'home-filled': '⌂',
 		'flag-filled': '⚑',
 		'paperplane-filled': '✈',
