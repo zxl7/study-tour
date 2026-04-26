@@ -21,8 +21,8 @@ export const SITE = Object.freeze({
   bizAddress: "海南省海口市美兰区国兴大道15A号全球贸易之窗30楼",
 
   advisors: [
-    { name: "Jason", phone: "166 8978 0303", qr: "/static/img/QR_Code-J.jpg" },
-    { name: "Adela", phone: "173 3083 5386", qr: "/static/img/QR_Code-A.jpg" },
-    { name: "Joey", phone: "199 0761 8131", qr: "/static/img/QR_Code-O.jpg" },
+    { name: "Jason", phone: "166 8978 0303", qr: "/static/img/QR_Code-J.webp" },
+    { name: "Adela", phone: "173 3083 5386", qr: "/static/img/QR_Code-A.webp" },
+    { name: "Joey", phone: "199 0761 8131", qr: "/static/img/QR_Code-O.webp" },
   ],
 })

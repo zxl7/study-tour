@@ -4,7 +4,7 @@
 
     <scroll-view scroll-y class="content">
       <view class="hero">
-        <image class="hero-bg" mode="aspectFill" src="/static/img/28day.jpeg" />
+        <image class="hero-bg" mode="aspectFill" src="/static/img/28day.webp" />
         <view class="hero-mask" />
         <view class="hero-inner text-center">
           <view class="tags justify-center">

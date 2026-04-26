@@ -144,15 +144,15 @@
         </view>
         <view class="certs">
           <view class="cert">
-            <image class="cert-img" mode="aspectFit" src="../../static/img/资质证书.jpg" />
+            <image class="cert-img" mode="aspectFit" src="../../static/img/资质证书.webp" />
             <text class="cert-t">资质证书</text>
           </view>
           <view class="cert">
-            <image class="cert-img" mode="aspectFit" src="../../static/img/授权信.jpg" />
+            <image class="cert-img" mode="aspectFit" src="../../static/img/授权信.webp" />
             <text class="cert-t">授权信</text>
           </view>
           <view class="cert cert-wide">
-            <image class="cert-img" mode="aspectFit" src="../../static/img/营业执照.jpg" />
+            <image class="cert-img" mode="aspectFit" src="../../static/img/营业执照.webp" />
             <text class="cert-t">营业执照</text>
           </view>
         </view>
@@ -227,7 +227,7 @@ const projects = [
     desc: "针对3-15岁的孩子，与顶级国际学校合作深度融入狮城文化，培养独立思考与团队协作能力。",
     tag: "7天体验",
     tagCls: "tag-blue",
-    img: "/static/img/1.jpg",
+    img: "/static/img/1.webp",
     meta1: "适龄：小学-初中",
     meta2: "班期：寒暑假",
     to: "camp",
@@ -247,7 +247,7 @@ const projects = [
     desc: "为高端精英家庭定制长期规划，同步解决子女教育与家长身份问题。",
     tag: "教育移民",
     tagCls: "tag-dark",
-    img: "/static/img/3.jpg",
+    img: "/static/img/3.webp",
     meta1: "针对：企业主/高管",
     meta2: "优势：全家移民",
     to: "epPass",

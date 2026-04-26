@@ -5,7 +5,7 @@
     <scroll-view scroll-y class="content">
       <!-- 顶部 Banner（同步 PC 视觉结构，但按移动端重排） -->
       <view class="hero">
-        <image class="hero-bg" mode="aspectFill" src="/static/img/Camp_Banner.jpg" />
+        <image class="hero-bg" mode="aspectFill" src="/static/img/Camp_Banner.webp" />
         <view class="hero-mask" />
         <view class="hero-inner text-center">
           <view class="tags justify-center">
@@ -241,7 +241,7 @@ const timeline = [
     day: "Day.5",
     theme: "环球影城",
     desc: "畅游东南亚首个好莱坞电影主题公园——新加坡环球影城，在七大主题区中尽情释放天性，体验沉浸式欢乐与刺激。",
-    img: "/static/img/4.jpg",
+    img: "/static/img/4.webp",
   },
   {
     day: "Day.6",
@@ -304,7 +304,7 @@ const schools = [
  */
 const courses = [
   { tag: "STEAM", tagBg: "rgba(14,165,233,0.92)", desc: "编码机器人、虚拟现实、3D打印和工程", img: "/static/img/STEAM_Education.jpg" },
-  { tag: "综合活动", tagBg: "rgba(59,130,246,0.92)", desc: "木材制作、园艺、烘焙、运动", img: "/static/img/play.jpg" },
+  { tag: "综合活动", tagBg: "rgba(59,130,246,0.92)", desc: "木材制作、园艺、烘焙、运动", img: "/static/img/play.webp" },
   { tag: "多重冒险", tagBg: "rgba(20,184,166,0.92)", desc: "射箭、跑酷、定向越野、攀岩、无人机", img: "/static/img/study.jpg" },
   { tag: "英语强化", tagBg: "rgba(99,102,241,0.92)", desc: "语言游戏、趣味活动、听说读写", img: "/static/img/english.jpg" },
 ]
@@ -316,7 +316,7 @@ const services = [
   {
     title: "住宿：四星级酒店/学生公寓",
     desc: "2人标准间，配备24小时保安及中文生活老师。确保孩子在舒适的环境中休息，恢复精力。",
-    img: "/static/img/Hotel.jpg",
+    img: "/static/img/Hotel.webp",
   },
   {
     title: "饮食：多元狮城美食+中餐",
