@@ -49,8 +49,8 @@ usage() {
   ./deploy.sh rollback <h5|pc|all> --tag 20260326-143000  # 回滚到指定版本
 
 内置路径：
-  PC → ./新加坡研学PC官网原型/dist -> /app/pc
-  H5 → ./sg-study-app/dist/build/h5 -> /app/h5
+  PC → ./新加坡研学PC官网原型/dist -> /app/dist/
+  H5 → ./sg-study-app/dist/build/h5 -> /app/h5/
 EOF
 }
 
@@ -191,13 +191,14 @@ rsync_dir() {
   local dest_dir="$5"
 
   [[ -d "$src_dir" ]] || die "本地目录不存在：$src_dir"
-  # 注意：src_dir 末尾加 /，表示同步"目录内容"而不是目录本身
+  # 获取绝对路径并加引号，防止中文路径问题
+  src_dir="$(realpath "$src_dir")"
   local remote_shell
   remote_shell="$(rsync_remote_shell "$port")"
   if [[ -n "${DEPLOY_PASSWORD:-}" ]]; then
-    SSHPASS="${DEPLOY_PASSWORD}" run "$dry_run" rsync -az --delete -e "${remote_shell}" "${src_dir}/" "${host}:${dest_dir}/"
+    SSHPASS="${DEPLOY_PASSWORD}" run "$dry_run" rsync -az --delete -e "${remote_shell}" --rsync-path="rsync" "${src_dir}/" "${host}:${dest_dir}/"
   else
-    run "$dry_run" rsync -az --delete -e "${remote_shell}" "${src_dir}/" "${host}:${dest_dir}/"
+    run "$dry_run" rsync -az --delete -e "${remote_shell}" --rsync-path="rsync" "${src_dir}/" "${host}:${dest_dir}/"
   fi
 }
 
@@ -337,6 +338,29 @@ reload_nginx() {
 }
 
 #######################################
+# 函数：简单同步（H5 直传，不走版本管理）
+#######################################
+simple_sync() {
+  local dry_run="$1"
+  local port="$2"
+  local src_dir="$3"
+  local host="$4"
+  local dest_dir="$5"
+
+  [[ -d "$src_dir" ]] || die "本地目录不存在：$src_dir"
+  src_dir="$(realpath "$src_dir")"
+  local remote_shell
+  remote_shell="$(rsync_remote_shell "$port")"
+
+  echo "[INFO] 同步 ${src_dir} -> ${host}:${dest_dir}"
+  if [[ -n "${DEPLOY_PASSWORD:-}" ]]; then
+    SSHPASS="${DEPLOY_PASSWORD}" run "$dry_run" rsync -az --delete -e "${remote_shell}" "${src_dir}/" "${host}:${dest_dir}/"
+  else
+    run "$dry_run" rsync -az --delete -e "${remote_shell}" "${src_dir}/" "${host}:${dest_dir}/"
+  fi
+}
+
+#######################################
 # 函数：列出可用版本
 #######################################
 list_releases() {
@@ -420,7 +444,7 @@ main_deploy() {
   local h5_dist="${H5_DIST:-dist/build/h5}"
   local pc_dist="${PC_DIST:-dist}"
   local h5_dir="${H5_DIR:-/app/h5}"
-  local pc_dir="${PC_DIR:-/app/pc}"
+  local pc_dir="${PC_DIR:-/app/dist}"
   local release_tag="${DEPLOY_TAG:-}"
   local keep_releases="${DEPLOY_KEEP:-5}"
   local do_build="${DEPLOY_BUILD:-false}"
@@ -472,14 +496,22 @@ main_deploy() {
   # 部署
   case "${target}" in
     h5)
-      deploy_one "${dry_run}" "${host}" "${port}" "h5" "$(resolve_dist_dir "${h5_project}" "${h5_dist}")" "${h5_dir}" "${release_tag}" "${keep_releases}"
+      # H5 直接同步到目标目录
+      ssh_run "${dry_run}" "${host}" "${port}" "mkdir -p '${h5_dir}'"
+      simple_sync "${dry_run}" "${port}" "$(resolve_dist_dir "${h5_project}" "${h5_dist}")" "${host}" "${h5_dir}"
       ;;
     pc)
-      deploy_one "${dry_run}" "${host}" "${port}" "pc" "$(resolve_dist_dir "${pc_project}" "${pc_dist}")" "${pc_dir}" "${release_tag}" "${keep_releases}"
+      # PC 直接同步到目标目录
+      ssh_run "${dry_run}" "${host}" "${port}" "mkdir -p '${pc_dir}'"
+      simple_sync "${dry_run}" "${port}" "$(resolve_dist_dir "${pc_project}" "${pc_dist}")" "${host}" "${pc_dir}"
       ;;
     all)
-      deploy_one "${dry_run}" "${host}" "${port}" "h5" "$(resolve_dist_dir "${h5_project}" "${h5_dist}")" "${h5_dir}" "${release_tag}" "${keep_releases}"
-      deploy_one "${dry_run}" "${host}" "${port}" "pc" "$(resolve_dist_dir "${pc_project}" "${pc_dist}")" "${pc_dir}" "${release_tag}" "${keep_releases}"
+      # H5 直接同步
+      ssh_run "${dry_run}" "${host}" "${port}" "mkdir -p '${h5_dir}'"
+      simple_sync "${dry_run}" "${port}" "$(resolve_dist_dir "${h5_project}" "${h5_dist}")" "${host}" "${h5_dir}"
+      # PC 直接同步
+      ssh_run "${dry_run}" "${host}" "${port}" "mkdir -p '${pc_dir}'"
+      simple_sync "${dry_run}" "${port}" "$(resolve_dist_dir "${pc_project}" "${pc_dist}")" "${host}" "${pc_dir}"
       ;;
     *) die "target 只能是：h5|pc|all" ;;
   esac
@@ -498,7 +530,7 @@ main_rollback() {
   local host="${DEPLOY_HOST:-root@120.76.96.112}"
   local port="${DEPLOY_PORT:-22}"
   local h5_dir="${H5_DIR:-/app/h5}"
-  local pc_dir="${PC_DIR:-/app/pc}"
+  local pc_dir="${PC_DIR:-/app/dist}"
   local rollback_tag=""
 
   while [[ $# -gt 0 ]]; do
@@ -534,7 +566,7 @@ main_list() {
   local host="${DEPLOY_HOST:-root@120.76.96.112}"
   local port="${DEPLOY_PORT:-22}"
   local h5_dir="${H5_DIR:-/app/h5}"
-  local pc_dir="${PC_DIR:-/app/pc}"
+  local pc_dir="${PC_DIR:-/app/dist}"
 
   while [[ $# -gt 0 ]]; do
     case "$1" in
