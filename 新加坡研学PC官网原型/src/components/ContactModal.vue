@@ -9,31 +9,29 @@
           
           <div class="text-center mb-10">
             <h3 class="text-3xl font-bold text-sg-blue mb-4">联系我们的教育顾问</h3>
-            <p class="text-gray-500">扫描下方二维码或添加微信，获取专属规划方案</p>
+            <p class="text-gray-500">扫描二维码或直接电话咨询，获取专属规划方案</p>
           </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- Jason -->
-            <div class="text-center bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-              <h4 class="text-2xl font-bold text-gray-800 mb-2">Jason</h4>
-              <div class="flex items-center justify-center text-luxury-gold font-bold text-lg mb-6">
+            <div
+              v-for="a in advisors"
+              :key="a.name"
+              class="text-center bg-slate-50 p-3 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow"
+            >
+              <h4 class="text-2xl font-bold text-gray-800 mb-2">{{ a.name }}</h4>
+              <div class="flex items-center justify-center text-luxury-gold font-bold text-lg mb-3">
                 <iconify-icon icon="ph:phone-fill" class="mr-2"></iconify-icon>
-                166 8978 0303
+                {{ a.phone }}
               </div>
-              <div class="w-48 h-48 mx-auto bg-white p-2 rounded-xl shadow-sm">
-                <img src="/img/QR_Code-J.jpg" alt="Jason QR Code" class="w-full h-full object-contain" />
+
+              <div v-if="a.qr" class="w-48 h-48 mx-auto bg-white p-2 rounded-xl shadow-sm">
+                <img :src="a.qr" :alt="`${a.name} QR Code`" class="w-full h-full object-contain" />
               </div>
-            </div>
-            
-            <!-- Adela -->
-            <div class="text-center bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-              <h4 class="text-2xl font-bold text-gray-800 mb-2">Adela</h4>
-              <div class="flex items-center justify-center text-luxury-gold font-bold text-lg mb-6">
-                <iconify-icon icon="ph:phone-fill" class="mr-2"></iconify-icon>
-                173 3083 5386
-              </div>
-              <div class="w-48 h-48 mx-auto bg-white p-2 rounded-xl shadow-sm">
-                <img src="/img/QR_Code-A.jpg" alt="Adela QR Code" class="w-full h-full object-contain" />
+              <div
+                v-else
+                class="w-48 h-48 mx-auto bg-white p-2 rounded-xl shadow-sm flex items-center justify-center text-gray-400 text-sm"
+              >
+                暂无二维码
               </div>
             </div>
           </div>
@@ -44,6 +42,12 @@
 </template>
 
 <script setup lang="ts">
+const advisors = Object.freeze([
+  { name: 'Jason', phone: '166 8978 0303', qr: '/img/QR_Code-J.jpg' },
+  { name: 'Adela', phone: '173 3083 5386', qr: '/img/QR_Code-A.jpg' },
+  { name: 'Joey', phone: '19907618131', qr: '/img/QR_Code-O.jpg' },
+])
+
 defineProps<{
   visible: boolean
 }>()

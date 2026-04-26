@@ -537,7 +537,9 @@
                 <option>国际学校体验营</option>
               </select>
               <textarea class="w-full px-6 py-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-sg-blue" placeholder="您的具体需求或孩子的年级情况..." rows="4"></textarea>
-              <button type="button" @click.prevent="openContactModal" class="w-full bg-sg-blue hover:bg-[#004a80] text-white font-bold py-5 rounded-lg text-lg shadow-lg transition-all">提交申请 · 免费领取规划手册</button>
+              <button type="button" @click.prevent="openContactModal" class="w-full bg-sg-blue hover:bg-[#004a80] text-white font-bold py-5 rounded-lg text-lg shadow-lg transition-all">
+                提交申请 · 免费领取规划手册
+              </button>
             </form>
           </div>
           <div class="w-1/2 bg-sg-blue p-16 text-white flex flex-col justify-between">
@@ -557,7 +559,7 @@
               <!-- <p class="mb-2">新加坡总部：xxxxxx</p> -->
               <p>中国运营中心：海南省海口市美兰区国兴街道国兴大道15A号，全球贸易之窗9003室</p>
             </div>
-            <div class="flex space-x-8 items-center">
+            <div class="flex flex-wrap gap-8 items-center">
               <div class="text-center">
                 <img alt="QR Code" class="w-24 h-24 bg-white p-2 rounded mb-2" src="/img/QR_Code-J.jpg" />
                 <p class="text-xs text-blue-200">研学顾问：Jason</p>
@@ -565,6 +567,10 @@
               <div class="text-center">
                 <img alt="QR Code" class="w-24 h-24 bg-white p-2 rounded mb-2" src="/img/QR_Code-A.jpg" />
                 <p class="text-xs text-blue-200">研学顾问：Adela</p>
+              </div>
+              <div class="text-center">
+                <img alt="QR Code" style="padding: 4px;" class="w-24 h-24 bg-white rounded mb-2" src="/img/QR_Code-O.jpg" />
+                <p class="text-xs text-blue-200">研学顾问：Joey</p>
               </div>
             </div>
           </div>
@@ -576,7 +582,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue'
+import { inject } from "vue"
 
-const openContactModal = inject('openContactModal') as () => void
+const openContactModal = inject("openContactModal") as () => void
 </script>
