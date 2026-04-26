@@ -1,0 +1,31 @@
+{
+    "setting": {
+        "es6": true,
+        "postcss": true,
+        "minified": true,
+        "uglifyFileName": false,
+        "enhance": true,
+        "packNpmRelationList": [],
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "useCompilerPlugins": false,
+        "minifyWXML": true
+    },
+    "compileType": "miniprogram",
+    "simulatorPluginLibVersion": {},
+    "packOptions": {
+        "ignore": [
+            "src/static/img_backup_*",
+            "src/static/img_backup_mp_*",
+            "src/static/img/english.png",
+            "src/static/tabbar/*.svg",
+            "src/static/uniicons/*"
+        ],
+        "include": []
+    },
+    "appid": "wx2735a04fc2ddcb71",
+    "editorSetting": {}
+}

@@ -32,7 +32,7 @@
         </view>
 
         <view class="policy-figure sg-card">
-          <image class="policy-img" mode="aspectFit" src="/static/img/EP.png" />
+          <image class="policy-img" mode="aspectFit" src="/static/img/EP.jpg" />
           <text class="policy-tip">COMPASS评估框架示意</text>
         </view>
 

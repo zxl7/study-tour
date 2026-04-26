@@ -305,8 +305,8 @@ const schools = [
 const courses = [
   { tag: "STEAM", tagBg: "rgba(14,165,233,0.92)", desc: "编码机器人、虚拟现实、3D打印和工程", img: "/static/img/STEAM_Education.jpg" },
   { tag: "综合活动", tagBg: "rgba(59,130,246,0.92)", desc: "木材制作、园艺、烘焙、运动", img: "/static/img/play.jpg" },
-  { tag: "多重冒险", tagBg: "rgba(20,184,166,0.92)", desc: "射箭、跑酷、定向越野、攀岩、无人机", img: "/static/img/study.png" },
-  { tag: "英语强化", tagBg: "rgba(99,102,241,0.92)", desc: "语言游戏、趣味活动、听说读写", img: "/static/img/english.png" },
+  { tag: "多重冒险", tagBg: "rgba(20,184,166,0.92)", desc: "射箭、跑酷、定向越野、攀岩、无人机", img: "/static/img/study.jpg" },
+  { tag: "英语强化", tagBg: "rgba(99,102,241,0.92)", desc: "语言游戏、趣味活动、听说读写", img: "/static/img/english.jpg" },
 ]
 
 /**

@@ -92,7 +92,12 @@
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {
+		// #ifdef MP-WEIXIN
+		"custom": false,
+		// #endif
+		// #ifndef MP-WEIXIN
 		"custom": true,
+		// #endif
 		"backgroundColor": "#FFFFFF",
 		"borderStyle": "black",
 		"color": "#9CA3AF",
@@ -101,32 +106,32 @@
 			{
 				"pagePath": "pages/index/index",
 				"text": "首页",
-				"iconPath": "static/tabbar/home.svg",
-				"selectedIconPath": "static/tabbar/home-active.svg"
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/home-active.png"
 			},
 			{
 				"pagePath": "pages/camp/index",
 				"text": "成长营",
-				"iconPath": "static/tabbar/camp.svg",
-				"selectedIconPath": "static/tabbar/camp-active.svg"
+				"iconPath": "static/tabbar/camp.png",
+				"selectedIconPath": "static/tabbar/camp-active.png"
 			},
 			{
 				"pagePath": "pages/study/index",
 				"text": "微留学",
-				"iconPath": "static/tabbar/study.svg",
-				"selectedIconPath": "static/tabbar/study-active.svg"
+				"iconPath": "static/tabbar/study.png",
+				"selectedIconPath": "static/tabbar/study-active.png"
 			},
 			{
 				"pagePath": "pages/ep-pass/index",
 				"text": "人才EP",
-				"iconPath": "static/tabbar/ep.svg",
-				"selectedIconPath": "static/tabbar/ep-active.svg"
+				"iconPath": "static/tabbar/ep.png",
+				"selectedIconPath": "static/tabbar/ep-active.png"
 			},
 			{
 				"pagePath": "pages/about/index",
 				"text": "我的",
-				"iconPath": "static/tabbar/me.svg",
-				"selectedIconPath": "static/tabbar/me-active.svg"
+				"iconPath": "static/tabbar/me.png",
+				"selectedIconPath": "static/tabbar/me-active.png"
 			}
 		]
 	}
