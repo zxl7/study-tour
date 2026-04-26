@@ -4,13 +4,10 @@
 
     <scroll-view scroll-y class="content">
       <view class="hero">
-        <view class="hero-card">
+        <view class="hero-info">
           <img src="/src/assets/logo.jpg" alt="logo" style="width: 32px; height: 32px" />
-
-          <view class="hero-info">
-            <text class="hero-title">盛昌利民·狮城研学</text>
-            <text class="hero-sub">Shengchang Limin · Singapore Study Tour</text>
-          </view>
+          <text class="hero-title">盛昌利民·狮城研学</text>
+          <text class="hero-sub">Shengchang Limin · Singapore Study Tour</text>
         </view>
       </view>
 
@@ -137,14 +134,14 @@ onShareAppMessage(() => ({
 
 .hero {
   /* 说明：现在页面顶部使用 AppHeader 处理状态栏高度，这里无需再叠加 var(--status-bar-height) */
-  height: 560rpx;
+  height: 300rpx;
   background: $sg-color-primary;
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 48rpx 32rpx 0;
+  padding: 24rpx 32rpx ;
   box-sizing: border-box;
 }
 
@@ -173,6 +170,9 @@ onShareAppMessage(() => ({
 .hero-info {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 200rpx;
 }
 
 .hero-title {
