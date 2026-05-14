@@ -39,6 +39,7 @@ const iconStyle = computed(() => {
 		'staff': 'staff-filled',
 		'paperplane-filled': 'paperplane',
 		'navigate': 'paperplane',
+		'chatboxes-filled': 'chat-filled',
 	}[props.type] || props.type
 
 	return {

@@ -82,7 +82,7 @@
           </view>
           <view class="fast-grid">
             <view v-for="f in fastTrack" :key="f.title" class="fast-item">
-              <text class="fast-title">{{ f.title }}</text>
+              <p class="fast-title">{{ f.title }}</p>
               <text class="fast-desc">{{ f.desc }}</text>
             </view>
           </view>

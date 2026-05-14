@@ -4,14 +4,14 @@
 
 		<scroll-view scroll-y class="content">
 			<view class="hero sg-card">
-				<SgIcon type="staff-filled" :size="28" color="#e5a663" />
-				<text class="hero-title">合作与咨询</text>
+				<!-- <SgIcon type="staff-filled" :size="28" color="#e5a663" /> -->
+				<p class="hero-title">合作与咨询</p>
 				<text class="hero-sub">我们期待与国内外优秀的教育机构、留学中介、财富管理机构及各界伙伴建立长期共赢的合作关系。</text>
 			</view>
 
 			<view class="grid">
 				<view class="left sg-card">
-					<text class="card-title">成为渠道代理</text>
+					<p class="card-title">成为渠道代理</p>
 					<text class="card-desc">
 						依托我们强大的新加坡本土资源和履约能力，为您拓展高净值客户服务边界。我们提供丰厚的佣金回报与全套业务培训。
 					</text>
@@ -92,7 +92,7 @@ onShareAppMessage(() => ({
 .hero {
 	padding: 26rpx 24rpx;
 	border-radius: 28rpx;
-	text-align: center;
+	// text-align: center;
 }
 
 .hero-title {

@@ -194,7 +194,7 @@ onShow(() => {
  */
 const fits = [
   { icon: "person-filled", title: "计划低龄留学的家庭", desc: "在正式决定前，让孩子提前测试对新加坡教育环境的适应能力。" },
-  { icon: "chatboxes-filled", title: "需快速提升口语的学生", desc: "28天全英社交+全英课堂，强迫式开口，告别“哑巴英语”。" },
+  { icon: "chat-filled", title: "需快速提升口语的学生", desc: "28天全英社交+全英课堂，强迫式开口，告别“哑巴英语”。" },
   { icon: "flag-filled", title: "提升升学竞争力的学生", desc: "海外插班经历是学生履历的一大亮点，有助于未来申请国际学校。" },
   { icon: "home-filled", title: "想体验寄宿家庭生活", desc: "与当地精英中产家庭同吃同住，深度了解社会文化与教养。" },
 ]
