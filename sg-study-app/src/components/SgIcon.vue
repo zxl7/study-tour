@@ -11,6 +11,7 @@
  * 3. 极度轻量：按需加载 SVG，不引入庞大的图标字体包。
  */
 import { computed } from 'vue'
+import { getAssetUrl } from '@/config/site'
 
 const props = defineProps({
 	// 图标名称（需与 src/static/icons 下的文件名对应，不含后缀）
@@ -42,13 +43,16 @@ const iconStyle = computed(() => {
 		'chatboxes-filled': 'chat-filled',
 	}[props.type] || props.type
 
+	// 统一调用 getAssetUrl 解析路径，确保 H5 生产环境路径正确
+	const iconPath = getAssetUrl(`icons/${iconName}.svg`)
+
 	return {
 		width: size,
 		height: size,
 		backgroundColor: props.color,
 		// 微信小程序及主流浏览器均支持 mask 属性
-		maskImage: `url(/static/icons/${iconName}.svg)`,
-		'-webkit-mask-image': `url(/static/icons/${iconName}.svg)`,
+		maskImage: `url(${iconPath})`,
+		'-webkit-mask-image': `url(${iconPath})`,
 		maskRepeat: 'no-repeat',
 		'-webkit-mask-repeat': 'no-repeat',
 		maskSize: '100% 100%',

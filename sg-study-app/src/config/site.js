@@ -21,7 +21,7 @@ export const SITE = Object.freeze({
   bizAddress: "海南省海口市美兰区国兴大道15A号全球贸易之窗30楼",
 
   // 资源基础路径：开发环境下用本地，生产环境下可以换成 CDN 地址
-  // ASSET_URL: "https://your-cdn-domain.com/mini-app/static/img",
+  // 生产环境建议：将 static/img 目录同步到服务器/CDN，并在此处配置绝对路径
   ASSET_URL: "/static/img",
 
   advisors: [
@@ -32,27 +32,39 @@ export const SITE = Object.freeze({
 })
 
 /**
- * 格式化图片路径的辅助函数
- * @param {string} path 图片文件名或路径
- * @returns {string} 完整的图片 URL
+ * 格式化资源路径的辅助函数
+ * @param {string} path 资源路径
+ * @returns {string} 完整的资源 URL
  */
 export const getAssetUrl = (path) => {
   if (!path) return ""
-  // 如果是完整路径则直接返回
   if (path.startsWith("http") || path.startsWith("data:")) return path
 
-  // 默认基础路径
-  let baseUrl = SITE.ASSET_URL.endsWith("/") ? SITE.ASSET_URL.slice(0, -1) : SITE.ASSET_URL
-  let purePath = path.startsWith("/") ? path.slice(1) : path
+  let purePath = path.replace(/^\/+/, "")
+  let finalPath = ""
 
-  // 处理分包资源路径
-  if (purePath.startsWith("pkg/")) {
-    // 如果是本地开发模式且以 pkg/ 开头，映射到分包静态目录
-    if (baseUrl.startsWith("/static")) {
-      return `/${purePath.replace("pkg/", "pkg/static/img/")}`
+  // 1. 识别资源类型并构建相对于根目录的绝对路径
+  if (purePath.startsWith("icons/")) {
+    // 图标类：icons/home.svg -> /static/icons/home.svg
+    finalPath = `/static/${purePath}`
+  } else if (purePath.startsWith("pkg/")) {
+    // 分包资源类：pkg/common/bg.jpg -> /pkg/static/img/common/bg.jpg
+    finalPath = `/pkg/static/img/${purePath.replace("pkg/", "")}`
+  } else {
+    // 普通主包图片：bg.jpg -> /static/img/bg.jpg
+    // 兼容处理：如果传入的已经是 /static/img 开头的，则不再重复拼接
+    if (purePath.startsWith("static/img/")) {
+      finalPath = `/${purePath}`
+    } else {
+      finalPath = `/static/img/${purePath}`
     }
   }
 
-  // 拼接基础路径
-  return `${baseUrl}/${purePath}`
+  // 2. H5 环境适配：手动补齐部署子目录 /h5（需与 manifest.json 中的 h5.router.base 保持一致）
+  // 说明：无论开发还是生产环境，只要设置了 base，绝对路径资源都需要补齐前缀，否则在子页面刷新时会 404
+  // #ifdef H5
+  finalPath = "/h5" + finalPath
+  // #endif
+
+  return finalPath
 }

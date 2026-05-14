@@ -178,6 +178,12 @@
 </template>
 
 <script setup>
+/**
+ * 页面：微留学详情 (Study Tour Detail)
+ * 功能：展示 28 天微留学项目的适合人群、核心特色、日程安排及费用标准。
+ * 规范：遵循函数式数据流，使用全局 sg- 样式组件。
+ */
+
 import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
@@ -185,12 +191,16 @@ import SgIcon from "@/components/SgIcon.vue"
 import SgImage from "@/components/SgImage.vue"
 import { navigateToByKey } from "@/utils/routes"
 
+/**
+ * 生命周期：页面显示时隐藏原生 TabBar
+ */
 onShow(() => {
   uni.hideTabBar()
 })
 
 /**
- * 功能：适合人群（纯数据）。
+ * 适合人群数据
+ * @type {Array<{icon: string, title: string, desc: string}>}
  */
 const fits = [
   { icon: "person-filled", title: "计划低龄留学的家庭", desc: "在正式决定前，让孩子提前测试对新加坡教育环境的适应能力。" },
@@ -200,7 +210,8 @@ const fits = [
 ]
 
 /**
- * 功能：核心特色（纯数据）。
+ * 核心特色数据
+ * @type {Array<{no: string, title: string, desc: string}>}
  */
 const features = [
   { no: "1", title: "全定制课程", desc: "按孩子学习水平、风格、记忆模式定制课表，匹配个人学习节奏。" },
@@ -210,17 +221,20 @@ const features = [
 ]
 
 /**
- * 功能：费用包含（纯数据）。
+ * 费用包含项
+ * @type {string[]}
  */
 const includes = ["28天27晚住宿，接送机各一次", "寄宿家庭餐饮：上学日早餐/晚餐，非上学日全天饮食", "课程费", "每日上学车辆接送，外出日车辆接送"]
 
 /**
- * 功能：入学准备-申请材料（纯数据）。
+ * 入学准备 - 申请材料
+ * @type {string[]}
  */
 const prepMaterials = ["学生及家长的护照复印件", "学生最近的学校成绩单或完成当前年级的证明", "入学后需参加英语水平测试，用于匹配学习材料与教学方式"]
 
 /**
- * 功能：入学准备-寄宿家庭要求（纯数据）。
+ * 入学准备 - 寄宿家庭规范
+ * @type {string[]}
  */
 const homestayRules = [
   "寄宿家庭受政府严格监管，必须符合安全与居住环境的官方要求",
@@ -230,8 +244,8 @@ const homestayRules = [
 ]
 
 /**
- * 功能：28天日程概览（纯数据）。
- * 说明：与 PC「28天日程日历」语义一致，但移动端不使用横向日历，改为纵向列表。
+ * 28天日程概览数据
+ * @type {Array<{k: string, v: string, day: string}>}
  */
 const schedule = [
   { k: "D1", v: "入境新加坡：专人接机、介绍概况、入住寄宿家庭", day: "周日" },
@@ -249,17 +263,15 @@ const schedule = [
 ]
 
 /**
- * 功能：不包含/说明（纯数据）。
- */
-const excludes = ["不包含机票", "环球影城、动物园等门票需额外购买；若不参加相应行程不退费", "周末行程为赠送项目，可自行选择；不参加不退费"]
-
-/**
- * 功能：跳转到表单页。
+ * 功能：跳转到咨询表单。
  */
 const goForm = () => navigateToByKey("form")
 
+/**
+ * 小程序分享配置
+ */
 onShareAppMessage(() => ({
-  title: "狮城微留学 - 盛昌利民研学",
+  title: "28天微留学 - 像当地人一样学习与生活",
   path: "/pages/study/index",
 }))
 </script>
@@ -575,7 +587,7 @@ onShareAppMessage(() => ({
 .prep-li {
   display: flex;
   gap: 10rpx;
-  align-items: flex-start;
+  align-items: center;
   margin-top: 10rpx;
 }
 

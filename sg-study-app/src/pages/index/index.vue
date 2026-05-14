@@ -200,20 +200,36 @@
 </template>
 
 <script setup>
+/**
+ * 页面：首页 (Home)
+ * 功能：展示研学品牌、核心优势、项目矩阵及专家护航信息。
+ * 规范：遵循函数式数据流，使用全局 sg- 样式组件。
+ */
+
 import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
 import SgImage from "@/components/SgImage.vue"
 import { navigateToByKey, switchTabByKey } from "@/utils/routes"
-import { SITE, getAssetUrl } from "@/config/site"
+import { SITE } from "@/config/site"
 
+/**
+ * 生命周期：页面显示时隐藏原生 TabBar
+ */
 onShow(() => {
   uni.hideTabBar()
 })
 
+/**
+ * 项目矩阵锚点
+ */
 const projectsAnchor = "projects"
 
+/**
+ * 核心优势列表
+ * @type {Array<{icon: string, title: string, desc: string}>}
+ */
 const advantages = [
   { icon: "locked-filled", title: "全球安全环境", desc: "低犯罪率，完善的法律保障，让孩子在安全的环境中探索世界。" },
   { icon: "staff", title: "极致双语教育", desc: "母语般的中英双语环境，在浸润式学习中掌握核心语言能力。" },
@@ -222,6 +238,10 @@ const advantages = [
   { icon: "paperplane", title: "无时差零距离", desc: "距离中国近，无时差困扰，家长陪读或探视极度便利。" },
 ]
 
+/**
+ * 选择我们的理由
+ * @type {Array<{icon: string, title: string, desc: string}>}
+ */
 const whyUs = [
   { icon: "medal", title: "官方权威认证", desc: "合作学校均获得新加坡教育部(MOE)认证，确保合法合规。" },
   { icon: "person-filled", title: "本土化资深团队", desc: "中新双总部运营，提供7x24小时在地响应与安全保障。" },
@@ -229,6 +249,10 @@ const whyUs = [
   { icon: "wallet", title: "高端圈层赋能", desc: "同步提供身份规划(EP)、置业、税务等高净值服务。" },
 ]
 
+/**
+ * 项目矩阵数据
+ * @type {Array<{title: string, desc: string, tag: string, tagCls: string, img: string, meta1: string, meta2: string, to: string}>}
+ */
 const projects = [
   {
     title: "新加坡成长营",
@@ -251,64 +275,83 @@ const projects = [
     to: "study",
   },
   {
-    title: "人才准证EP",
-    desc: "为高端精英家庭定制长期规划，同步解决子女教育与家长身份问题。",
-    tag: "教育移民",
-    tagCls: "tag-dark",
-    img: "project/3.webp",
-    meta1: "针对：企业主/高管",
-    meta2: "优势：全家移民",
+    title: "EP人才准证",
+    desc: "新加坡主流移居路径，通过在新加坡注册公司并以高管身份申请，全家移居狮城。",
+    tag: "身份规划",
+    tagCls: "tag-primary",
+    img: "project/EP.jpg",
+    meta1: "周期：30-60天",
+    meta2: "门槛：低门槛",
     to: "epPass",
   },
 ]
 
+/**
+ * 研学对比数据
+ * @type {Array<{title: string, left: string[], right: string[]}>}
+ */
 const compareRows = [
   {
-    title: "环境与节奏",
-    left: ["入住寄宿家庭，作为家庭成员参与生活", "进入当地学校插班，遵循严谨真实的学术节奏"],
-    right: ["入住星级酒店或营地宿舍，享受集体生活乐趣", "以主题游览、素质拓展为主，氛围轻松活跃"],
+    title: "学习模式",
+    left: ["全真插班", "当地学伴同课", "完全同步当地进度"],
+    right: ["定制主题", "国际混龄组队", "跨学科探索"],
   },
   {
-    title: "社交模式",
-    left: ["离开母语舒适区，锻炼沟通能力", "与本地家庭及同学建立长期海外联系"],
-    right: ["与来自各地同龄参与者快速破冰", "在团队协作任务中建立短期友谊"],
+    title: "居住体验",
+    left: ["寄宿家庭 (Homestay)", "深度融入当地生活"],
+    right: ["高端公寓/星级酒店", "完善生活配套"],
   },
   {
-    title: "核心价值",
-    left: ["低成本试错：体验教学风格与文化适配", "精准定位：通过课程反馈为后续升学做参考"],
-    right: ["开阔视野：高密度多元活动拓宽认知边界", "兴趣探索：短时间接触多个领域发现特长"],
-  },
-  {
-    title: "心智成长",
-    left: ["经历“新鲜→挑战→适应→掌控”的完整情绪周期", "建立心理韧性与对陌生环境的掌控感"],
-    right: ["无忧行程确保正向情绪的高频反馈", "鼓励式拓展中收获成就感与自我认同"],
-  },
-  {
-    title: "最终收获",
-    left: ["获得真实海外生存技能，塑造独立人格", "提前预演留学生活，缩短未来适应期"],
-    right: ["收获美好旅程与珍贵国际友谊", "通过游历打开世界大门，种下全球思维种子"],
+    title: "成长收获",
+    left: ["语言能力爆发式突破", "独立生活能力"],
+    right: ["文化视野拓展", "跨文化协作能力"],
   },
 ]
 
+/**
+ * 数据统计
+ * @type {Array<{val: string, label: string}>}
+ */
 const stats = [
-  { val: "15+", label: "教育行业积淀(年)" },
-  { val: "50+", label: "优质合作院校" },
-  { val: "5000+", label: "服务成功家庭" },
+  { val: "100%", label: "获批率" },
+  { val: "500+", label: "成功案例" },
+  { val: "10+", label: "深度合作校" },
 ]
 
-const goForm = () => navigateToByKey("form")
-const goTab = (key) => switchTabByKey(key)
-const goEp = () => switchTabByKey("epPass")
-
+/**
+ * 功能：滚动到项目区域。
+ */
 const scrollToProjects = () => {
+  // #ifdef MP-WEIXIN
+  uni.pageScrollTo({ selector: `#${projectsAnchor}`, duration: 300 })
+  // #endif
   // #ifdef H5
   const el = document.getElementById(projectsAnchor)
-  el?.scrollIntoView?.({ behavior: "smooth" })
+  if (el) el.scrollIntoView({ behavior: "smooth" })
   // #endif
 }
 
+/**
+ * 功能：跳转到 EP 详情。
+ */
+const goEp = () => switchTabByKey("epPass")
+
+/**
+ * 功能：跳转到咨询表单。
+ */
+const goForm = () => navigateToByKey("form")
+
+/**
+ * 功能：Tab 页面跳转。
+ * @param {string} key 路由 key
+ */
+const goTab = (key) => switchTabByKey(key)
+
+/**
+ * 小程序分享配置
+ */
 onShareAppMessage(() => ({
-  title: "盛昌利民研学",
+  title: "盛昌利民 · 狮城研学 - 2026新加坡精英教育专家",
   path: "/pages/index/index",
 }))
 </script>
