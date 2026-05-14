@@ -1,31 +1,24 @@
 <template>
-	<!-- #ifdef MP-WEIXIN -->
-	<text class="sg-mp-icon" :style="styleText" @tap="handleClick">{{ mpChar }}</text>
-	<!-- #endif -->
-
-	<!-- #ifndef MP-WEIXIN -->
-	<UniIcons :type="type" :size="size" :color="color" fontFamily="uniicons" @click="handleClick" />
-	<!-- #endif -->
+	<view class="sg-icon" :style="iconStyle" @tap="handleClick" />
 </template>
 
 <script setup>
 /**
- * 功能：统一的图标组件封装（跨 H5 / 小程序）。
- * 说明：
- * - H5：使用 @dcloudio/uni-ui 的 uni-icons。
- * - 微信小程序：用轻量字符图标替代（避免引入图标字体导致包体增大）。
- * - 组件无状态：只透传 props 与 click 事件，符合函数式思想。
+ * 功能：统一的图标组件封装（跨 H5 / 小程序 / App）。
+ * 特点：
+ * 1. 资源本地化：使用 src/static/icons 目录下的 SVG 文件。
+ * 2. 灵活变色：通过 CSS mask-image 实现，支持 currentColor 或自定义颜色。
+ * 3. 极度轻量：按需加载 SVG，不引入庞大的图标字体包。
  */
 import { computed } from 'vue'
 
-// #ifndef MP-WEIXIN
-import UniIcons from '@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue'
-// #endif
-
 const props = defineProps({
+	// 图标名称（需与 src/static/icons 下的文件名对应，不含后缀）
 	type: { type: String, default: 'help' },
+	// 图标尺寸
 	size: { type: [Number, String], default: 22 },
-	color: { type: String, default: '#111827' },
+	// 图标颜色
+	color: { type: String, default: 'currentColor' },
 })
 
 const emit = defineEmits(['click'])
@@ -35,43 +28,44 @@ const toPx = (v) => {
 	return Number.isFinite(n) ? `${n}px` : String(v || '')
 }
 
-const styleText = computed(() => `color:${props.color};font-size:${toPx(props.size)};line-height:1;`)
-
 /**
- * 功能：微信小程序端的轻量“字符图标”映射。
- * 说明：只覆盖当前项目用到的少数 icon；未命中则返回空字符。
+ * 功能：生成图标样式。
+ * 说明：使用 mask-image 遮罩技术实现单色图标变色。
  */
-const mpChar = computed(() => {
-	const map = {
-		back: '‹',
-		'home-filled': '⌂',
-		'flag-filled': '⚑',
-		'paperplane-filled': '✈',
-		'auth-filled': '🪪',
-		'person-filled': '👤',
-		'locked-filled': '🔒',
-		staff: '👥',
-		star: '★',
-		navigate: '➤',
-		medal: '🏅',
-		vip: 'VIP',
-		wallet: '💼',
-		'phone-filled': '☎',
-		'location-filled': '⌖',
+const iconStyle = computed(() => {
+	const size = toPx(props.size)
+	// 处理一些别名映射，确保向后兼容
+	const iconName = {
+		'staff': 'staff-filled',
+		'paperplane-filled': 'paperplane',
+		'navigate': 'paperplane',
+	}[props.type] || props.type
+
+	return {
+		width: size,
+		height: size,
+		backgroundColor: props.color,
+		// 微信小程序及主流浏览器均支持 mask 属性
+		maskImage: `url(/static/icons/${iconName}.svg)`,
+		'-webkit-mask-image': `url(/static/icons/${iconName}.svg)`,
+		maskRepeat: 'no-repeat',
+		'-webkit-mask-repeat': 'no-repeat',
+		maskSize: '100% 100%',
+		'-webkit-mask-size': '100% 100%',
+		display: 'inline-block',
+		verticalAlign: 'middle',
 	}
-	return map[props.type] ?? ''
 })
 
 /**
- * 功能：点击事件透传（保持组件无状态）。
+ * 功能：点击事件透传。
  */
 const handleClick = (e) => emit('click', e)
 </script>
 
 <style scoped>
-.sg-mp-icon {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+.sg-icon {
+	/* 默认样式 */
+	flex-shrink: 0;
 }
 </style>

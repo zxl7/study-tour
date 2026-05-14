@@ -81,31 +81,6 @@ $uni-font-size-paragraph: 17px; /* 全局段落字号 +2px（H5观感更舒适�
  * ==========================
  */
 @import '@/styles/vars.scss';
-
-/**
- * ==========================
- * 全局图标字体（矢量）
- * ==========================
- * 功能：让 tabBar（包含 custom-tab-bar）也能使用图标字体。
- * 说明：这里将字体与 css 本地化到 static，避免不同端对 node_modules 资源引用差异导致的图标不显示。
- */
-/* #ifndef MP-WEIXIN */
-@font-face {
-	font-family: uniicons;
-	src: url('@/static/uniicons/uniicons.ttf') format('truetype');
-	font-display: swap;
-}
-
-.uni-icons {
-	font-family: uniicons;
-}
-/* #endif */
-
-/**
- * ==========================
- * 全局基础样式（可复用）
- * ==========================
- */
 .sg-page {
 	min-height: 100vh;
 	background: $sg-color-bg;

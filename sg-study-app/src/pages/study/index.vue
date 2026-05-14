@@ -4,7 +4,7 @@
 
     <scroll-view scroll-y class="content">
       <view class="hero">
-        <image class="hero-bg" mode="aspectFill" src="/static/img/28day.webp" />
+        <SgImage class="hero-bg" mode="aspectFill" src="project/28day.webp" />
         <view class="hero-mask" />
         <view class="hero-inner text-center">
           <view class="tags justify-center">
@@ -172,12 +172,16 @@
         </view>
       </view>
     </scroll-view>
+
+    <AppTabBar />
   </view>
 </template>
 
 <script setup>
 import AppHeader from "@/components/AppHeader.vue"
+import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
+import SgImage from "@/components/SgImage.vue"
 import { navigateToByKey } from "@/utils/routes"
 import { onShareAppMessage } from "@dcloudio/uni-app"
 

@@ -19,7 +19,7 @@
     <scroll-view scroll-y class="content">
       <!-- 首屏 Banner -->
       <view class="hero">
-        <image class="hero-img" mode="aspectFill" src="/static/img/bg.jpg" />
+        <SgImage class="hero-img" mode="aspectFill" src="banner/bg.jpg" />
         <view class="hero-mask" />
         <view class="hero-inner">
           <text class="hero-badge">2026年夏季报名开启</text>
@@ -84,7 +84,7 @@
         <view class="project-list">
           <view v-for="p in projects" :key="p.title" class="project-card">
             <view class="project-img-wrap">
-              <image class="project-img" mode="aspectFill" :src="p.img" />
+              <SgImage class="project-img" mode="aspectFill" :src="p.img" />
               <text class="project-tag" :class="p.tagCls">{{ p.tag }}</text>
             </view>
             <view class="project-bd">
@@ -144,15 +144,15 @@
         </view>
         <view class="certs">
           <view class="cert">
-            <image class="cert-img" mode="aspectFit" src="../../static/img/资质证书.webp" />
+            <SgImage class="cert-img" mode="aspectFit" src="cert/资质证书.webp" />
             <text class="cert-t">资质证书</text>
           </view>
           <view class="cert">
-            <image class="cert-img" mode="aspectFit" src="../../static/img/授权信.webp" />
+            <SgImage class="cert-img" mode="aspectFit" src="cert/授权信.webp" />
             <text class="cert-t">授权信</text>
           </view>
           <view class="cert cert-wide">
-            <image class="cert-img" mode="aspectFit" src="../../static/img/营业执照.webp" />
+            <SgImage class="cert-img" mode="aspectFit" src="cert/营业执照.webp" />
             <text class="cert-t">营业执照</text>
           </view>
         </view>
@@ -181,7 +181,7 @@
           <view class="contact-qr-wrap">
             <view v-for="a in SITE.advisors" :key="a.name" class="contact-qr-item">
               <view class="qr-box">
-                <image v-if="a.qr" class="qr-img" mode="aspectFit" :src="a.qr" />
+                <SgImage v-if="a.qr" class="qr-img" mode="aspectFit" :src="a.qr" />
                 <view v-else class="qr-fallback">
                   <text class="qr-fallback-title">电话</text>
                   <text class="qr-fallback-phone">{{ a.phone }}</text>
@@ -194,15 +194,19 @@
         </view>
       </view>
     </scroll-view>
+
+    <AppTabBar />
   </view>
 </template>
 
 <script setup>
 import { onShareAppMessage } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
+import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
+import SgImage from "@/components/SgImage.vue"
 import { navigateToByKey, switchTabByKey } from "@/utils/routes"
-import { SITE } from "@/config/site"
+import { SITE, getAssetUrl } from "@/config/site"
 
 const projectsAnchor = "projects"
 
@@ -227,7 +231,7 @@ const projects = [
     desc: "针对3-15岁的孩子，与顶级国际学校合作深度融入狮城文化，培养独立思考与团队协作能力。",
     tag: "7天体验",
     tagCls: "tag-blue",
-    img: "/static/img/1.webp",
+    img: "project/1.webp",
     meta1: "适龄：小学-初中",
     meta2: "班期：寒暑假",
     to: "camp",
@@ -237,7 +241,7 @@ const projects = [
     desc: "真实入读新加坡政府中小学/优质私立校，沉浸式体验全英文教学环境。",
     tag: "28天深度",
     tagCls: "tag-gold",
-    img: "/static/img/2.jpg",
+    img: "project/2.jpg",
     meta1: "适龄：全学段",
     meta2: "班期：学期中",
     to: "study",
@@ -247,7 +251,7 @@ const projects = [
     desc: "为高端精英家庭定制长期规划，同步解决子女教育与家长身份问题。",
     tag: "教育移民",
     tagCls: "tag-dark",
-    img: "/static/img/3.webp",
+    img: "project/3.webp",
     meta1: "针对：企业主/高管",
     meta2: "优势：全家移民",
     to: "epPass",
@@ -371,8 +375,7 @@ onShareAppMessage(() => ({
 }
 
 .content {
-   
-  padding: 0 32rpx 32rpx;
+  padding: 0 32rpx 0;
   box-sizing: border-box;
 }
 

@@ -14,13 +14,13 @@
             {{ t(item) }}
           </li>
         </ul>
-        <button
+        <!-- <button
           type="button"
           @click="openContactModal"
           class="bg-white text-sg-blue font-bold px-6 py-3 rounded-lg w-full hover:bg-gray-100 transition-colors"
         >
           {{ t(data.channelCta) }}
-        </button>
+        </button> -->
       </div>
 
       <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-100">

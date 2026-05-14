@@ -5,7 +5,7 @@
     <scroll-view scroll-y class="content">
       <!-- 顶部 Banner（同步 PC 视觉结构，但按移动端重排） -->
       <view class="hero">
-        <image class="hero-bg" mode="aspectFill" src="/static/img/Camp_Banner.webp" />
+        <SgImage class="hero-bg" mode="aspectFill" src="banner/Camp_Banner.webp" />
         <view class="hero-mask" />
         <view class="hero-inner text-center">
           <view class="tags justify-center">
@@ -34,7 +34,7 @@
 
           <view class="highlight-grid">
             <view v-for="item in highlights" :key="item.title" class="highlight-item sg-card">
-              <image class="highlight-img" :src="item.img" mode="aspectFill" />
+              <SgImage class="highlight-img" :src="item.img" mode="aspectFill" />
               <p class="highlight-title">{{ item.title }}</p>
               <text class="highlight-desc">{{ item.desc }}</text>
             </view>
@@ -52,7 +52,7 @@
           </view>
 
           <view class="guard-media">
-            <image class="guard-img" mode="aspectFill" src="/static/img/Family_Travel.jpg" />
+            <SgImage class="guard-img" mode="aspectFill" src="common/Family_Travel.jpg" />
             <view class="guard-float sg-card">
               <text class="guard-float-title">360° 安全保障</text>
               <text class="guard-float-desc">让家长的每一次陪伴都轻松愉悦，见证孩子的每一个成长瞬间。</text>
@@ -85,7 +85,7 @@
           <view class="school-grid">
             <view v-for="s in schools" :key="s.name" class="school-card sg-card">
               <view class="school-img-wrap">
-                <image class="school-img" mode="aspectFill" :src="s.img" />
+                <SgImage class="school-img" mode="aspectFill" :src="s.img" />
                 <view class="school-mask" />
                 <text class="school-name">{{ s.name }}</text>
               </view>
@@ -108,7 +108,7 @@
 
           <view class="course-grid">
             <view v-for="c in courses" :key="c.tag" class="course-card">
-              <image class="course-img" mode="aspectFill" :src="c.img" />
+              <SgImage class="course-img" mode="aspectFill" :src="c.img" />
               <view class="course-tag" :style="{ background: c.tagBg }">{{ c.tag }}</view>
               <text class="course-desc">{{ c.desc }}</text>
             </view>
@@ -132,7 +132,7 @@
                 <text class="tl-theme">{{ item.theme }}</text>
               </view>
               <text class="tl-desc">{{ item.desc }}</text>
-              <image v-if="item.img" class="tl-img" :src="item.img" mode="aspectFill" />
+              <SgImage v-if="item.img" class="tl-img" :src="item.img" mode="aspectFill" />
             </view>
           </view>
         </view>
@@ -149,7 +149,7 @@
 
           <view class="service-grid">
             <view v-for="card in services" :key="card.title" class="service-card">
-              <image class="service-img" mode="aspectFill" :src="card.img" />
+              <SgImage class="service-img" mode="aspectFill" :src="card.img" />
               <view class="service-mask" />
               <view class="service-bd">
                 <text class="service-title">{{ card.title }}</text>
@@ -177,12 +177,16 @@
         </view>
       </view>
     </scroll-view>
+
+    <AppTabBar />
   </view>
 </template>
 
 <script setup>
 import AppHeader from "@/components/AppHeader.vue"
+import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
+import SgImage from "@/components/SgImage.vue"
 import { navigateToByKey } from "@/utils/routes"
 import { onShareAppMessage } from "@dcloudio/uni-app"
 
@@ -194,17 +198,17 @@ const highlights = [
   {
     title: "本地学校/正规营地",
     desc: "甄选新加坡顶尖国际学校与官方认证营地，共享世界级教育硬件设施与学术资源。",
-    img: "/static/img/School_Campus.jpg",
+    img: "common/School_Campus.jpg",
   },
   {
     title: "沉浸式英文环境",
     desc: "全天候英语母语导师陪伴，打破哑巴英语，在真实交流中建立语言自信。",
-    img: "/static/img/English_Environment.jpg",
+    img: "common/English_Environment.jpg",
   },
   {
     title: "研学+游玩+能力提升",
     desc: "科学配比学习与探索时间，玩中学、学中玩，提升独立思考与跨文化交际能力。",
-    img: "/static/img/Study_and_Play.jpg",
+    img: "common/Study_and_Play.jpg",
   },
 ]
 
@@ -217,43 +221,43 @@ const timeline = [
     day: "Day.1",
     theme: "大学城",
     desc: "初抵狮城，入住营地。随后探访新加坡顶级学府（如新加坡国立大学/南洋理工大学），感受世界级大学的学术氛围与校园文化。",
-    img: "/static/img/Day_1_University.jpg",
+    img: "itinerary/Day_1_University.jpg",
   },
   {
     day: "Day.2",
     theme: "甘榜格南 & 小印度",
     desc: "开启多元文化探索之旅：穿梭阿拉伯风情街区，走进“小印度”体验异域文化，感受新加坡种族和谐的魅力。",
-    img: "/static/img/Day_2_Kampong_Glam_Little_India.jpg",
+    img: "itinerary/Day_2_Kampong_Glam_Little_India.jpg",
   },
   {
     day: "Day.3",
     theme: "动物园",
     desc: "前往世界闻名的新加坡动物园（或夜间野生动物园），在近乎自然的生态环境中观察野生动物，学习生物多样性保护。",
-    img: "/static/img/Day_3_Zoo.jpg",
+    img: "itinerary/Day_3_Zoo.jpg",
   },
   {
     day: "Day.4",
     theme: "艺术科学博物馆",
     desc: "参观形似莲花的艺术科学博物馆：艺术、科学、设计、媒体与技术交融，激发孩子跨学科的创新思维。",
-    img: "/static/img/Science_Center.jpg",
+    img: "common/Science_Center.jpg",
   },
   {
     day: "Day.5",
     theme: "环球影城",
     desc: "畅游东南亚首个好莱坞电影主题公园——新加坡环球影城，在七大主题区中尽情释放天性，体验沉浸式欢乐与刺激。",
-    img: "/static/img/4.webp",
+    img: "project/4.webp",
   },
   {
     day: "Day.6",
     theme: "城市环游",
     desc: "打卡鱼尾狮公园、滨海湾金沙、市政区历史建筑等地标。在城市漫步中了解新加坡的发展奇迹与城市规划。",
-    img: "/static/img/Day_6_City_Tour.jpg",
+    img: "itinerary/Day_6_City_Tour.jpg",
   },
   {
     day: "Day.7",
     theme: "星耀樟宜机场",
     desc: "参观将自然与现代建筑完美结合的星耀樟宜（Jewel Changi），观赏震撼的室内瀑布雨漩涡。带着满满的收获，登机返程。",
-    img: "/static/img/Day_7_Jewel_Changi.jpg",
+    img: "itinerary/Day_7_Jewel_Changi.jpg",
   },
 ]
 
@@ -279,22 +283,22 @@ const includes = ["精品四星酒店住宿", "全程营养配餐", "名校导�
 const schools = [
   {
     name: "新加坡斯坦福美国国际学校",
-    img: "/static/img/sitanfu.jpg",
+    img: "school/sitanfu.jpg",
     desc: "新加坡顶尖美式国际学校之一，以双课程体系（IB + AP）、顶级设施和多元文化著称。耗资3亿新币打造，含奥运泳池、3图书馆、攀岩墙、科技中心；提供10种母语课程（含中文），95%毕业生进全球前100大学。",
   },
   {
     name: "新加坡瑞士学校",
-    img: "/static/img/ruishi.jpg",
+    img: "school/ruishi.jpg",
     desc: "新加坡历史最悠久的国际学校之一，以纯正瑞士教育、三语环境（德/法/英）和“小而美”的温馨氛围著称；是UWCSEA联盟校，小学毕业可直升。",
   },
   {
     name: "UWC 世界联合书院",
-    img: "/static/img/uwc.jpg",
+    img: "school/uwc.jpg",
     desc: "被誉为“藤校收割机”的 UWCSEA 是全球规模最大的UWC校区之一，K-12全龄IB体系与全球105国生源构成“联合国式”多元社区，以强学术+全人教育为核心。",
   },
   {
     name: "XCL 加慧世界书院",
-    img: "/static/img/XCL.jpg",
+    img: "school/XCL.jpg",
     desc: "个性化菁英教育的典范学府。提供丰富且极具挑战的学术、艺术及体育特色课程，旨在精准发掘并放大每一个孩子身上独一无二的闪光点。",
   },
 ]
@@ -303,10 +307,10 @@ const schools = [
  * 功能：课程设置（纯数据）。
  */
 const courses = [
-  { tag: "STEAM", tagBg: "rgba(14,165,233,0.92)", desc: "编码机器人、虚拟现实、3D打印和工程", img: "/static/img/STEAM_Education.jpg" },
-  { tag: "综合活动", tagBg: "rgba(59,130,246,0.92)", desc: "木材制作、园艺、烘焙、运动", img: "/static/img/play.webp" },
-  { tag: "多重冒险", tagBg: "rgba(20,184,166,0.92)", desc: "射箭、跑酷、定向越野、攀岩、无人机", img: "/static/img/study.jpg" },
-  { tag: "英语强化", tagBg: "rgba(99,102,241,0.92)", desc: "语言游戏、趣味活动、听说读写", img: "/static/img/english.jpg" },
+  { tag: "STEAM", tagBg: "rgba(14,165,233,0.92)", desc: "编码机器人、虚拟现实、3D打印和工程", img: "common/STEAM_Education.jpg" },
+  { tag: "综合活动", tagBg: "rgba(59,130,246,0.92)", desc: "木材制作、园艺、烘焙、运动", img: "common/play.webp" },
+  { tag: "多重冒险", tagBg: "rgba(20,184,166,0.92)", desc: "射箭、跑酷、定向越野、攀岩、无人机", img: "school/study.jpg" },
+  { tag: "英语强化", tagBg: "rgba(99,102,241,0.92)", desc: "语言游戏、趣味活动、听说读写", img: "school/english.jpg" },
 ]
 
 /**
@@ -316,12 +320,12 @@ const services = [
   {
     title: "住宿：四星级酒店/学生公寓",
     desc: "2人标准间，配备24小时保安及中文生活老师。确保孩子在舒适的环境中休息，恢复精力。",
-    img: "/static/img/Hotel.webp",
+    img: "common/Hotel.webp",
   },
   {
     title: "饮食：多元狮城美食+中餐",
     desc: "体验娘惹菜、海南鸡饭等特色美食，并合理搭配营养均衡的中式餐食，适应中国孩子的口味。",
-    img: "/static/img/Food.jpg",
+    img: "common/Food.jpg",
   },
 ]
 

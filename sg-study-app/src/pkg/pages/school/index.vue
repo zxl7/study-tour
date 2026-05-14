@@ -3,7 +3,7 @@
 		<AppHeader title="体验营详情" />
 
 		<scroll-view scroll-y class="content">
-			<image class="banner" mode="aspectFill" src="../../static/img/School_Banner.jpg" />
+			<SgImage class="banner" mode="aspectFill" src="pkg/banner/School_Banner.jpg" />
 
 			<view class="body">
 				<view class="tags">
@@ -41,7 +41,7 @@
 							</view>
 							<text class="course-desc">{{ c.desc }}</text>
 							<view class="course-imgs">
-								<image v-for="img in c.imgs" :key="img" class="course-img" :src="img" mode="aspectFill" />
+								<SgImage v-for="img in c.imgs" :key="img" class="course-img" :src="img" mode="aspectFill" />
 							</view>
 						</view>
 					</view>
@@ -56,7 +56,7 @@
 						<view v-for="s in syncs" :key="s.title" class="sync-item">
 							<text class="sync-title">{{ s.title }}</text>
 							<text class="sync-desc">{{ s.desc }}</text>
-							<image class="sync-img" :src="s.img" mode="aspectFill" />
+							<SgImage class="sync-img" :src="s.img" mode="aspectFill" />
 						</view>
 					</view>
 				</view>
@@ -79,7 +79,7 @@
 							</view>
 							<text class="trip-desc">{{ d.desc }}</text>
 							<view v-if="d.imgs && d.imgs.length" class="trip-imgs">
-								<image v-for="img in d.imgs" :key="img" class="trip-img" :src="img" mode="aspectFill" />
+								<SgImage v-for="img in d.imgs" :key="img" class="trip-img" :src="img" mode="aspectFill" />
 							</view>
 						</view>
 					</view>
@@ -96,13 +96,13 @@
 					</view>
 					<view class="food-grid">
 						<view v-for="f in foods" :key="f.name" class="food-item">
-							<image class="food-img" mode="aspectFill" :src="f.img" />
+							<SgImage class="food-img" mode="aspectFill" :src="f.img" />
 							<text class="food-name">{{ f.name }}</text>
 						</view>
 					</view>
 
 					<view class="hawker sg-card">
-						<image class="hawker-img" mode="aspectFill" src="../../static/img/Lau_Pa_Sat.jpg" />
+						<SgImage class="hawker-img" mode="aspectFill" src="pkg/food/Lau_Pa_Sat.jpg" />
 						<view class="hawker-mask" />
 						<view class="hawker-bd">
 							<text class="hawker-badge">世界非物质文化遗产</text>
@@ -140,6 +140,7 @@
 
 <script setup>
 import AppHeader from '@/components/AppHeader.vue'
+import SgImage from '@/components/SgImage.vue'
 import { navigateToByKey } from '@/utils/routes'
 import { onShareAppMessage } from '@dcloudio/uni-app'
 
@@ -150,22 +151,22 @@ const courses = [
 	{
 		title: '综合活动',
 		desc: '木材制作、园艺、烘焙等，激发创造力与动手能力。',
-		imgs: ['../../static/img/Activity_1.jpg', '../../static/img/Activity.webp'],
+		imgs: ['pkg/common/Activity_1.jpg', 'pkg/common/Activity.webp'],
 	},
 	{
 		title: '多重冒险',
 		desc: '射箭、跑酷、定向越野、攀岩、无人机等，锻炼体能与协作。',
-		imgs: ['../../static/img/活动2.jpg', '/static/img/XCL.jpg'],
+		imgs: ['pkg/common/活动2.jpg', 'school/XCL.jpg'],
 	},
 	{
 		title: '英语强化',
 		desc: '语言游戏与趣味互动，听说读写全面提升，建立交流自信。',
-		imgs: ['../../static/img/English.jpg', '../../static/img/English_1.jpg'],
+		imgs: ['pkg/common/English.jpg', 'pkg/common/English_1.jpg'],
 	},
 	{
 		title: '创意STEAM',
 		desc: '编程机器人、VR、3D打印、科学工程，培养创新思维。',
-		imgs: ['../../static/img/STEAM.jpg', '../../static/img/STEAM_1.jpg'],
+		imgs: ['pkg/common/STEAM.jpg', 'pkg/common/STEAM_1.jpg'],
 	},
 ]
 
@@ -173,9 +174,9 @@ const courses = [
  * 功能：同步课程模块（纯数据）。
  */
 const syncs = [
-	{ title: '人工智能', desc: '结合编程与AI技术，启发逻辑思维与计算思维。', img: '../../static/img/AI.webp' },
-	{ title: '小小探索家活动', desc: '室内外互动游戏、自然观察、艺术启蒙，激发好奇心。', img: '../../static/img/Explorer.jpg' },
-	{ title: '创意编程', desc: '从图形化编程启蒙到高级语言进阶，培养数字时代核心技能。', img: '../../static/img/Coding.jpg' },
+	{ title: '人工智能', desc: '结合编程与AI技术，启发逻辑思维与计算思维。', img: 'pkg/common/AI.webp' },
+	{ title: '小小探索家活动', desc: '室内外互动游戏、自然观察、艺术启蒙，激发好奇心。', img: 'pkg/common/Explorer.jpg' },
+	{ title: '创意编程', desc: '从图形化编程启蒙到高级语言进阶，培养数字时代核心技能。', img: 'pkg/common/Coding.jpg' },
 ]
 
 /**
@@ -187,43 +188,43 @@ const itinerary = [
 		day: 'Day 1',
 		title: '开启名校探秘之旅，从这里梦开始',
 		desc: '集合出发飞往新加坡。接机后入住，小营员签到破冰，随后享用欢迎晚宴，感受特色南洋之美。',
-		imgs: ['../../static/img/Arrival_1.webp', '../../static/img/City.jpg'],
+		imgs: ['pkg/itinerary/Arrival_1.webp', 'pkg/itinerary/City.jpg'],
 	},
 	{
 		day: 'Day 2',
 		title: '上午探索多元，下午体验自然与城市发展',
 		desc: '上午：探访新加坡河畔、鱼尾狮公园、国会区等，了解新加坡历史。下午：参访 Marina Barrage，漫步滨海湾花园与超级树，感受自然与科技融合之美。',
-		imgs: ['../../static/img/Tour_6.jpg', '../../static/img/Tour_7.jpg'],
+		imgs: ['pkg/itinerary/Tour_6.jpg', 'pkg/itinerary/Tour_7.jpg'],
 	},
 	{
 		day: 'Day 3',
 		title: '上午学校学习，下午走进科学艺术博物馆',
 		desc: '上午：国际学校课程体验。下午：走进科学艺术博物馆，探索艺术与科学的交汇，启发跨界融合认知。',
-		imgs: ['../../static/img/Students_in_classroom.jpg', '/static/img/Science_Center.jpg'],
+		imgs: ['pkg/itinerary/Students_in_classroom.jpg', 'common/Science_Center.jpg'],
 	},
 	{
 		day: 'Day 4',
 		title: '上午学校学习，下午夜间动物园',
 		desc: '上午：国际学校课程体验。下午：探访全球首座夜间野生动物园，了解热带雨林生态保护，完成自然生态课堂。',
-		imgs: ['../../static/img/Night_Safari_1.jpg', '/static/img/Day_3_Zoo.jpg'],
+		imgs: ['pkg/itinerary/Night_Safari_1.jpg', 'itinerary/Day_3_Zoo.jpg'],
 	},
 	{
 		day: 'Day 5',
 		title: '上午学校学习，下午名校参访营结业',
 		desc: '上午：国际学校课程体验。下午：走进新加坡国立大学（NUS）深度参访，了解大学生活并参与结业仪式。',
-		imgs: ['/static/img/Day_1_University.jpg', '../../static/img/School_building_1.jpg'],
+		imgs: ['itinerary/Day_1_University.jpg', 'pkg/itinerary/School_building_1.jpg'],
 	},
 	{
 		day: 'Day 6',
 		title: '上午环球影城，晚上星耀樟宜购物',
 		desc: '畅游东南亚唯一的环球影城，在主题区中尽情玩耍；在游乐与团队挑战中释放童真、收获协作。',
-		imgs: ['/static/img/4.webp', '../../static/img/5.jpg'],
+		imgs: ['project/4.webp', 'pkg/itinerary/5.jpg'],
 	},
 	{
 		day: 'Day 7',
 		title: '满载而归，分享成长经历',
 		desc: '前往星耀樟宜机场观赏室内瀑布雨漩涡，选购伴手礼。结束充实难忘的游学之旅，搭乘航班返回温馨的家。',
-		imgs: ['/static/img/Day_7_Jewel_Changi.jpg', '../../static/img/Flight_1.jpg'],
+		imgs: ['itinerary/Day_7_Jewel_Changi.jpg', 'pkg/itinerary/Flight_1.jpg'],
 	},
 ]
 
@@ -231,10 +232,10 @@ const itinerary = [
  * 功能：特色美食（纯数据）。
  */
 const foods = [
-	{ name: '肉骨茶', img: '../../static/img/Bak_Kut_Teh.jpeg' },
-	{ name: '海南鸡饭', img: '../../static/img/Chicken_Rice.jpeg' },
-	{ name: '辣椒螃蟹', img: '../../static/img/Chilli_Crab.jpg' },
-	{ name: 'Laksa', img: '../../static/img/Laksa.jpg' },
+	{ name: '肉骨茶', img: 'pkg/food/Bak_Kut_Teh.jpeg' },
+	{ name: '海南鸡饭', img: 'pkg/food/Chicken_Rice.jpeg' },
+	{ name: '辣椒螃蟹', img: 'pkg/food/Chilli_Crab.jpg' },
+	{ name: 'Laksa', img: 'pkg/food/Laksa.jpg' },
 ]
 
 /**

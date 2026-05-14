@@ -4,10 +4,10 @@
 
 		<scroll-view scroll-y class="content">
 			<view class="hero">
-				<image
+				<SgImage
 					class="hero-bg"
 					mode="aspectFill"
-					src="/static/img/Office_Environment.jpg"
+					src="pkg/banner/Office_Environment.jpg"
 				/>
 				<view class="hero-mask" />
 				<view class="hero-inner">
@@ -50,6 +50,7 @@
 
 <script setup>
 import AppHeader from '@/components/AppHeader.vue'
+import SgImage from '@/components/SgImage.vue'
 import { navigateToByKey } from '@/utils/routes'
 import { onShareAppMessage } from '@dcloudio/uni-app'
 

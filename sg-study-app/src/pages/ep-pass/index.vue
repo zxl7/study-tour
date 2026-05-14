@@ -4,7 +4,7 @@
 
     <scroll-view scroll-y class="content">
       <view class="hero">
-        <image class="hero-bg" mode="aspectFill" src="/static/img/EP_Banner.webp" />
+        <SgImage class="hero-bg" mode="aspectFill" src="banner/EP_Banner.webp" />
         <view class="hero-mask" />
         <view class="hero-inner">
           <text class="hero-en">Singapore Employment Pass</text>
@@ -32,7 +32,7 @@
         </view>
 
         <view class="policy-figure sg-card">
-          <image class="policy-img" mode="aspectFit" src="/static/img/EP.jpg" />
+          <SgImage class="policy-img" mode="aspectFit" src="project/EP.jpg" />
           <text class="policy-tip">COMPASS评估框架示意</text>
         </view>
 
@@ -120,11 +120,15 @@
 				</view> -->
       </view>
     </scroll-view>
+
+    <AppTabBar />
   </view>
 </template>
 
 <script setup>
 import AppHeader from "@/components/AppHeader.vue"
+import AppTabBar from "@/components/AppTabBar.vue"
+import SgImage from "@/components/SgImage.vue"
 import { navigateToByKey } from "@/utils/routes"
 import { onShareAppMessage } from "@dcloudio/uni-app"
 

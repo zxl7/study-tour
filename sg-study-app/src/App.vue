@@ -16,15 +16,20 @@ export default {
 /* 每个页面公共 css */
 @import "@/uni.scss";
 
-/* #ifdef MP-WEIXIN */
+/* #ifdef MP-WEIXIN || H5 || APP-PLUS */
 /**
- * 修复：微信小程序端页面“只有 tabbar，内容空白”
- * 原因：scroll-view 需要明确高度；很多页面使用 scroll-view.content 但未设置高度。
+ * 修复：各端页面布局一致性
+ * 原因：确保 header 固定置顶，scroll-view 自动撑满剩余高度
  */
+page {
+  height: 100%;
+}
+
 .sg-page.page {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 scroll-view.content {

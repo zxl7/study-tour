@@ -20,9 +20,39 @@ export const SITE = Object.freeze({
   bizEmail: "shengchanglimin@163.com",
   bizAddress: "海南省海口市美兰区国兴大道15A号全球贸易之窗30楼",
 
+  // 资源基础路径：开发环境下用本地，生产环境下可以换成 CDN 地址
+  // ASSET_URL: "https://your-cdn-domain.com/mini-app/static/img",
+  ASSET_URL: "/static/img",
+
   advisors: [
-    { name: "Jason", phone: "166 8978 0303", qr: "/static/img/QR_Code-J.webp" },
-    { name: "Adela", phone: "173 3083 5386", qr: "/static/img/QR_Code-A.webp" },
-    { name: "Joey", phone: "199 0761 8131", qr: "/static/img/QR_Code-O.webp" },
+    { name: "Jason", phone: "166 8978 0303", qr: "advisor/QR_Code-J.jpg" },
+    { name: "Adela", phone: "173 3083 5386", qr: "advisor/QR_Code-A.jpg" },
+    { name: "Joey", phone: "199 0761 8131", qr: "advisor/QR_Code-O.jpg" },
   ],
 })
+
+/**
+ * 格式化图片路径的辅助函数
+ * @param {string} path 图片文件名或路径
+ * @returns {string} 完整的图片 URL
+ */
+export const getAssetUrl = (path) => {
+  if (!path) return ""
+  // 如果是完整路径则直接返回
+  if (path.startsWith("http") || path.startsWith("data:")) return path
+
+  // 默认基础路径
+  let baseUrl = SITE.ASSET_URL.endsWith("/") ? SITE.ASSET_URL.slice(0, -1) : SITE.ASSET_URL
+  let purePath = path.startsWith("/") ? path.slice(1) : path
+
+  // 处理分包资源路径
+  if (purePath.startsWith("pkg/")) {
+    // 如果是本地开发模式且以 pkg/ 开头，映射到分包静态目录
+    if (baseUrl.startsWith("/static")) {
+      return `/${purePath.replace("pkg/", "pkg/static/img/")}`
+    }
+  }
+
+  // 拼接基础路径
+  return `${baseUrl}/${purePath}`
+}

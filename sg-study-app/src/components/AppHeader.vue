@@ -38,6 +38,9 @@ const handleBack = () => {
 
 <style scoped lang="scss">
 .header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
 	height: calc(112rpx + var(--status-bar-height));
 	padding: var(--status-bar-height) 32rpx 0;
 	display: flex;

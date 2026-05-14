@@ -19,7 +19,14 @@ sg-study-app/
       pages/               # 分包页面
       static/img/          # 分包专用图片（不会进主包）
     static/
-      img/                 # 主包静态资源（tabBar 页面用到的图片通常会进主包）
+      img/                 # 主包静态资源（按业务分类）
+        banner/            # Banner 图
+        project/           # 项目矩阵图
+        advisor/           # 顾问二维码
+        cert/              # 资质证书
+        school/            # 学校介绍
+        itinerary/         # 行程配图
+        common/            # 通用素材
       tabbar/              # tabBar 图标（必须在主包）
   dist/build/mp-weixin/    # 微信小程序构建产物（导入微信开发者工具）
   _backups/                # 备份目录（迁移/清理图片时会放这里，便于回滚）
@@ -113,12 +120,14 @@ dist/build/h5
 
 建议策略：
 
-1. **分包页面专用图片放到 `src/pkg/static/img`**（避免进主包）
-2. 主包图片优先：
+1. **统一使用 `SgImage` 组件**：项目封装了 `src/components/SgImage.vue`，支持一键切换本地/CDN。
+2. **按业务分类存储**：将图片按 `banner/project/cert` 等分类，方便后期批量同步到 OSS。
+3. **分包页面专用图片放到 `src/pkg/static/img`**（避免进主包）
+4. 主包图片优先：
    - 转 WebP（在体积变小的前提下）
    - 或进一步压缩（降低质量、裁剪尺寸）
-   - 或改成 CDN/线上资源（更彻底）
-3. 未引用图片建议移动到 `_backups/` 备份目录后从主包剔除
+   - 或改成 CDN/线上资源（修改 `src/config/site.js` 的 `ASSET_URL` 即可）
+5. 未引用图片建议移动到 `_backups/` 备份目录后从主包剔除
 
 ---
 

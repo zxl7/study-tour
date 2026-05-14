@@ -96,12 +96,15 @@
 
       <!-- 说明：移动端允许合并裁剪模块，办公环境大图收起（如需可恢复展示） -->
     </scroll-view>
+
+    <AppTabBar />
   </view>
 </template>
 
 <script setup>
 import { onShareAppMessage } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
+import AppTabBar from "@/components/AppTabBar.vue"
 import { SITE } from "@/config/site"
 import { navigateToByKey } from "@/utils/routes"
 
@@ -188,7 +191,7 @@ onShareAppMessage(() => ({
 }
 
 .content {
-  padding: 32rpx 32rpx 260rpx;
+  padding: 32rpx;
   box-sizing: border-box;
 }
 

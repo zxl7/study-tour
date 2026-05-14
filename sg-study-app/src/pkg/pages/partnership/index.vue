@@ -29,7 +29,7 @@
 							<text class="sg-li-text">丰厚透明的返佣机制</text>
 						</view>
 					</view>
-					<button class="btn sg-btn-primary" @tap="goForm">申请渠道合作</button>
+					<!-- <button class="btn sg-btn-primary" @tap="goForm">申请渠道合作</button> -->
 				</view>
 
 				<view class="right sg-card">
