@@ -97,7 +97,7 @@
       <!-- 说明：移动端允许合并裁剪模块，办公环境大图收起（如需可恢复展示） -->
     </scroll-view>
 
-    <AppTabBar />
+    <AppTabBar current="about" />
   </view>
 </template>
 

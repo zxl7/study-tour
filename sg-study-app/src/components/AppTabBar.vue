@@ -21,8 +21,13 @@
  * - 通过 pages.json 配置 tabBar.custom=true 后生效。
  * - 使用 uni.switchTab 切换，符合小程序 TabBar 预期交互。
  */
-import { computed, ref, onMounted } from 'vue'
+import { computed } from 'vue'
 import SgIcon from '@/components/SgIcon.vue'
+
+const props = defineProps({
+	// 当前选中的 tab key
+	current: { type: String, default: '' },
+})
 
 const colors = Object.freeze({
 	active: '#005a9c',
@@ -37,22 +42,20 @@ const items = Object.freeze([
 	{ key: 'about', label: '关于我们', icon: 'person-filled', url: '/pages/about/index' },
 ])
 
-const activeKey = ref('home')
+// 如果传入了 current 则使用 props，否则尝试自动推导
+const activeKey = computed(() => {
+	if (props.current) return props.current
 
-/**
- * 功能：根据当前页面路由推导激活 tab。
- */
-const syncActive = () => {
 	// eslint-disable-next-line no-undef
 	const pages = typeof getCurrentPages === 'function' ? getCurrentPages() : []
-	const current = pages?.[pages.length - 1]
-	const route = current?.route ? `/${current.route}` : ''
-	const match = items.find((it) => it.url === route)
-	if (match) activeKey.value = match.key
-}
+	if (pages.length === 0) return 'home'
 
-onMounted(() => {
-	syncActive()
+	const current = pages[pages.length - 1]
+	const route = current?.route || ''
+	const normalizedRoute = route.startsWith('/') ? route : `/${route}`
+
+	const match = items.find((it) => it.url === normalizedRoute)
+	return match ? match.key : 'home'
 })
 
 /**
@@ -61,7 +64,6 @@ onMounted(() => {
  */
 const handleSwitch = (item) => {
 	if (!item?.url) return
-	activeKey.value = item.key
 	uni.switchTab({ url: item.url })
 }
 </script>

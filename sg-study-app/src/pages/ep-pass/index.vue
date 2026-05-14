@@ -121,7 +121,7 @@
       </view>
     </scroll-view>
 
-    <AppTabBar />
+    <AppTabBar current="epPass" />
   </view>
 </template>
 

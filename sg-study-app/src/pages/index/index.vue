@@ -144,15 +144,15 @@
         </view>
         <view class="certs">
           <view class="cert">
-            <SgImage class="cert-img" mode="aspectFit" src="cert/资质证书.webp" />
+            <SgImage class="cert-img" mode="aspectFit" src="cert/cert_qualification.webp" />
             <text class="cert-t">资质证书</text>
           </view>
           <view class="cert">
-            <SgImage class="cert-img" mode="aspectFit" src="cert/授权信.webp" />
+            <SgImage class="cert-img" mode="aspectFit" src="cert/cert_auth.webp" />
             <text class="cert-t">授权信</text>
           </view>
           <view class="cert cert-wide">
-            <SgImage class="cert-img" mode="aspectFit" src="cert/营业执照.webp" />
+            <SgImage class="cert-img" mode="aspectFit" src="cert/cert_license.webp" />
             <text class="cert-t">营业执照</text>
           </view>
         </view>
@@ -163,7 +163,7 @@
         <view class="contact-card">
           <view class="contact-header">
             <view class="contact-title-wrap">
-              <SgIcon name="phone-filled" size="20" color="#E5A663" class="contact-icon" />
+              <SgIcon type="phone-filled" size="20" color="#E5A663" class="contact-icon" />
               <text class="contact-title">官方热线</text>
             </view>
             <text class="contact-hotline">{{ SITE.hotline }}</text>
@@ -172,7 +172,7 @@
 
           <view class="contact-address-wrap">
             <view class="contact-title-wrap">
-              <SgIcon name="location-filled" size="20" color="#E5A663" class="contact-icon" />
+              <SgIcon type="location-filled" size="20" color="#E5A663" class="contact-icon" />
               <text class="contact-title">办公地址</text>
             </view>
             <text class="contact-address">中国运营中心：{{ SITE.chinaOfficeAddress }}</text>
@@ -195,7 +195,7 @@
       </view>
     </scroll-view>
 
-    <AppTabBar />
+    <AppTabBar current="home" />
   </view>
 </template>
 

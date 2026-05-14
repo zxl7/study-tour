@@ -156,7 +156,7 @@ const courses = [
 	{
 		title: '多重冒险',
 		desc: '射箭、跑酷、定向越野、攀岩、无人机等，锻炼体能与协作。',
-		imgs: ['pkg/common/活动2.jpg', 'school/XCL.jpg'],
+		imgs: ['pkg/common/Activity_2.jpg', 'school/XCL.jpg'],
 	},
 	{
 		title: '英语强化',

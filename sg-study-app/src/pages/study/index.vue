@@ -173,7 +173,7 @@
       </view>
     </scroll-view>
 
-    <AppTabBar />
+    <AppTabBar current="study" />
   </view>
 </template>
 
