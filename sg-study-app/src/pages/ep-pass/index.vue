@@ -92,13 +92,13 @@
             <text class="sg-section-title">为何选择新加坡EP</text>
           </view>
 
-          <view class="adv-grid">
-            <view v-for="(a, i) in epAdvantages" :key="i" class="adv-item sg-card">
-              <text class="adv-title">{{ a.title }}</text>
-              <view class="adv-list">
-                <view v-for="(t, j) in a.items" :key="j" class="adv-li">
-                  <text class="adv-dot">•</text>
-                  <text class="adv-text">{{ t }}</text>
+          <view class="ep-feature-grid">
+            <view v-for="(a, i) in epAdvantages" :key="i" class="ep-feature-item sg-card">
+              <text class="ep-feature-title">{{ a.title }}</text>
+              <view class="ep-feature-list">
+                <view v-for="(t, j) in a.items" :key="j" class="ep-feature-li">
+                  <text class="ep-feature-dot">•</text>
+                  <text class="ep-feature-text">{{ t }}</text>
                 </view>
               </view>
             </view>
@@ -402,42 +402,42 @@ onShareAppMessage(() => ({
   line-height: 1.5;
 }
 
-.adv-grid {
+.ep-feature-grid {
   display: flex;
   flex-direction: column;
   gap: 20rpx;
 }
 
-.adv-item {
+.ep-feature-item {
   padding: 24rpx;
 }
 
-.adv-title {
+.ep-feature-title {
   font-size: 26rpx;
   font-weight: 900;
   color: $sg-color-primary;
 }
 
-.adv-list {
+.ep-feature-list {
   margin-top: 16rpx;
   display: flex;
   flex-direction: column;
   gap: 12rpx;
 }
 
-.adv-li {
+.ep-feature-li {
   display: flex;
   gap: 12rpx;
   align-items: flex-start;
 }
 
-.adv-dot {
+.ep-feature-dot {
   color: $sg-color-accent;
   margin-top: 6rpx;
   font-size: 18rpx;
 }
 
-.adv-text {
+.ep-feature-text {
   flex: 1;
   font-size: 22rpx;
   color: rgba(17, 24, 39, 0.75);
