@@ -20,9 +20,9 @@
         "ignore": [
             "src/static/img_backup_*",
             "src/static/img_backup_mp_*",
-            "src/static/img/english.png",
             "src/static/tabbar/*.svg",
-            "src/static/uniicons/*"
+            "src/static/uniicons/*",
+            "src/pkg/static/img_backup_*"
         ],
         "include": []
     },
