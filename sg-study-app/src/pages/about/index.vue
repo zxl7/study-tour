@@ -34,14 +34,14 @@
       </view>
 
       <view class="section">
-        <text class="section-title">集团简介</text>
+        <p class="section-title">集团简介</p>
         <text class="section-text">海南盛昌利民传媒有限公司</text>
         <text class="section-text">作为海南领先的精英教育咨询机构，我们致力于整合全球优质教育资源，为中国家庭提供全方位的研学、升学及移民规划服务。</text>
       </view>
 
       <view class="cards">
         <view v-for="c in cards" :key="c.title" class="card sg-card">
-          <text class="card-title">{{ c.title }}</text>
+          <p class="card-title">{{ c.title }}</p>
           <text class="card-desc">{{ c.desc }}</text>
         </view>
       </view>
@@ -102,11 +102,15 @@
 </template>
 
 <script setup>
-import { onShareAppMessage } from "@dcloudio/uni-app"
+import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
 import { SITE } from "@/config/site"
 import { navigateToByKey } from "@/utils/routes"
+
+onShow(() => {
+  uni.hideTabBar()
+})
 
 /**
  * 功能：展示联系方式（纯数据）。

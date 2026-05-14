@@ -183,12 +183,16 @@
 </template>
 
 <script setup>
+import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
 import SgImage from "@/components/SgImage.vue"
 import { navigateToByKey } from "@/utils/routes"
-import { onShareAppMessage } from "@dcloudio/uni-app"
+
+onShow(() => {
+  uni.hideTabBar()
+})
 
 /**
  * 功能：项目亮点（纯数据）。

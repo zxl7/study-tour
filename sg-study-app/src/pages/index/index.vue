@@ -200,13 +200,17 @@
 </template>
 
 <script setup>
-import { onShareAppMessage } from "@dcloudio/uni-app"
+import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
 import SgImage from "@/components/SgImage.vue"
 import { navigateToByKey, switchTabByKey } from "@/utils/routes"
 import { SITE, getAssetUrl } from "@/config/site"
+
+onShow(() => {
+  uni.hideTabBar()
+})
 
 const projectsAnchor = "projects"
 
@@ -375,7 +379,7 @@ onShareAppMessage(() => ({
 }
 
 .content {
-  padding: 0 32rpx 0;
+  padding: 0 32rpx;
   box-sizing: border-box;
 }
 

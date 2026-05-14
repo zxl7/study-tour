@@ -266,7 +266,6 @@ onShareAppMessage(() => ({
 
 <style scoped lang="scss">
 .page {
-	padding-bottom: 160rpx;
 }
 
 .content {
@@ -279,7 +278,7 @@ onShareAppMessage(() => ({
 }
 
 .body {
-	padding: 32rpx;
+	padding: 0 32rpx;
 }
 
 .tags {
