@@ -44,7 +44,7 @@ const data: MarketingPageData = {
           zh: "包含射箭、跑酷、定向越野、攀岩、无人机驾驶等，全方位锻炼体能、反应力与团队协作精神。",
           en: "Archery, parkour, orienteering, climbing, drone piloting—build fitness and teamwork.",
         },
-        images: { left: "/img/活动2.jpg", right: "/img/XCL.jpg" },
+        images: { left: "/img/activity_2.jpg", right: "/img/XCL.jpg" },
       },
       {
         icon: "ph:translate-bold",

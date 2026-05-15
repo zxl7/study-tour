@@ -60,10 +60,13 @@ export const getAssetUrl = (path) => {
     }
   }
 
-  // 2. H5 环境适配：手动补齐部署子目录 /h5（需与 manifest.json 中的 h5.router.base 保持一致）
-  // 说明：无论开发还是生产环境，只要设置了 base，绝对路径资源都需要补齐前缀，否则在子页面刷新时会 404
+  // 2. H5 环境适配：跟随 Vite 的 BASE_URL 动态补齐部署子目录
+  // 说明：
+  // - 开发环境 BASE_URL 通常为 /，此时不应额外追加 /h5；
+  // - 生产环境 BASE_URL 为 /h5/ 时，自动补齐前缀，避免子路由刷新资源 404。
   // #ifdef H5
-  finalPath = "/h5" + finalPath
+  const h5Base = (import.meta.env.BASE_URL || "/").replace(/\/$/, "")
+  finalPath = h5Base ? `${h5Base}${finalPath}` : finalPath
   // #endif
 
   return finalPath

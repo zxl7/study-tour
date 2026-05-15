@@ -460,9 +460,9 @@ const data: HomePageData = {
     { value: "5000+", label: { zh: "服务成功家庭", en: "Families Served" } },
   ],
   certs: [
-    { image: "/img/资质证书.jpg", label: { zh: "资质证书", en: "Qualification Certificate" } },
-    { image: "/img/授权信.jpg", label: { zh: "授权信", en: "Authorization Letter" } },
-    { image: "/img/营业执照.jpg", label: { zh: "营业执照", en: "Business License" } },
+    { image: "/img/qualification_cert.jpg", label: { zh: "资质证书", en: "Qualification Certificate" } },
+    { image: "/img/authorization_letter.jpg", label: { zh: "授权信", en: "Authorization Letter" } },
+    { image: "/img/business_license.jpg", label: { zh: "营业执照", en: "Business License" } },
   ],
   contactTitle: { zh: "规划狮城教育蓝图", en: "Plan Your Singapore Education Journey" },
   contactDesc: { zh: "留下您的联系方式，我们的资深规划师将在24小时内为您定制专属研学方案。", en: "Leave your contact details and our advisors will respond within 24 hours." },

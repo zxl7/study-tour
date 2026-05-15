@@ -370,19 +370,19 @@ const data: GrowthCampPageData = {
       desc: { zh: "编码机器人、虚拟现实、3D打印和工程", en: "Robotics, VR, 3D printing and engineering" },
     },
     {
-      image: "/img/游玩.jpg",
+      image: "/img/play_itinerary.jpg",
       tag: { zh: "综合活动", en: "Integrated Activities" },
       tagColor: "bg-blue-500",
       desc: { zh: "木材制作、园艺、烘焙、运动", en: "Woodwork, gardening, baking and sports" },
     },
     {
-      image: "/img/学习活动2.png",
+      image: "/img/study_activity_2.png",
       tag: { zh: "多重冒险", en: "Adventures" },
       tagColor: "bg-teal-500",
       desc: { zh: "射箭、跑酷、定向越野、攀岩、无人机", en: "Archery, parkour, orienteering, climbing and drones" },
     },
     {
-      image: "/img/学习活动1.png",
+      image: "/img/study_activity_1.png",
       tag: { zh: "英语强化", en: "English Boost" },
       tagColor: "bg-indigo-500",
       desc: { zh: "语言游戏、趣味活动、听说读写", en: "Language games and practice across listening, speaking, reading and writing" },
