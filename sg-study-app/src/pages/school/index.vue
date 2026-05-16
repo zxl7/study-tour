@@ -3,7 +3,7 @@
 		<AppHeader title="体验营详情" />
 
 		<scroll-view scroll-y class="content">
-			<image class="banner" mode="aspectFill" :src="img('pkg/banner/School_Banner.jpg')" />
+			<image class="banner" mode="aspectFill" :src="img('banner/School_Banner.jpg')" />
 
 			<view class="body">
 				<view class="tags">
@@ -102,7 +102,7 @@
 					</view>
 
 					<view class="hawker sg-card">
-						<image class="hawker-img" mode="aspectFill" :src="img('pkg/food/Lau_Pa_Sat.jpg')" />
+						<image class="hawker-img" mode="aspectFill" :src="img('food/Lau_Pa_Sat.jpg')" />
 						<view class="hawker-mask" />
 						<view class="hawker-bd">
 							<text class="hawker-badge">世界非物质文化遗产</text>

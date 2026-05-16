@@ -4,7 +4,7 @@
 
     <scroll-view scroll-y class="content">
       <view class="hero">
-        <image class="hero-bg" mode="aspectFill" :src="img('pkg/banner/EP_Banner.jpg')" />
+        <image class="hero-bg" mode="aspectFill" :src="img('banner/EP_Banner.jpg')" />
         <view class="hero-mask" />
         <view class="hero-inner">
           <text class="hero-en">Singapore Employment Pass</text>

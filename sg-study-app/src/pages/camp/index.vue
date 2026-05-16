@@ -5,7 +5,7 @@
     <scroll-view scroll-y class="content">
       <!-- 顶部 Banner（同步 PC 视觉结构，但按移动端重排） -->
       <view class="hero">
-        <image class="hero-bg" mode="aspectFill" :src="img('pkg/banner/Camp_Banner.jpg')" />
+        <image class="hero-bg" mode="aspectFill" :src="img('banner/Camp_Banner.jpg')" />
         <view class="hero-mask" />
         <view class="hero-inner text-center">
           <view class="tags justify-center">
@@ -52,7 +52,7 @@
           </view>
 
           <view class="guard-media">
-            <image class="guard-img" mode="aspectFill" :src="img('pkg/common/Family_Travel.jpg')" />
+            <image class="guard-img" mode="aspectFill" :src="img('common/Family_Travel.jpg')" />
             <view class="guard-float sg-card">
               <text class="guard-float-title">360° 安全保障</text>
               <text class="guard-float-desc">让家长的每一次陪伴都轻松愉悦，见证孩子的每一个成长瞬间。</text>

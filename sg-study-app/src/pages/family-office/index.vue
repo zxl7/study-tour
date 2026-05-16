@@ -7,7 +7,7 @@
 				<image
 					class="hero-bg"
 					mode="aspectFill"
-					:src="img('pkg/banner/Office_Environment.jpg')"
+					:src="img('banner/Office_Environment.jpg')"
 				/>
 				<view class="hero-mask" />
 				<view class="hero-inner">

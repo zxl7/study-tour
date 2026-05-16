@@ -19,7 +19,7 @@
     <scroll-view scroll-y class="content">
       <!-- 首屏 Banner -->
       <view class="hero">
-        <image class="hero-img" mode="aspectFill" :src="img('pkg/banner/bg.jpg')" />
+        <image class="hero-img" mode="aspectFill" :src="img('banner/bg.jpg')" />
         <view class="hero-mask" />
         <view class="hero-inner">
           <text class="hero-badge">2026年夏季报名开启</text>
@@ -144,15 +144,15 @@
         </view>
         <view class="certs">
           <view class="cert">
-            <image class="cert-img" mode="aspectFit" :src="img('pkg/cert/cert_qualification.jpg')" />
+            <image class="cert-img" mode="aspectFit" :src="img('cert/cert_qualification.jpg')" />
             <text class="cert-t">资质证书</text>
           </view>
           <view class="cert">
-            <image class="cert-img" mode="aspectFit" :src="img('pkg/cert/cert_auth.jpg')" />
+            <image class="cert-img" mode="aspectFit" :src="img('cert/cert_auth.jpg')" />
             <text class="cert-t">授权信</text>
           </view>
           <view class="cert cert-wide">
-            <image class="cert-img" mode="aspectFit" :src="img('pkg/cert/cert_license.jpg')" />
+            <image class="cert-img" mode="aspectFit" :src="img('cert/cert_license.jpg')" />
             <text class="cert-t">营业执照</text>
           </view>
         </view>
