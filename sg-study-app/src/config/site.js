@@ -40,33 +40,32 @@ export const getAssetUrl = (path) => {
   if (!path) return ""
   if (path.startsWith("http") || path.startsWith("data:")) return path
 
+  // 1. 清理路径并标准化
   let purePath = path.replace(/^\/+/, "")
+  
+  // 自动识别资源类型
   let finalPath = ""
-
-  // 1. 识别资源类型并构建相对于根目录的绝对路径
   if (purePath.startsWith("icons/")) {
-    // 图标类：icons/home.svg -> /static/icons/home.svg
     finalPath = `/static/${purePath}`
   } else if (purePath.startsWith("pkg/")) {
-    // 分包资源类：pkg/common/bg.jpg -> /pkg/static/img/common/bg.jpg
     finalPath = `/pkg/static/img/${purePath.replace("pkg/", "")}`
   } else {
-    // 普通主包图片：bg.jpg -> /static/img/bg.jpg
-    // 兼容处理：如果传入的已经是 /static/img 开头的，则不再重复拼接
-    if (purePath.startsWith("static/img/")) {
-      finalPath = `/${purePath}`
-    } else {
-      finalPath = `/static/img/${purePath}`
-    }
+    // 兼容处理：如果已经带了 static/img 前缀则不重复拼接
+    const imgPrefix = "static/img/"
+    finalPath = purePath.startsWith(imgPrefix) ? `/${purePath}` : `/static/img/${purePath}`
   }
 
-  // 2. H5 环境适配：跟随 Vite 的 BASE_URL 动态补齐部署子目录
-  // 说明：
-  // - 开发环境 BASE_URL 通常为 /，此时不应额外追加 /h5；
-  // - 生产环境 BASE_URL 为 /h5/ 时，自动补齐前缀，避免子路由刷新资源 404。
+  // 2. 环境适配
   // #ifdef H5
   const h5Base = (import.meta.env.BASE_URL || "/").replace(/\/$/, "")
   finalPath = h5Base ? `${h5Base}${finalPath}` : finalPath
+  // #endif
+
+  // #ifdef MP-WEIXIN
+  // 微信小程序中，背景图或遮罩图如果使用本地资源，建议使用绝对路径（以 / 开头）
+  if (!finalPath.startsWith("/")) {
+    finalPath = "/" + finalPath
+  }
   // #endif
 
   return finalPath

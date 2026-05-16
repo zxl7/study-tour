@@ -31,28 +31,34 @@ const toPx = (v) => {
 
 /**
  * 功能：生成图标样式。
- * 说明：使用 mask-image 遮罩技术实现单色图标变色。
+ * 说明：使用 CSS mask 技术加载本地 SVG 并实现染色。
+ * 优势：
+ * 1. 资源按需引用，不占用 JS 体积。
+ * 2. 完美支持 currentColor 或指定颜色。
+ * 3. 兼容 H5、小程序、App。
  */
 const iconStyle = computed(() => {
 	const size = toPx(props.size)
-	// 处理一些别名映射，确保向后兼容
-	const iconName = {
-		'staff': 'staff-filled',
+	
+	// 处理别名映射，保持向后兼容
+	const iconKey = {
+		'staff': 'person-filled',
 		'paperplane-filled': 'paperplane',
 		'navigate': 'paperplane',
 		'chatboxes-filled': 'chat-filled',
 	}[props.type] || props.type
 
-	// 统一调用 getAssetUrl 解析路径，确保 H5 生产环境路径正确
-	const iconPath = getAssetUrl(`icons/${iconName}.svg`)
+	// 统一获取路径
+	const iconPath = getAssetUrl(`icons/${iconKey}.svg`)
+	const url = `url("${iconPath}")`
 
 	return {
 		width: size,
 		height: size,
 		backgroundColor: props.color,
-		// 微信小程序及主流浏览器均支持 mask 属性
-		maskImage: `url(${iconPath})`,
-		'-webkit-mask-image': `url(${iconPath})`,
+		// 核心染色逻辑：将背景色作为“底色”，SVG 作为“遮罩”
+		maskImage: url,
+		'-webkit-mask-image': url,
 		maskRepeat: 'no-repeat',
 		'-webkit-mask-repeat': 'no-repeat',
 		maskSize: '100% 100%',

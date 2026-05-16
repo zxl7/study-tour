@@ -5,7 +5,7 @@
     <scroll-view scroll-y class="content">
       <!-- 顶部 Banner（同步 PC 视觉结构，但按移动端重排） -->
       <view class="hero">
-        <SgImage class="hero-bg" mode="aspectFill" src="banner/Camp_Banner.webp" />
+        <SgImage class="hero-bg" mode="aspectFill" src="banner/Camp_Banner.jpg" />
         <view class="hero-mask" />
         <view class="hero-inner text-center">
           <view class="tags justify-center">

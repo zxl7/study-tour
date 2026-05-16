@@ -144,15 +144,15 @@
         </view>
         <view class="certs">
           <view class="cert">
-            <SgImage class="cert-img" mode="aspectFit" src="cert/cert_qualification.webp" />
+            <SgImage class="cert-img" mode="aspectFit" src="cert/cert_qualification.jpg" />
             <text class="cert-t">资质证书</text>
           </view>
           <view class="cert">
-            <SgImage class="cert-img" mode="aspectFit" src="cert/cert_auth.webp" />
+            <SgImage class="cert-img" mode="aspectFit" src="cert/cert_auth.jpg" />
             <text class="cert-t">授权信</text>
           </view>
           <view class="cert cert-wide">
-            <SgImage class="cert-img" mode="aspectFit" src="cert/cert_license.webp" />
+            <SgImage class="cert-img" mode="aspectFit" src="cert/cert_license.jpg" />
             <text class="cert-t">营业执照</text>
           </view>
         </view>
@@ -259,7 +259,7 @@ const projects = [
     desc: "针对3-15岁的孩子，与顶级国际学校合作深度融入狮城文化，培养独立思考与团队协作能力。",
     tag: "7天体验",
     tagCls: "tag-blue",
-    img: "project/1.webp",
+    img: "project/1.jpg",
     meta1: "适龄：小学-初中",
     meta2: "班期：寒暑假",
     to: "camp",
