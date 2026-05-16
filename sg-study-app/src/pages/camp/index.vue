@@ -249,7 +249,7 @@ const timeline = [
     day: "Day.5",
     theme: "环球影城",
     desc: "畅游东南亚首个好莱坞电影主题公园——新加坡环球影城，在七大主题区中尽情释放天性，体验沉浸式欢乐与刺激。",
-    img: "project/4.webp",
+    img: "project/4.jpg",
   },
   {
     day: "Day.6",

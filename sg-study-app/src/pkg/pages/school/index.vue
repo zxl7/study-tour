@@ -151,7 +151,7 @@ const courses = [
 	{
 		title: '综合活动',
 		desc: '木材制作、园艺、烘焙等，激发创造力与动手能力。',
-		imgs: ['pkg/common/Activity_1.jpg', 'pkg/common/Activity.webp'],
+		imgs: ['pkg/common/Activity_1.jpg', 'pkg/common/Activity.jpg'],
 	},
 	{
 		title: '多重冒险',
@@ -174,7 +174,7 @@ const courses = [
  * 功能：同步课程模块（纯数据）。
  */
 const syncs = [
-	{ title: '人工智能', desc: '结合编程与AI技术，启发逻辑思维与计算思维。', img: 'pkg/common/AI.webp' },
+	{ title: '人工智能', desc: '结合编程与AI技术，启发逻辑思维与计算思维。', img: 'pkg/common/AI.jpg' },
 	{ title: '小小探索家活动', desc: '室内外互动游戏、自然观察、艺术启蒙，激发好奇心。', img: 'pkg/common/Explorer.jpg' },
 	{ title: '创意编程', desc: '从图形化编程启蒙到高级语言进阶，培养数字时代核心技能。', img: 'pkg/common/Coding.jpg' },
 ]
@@ -188,7 +188,7 @@ const itinerary = [
 		day: 'Day 1',
 		title: '开启名校探秘之旅，从这里梦开始',
 		desc: '集合出发飞往新加坡。接机后入住，小营员签到破冰，随后享用欢迎晚宴，感受特色南洋之美。',
-		imgs: ['pkg/itinerary/Arrival_1.webp', 'pkg/itinerary/City.jpg'],
+		imgs: ['pkg/itinerary/Arrival_1.jpg', 'pkg/itinerary/City.jpg'],
 	},
 	{
 		day: 'Day 2',
@@ -218,7 +218,7 @@ const itinerary = [
 		day: 'Day 6',
 		title: '上午环球影城，晚上星耀樟宜购物',
 		desc: '畅游东南亚唯一的环球影城，在主题区中尽情玩耍；在游乐与团队挑战中释放童真、收获协作。',
-		imgs: ['project/4.webp', 'pkg/itinerary/5.jpg'],
+		imgs: ['project/4.jpg', 'pkg/itinerary/5.jpg'],
 	},
 	{
 		day: 'Day 7',
