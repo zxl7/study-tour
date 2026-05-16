@@ -4,7 +4,7 @@
 
     <scroll-view scroll-y class="content">
       <view class="hero">
-        <SgImage class="hero-bg" mode="aspectFill" src="banner/EP_Banner.jpg" />
+        <image class="hero-bg" mode="aspectFill" :src="img('pkg/banner/EP_Banner.jpg')" />
         <view class="hero-mask" />
         <view class="hero-inner">
           <text class="hero-en">Singapore Employment Pass</text>
@@ -40,7 +40,7 @@
         <!-- 示意图 -->
         <view class="sg-section">
           <view class="policy-figure sg-card">
-            <SgImage class="policy-img" mode="aspectFit" src="project/EP.jpg" />
+            <image class="policy-img" mode="aspectFit" :src="img('project/EP.jpg')" />
             <text class="policy-tip">COMPASS评估框架示意</text>
           </view>
         </view>
@@ -154,7 +154,7 @@
 import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
-import SgImage from "@/components/SgImage.vue"
+import { img } from "@/utils/img"
 
 /**
  * 适合人群数据

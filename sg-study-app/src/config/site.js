@@ -32,37 +32,22 @@ export const SITE = Object.freeze({
 })
 
 /**
- * 格式化资源路径的辅助函数
- * @param {string} path 资源路径
- * @returns {string} 完整的资源 URL
+ * 获取图标路径 (简化版)
  */
 export const getAssetUrl = (path) => {
   if (!path) return ""
   if (path.startsWith("http") || path.startsWith("data:")) return path
-
-  // 1. 清理路径并标准化
-  let purePath = path.replace(/^\/+/, "")
   
-  // 自动识别资源类型
-  let finalPath = ""
-  if (purePath.startsWith("icons/")) {
-    finalPath = `/static/${purePath}`
-  } else if (purePath.startsWith("pkg/")) {
-    finalPath = `/pkg/static/img/${purePath.replace("pkg/", "")}`
-  } else {
-    // 兼容处理：如果已经带了 static/img 前缀则不重复拼接
-    const imgPrefix = "static/img/"
-    finalPath = purePath.startsWith(imgPrefix) ? `/${purePath}` : `/static/img/${purePath}`
-  }
+  let purePath = path.replace(/^\/+/, "")
+  let finalPath = `static/${purePath}`
 
-  // 2. 环境适配
   // #ifdef H5
   const h5Base = (import.meta.env.BASE_URL || "/").replace(/\/$/, "")
-  finalPath = h5Base ? `${h5Base}${finalPath}` : finalPath
+  finalPath = h5Base ? `${h5Base}/${finalPath}` : `/${finalPath}`
   // #endif
 
-  // #ifdef MP-WEIXIN
-  // 微信小程序中，背景图或遮罩图如果使用本地资源，建议使用绝对路径（以 / 开头）
+  // #ifndef H5
+  finalPath = finalPath.replace(/^\/+/, "")
   if (!finalPath.startsWith("/")) {
     finalPath = "/" + finalPath
   }

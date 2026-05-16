@@ -5,7 +5,7 @@
     <scroll-view scroll-y class="content">
       <!-- 顶部 Banner（同步 PC 视觉结构，但按移动端重排） -->
       <view class="hero">
-        <SgImage class="hero-bg" mode="aspectFill" src="banner/Camp_Banner.jpg" />
+        <image class="hero-bg" mode="aspectFill" :src="img('pkg/banner/Camp_Banner.jpg')" />
         <view class="hero-mask" />
         <view class="hero-inner text-center">
           <view class="tags justify-center">
@@ -34,7 +34,7 @@
 
           <view class="highlight-grid">
             <view v-for="item in highlights" :key="item.title" class="highlight-item sg-card">
-              <SgImage class="highlight-img" :src="item.img" mode="aspectFill" />
+              <image class="highlight-img" :src="img(item.img)" mode="aspectFill" />
               <p class="highlight-title">{{ item.title }}</p>
               <text class="highlight-desc">{{ item.desc }}</text>
             </view>
@@ -52,7 +52,7 @@
           </view>
 
           <view class="guard-media">
-            <SgImage class="guard-img" mode="aspectFill" src="common/Family_Travel.jpg" />
+            <image class="guard-img" mode="aspectFill" :src="img('pkg/common/Family_Travel.jpg')" />
             <view class="guard-float sg-card">
               <text class="guard-float-title">360° 安全保障</text>
               <text class="guard-float-desc">让家长的每一次陪伴都轻松愉悦，见证孩子的每一个成长瞬间。</text>
@@ -85,7 +85,7 @@
           <view class="school-grid">
             <view v-for="s in schools" :key="s.name" class="school-card sg-card">
               <view class="school-img-wrap">
-                <SgImage class="school-img" mode="aspectFill" :src="s.img" />
+                <image class="school-img" mode="aspectFill" :src="img(s.img)" />
                 <view class="school-mask" />
                 <text class="school-name">{{ s.name }}</text>
               </view>
@@ -108,7 +108,7 @@
 
           <view class="course-grid">
             <view v-for="c in courses" :key="c.tag" class="course-card">
-              <SgImage class="course-img" mode="aspectFill" :src="c.img" />
+              <image class="course-img" mode="aspectFill" :src="img(c.img)" />
               <view class="course-tag" :style="{ background: c.tagBg }">{{ c.tag }}</view>
               <text class="course-desc">{{ c.desc }}</text>
             </view>
@@ -132,7 +132,7 @@
                 <text class="tl-theme">{{ item.theme }}</text>
               </view>
               <text class="tl-desc">{{ item.desc }}</text>
-              <SgImage v-if="item.img" class="tl-img" :src="item.img" mode="aspectFill" />
+              <image v-if="item.img" class="tl-img" :src="img(item.img)" mode="aspectFill" />
             </view>
           </view>
         </view>
@@ -149,7 +149,7 @@
 
           <view class="service-grid">
             <view v-for="card in services" :key="card.title" class="service-card">
-              <SgImage class="service-img" mode="aspectFill" :src="card.img" />
+              <image class="service-img" mode="aspectFill" :src="img(card.img)" />
               <view class="service-mask" />
               <view class="service-bd">
                 <text class="service-title">{{ card.title }}</text>
@@ -187,7 +187,7 @@ import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
-import SgImage from "@/components/SgImage.vue"
+import { img } from "@/utils/img"
 import { navigateToByKey } from "@/utils/routes"
 
 onShow(() => {

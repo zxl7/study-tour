@@ -31,16 +31,11 @@ const toPx = (v) => {
 
 /**
  * 功能：生成图标样式。
- * 说明：使用 CSS mask 技术加载本地 SVG 并实现染色。
- * 优势：
- * 1. 资源按需引用，不占用 JS 体积。
- * 2. 完美支持 currentColor 或指定颜色。
- * 3. 兼容 H5、小程序、App。
  */
 const iconStyle = computed(() => {
 	const size = toPx(props.size)
 	
-	// 处理别名映射，保持向后兼容
+	// 处理别名映射
 	const iconKey = {
 		'staff': 'person-filled',
 		'paperplane-filled': 'paperplane',
@@ -50,13 +45,23 @@ const iconStyle = computed(() => {
 
 	// 统一获取路径
 	const iconPath = getAssetUrl(`icons/${iconKey}.svg`)
-	const url = `url("${iconPath}")`
+	
+	let url = ''
+	// #ifdef H5
+	url = `url("${iconPath}")`
+	// #endif
+	// #ifndef H5
+	// 在小程序中，CSS url 最好使用绝对路径或者 Base64，如果是真机不支持绝对路径，
+	// 可以考虑转换成 Base64。为了通用性，这里先使用带 / 的绝对路径。
+	const absolutePath = iconPath.startsWith('/') ? iconPath : '/' + iconPath
+	url = `url("${absolutePath}")`
+	// #endif
 
 	return {
 		width: size,
 		height: size,
 		backgroundColor: props.color,
-		// 核心染色逻辑：将背景色作为“底色”，SVG 作为“遮罩”
+		// 核心染色逻辑
 		maskImage: url,
 		'-webkit-mask-image': url,
 		maskRepeat: 'no-repeat',

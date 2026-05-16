@@ -19,7 +19,7 @@
     <scroll-view scroll-y class="content">
       <!-- 首屏 Banner -->
       <view class="hero">
-        <SgImage class="hero-img" mode="aspectFill" src="banner/bg.jpg" />
+        <image class="hero-img" mode="aspectFill" :src="img('pkg/banner/bg.jpg')" />
         <view class="hero-mask" />
         <view class="hero-inner">
           <text class="hero-badge">2026年夏季报名开启</text>
@@ -84,7 +84,7 @@
         <view class="project-list">
           <view v-for="p in projects" :key="p.title" class="project-card">
             <view class="project-img-wrap">
-              <SgImage class="project-img" mode="aspectFill" :src="p.img" />
+              <image class="project-img" mode="aspectFill" :src="img(p.img)" />
               <text class="project-tag" :class="p.tagCls">{{ p.tag }}</text>
             </view>
             <view class="project-bd">
@@ -144,15 +144,15 @@
         </view>
         <view class="certs">
           <view class="cert">
-            <SgImage class="cert-img" mode="aspectFit" src="cert/cert_qualification.jpg" />
+            <image class="cert-img" mode="aspectFit" :src="img('pkg/cert/cert_qualification.jpg')" />
             <text class="cert-t">资质证书</text>
           </view>
           <view class="cert">
-            <SgImage class="cert-img" mode="aspectFit" src="cert/cert_auth.jpg" />
+            <image class="cert-img" mode="aspectFit" :src="img('pkg/cert/cert_auth.jpg')" />
             <text class="cert-t">授权信</text>
           </view>
           <view class="cert cert-wide">
-            <SgImage class="cert-img" mode="aspectFit" src="cert/cert_license.jpg" />
+            <image class="cert-img" mode="aspectFit" :src="img('pkg/cert/cert_license.jpg')" />
             <text class="cert-t">营业执照</text>
           </view>
         </view>
@@ -163,7 +163,7 @@
         <view class="contact-card">
           <view class="contact-header">
             <view class="contact-title-wrap">
-              <SgIcon type="phone-filled" size="20" color="#E5A663" class="contact-icon" />
+              <SgIcon type="phone-filled" :size="20" color="#E5A663" class="contact-icon" />
               <text class="contact-title">官方热线</text>
             </view>
             <text class="contact-hotline">{{ SITE.hotline }}</text>
@@ -172,7 +172,7 @@
 
           <view class="contact-address-wrap">
             <view class="contact-title-wrap">
-              <SgIcon type="location-filled" size="20" color="#E5A663" class="contact-icon" />
+              <SgIcon type="location-filled" :size="20" color="#E5A663" class="contact-icon" />
               <text class="contact-title">办公地址</text>
             </view>
             <text class="contact-address">中国运营中心：{{ SITE.chinaOfficeAddress }}</text>
@@ -181,7 +181,7 @@
           <view class="contact-qr-wrap">
             <view v-for="a in SITE.advisors" :key="a.name" class="contact-qr-item">
               <view class="qr-box">
-                <SgImage v-if="a.qr" class="qr-img" mode="aspectFit" :src="a.qr" />
+                <image v-if="a.qr" class="qr-img" mode="aspectFit" :src="img(a.qr)" />
                 <view v-else class="qr-fallback">
                   <text class="qr-fallback-title">电话</text>
                   <text class="qr-fallback-phone">{{ a.phone }}</text>
@@ -210,7 +210,7 @@ import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
-import SgImage from "@/components/SgImage.vue"
+import { img } from "@/utils/img"
 import { navigateToByKey, switchTabByKey } from "@/utils/routes"
 import { SITE } from "@/config/site"
 

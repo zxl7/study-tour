@@ -4,10 +4,10 @@
 
 		<scroll-view scroll-y class="content">
 			<view class="hero">
-				<SgImage
+				<image
 					class="hero-bg"
 					mode="aspectFill"
-					src="pkg/banner/Office_Environment.jpg"
+					:src="img('pkg/banner/Office_Environment.jpg')"
 				/>
 				<view class="hero-mask" />
 				<view class="hero-inner">
@@ -33,6 +33,18 @@
 				</view>
 			</view>
 
+			<!-- 架构图 -->
+			<view class="sg-section">
+				<view class="sg-section-hd">
+					<view class="sg-section-bar" />
+					<text class="sg-section-title">13O / 13U 架构解析</text>
+				</view>
+				<view class="policy-figure sg-card">
+					<image class="policy-img" mode="aspectFit" :src="img('project/3.jpg')" />
+					<text class="policy-tip">家族办公室标准架构示意</text>
+				</view>
+			</view>
+
 			<view class="sg-section sg-card section">
 				<view class="sg-section-hd">
 					<view class="sg-section-bar" />
@@ -50,7 +62,7 @@
 
 <script setup>
 import AppHeader from '@/components/AppHeader.vue'
-import SgImage from '@/components/SgImage.vue'
+import { img } from '@/utils/img'
 import { navigateToByKey } from '@/utils/routes'
 import { onShareAppMessage } from '@dcloudio/uni-app'
 

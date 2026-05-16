@@ -4,7 +4,7 @@
 
     <scroll-view scroll-y class="content">
       <view class="hero">
-        <SgImage class="hero-bg" mode="aspectFill" src="project/28day.jpg" />
+        <image class="hero-bg" mode="aspectFill" :src="img('project/28day.jpg')" />
         <view class="hero-mask" />
         <view class="hero-inner text-center">
           <view class="tags justify-center">
@@ -103,6 +103,7 @@
                   <text class="timeline-day" :class="{ 'day-highlight': it.v.includes('课程') }">{{ it.day }}</text>
                 </view>
                 <text class="timeline-v" :class="{ 'text-highlight': it.v.includes('课程') }">{{ it.v }}</text>
+                <image v-if="it.img" class="timeline-img" mode="aspectFill" :src="img(it.img)" />
               </view>
             </view>
           </view>
@@ -188,7 +189,7 @@ import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
-import SgImage from "@/components/SgImage.vue"
+import { img } from "@/utils/img"
 import { navigateToByKey } from "@/utils/routes"
 
 /**

@@ -3,7 +3,7 @@
 		<AppHeader title="体验营详情" />
 
 		<scroll-view scroll-y class="content">
-			<SgImage class="banner" mode="aspectFill" src="pkg/banner/School_Banner.jpg" />
+			<image class="banner" mode="aspectFill" :src="img('pkg/banner/School_Banner.jpg')" />
 
 			<view class="body">
 				<view class="tags">
@@ -41,7 +41,7 @@
 							</view>
 							<text class="course-desc">{{ c.desc }}</text>
 							<view class="course-imgs">
-								<SgImage v-for="img in c.imgs" :key="img" class="course-img" :src="img" mode="aspectFill" />
+								<image v-for="item in c.imgs" :key="item" class="course-img" :src="img(item)" mode="aspectFill" />
 							</view>
 						</view>
 					</view>
@@ -56,7 +56,7 @@
 						<view v-for="s in syncs" :key="s.title" class="sync-item">
 							<text class="sync-title">{{ s.title }}</text>
 							<text class="sync-desc">{{ s.desc }}</text>
-							<SgImage class="sync-img" :src="s.img" mode="aspectFill" />
+							<image class="sync-img" :src="img(s.img)" mode="aspectFill" />
 						</view>
 					</view>
 				</view>
@@ -79,7 +79,7 @@
 							</view>
 							<text class="trip-desc">{{ d.desc }}</text>
 							<view v-if="d.imgs && d.imgs.length" class="trip-imgs">
-								<SgImage v-for="img in d.imgs" :key="img" class="trip-img" :src="img" mode="aspectFill" />
+								<image v-for="item in d.imgs" :key="item" class="trip-img" :src="img(item)" mode="aspectFill" />
 							</view>
 						</view>
 					</view>
@@ -96,13 +96,13 @@
 					</view>
 					<view class="food-grid">
 						<view v-for="f in foods" :key="f.name" class="food-item">
-							<SgImage class="food-img" mode="aspectFill" :src="f.img" />
+							<image class="food-img" mode="aspectFill" :src="img(f.img)" />
 							<text class="food-name">{{ f.name }}</text>
 						</view>
 					</view>
 
 					<view class="hawker sg-card">
-						<SgImage class="hawker-img" mode="aspectFill" src="pkg/food/Lau_Pa_Sat.jpg" />
+						<image class="hawker-img" mode="aspectFill" :src="img('pkg/food/Lau_Pa_Sat.jpg')" />
 						<view class="hawker-mask" />
 						<view class="hawker-bd">
 							<text class="hawker-badge">世界非物质文化遗产</text>
@@ -140,7 +140,7 @@
 
 <script setup>
 import AppHeader from '@/components/AppHeader.vue'
-import SgImage from '@/components/SgImage.vue'
+import { img } from '@/utils/img'
 import { navigateToByKey } from '@/utils/routes'
 import { onShareAppMessage } from '@dcloudio/uni-app'
 
@@ -151,7 +151,7 @@ const courses = [
 	{
 		title: '综合活动',
 		desc: '木材制作、园艺、烘焙等，激发创造力与动手能力。',
-		imgs: ['pkg/common/Activity_1.jpg', 'pkg/common/Activity.jpg'],
+		imgs: ['pkg/common/Activity.jpg', 'pkg/common/Activity_1.jpg'],
 	},
 	{
 		title: '多重冒险',
