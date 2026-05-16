@@ -312,7 +312,7 @@ const schools = [
  */
 const courses = [
   { tag: "STEAM", tagBg: "rgba(14,165,233,0.92)", desc: "编码机器人、虚拟现实、3D打印和工程", img: "common/STEAM_Education.jpg" },
-  { tag: "综合活动", tagBg: "rgba(59,130,246,0.92)", desc: "木材制作、园艺、烘焙、运动", img: "common/play.webp" },
+  { tag: "综合活动", tagBg: "rgba(59,130,246,0.92)", desc: "木材制作、园艺、烘焙、运动", img: "common/play.jpg" },
   { tag: "多重冒险", tagBg: "rgba(20,184,166,0.92)", desc: "射箭、跑酷、定向越野、攀岩、无人机", img: "school/study.jpg" },
   { tag: "英语强化", tagBg: "rgba(99,102,241,0.92)", desc: "语言游戏、趣味活动、听说读写", img: "pkg/common/English.jpg" },
 ]
@@ -324,7 +324,7 @@ const services = [
   {
     title: "住宿：四星级酒店/学生公寓",
     desc: "2人标准间，配备24小时保安及中文生活老师。确保孩子在舒适的环境中休息，恢复精力。",
-    img: "common/Hotel.webp",
+    img: "common/Hotel.jpg",
   },
   {
     title: "饮食：多元狮城美食+中餐",
