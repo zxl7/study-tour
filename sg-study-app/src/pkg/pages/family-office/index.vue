@@ -2,76 +2,80 @@
 	<view class="sg-page page">
 		<AppHeader title="家族办公室" />
 
-		<scroll-view scroll-y class="content">
-			<view class="hero">
-				<image
-					class="hero-bg"
-					mode="aspectFill"
-					:src="img('banner/Office_Environment.jpg')"
-				/>
-				<view class="hero-mask" />
-				<view class="hero-inner">
-					<text class="hero-title">家族办公室</text>
-					<text class="hero-sub">为您实现财富传承与全球化资产配置，打造百年家族基业。</text>
-				</view>
-			</view>
+    <scroll-view scroll-y class="content">
+      <view class="hero">
+        <image
+          class="hero-bg"
+          mode="aspectFill"
+          :src="img('pkg/banner/Office_Environment.jpg')"
+        />
+        <view class="hero-mask" />
+        <view class="hero-inner">
+          <text class="hero-en">Singapore Family Office</text>
+          <text class="hero-title">新加坡家族办公室 · 财富传承的顶层设计</text>
+        </view>
+      </view>
 
-			<view class="sg-section sg-card section">
-				<view class="sg-section-hd">
-					<view class="sg-section-bar" />
-					<view class="sg-section-txt">
-						<text class="sg-section-title">专业架构设计</text>
-						<text class="sg-section-sub">合规、安全、可持续的财富管理中心</text>
-					</view>
-				</view>
-				<text class="sg-p">结合新加坡得天独厚的税务优势与金融环境，为您量身定制安全、合规的家族财富管理中心（13O/13U）。</text>
-				<view class="sg-list list">
-					<view v-for="t in items" :key="t" class="sg-li">
-						<text class="sg-dot">•</text>
-						<text class="sg-li-text">{{ t }}</text>
-					</view>
-				</view>
-			</view>
+      <view class="body">
+        <view class="sg-section">
+          <view class="sg-section-hd">
+            <view class="sg-section-bar" />
+            <text class="sg-section-title">什么是家族办公室？</text>
+          </view>
+          <text class="section-text"
+            >家族办公室（Family Office）是为高净值家族提供全方位财富管理和家族服务、使其资产的长期发展符合家族的预期和期望、并使其资产能够顺利地跨代传承和保值增值的机构。</text
+          >
+        </view>
 
-			<!-- 架构图 -->
-			<view class="sg-section">
-				<view class="sg-section-hd">
-					<view class="sg-section-bar" />
-					<text class="sg-section-title">13O / 13U 架构解析</text>
-				</view>
-				<view class="policy-figure sg-card">
-					<image class="policy-img" mode="aspectFit" :src="img('project/3.jpg')" />
-					<text class="policy-tip">家族办公室标准架构示意</text>
-				</view>
-			</view>
+        <!-- 架构图 -->
+        <view class="sg-section">
+          <view class="sg-section-hd">
+            <view class="sg-section-bar" />
+            <text class="sg-section-title">13O / 13U 架构解析</text>
+          </view>
+          <view class="policy-figure sg-card">
+            <image class="policy-img" mode="aspectFit" :src="img('project/3.jpg')" />
+            <text class="policy-tip">家族办公室标准架构示意</text>
+          </view>
+        </view>
 
-			<view class="sg-section sg-card section">
-				<view class="sg-section-hd">
-					<view class="sg-section-bar" />
-					<view class="sg-section-txt">
-						<text class="sg-section-title">专属服务团队</text>
-						<text class="sg-section-sub">律所 / 私人银行 / 税务师协同</text>
-					</view>
-				</view>
-				<text class="sg-p">我们联合新加坡本地顶尖律所、私人银行与资深税务师，提供全方位的保驾护航。</text>
-				<button class="btn sg-btn-primary" @tap="goForm">预约资深顾问咨询</button>
-			</view>
-		</scroll-view>
-	</view>
+        <!-- 核心优势 -->
+        <view class="sg-section">
+          <view class="sg-section-hd">
+            <view class="sg-section-bar" />
+            <text class="sg-section-title">核心优势</text>
+          </view>
+          <view class="benefit-list">
+            <view v-for="t in items" :key="t" class="benefit-item sg-card">
+              <text class="benefit-dot">•</text>
+              <text class="benefit-text">{{ t }}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="sg-section">
+          <text class="sg-p"
+            >我们联合新加坡本地顶尖律所、私人银行与资深税务师，提供全方位的保驾护航。</text
+          >
+          <button class="btn sg-btn-primary" @tap="goForm">预约资深顾问咨询</button>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
 </template>
 
 <script setup>
-import AppHeader from '@/components/AppHeader.vue'
-import { img } from '@/utils/img'
-import { navigateToByKey } from '@/utils/routes'
-import { onShareAppMessage } from '@dcloudio/uni-app'
+import AppHeader from "@/components/AppHeader.vue"
+import { img } from "@/utils/img"
+import { navigateToByKey } from "@/utils/routes"
+import { onShareAppMessage } from "@dcloudio/uni-app"
 
-const items = ['资产保护与风险隔离', '跨代财富平稳传承', '优化全球税务筹划']
-const goForm = () => navigateToByKey('form')
+const items = ["资产保护与风险隔离", "跨代财富平稳传承", "优化全球税务筹划"]
+const goForm = () => navigateToByKey("form")
 
 onShareAppMessage(() => ({
-	title: '家族办公室 - 盛昌利民研学',
-	path: '/pkg/pages/family-office/index',
+  title: "家族办公室 - 盛昌利民研学",
+  path: "/pkg/pages/family-office/index",
 }))
 </script>
 

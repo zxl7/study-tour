@@ -168,12 +168,13 @@
               <text class="fee-price">38,600</text>
             </view>
             <text class="fee-note">* 不包含机票</text>
-            <button class="fee-btn" @tap="goForm">索取详细日程单</button>
+            <button class="fee-btn" @tap="goConsult">索取详细日程单</button>
           </view>
         </view>
       </view>
     </scroll-view>
 
+    <AdvisorPopup v-model="showAdvisor" />
     <AppTabBar current="study" />
   </view>
 </template>
@@ -185,12 +186,19 @@
  * 规范：遵循函数式数据流，使用全局 sg- 样式组件。
  */
 
+import { ref } from "vue"
 import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
+import AdvisorPopup from "@/components/AdvisorPopup.vue"
 import { img } from "@/utils/img"
 import { navigateToByKey } from "@/utils/routes"
+
+/**
+ * 状态：是否显示顾问弹窗
+ */
+const showAdvisor = ref(false)
 
 /**
  * 生命周期：页面显示时隐藏原生 TabBar
@@ -198,6 +206,18 @@ import { navigateToByKey } from "@/utils/routes"
 onShow(() => {
   uni.hideTabBar()
 })
+
+/**
+ * 功能：打开顾问弹窗。
+ */
+const goConsult = () => {
+  showAdvisor.value = true
+}
+
+/**
+ * 功能：跳转到咨询表单。
+ */
+const goForm = () => navigateToByKey("form")
 
 /**
  * 适合人群数据
@@ -262,11 +282,6 @@ const schedule = [
   { k: "D23-27", v: "新加坡本地国际学校全真课程", day: "周一 至 周五" },
   { k: "D28", v: "荣誉返程：带着收获回家", day: "周六" },
 ]
-
-/**
- * 功能：跳转到咨询表单。
- */
-const goForm = () => navigateToByKey("form")
 
 /**
  * 小程序分享配置

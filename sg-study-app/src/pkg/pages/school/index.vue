@@ -151,7 +151,7 @@ const courses = [
 	{
 		title: '综合活动',
 		desc: '木材制作、园艺、烘焙等，激发创造力与动手能力。',
-		imgs: ['pkg/common/Activity.jpg', 'pkg/common/Activity_1.jpg'],
+		imgs: ['pkg/common/Activity_1.jpg', 'pkg/common/Activity.jpg'],
 	},
 	{
 		title: '多重冒险',
@@ -169,6 +169,8 @@ const courses = [
 		imgs: ['pkg/common/STEAM.jpg', 'pkg/common/STEAM_1.jpg'],
 	},
 ]
+
+const goForm = () => navigateToByKey('form')
 
 /**
  * 功能：同步课程模块（纯数据）。
@@ -253,10 +255,7 @@ const hotels = [
 	'HOTEL 81',
 ]
 
-/**
- * 功能：跳转到表单页。
- */
-const goForm = () => navigateToByKey('form')
+
 
 onShareAppMessage(() => ({
 	title: '国际学校体验营 - 盛昌利民研学',

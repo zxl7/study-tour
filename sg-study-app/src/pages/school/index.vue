@@ -170,6 +170,8 @@ const courses = [
 	},
 ]
 
+const goForm = () => navigateToByKey('form')
+
 /**
  * 功能：同步课程模块（纯数据）。
  */

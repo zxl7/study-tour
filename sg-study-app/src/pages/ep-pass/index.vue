@@ -156,15 +156,20 @@ import AppHeader from "@/components/AppHeader.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
 import { img } from "@/utils/img"
 
+onShow(() => {
+  uni.hideTabBar()
+})
+
 /**
  * 适合人群数据
- * @type {string[]}
  */
 const audiences = [
-  "寻求税务优化与资产配置的企业主及高管",
-  "计划海外拓展与设立总部的企业家",
-  "重视子女教育、规划家族未来的高净值人士",
+  "有意在新加坡发展的专业人士、高管",
+  "计划将子女送入新加坡政府学校的家长",
+  "追求生活品质与职业国际化发展的菁英",
 ]
+
+const goForm = () => navigateToByKey("form")
 
 /**
  * 核心权益优势数据
