@@ -18,7 +18,7 @@ export const SITE = Object.freeze({
 
   // PC「合作咨询」页中的地址/邮箱
   bizEmail: "shengchanglimin@163.com",
-  bizAddress: "海南省海口市美兰区国兴大道15A号全球贸易之窗30楼",
+  bizAddress: "海南省海口市美兰区国兴大道15A号全球贸易之窗9003",
 
   // 资源基础路径：开发环境下用本地，生产环境下可以换成 CDN 地址
   // 生产环境建议：将 static/img 目录同步到服务器/CDN，并在此处配置绝对路径

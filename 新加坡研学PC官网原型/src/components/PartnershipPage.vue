@@ -83,12 +83,12 @@ const data: PartnershipPageData = {
   emailValue: "shengchanglimin@163.com",
   addressLabel: { zh: "公司地址", en: "Office Address" },
   addressValue: {
-    zh: "海南省海口市美兰区国兴大道15A号全球贸易之窗30楼",
+    zh: "海南省海口市美兰区国兴大道15A号全球贸易之窗9003",
     en: "30F, Global Trade Window, 15A Guoxing Avenue, Meilan District, Haikou, Hainan",
   },
 }
 
-const openContactModal = inject("openContactModal") as (() => void) | undefined
+// const openContactModal = inject("openContactModal") as (() => void) | undefined
 const injectedLang = inject("lang") as Ref<Lang> | undefined
 const lang = computed<Lang>(() => injectedLang?.value ?? "zh")
 const t = (text: I18nText) => pickText(text, lang.value)
