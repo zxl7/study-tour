@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://shengchanglimin.com/h5/sitemap.xml

@@ -255,8 +255,8 @@ import type { HomePageData } from "@/types/home"
 
 const data: HomePageData = {
   hero: {
-    badge: { zh: "2026年夏季报名开启", en: "Summer 2026 Applications Open" },
-    title: { zh: "2026新加坡研学 |", en: "SG Study 2026 |" },
+    badge: { zh: "夏季报名开启", en: "Summer Applications Open" },
+    title: { zh: "盛昌利民 |", en: "SG Study  |" }, 
     titleAccent: { zh: "一站式精英教育服务", en: "One-Stop Elite Education Services" },
     desc: {
       zh: "本土插班 · 双语研学 · 国际教育 · 移民规划\n为中国精英家庭定制最具深度的狮城成长之旅。",

@@ -22,11 +22,19 @@
         <image class="hero-img" mode="aspectFill" :src="img('banner/bg.jpg')" />
         <view class="hero-mask" />
         <view class="hero-inner">
-          <text class="hero-badge">2026年夏季报名开启</text>
+          <text class="hero-badge">夏季报名开启</text>
+          <!-- #ifdef H5 -->
+          <h1 class="hero-title">
+            盛昌利民 |
+            <text class="hero-title-gold">\n一站式精英教育服务</text>
+          </h1>
+          <!-- #endif -->
+          <!-- #ifndef H5 -->
           <text class="hero-title">
-            2026新加坡研学 |
+            盛昌利民 |
             <text class="hero-title-gold">\n一站式精英教育服务</text>
           </text>
+          <!-- #endif -->
           <text class="hero-desc">本土插班 · 双语研学 · 国际教育 · 移民规划 \n为中国精英家庭定制最具深度的狮城成长之旅。</text>
           <view class="hero-actions">
             <button class="btn btn-gold" @tap="scrollToProjects">探索研学项目</button>
