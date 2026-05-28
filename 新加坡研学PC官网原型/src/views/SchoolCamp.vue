@@ -62,7 +62,7 @@ const data: MarketingPageData = {
           zh: "编程机器人、VR、3D打印、趣味科学工程，融合科学、技术、工程、艺术与数学，培养创新思维。",
           en: "Robotics, VR, 3D printing and hands-on science—integrating STEAM for innovation mindset.",
         },
-        images: { left: "/img/STEAM.jpg", right: "/img/STEAM_1.jpg" },
+        images: { left: "/img/STEAM_Education.jpg", right: "/img/STEAM_1.jpg" },
       },
     ],
   },

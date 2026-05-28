@@ -261,7 +261,7 @@ const data: GrowthCampPageData = {
       },
     },
     {
-      image: "/img/English_Environment.jpg",
+      image: "/img/English_1.jpg",
       title: { zh: "沉浸式英文环境", en: "Immersive English Environment" },
       desc: {
         zh: "全天候英语母语导师陪伴，在真实交流场景中建立语言自信。",

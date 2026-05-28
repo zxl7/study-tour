@@ -4,12 +4,6 @@
 
 		<scroll-view scroll-y class="content">
 			<view class="hero">
-				<image
-					class="hero-bg"
-					mode="aspectFill"
-					:src="img('banner/Office_Environment.jpg')"
-				/>
-				<view class="hero-mask" />
 				<view class="hero-inner">
 					<text class="hero-title">家族办公室</text>
 					<text class="hero-sub">为您实现财富传承与全球化资产配置，打造百年家族基业。</text>
@@ -50,7 +44,6 @@
 
 <script setup>
 import AppHeader from '@/components/AppHeader.vue'
-import { img } from '@/utils/img'
 import { navigateToByKey } from '@/utils/routes'
 import { onShareAppMessage } from '@dcloudio/uni-app'
 
@@ -79,22 +72,11 @@ onShareAppMessage(() => ({
 	border-radius: 28rpx;
 	overflow: hidden;
 	position: relative;
-}
-
-.hero-bg {
-	width: 100%;
-	height: 100%;
-}
-
-.hero-mask {
-	position: absolute;
-	inset: 0;
-	background: rgba(17, 24, 39, 0.55);
+	background: linear-gradient(135deg, #0f3d63 0%, #0b5f8f 100%);
 }
 
 .hero-inner {
-	position: absolute;
-	inset: 0;
+	height: 100%;
 	padding: 28rpx;
 	display: flex;
 	flex-direction: column;

@@ -5,7 +5,7 @@
     <scroll-view scroll-y class="content">
       <!-- 顶部 Banner（同步 PC 视觉结构，但按移动端重排） -->
       <view class="hero">
-        <image class="hero-bg" mode="aspectFill" :src="img('banner/Camp_Banner.jpg')" />
+        <image class="hero-bg" mode="aspectFill" :src="img('banner/Camp_Banner.jpg')" @tap="previewImg('banner/Camp_Banner.jpg')" />
         <view class="hero-mask" />
         <view class="hero-inner text-center">
           <view class="tags justify-center">
@@ -34,7 +34,7 @@
 
           <view class="highlight-grid">
             <view v-for="item in highlights" :key="item.title" class="highlight-item sg-card">
-              <image class="highlight-img" :src="img(item.img)" mode="aspectFill" />
+              <image class="highlight-img" :src="img(item.img)" mode="aspectFill" @tap="previewImg(item.img)" />
               <p class="highlight-title">{{ item.title }}</p>
               <text class="highlight-desc">{{ item.desc }}</text>
             </view>
@@ -52,7 +52,7 @@
           </view>
 
           <view class="guard-media">
-            <image class="guard-img" mode="aspectFill" :src="img('common/Family_Travel.jpg')" />
+            <image class="guard-img" mode="aspectFill" :src="img('common/Family_Travel.jpg')" @tap="previewImg('common/Family_Travel.jpg')" />
             <view class="guard-float sg-card">
               <text class="guard-float-title">360° 安全保障</text>
               <text class="guard-float-desc">让家长的每一次陪伴都轻松愉悦，见证孩子的每一个成长瞬间。</text>
@@ -84,7 +84,7 @@
 
           <view class="school-grid">
             <view v-for="s in schools" :key="s.name" class="school-card sg-card">
-              <view class="school-img-wrap">
+              <view class="school-img-wrap" @tap="previewImg(s.img)">
                 <image class="school-img" mode="aspectFill" :src="img(s.img)" />
                 <view class="school-mask" />
                 <text class="school-name">{{ s.name }}</text>
@@ -107,7 +107,7 @@
           </view>
 
           <view class="course-grid">
-            <view v-for="c in courses" :key="c.tag" class="course-card">
+            <view v-for="c in courses" :key="c.tag" class="course-card" @tap="previewImg(c.img)">
               <image class="course-img" mode="aspectFill" :src="img(c.img)" />
               <view class="course-tag" :style="{ background: c.tagBg }">{{ c.tag }}</view>
               <text class="course-desc">{{ c.desc }}</text>
@@ -132,7 +132,7 @@
                 <text class="tl-theme">{{ item.theme }}</text>
               </view>
               <text class="tl-desc">{{ item.desc }}</text>
-              <image v-if="item.img" class="tl-img" :src="img(item.img)" mode="aspectFill" />
+              <image v-if="item.img" class="tl-img" :src="img(item.img)" mode="aspectFill" @tap="previewImg(item.img)" />
             </view>
           </view>
         </view>
@@ -148,7 +148,7 @@
           </view>
 
           <view class="service-grid">
-            <view v-for="card in services" :key="card.title" class="service-card">
+            <view v-for="card in services" :key="card.title" class="service-card" @tap="previewImg(card.img)">
               <image class="service-img" mode="aspectFill" :src="img(card.img)" />
               <view class="service-mask" />
               <view class="service-bd">
@@ -178,6 +178,11 @@
       </view>
     </scroll-view>
 
+    <SgImagePreview
+      v-model:show="previewState.show"
+      :urls="previewState.urls"
+      :current="previewState.current"
+    />
     <AppTabBar current="camp" />
   </view>
 </template>
@@ -185,9 +190,10 @@
 <script setup>
 import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
+import SgImagePreview from "@/components/SgImagePreview.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
-import { img } from "@/utils/img"
+import { img, previewImg, previewState } from "@/utils/img"
 import { navigateToByKey } from "@/utils/routes"
 
 onShow(() => {
@@ -207,7 +213,7 @@ const highlights = [
   {
     title: "沉浸式英文环境",
     desc: "全天候英语母语导师陪伴，打破哑巴英语，在真实交流中建立语言自信。",
-    img: "common/English_Environment.jpg",
+    img: "common/English_1.jpg",
   },
   {
     title: "研学+游玩+能力提升",
@@ -225,43 +231,36 @@ const timeline = [
     day: "Day.1",
     theme: "大学城",
     desc: "初抵狮城，入住营地。随后探访新加坡顶级学府（如新加坡国立大学/南洋理工大学），感受世界级大学的学术氛围与校园文化。",
-    img: "itinerary/Day_1_University.jpg",
   },
   {
     day: "Day.2",
     theme: "甘榜格南 & 小印度",
     desc: "开启多元文化探索之旅：穿梭阿拉伯风情街区，走进“小印度”体验异域文化，感受新加坡种族和谐的魅力。",
-    img: "itinerary/Day_2_Kampong_Glam_Little_India.jpg",
   },
   {
     day: "Day.3",
     theme: "动物园",
     desc: "前往世界闻名的新加坡动物园（或夜间野生动物园），在近乎自然的生态环境中观察野生动物，学习生物多样性保护。",
-    img: "itinerary/Day_3_Zoo.jpg",
   },
   {
     day: "Day.4",
     theme: "艺术科学博物馆",
     desc: "参观形似莲花的艺术科学博物馆：艺术、科学、设计、媒体与技术交融，激发孩子跨学科的创新思维。",
-    img: "common/Science_Center.jpg",
   },
   {
     day: "Day.5",
     theme: "环球影城",
     desc: "畅游东南亚首个好莱坞电影主题公园——新加坡环球影城，在七大主题区中尽情释放天性，体验沉浸式欢乐与刺激。",
-    img: "project/4.jpg",
   },
   {
     day: "Day.6",
     theme: "城市环游",
     desc: "打卡鱼尾狮公园、滨海湾金沙、市政区历史建筑等地标。在城市漫步中了解新加坡的发展奇迹与城市规划。",
-    img: "itinerary/Day_6_City_Tour.jpg",
   },
   {
     day: "Day.7",
     theme: "星耀樟宜机场",
     desc: "参观将自然与现代建筑完美结合的星耀樟宜（Jewel Changi），观赏震撼的室内瀑布雨漩涡。带着满满的收获，登机返程。",
-    img: "itinerary/Day_7_Jewel_Changi.jpg",
   },
 ]
 
@@ -314,7 +313,7 @@ const courses = [
   { tag: "STEAM", tagBg: "rgba(14,165,233,0.92)", desc: "编码机器人、虚拟现实、3D打印和工程", img: "common/STEAM_Education.jpg" },
   { tag: "综合活动", tagBg: "rgba(59,130,246,0.92)", desc: "木材制作、园艺、烘焙、运动", img: "common/play.jpg" },
   { tag: "多重冒险", tagBg: "rgba(20,184,166,0.92)", desc: "射箭、跑酷、定向越野、攀岩、无人机", img: "school/study.jpg" },
-  { tag: "英语强化", tagBg: "rgba(99,102,241,0.92)", desc: "语言游戏、趣味活动、听说读写", img: "pkg/common/English.jpg" },
+  { tag: "英语强化", tagBg: "rgba(99,102,241,0.92)", desc: "语言游戏、趣味活动、听说读写", img: "common/English.jpg" },
 ]
 
 /**

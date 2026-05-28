@@ -27,7 +27,7 @@
               </button>
             </view>
             
-            <view class="qr-container">
+            <view class="qr-container" @tap="a.qr && previewImg(a.qr)">
               <image 
                 v-if="a.qr" 
                 class="qr-image" 
@@ -48,7 +48,7 @@
 
 <script setup>
 import { SITE } from '@/config/site'
-import { img } from '@/utils/img'
+import { img, previewImg } from '@/utils/img'
 import SgIcon from './SgIcon.vue'
 
 defineProps({

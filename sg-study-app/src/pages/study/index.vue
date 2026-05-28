@@ -4,7 +4,7 @@
 
     <scroll-view scroll-y class="content">
       <view class="hero">
-        <image class="hero-bg" mode="aspectFill" :src="img('project/28day.jpg')" />
+        <image class="hero-bg" mode="aspectFill" :src="img('project/28day.jpg')" @tap="previewImg('project/28day.jpg')" />
         <view class="hero-mask" />
         <view class="hero-inner text-center">
           <view class="tags justify-center">
@@ -103,7 +103,7 @@
                   <text class="timeline-day" :class="{ 'day-highlight': it.v.includes('课程') }">{{ it.day }}</text>
                 </view>
                 <text class="timeline-v" :class="{ 'text-highlight': it.v.includes('课程') }">{{ it.v }}</text>
-                <image v-if="it.img" class="timeline-img" mode="aspectFill" :src="img(it.img)" />
+                <image v-if="it.img" class="timeline-img" mode="aspectFill" :src="img(it.img)" @tap="previewImg(it.img)" />
               </view>
             </view>
           </view>
@@ -175,6 +175,11 @@
     </scroll-view>
 
     <AdvisorPopup v-model="showAdvisor" />
+    <SgImagePreview
+      v-model:show="previewState.show"
+      :urls="previewState.urls"
+      :current="previewState.current"
+    />
     <AppTabBar current="study" />
   </view>
 </template>
@@ -189,10 +194,11 @@
 import { ref } from "vue"
 import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
+import SgImagePreview from "@/components/SgImagePreview.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
 import AdvisorPopup from "@/components/AdvisorPopup.vue"
-import { img } from "@/utils/img"
+import { img, previewImg, previewState } from "@/utils/img"
 import { navigateToByKey } from "@/utils/routes"
 
 /**

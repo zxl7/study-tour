@@ -1,15 +1,12 @@
-import { defineConfig } from 'vite'
-import uni from '@dcloudio/vite-plugin-uni'
+import { defineConfig } from "vite"
+import uni from "@dcloudio/vite-plugin-uni"
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
   /**
    * 功能：修复 H5 部署在 /h5/ 子路径时资源 404 的问题。
-   * 原因：使用相对路径 ./ 在 SPA 子路由（如 /h5/about）下会错误解析为 /h5/about/assets/，导致 404；
-   *       iOS Safari 在子路由刷新时对资源 404 零容忍，直接表现为"内容显示超时"。
-   * 方案：build 时使用绝对路径 /h5/，保证所有页面资源路径都指向 /h5/assets/，
-   *       同时 manifest.json 的 router.base 也已设为 /h5/，两者保持一致。
+   * 方案：无论开发还是构建，统一使用 /h5/ 作为基础路径，保持环境一致性。
    */
-  base: command === 'build' ? '/h5/' : '/',
+  base: "/h5/",
 
   /**
    * 功能：兼容较老版本 iOS Safari（常见于 iOS 12/13 低版本）。
@@ -19,10 +16,10 @@ export default defineConfig(({ command }) => ({
    * - 这里把构建目标降到 es2015，提升兼容性（代价：产物略大一点点）。
    */
   build: {
-    target: 'es2015',
+    target: "es2015",
   },
   esbuild: {
-    target: 'es2015',
+    target: "es2015",
   },
 
   css: {
@@ -42,7 +39,7 @@ $sg-color-border: #f1f5f9;
 $sg-color-text: #111827;
 $sg-color-muted: #6b7280;
 `,
-        silenceDeprecations: ['legacy-js-api', 'import'],
+        silenceDeprecations: ["legacy-js-api", "import"],
       },
     },
   },

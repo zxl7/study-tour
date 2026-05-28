@@ -3,8 +3,6 @@
 		<AppHeader title="体验营详情" />
 
 		<scroll-view scroll-y class="content">
-			<image class="banner" mode="aspectFill" :src="img('banner/School_Banner.jpg')" />
-
 			<view class="body">
 				<view class="tags">
 					<text class="tag tag-gold">IB/AP课程对接</text>
@@ -41,7 +39,7 @@
 							</view>
 							<text class="course-desc">{{ c.desc }}</text>
 							<view class="course-imgs">
-								<image v-for="item in c.imgs" :key="item" class="course-img" :src="img(item)" mode="aspectFill" />
+								<image v-for="item in c.imgs" :key="item" class="course-img" :src="img(item)" mode="aspectFill" @tap="previewImg(item)" />
 							</view>
 						</view>
 					</view>
@@ -56,7 +54,7 @@
 						<view v-for="s in syncs" :key="s.title" class="sync-item">
 							<text class="sync-title">{{ s.title }}</text>
 							<text class="sync-desc">{{ s.desc }}</text>
-							<image class="sync-img" :src="img(s.img)" mode="aspectFill" />
+							<image class="sync-img" :src="img(s.img)" mode="aspectFill" @tap="previewImg(s.img)" />
 						</view>
 					</view>
 				</view>
@@ -79,7 +77,7 @@
 							</view>
 							<text class="trip-desc">{{ d.desc }}</text>
 							<view v-if="d.imgs && d.imgs.length" class="trip-imgs">
-								<image v-for="item in d.imgs" :key="item" class="trip-img" :src="img(item)" mode="aspectFill" />
+								<image v-for="item in d.imgs" :key="item" class="trip-img" :src="img(item)" mode="aspectFill" @tap="previewImg(item)" />
 							</view>
 						</view>
 					</view>
@@ -95,14 +93,14 @@
 						</view>
 					</view>
 					<view class="food-grid">
-						<view v-for="f in foods" :key="f.name" class="food-item">
+						<view v-for="f in foods" :key="f.name" class="food-item" @tap="previewImg(f.img)">
 							<image class="food-img" mode="aspectFill" :src="img(f.img)" />
 							<text class="food-name">{{ f.name }}</text>
 						</view>
 					</view>
 
-					<view class="hawker sg-card">
-						<image class="hawker-img" mode="aspectFill" :src="img('food/Lau_Pa_Sat.jpg')" />
+					<view class="hawker sg-card" @tap="previewImg('pkg/food/Lau_Pa_Sat.jpg')">
+						<image class="hawker-img" mode="aspectFill" :src="img('pkg/food/Lau_Pa_Sat.jpg')" />
 						<view class="hawker-mask" />
 						<view class="hawker-bd">
 							<text class="hawker-badge">世界非物质文化遗产</text>
@@ -132,6 +130,11 @@
 			</view>
 		</scroll-view>
 
+		<SgImagePreview
+			v-model:show="previewState.show"
+			:urls="previewState.urls"
+			:current="previewState.current"
+		/>
 		<view class="bottom">
 			<view class="bottom-btn sg-btn-primary" @tap="goForm">预约名校走访</view>
 		</view>
@@ -140,7 +143,9 @@
 
 <script setup>
 import AppHeader from '@/components/AppHeader.vue'
-import { img } from '@/utils/img'
+import AdvisorPopup from '@/components/AdvisorPopup.vue'
+import SgImagePreview from '@/components/SgImagePreview.vue'
+import { img, previewImg, previewState } from '@/utils/img'
 import { navigateToByKey } from '@/utils/routes'
 import { onShareAppMessage } from '@dcloudio/uni-app'
 
@@ -166,7 +171,7 @@ const courses = [
 	{
 		title: '创意STEAM',
 		desc: '编程机器人、VR、3D打印、科学工程，培养创新思维。',
-		imgs: ['pkg/common/STEAM.jpg', 'pkg/common/STEAM_1.jpg'],
+		imgs: ['pkg/common/STEAM_Education.jpg', 'pkg/common/STEAM_1.jpg'],
 	},
 ]
 
@@ -202,19 +207,19 @@ const itinerary = [
 		day: 'Day 3',
 		title: '上午学校学习，下午走进科学艺术博物馆',
 		desc: '上午：国际学校课程体验。下午：走进科学艺术博物馆，探索艺术与科学的交汇，启发跨界融合认知。',
-		imgs: ['pkg/itinerary/Students_in_classroom.jpg', 'common/Science_Center.jpg'],
+		imgs: ['pkg/itinerary/Students_in_classroom.jpg', 'pkg/common/Science_Center.jpg'],
 	},
 	{
 		day: 'Day 4',
 		title: '上午学校学习，下午夜间动物园',
 		desc: '上午：国际学校课程体验。下午：探访全球首座夜间野生动物园，了解热带雨林生态保护，完成自然生态课堂。',
-		imgs: ['pkg/itinerary/Night_Safari_1.jpg', 'itinerary/Day_3_Zoo.jpg'],
+		imgs: ['pkg/itinerary/Night_Safari_1.jpg'],
 	},
 	{
 		day: 'Day 5',
 		title: '上午学校学习，下午名校参访营结业',
 		desc: '上午：国际学校课程体验。下午：走进新加坡国立大学（NUS）深度参访，了解大学生活并参与结业仪式。',
-		imgs: ['itinerary/Day_1_University.jpg', 'pkg/itinerary/School_building_1.jpg'],
+		imgs: ['pkg/itinerary/School_building_1.jpg'],
 	},
 	{
 		day: 'Day 6',
@@ -226,7 +231,7 @@ const itinerary = [
 		day: 'Day 7',
 		title: '满载而归，分享成长经历',
 		desc: '前往星耀樟宜机场观赏室内瀑布雨漩涡，选购伴手礼。结束充实难忘的游学之旅，搭乘航班返回温馨的家。',
-		imgs: ['itinerary/Day_7_Jewel_Changi.jpg', 'pkg/itinerary/Flight_1.jpg'],
+		imgs: ['pkg/itinerary/Flight_1.jpg'],
 	},
 ]
 
@@ -270,11 +275,6 @@ onShareAppMessage(() => ({
 
 .content {
 	 
-}
-
-.banner {
-	width: 100%;
-	height: 448rpx;
 }
 
 .body {

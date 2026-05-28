@@ -4,12 +4,6 @@
 
     <scroll-view scroll-y class="content">
       <view class="hero">
-        <image
-          class="hero-bg"
-          mode="aspectFill"
-          :src="img('pkg/banner/Office_Environment.jpg')"
-        />
-        <view class="hero-mask" />
         <view class="hero-inner">
           <text class="hero-en">Singapore Family Office</text>
           <text class="hero-title">新加坡家族办公室 · 财富传承的顶层设计</text>
@@ -34,7 +28,7 @@
             <text class="sg-section-title">13O / 13U 架构解析</text>
           </view>
           <view class="policy-figure sg-card">
-            <image class="policy-img" mode="aspectFit" :src="img('project/3.jpg')" />
+            <image class="policy-img" mode="aspectFit" :src="img('project/3.jpg')" @tap="previewImg('project/3.jpg')" />
             <text class="policy-tip">家族办公室标准架构示意</text>
           </view>
         </view>
@@ -61,12 +55,18 @@
         </view>
       </view>
     </scroll-view>
+    <SgImagePreview
+      v-model:show="previewState.show"
+      :urls="previewState.urls"
+      :current="previewState.current"
+    />
   </view>
 </template>
 
 <script setup>
 import AppHeader from "@/components/AppHeader.vue"
-import { img } from "@/utils/img"
+import SgImagePreview from "@/components/SgImagePreview.vue"
+import { img, previewImg, previewState } from "@/utils/img"
 import { navigateToByKey } from "@/utils/routes"
 import { onShareAppMessage } from "@dcloudio/uni-app"
 
@@ -95,22 +95,11 @@ onShareAppMessage(() => ({
 	border-radius: 28rpx;
 	overflow: hidden;
 	position: relative;
-}
-
-.hero-bg {
-	width: 100%;
-	height: 100%;
-}
-
-.hero-mask {
-	position: absolute;
-	inset: 0;
-	background: rgba(17, 24, 39, 0.55);
+	background: linear-gradient(135deg, #0f3d63 0%, #0b5f8f 100%);
 }
 
 .hero-inner {
-	position: absolute;
-	inset: 0;
+	height: 100%;
 	padding: 28rpx;
 	display: flex;
 	flex-direction: column;

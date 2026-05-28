@@ -1,23 +1,35 @@
-<script>
-export default {
-  onLaunch: function () {
-    // #ifdef MP-WEIXIN
-    uni.hideTabBar()
-    // #endif
-    console.log('App Launch')
-  },
-  onShow: function () {
-    console.log('App Show')
-  },
-  onHide: function () {
-    console.log('App Hide')
-  },
-}
+<script setup>
+import { onLaunch, onShow, onHide } from "@dcloudio/uni-app"
+
+onLaunch(() => {
+  // #ifdef MP-WEIXIN
+  uni.hideTabBar()
+  // #endif
+  console.log('App Launch')
+})
+
+onShow(() => {
+  console.log('App Show')
+})
+
+onHide(() => {
+  console.log('App Hide')
+})
 </script>
+
+<template>
+  <view class="app-root">
+    <slot />
+  </view>
+</template>
 
 <style lang="scss">
 /* 每个页面公共 css */
 @import "@/uni.scss";
+
+.app-root {
+  height: 100%;
+}
 
 /* #ifdef H5 */
 /* 彻底消除 H5 端原生 TabBar 闪烁 */

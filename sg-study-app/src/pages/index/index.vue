@@ -91,7 +91,7 @@
         </view>
         <view class="project-list">
           <view v-for="p in projects" :key="p.title" class="project-card">
-            <view class="project-img-wrap">
+            <view class="project-img-wrap" @tap="previewImg(p.img)">
               <image class="project-img" mode="aspectFill" :src="img(p.img)" />
               <text class="project-tag" :class="p.tagCls">{{ p.tag }}</text>
             </view>
@@ -151,15 +151,15 @@
           </view>
         </view>
         <view class="certs">
-          <view class="cert">
+          <view class="cert" @tap="previewImg('cert/cert_qualification.jpg')">
             <image class="cert-img" mode="aspectFit" :src="img('cert/cert_qualification.jpg')" />
             <text class="cert-t">资质证书</text>
           </view>
-          <view class="cert">
+          <view class="cert" @tap="previewImg('cert/cert_auth.jpg')">
             <image class="cert-img" mode="aspectFit" :src="img('cert/cert_auth.jpg')" />
             <text class="cert-t">授权信</text>
           </view>
-          <view class="cert cert-wide">
+          <view class="cert cert-wide" @tap="previewImg('cert/cert_license.jpg')">
             <image class="cert-img" mode="aspectFit" :src="img('cert/cert_license.jpg')" />
             <text class="cert-t">营业执照</text>
           </view>
@@ -188,7 +188,7 @@
 
           <view class="contact-qr-wrap">
             <view v-for="a in SITE.advisors" :key="a.name" class="contact-qr-item">
-              <view class="qr-box">
+              <view class="qr-box" @tap="a.qr && previewImg(a.qr)">
                 <image v-if="a.qr" class="qr-img" mode="aspectFit" :src="img(a.qr)" />
                 <view v-else class="qr-fallback">
                   <text class="qr-fallback-title">电话</text>
@@ -203,6 +203,11 @@
       </view>
     </scroll-view>
 
+    <SgImagePreview
+      v-model:show="previewState.show"
+      :urls="previewState.urls"
+      :current="previewState.current"
+    />
     <AppTabBar current="home" />
   </view>
 </template>
@@ -216,9 +221,10 @@
 
 import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
+import SgImagePreview from "@/components/SgImagePreview.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
 import SgIcon from "@/components/SgIcon.vue"
-import { img } from "@/utils/img"
+import { img, previewImg, previewState } from "@/utils/img"
 import { navigateToByKey, switchTabByKey } from "@/utils/routes"
 import { SITE } from "@/config/site"
 

@@ -4,7 +4,7 @@
 
     <scroll-view scroll-y class="content">
       <view class="hero">
-        <image class="hero-bg" mode="aspectFill" :src="img('banner/EP_Banner.jpg')" />
+        <image class="hero-bg" mode="aspectFill" :src="img('banner/EP_Banner.jpg')" @tap="previewImg('banner/EP_Banner.jpg')" />
         <view class="hero-mask" />
         <view class="hero-inner">
           <text class="hero-en">Singapore Employment Pass</text>
@@ -40,7 +40,7 @@
         <!-- 示意图 -->
         <view class="sg-section">
           <view class="policy-figure sg-card">
-            <image class="policy-img" mode="aspectFit" :src="img('project/EP.jpg')" />
+            <image class="policy-img" mode="aspectFit" :src="img('project/EP.jpg')" @tap="previewImg('project/EP.jpg')" />
             <text class="policy-tip">COMPASS评估框架示意</text>
           </view>
         </view>
@@ -140,6 +140,11 @@
       </view>
     </scroll-view>
 
+    <SgImagePreview
+      v-model:show="previewState.show"
+      :urls="previewState.urls"
+      :current="previewState.current"
+    />
     <AppTabBar current="epPass" />
   </view>
 </template>
@@ -153,8 +158,9 @@
 
 import { onShareAppMessage, onShow } from "@dcloudio/uni-app"
 import AppHeader from "@/components/AppHeader.vue"
+import SgImagePreview from "@/components/SgImagePreview.vue"
 import AppTabBar from "@/components/AppTabBar.vue"
-import { img } from "@/utils/img"
+import { img, previewImg, previewState } from "@/utils/img"
 
 onShow(() => {
   uni.hideTabBar()

@@ -20,7 +20,7 @@
 | `Explorer.jpg` | jpg | 76.0 | 64.1 | 12.0 |
 | `Day_7_Jewel_Changi.jpg` | jpg | 147.9 | 131.4 | 16.5 |
 | `Day_1_University.jpg` | jpg | 98.0 | 85.5 | 12.4 |
-| `English_Environment.jpg` | jpg | 52.9 | 45.1 | 7.8 |
+| `English_1.jpg` | jpg | 52.9 | 45.1 | 7.8 |
 | `Activity_1.jpg` | jpg | 43.1 | 43.1 | 0.0 |
 | `Camp_Banner.jpg` | jpg | 235.8 | 204.0 | 31.8 |
 | `English_1.jpg` | jpg | 30.7 | 26.3 | 4.4 |
@@ -30,7 +30,7 @@
 | `Science_Center.jpg` | jpg | 222.9 | 189.6 | 33.2 |
 | `Flight_1.jpg` | jpg | 13.1 | 11.1 | 2.0 |
 | `QR_Code-A.jpg` | jpg | 40.2 | 35.0 | 5.2 |
-| `STEAM.jpg` | jpg | 55.7 | 48.2 | 7.6 |
+| `STEAM_Education.jpg` | jpg | 55.7 | 48.2 | 7.6 |
 | `STEAM_Education.jpg` | jpg | 87.8 | 75.8 | 12.0 |
 | `Food.jpg` | jpg | 125.5 | 109.0 | 16.5 |
 | `Office_Environment.jpg` | jpg | 159.0 | 136.4 | 22.5 |
