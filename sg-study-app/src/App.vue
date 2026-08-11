@@ -1,5 +1,19 @@
 <script setup>
 import { onLaunch, onShow, onHide } from "@dcloudio/uni-app"
+// #ifdef H5
+import { onMounted, ref } from "vue"
+import AnnouncementModal from "@/components/AnnouncementModal.vue"
+
+const ANNOUNCEMENT_SESSION_KEY = "sg-study-h5-announcement-v1-seen"
+const isAnnouncementVisible = ref(false)
+
+onMounted(() => {
+  // H5 端使用 sessionStorage 控制同一浏览器会话只自动弹出一次；小程序端不会编译这段逻辑。
+  if (window.sessionStorage.getItem(ANNOUNCEMENT_SESSION_KEY)) return
+  window.sessionStorage.setItem(ANNOUNCEMENT_SESSION_KEY, "1")
+  isAnnouncementVisible.value = true
+})
+// #endif
 
 onLaunch(() => {
   // #ifdef MP-WEIXIN
@@ -21,6 +35,9 @@ onHide(() => {
   <view class="app-root">
     <slot />
   </view>
+  <!-- #ifdef H5 -->
+  <AnnouncementModal :visible="isAnnouncementVisible" @close="isAnnouncementVisible = false" />
+  <!-- #endif -->
 </template>
 
 <style lang="scss">

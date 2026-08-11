@@ -12,6 +12,7 @@ import PrApplicationPage from "@/views/PrApplicationPage.vue"
 import TermsPage from "@/views/TermsPage.vue"
 import PrivacyPage from "@/views/PrivacyPage.vue"
 import PartnershipPage from "@/views/PartnershipPage.vue"
+import AnnouncementPage from "@/views/AnnouncementPage.vue"
 import { pickText, type I18nText } from "@/i18n/types"
 import { getStoredLang } from "@/i18n/useLang"
 
@@ -51,6 +52,12 @@ const createRoutes = (): RouteRecordRaw[] => [
         name: "SchoolCamp",
         component: SchoolCamp,
         meta: { title: { zh: "国际学校体验营 - 盛昌利民", en: "School Camp - SG Study 2026" } satisfies I18nText },
+      },
+      {
+        path: "announcements",
+        name: "Announcements",
+        component: AnnouncementPage,
+        meta: { title: { zh: "公告 - 盛昌利民", en: "Announcements - SG Study 2026" } satisfies I18nText },
       },
       {
         path: "about",

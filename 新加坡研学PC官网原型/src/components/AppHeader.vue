@@ -9,7 +9,7 @@
           <span class="text-[10px] text-luxury-gold tracking-widest uppercase font-semibold">Shengchang Limin · Singapore Study Tour</span>
         </div>
       </router-link>
-      <div class="flex items-center space-x-10 font-medium">
+      <div class="flex items-center space-x-8 font-medium">
         <router-link v-for="item in navItems" :key="item.to" class="nav-link text-gray-600 hover:text-sg-blue" active-class="text-sg-blue" :to="item.to">
           {{ pick(item.label) }}
         </router-link>
@@ -74,5 +74,6 @@ const navItems: Array<{ to: string; label: I18nText }> = [
   { to: "/mini-study", label: { zh: "新加坡微留学", en: "Mini Study" } },
   { to: "/ep-pass", label: { zh: "人才准证EP", en: "EP Pass" } },
   { to: "/school-camp", label: { zh: "国际学校体验营", en: "School Camp" } },
+  { to: "/announcements", label: { zh: "公告", en: "Announcements" } },
 ]
 </script>
