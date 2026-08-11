@@ -2,7 +2,13 @@
   <Teleport to="body">
     <Transition name="announcement-fade">
       <div v-if="visible" class="announcement-mask" @click="close">
-        <section class="announcement-panel" aria-modal="true" role="dialog" aria-labelledby="announcement-title" @click.stop>
+        <section
+          class="announcement-panel"
+          :class="viewMode === 'preview' ? 'is-preview' : 'is-notice'"
+          aria-modal="true"
+          role="dialog"
+          aria-labelledby="announcement-title"
+          @click.stop>
           <button type="button" class="close-button" aria-label="关闭公告" @click="close">
             <iconify-icon icon="ph:x-bold"></iconify-icon>
           </button>
@@ -45,7 +51,12 @@
                 <iconify-icon icon="ph:warning-circle-bold"></iconify-icon>
                 <span>公告预览加载失败，请下载原文查看。</span>
               </div>
-              <div ref="previewContainerRef" class="docx-preview-container"></div>
+              <iframe
+                v-if="latestAnnouncement.previewType === 'pdf'"
+                class="pdf-preview-frame"
+                :src="announcementUrl"
+                :title="latestAnnouncement.title"></iframe>
+              <div v-else ref="previewContainerRef" class="docx-preview-container"></div>
             </div>
           </template>
         </section>
@@ -79,15 +90,21 @@ const close = () => {
 
 const openPreview = async () => {
   viewMode.value = "preview"
-  isLoading.value = true
   hasError.value = false
 
   await nextTick()
   const container = previewContainerRef.value
-  if (!container) return
-  container.innerHTML = ""
+
+  // 最新公告为 PDF 时直接使用浏览器原生预览，不再进入 Word 渲染链路。
+  if (latestAnnouncement.previewType === "pdf") {
+    isLoading.value = false
+    return
+  }
 
   try {
+    if (!container) return
+    container.innerHTML = ""
+    isLoading.value = true
     // 拉取 public 目录下的 Word 文件，并交给 docx-preview 在站内弹框中渲染。
     const response = await fetch(announcementUrl)
     if (!response.ok) {
@@ -125,13 +142,19 @@ const openPreview = async () => {
 
 .announcement-panel {
   position: relative;
-  width: min(920px, 100%);
-  max-height: min(82vh, 780px);
+  width: min(620px, 100%);
+  max-height: min(82vh, 720px);
   overflow: hidden;
   border: 1px solid rgba(229, 166, 99, 0.28);
   border-radius: 24px;
   background: linear-gradient(145deg, #ffffff 0%, #f8fbff 58%, #fff7ed 100%);
   box-shadow: 0 30px 90px rgba(0, 45, 78, 0.28);
+}
+
+.announcement-panel.is-preview {
+  width: 80vw;
+  height: 95vh;
+  max-height: 95vh;
 }
 
 .close-button {
@@ -255,18 +278,19 @@ const openPreview = async () => {
   align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
-  padding: 34px 72px 20px 34px;
+  padding: 18px 64px 12px 24px;
   border-bottom: 1px solid #e2e8f0;
 }
 
 .preview-header .notice-kicker {
+  margin-bottom: 4px;
   text-align: left;
 }
 
 .preview-title {
   margin: 0;
   color: #005a9c;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 800;
   line-height: 1.25;
 }
@@ -274,7 +298,8 @@ const openPreview = async () => {
 .download-link {
   flex: 0 0 auto;
   min-width: 116px;
-  padding: 0 16px;
+  min-height: 36px;
+  padding: 0 14px;
   color: #ffffff;
   background: #005a9c;
   font-size: 14px;
@@ -282,7 +307,7 @@ const openPreview = async () => {
 
 .preview-shell {
   position: relative;
-  height: min(62vh, 600px);
+  height: calc(95vh - 68px);
   overflow: auto;
   background: #eef3f8;
 }
@@ -290,6 +315,14 @@ const openPreview = async () => {
 .docx-preview-container {
   min-height: 100%;
   padding: 22px;
+}
+
+.pdf-preview-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #ffffff;
 }
 
 .preview-state {
@@ -346,8 +379,14 @@ const openPreview = async () => {
   }
 
   .announcement-panel {
-    max-height: 88vh;
+    width: min(94vw, 620px);
     border-radius: 18px;
+  }
+
+  .announcement-panel.is-preview {
+    width: 94vw;
+    height: 95vh;
+    max-height: 95vh;
   }
 
   .notice-mark {
@@ -374,11 +413,11 @@ const openPreview = async () => {
 
   .preview-header {
     display: block;
-    padding: 30px 58px 18px 20px;
+    padding: 18px 58px 12px 18px;
   }
 
   .preview-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .download-link {
@@ -386,7 +425,7 @@ const openPreview = async () => {
   }
 
   .preview-shell {
-    height: 58vh;
+    height: calc(95vh - 105px);
   }
 
   .docx-preview-container {

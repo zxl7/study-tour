@@ -6,6 +6,7 @@ export interface AnnouncementFile {
   fileName: string
   fileType: string
   fileSize: string
+  previewType: "docx" | "pdf"
   isLatest: boolean
   url: string
 }
@@ -19,8 +20,21 @@ export const announcementFiles: AnnouncementFile[] = [
     fileName: "遴选公告.docx",
     fileType: "Word 文档",
     fileSize: "20KB",
-    isLatest: true,
+    previewType: "docx",
+    isLatest: false,
     url: encodeURI("/遴选公告.docx"),
+  },
+  {
+    id: "changhua-xiantian-2024",
+    title: "昌化镇咸田村集体2024美丽渔村建设项目",
+    description: "昌化镇咸田村集体2024美丽渔村建设项目公告已发布，请及时查看。",
+    date: "2026-08-11",
+    fileName: "昌化镇咸田村集体2024美丽渔村建设项目.pdf",
+    fileType: "PDF 文件",
+    fileSize: "128KB",
+    previewType: "pdf",
+    isLatest: true,
+    url: encodeURI("/昌化镇咸田村集体2024美丽渔村建设项目.pdf"),
   },
 ]
 

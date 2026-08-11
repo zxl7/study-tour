@@ -18,7 +18,7 @@
       <div class="file-list">
         <article v-for="file in announcementFiles" :key="file.id" class="file-card">
           <div class="file-icon">
-            <iconify-icon icon="ph:file-doc-bold"></iconify-icon>
+            <iconify-icon :icon="file.previewType === 'pdf' ? 'ph:file-pdf-bold' : 'ph:file-doc-bold'"></iconify-icon>
           </div>
           <div class="file-info">
             <div class="file-title-row">

@@ -27,7 +27,8 @@
               <iconify-icon icon="ph:warning-circle-bold"></iconify-icon>
               <span>公告预览加载失败，请下载原文查看。</span>
             </div>
-            <div ref="previewContainerRef" class="docx-preview-container"></div>
+            <iframe v-if="file.previewType === 'pdf'" class="pdf-preview-frame" :src="file.url" :title="file.title"></iframe>
+            <div v-else ref="previewContainerRef" class="docx-preview-container"></div>
           </div>
         </section>
       </div>
@@ -60,15 +61,21 @@ const close = () => {
 
 const renderDocument = async () => {
   if (!props.visible || !props.file) return
-  isLoading.value = true
   hasError.value = false
 
   await nextTick()
   const container = previewContainerRef.value
-  if (!container) return
-  container.innerHTML = ""
+
+  // PDF 公告使用浏览器原生预览；只有 Word 公告才进入 docx-preview 渲染流程。
+  if (props.file.previewType === "pdf") {
+    isLoading.value = false
+    return
+  }
 
   try {
+    if (!container) return
+    container.innerHTML = ""
+    isLoading.value = true
     // 公告中心的文件列表来自静态配置；点击预览时按文件 URL 拉取 Word 并渲染到弹框内。
     const response = await fetch(props.file.url)
     if (!response.ok) {
@@ -114,8 +121,9 @@ watch(
 
 .announcement-panel {
   position: relative;
-  width: min(920px, 100%);
-  max-height: min(82vh, 780px);
+  width: 80vw;
+  height: 95vh;
+  max-height: 95vh;
   overflow: hidden;
   border: 1px solid rgba(229, 166, 99, 0.28);
   border-radius: 24px;
@@ -149,7 +157,7 @@ watch(
 }
 
 .notice-kicker {
-  margin: 0 0 10px;
+  margin: 0 0 4px;
   color: #e5a663;
   font-size: 12px;
   font-weight: 800;
@@ -162,14 +170,14 @@ watch(
   align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
-  padding: 34px 72px 20px 34px;
+  padding: 18px 64px 12px 24px;
   border-bottom: 1px solid #e2e8f0;
 }
 
 .preview-title {
   margin: 0;
   color: #005a9c;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 800;
   line-height: 1.25;
 }
@@ -178,7 +186,7 @@ watch(
   display: inline-flex;
   flex: 0 0 auto;
   min-width: 116px;
-  min-height: 44px;
+  min-height: 36px;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -199,7 +207,7 @@ watch(
 
 .preview-shell {
   position: relative;
-  height: min(62vh, 600px);
+  height: calc(95vh - 68px);
   overflow: auto;
   background: #eef3f8;
 }
@@ -207,6 +215,14 @@ watch(
 .docx-preview-container {
   min-height: 100%;
   padding: 22px;
+}
+
+.pdf-preview-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #ffffff;
 }
 
 .preview-state {
@@ -263,17 +279,19 @@ watch(
   }
 
   .announcement-panel {
-    max-height: 88vh;
+    width: 94vw;
+    height: 95vh;
+    max-height: 95vh;
     border-radius: 18px;
   }
 
   .preview-header {
     display: block;
-    padding: 30px 58px 18px 20px;
+    padding: 18px 58px 12px 18px;
   }
 
   .preview-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .download-link {
@@ -281,7 +299,7 @@ watch(
   }
 
   .preview-shell {
-    height: 58vh;
+    height: calc(95vh - 105px);
   }
 
   .docx-preview-container {
