@@ -36,9 +36,7 @@
 
 <script setup lang="ts">
 const advisors = Object.freeze([
-  { name: "Jason", phone: "166 8978 0303", qr: "/img/QR_Code-J.jpg" },
-  { name: "Adela", phone: "173 3083 5386", qr: "/img/QR_Code-A.jpg" },
-  { name: "Joey", phone: "199 0761 8131", qr: "/img/QR_Code-O.jpg" },
+  { name: "胡小姐", phone: "133 0755 0849", qr: "/img/QR_Code-A.jpg" },
 ])
 
 defineProps<{

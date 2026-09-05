@@ -25,9 +25,7 @@ export const SITE = Object.freeze({
   ASSET_URL: "/static/img",
 
   advisors: [
-    { name: "Jason", phone: "166 8978 0303", qr: "advisor/QR_Code-J.jpg" },
-    { name: "Adela", phone: "173 3083 5386", qr: "advisor/QR_Code-A.jpg" },
-    { name: "Joey", phone: "199 0761 8131", qr: "advisor/QR_Code-O.jpg" },
+    { name: "胡小姐", phone: "133 0755 0849", qr: "advisor/QR_Code-A.jpg" },
   ],
 })
 

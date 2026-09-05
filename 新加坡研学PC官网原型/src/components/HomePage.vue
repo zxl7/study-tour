@@ -486,9 +486,7 @@ const data: HomePageData = {
     en: "China Operations Center: Room 9003, Global Trade Window, 15A Guoxing Avenue, Meilan District, Haikou, Hainan",
   },
   advisors: [
-    { image: "/img/QR_Code-J.jpg", label: { zh: "研学顾问：Jason", en: "Advisor: Jason" } },
-    { image: "/img/QR_Code-A.jpg", label: { zh: "研学顾问：Adela", en: "Advisor: Adela" } },
-    { image: "/img/QR_Code-O.jpg", label: { zh: "研学顾问：Joey", en: "Advisor: Joey" } },
+    { image: "/img/QR_Code-A.jpg", label: { zh: "研学顾问：胡小姐", en: "Advisor: Ms. Hu" } },
   ],
 }
 

@@ -16,6 +16,7 @@
               :key="social.icon"
               class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sg-blue transition-all"
               :href="social.href"
+              @click="handleSocialClick($event, social.icon)"
               :aria-label="t(social.label)"
               :title="t(social.label)">
               <iconify-icon :icon="social.icon"></iconify-icon>
@@ -41,11 +42,28 @@
         <p>{{ t(data.copyright) }}</p>
       </div>
     </div>
+
+    <div
+      v-if="isWechatQrVisible"
+      class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60"
+      @click="isWechatQrVisible = false">
+      <div class="relative bg-white rounded-2xl p-6 shadow-2xl" @click.stop>
+        <button
+          type="button"
+          class="absolute top-2 right-2 w-8 h-8 rounded-full text-gray-500 hover:bg-gray-100"
+          aria-label="关闭企业微信客服二维码"
+          @click="isWechatQrVisible = false">
+          <iconify-icon icon="ph:x-bold"></iconify-icon>
+        </button>
+        <h3 class="text-center text-lg font-bold text-sg-blue mb-4">企业微信客服</h3>
+        <img src="/img/QR_Code-qywx.jpg" alt="企业微信客服二维码" class="w-72 max-w-[70vw] h-auto object-contain" />
+      </div>
+    </div>
   </footer>
 </template>
 
 <script setup lang="ts">
-import { computed, inject } from "vue"
+import { computed, inject, ref } from "vue"
 import type { Ref } from "vue"
 import { pickText, type I18nText, type Lang } from "@/i18n/types"
 import type { FooterData } from "@/types/aboutFooter"
@@ -98,6 +116,15 @@ const data: FooterData = {
 
 const injectedLang = inject("lang") as Ref<Lang> | undefined
 const lang = computed<Lang>(() => injectedLang?.value ?? "zh")
+
+const isWechatQrVisible = ref(false)
+
+// 微信入口展示企业微信客服二维码，其他社交入口继续沿用原有链接。
+const handleSocialClick = (event: MouseEvent, icon: string) => {
+  if (icon !== "ri:wechat-fill") return
+  event.preventDefault()
+  isWechatQrVisible.value = true
+}
 
 /**
  * 功能：根据当前语言返回底部文案（纯函数包装，便于模板直接调用）。
